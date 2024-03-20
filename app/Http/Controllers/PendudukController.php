@@ -29,7 +29,7 @@ class PendudukController extends Controller
      */
     public function create()
     {
-        //
+        return view('rw.data_penduduk.tambah_penduduk');
     }
 
     /**

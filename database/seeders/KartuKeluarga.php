@@ -12,6 +12,12 @@ class KartuKeluarga extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\KartuKeluarga::factory(10)->create();
+
+
+       
+
+
+        
     }
 }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->integer('role')->default(3);
+            $table->foreignId('nik')->references('nik')->on('penduduk');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

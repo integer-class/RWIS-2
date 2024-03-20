@@ -1,0 +1,199 @@
+@extends('layouts.app')
+
+@section('title', 'Advanced Forms')
+
+@push('style')
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="{{ asset('library/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/select2/dist/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
+@endpush
+
+@section('main')
+    <div class="main-content">
+        <section class="section">
+            <div class="section-header">
+                <h1>Tambah Penduduk</h1>
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><a href="#">Data</a></div>
+                    <div class="breadcrumb-item"><a href="#">Penduduk</a></div>
+                    <div class="breadcrumb-item">Tambah Penduduk</div>
+                </div>
+            </div>
+
+            <div class="section-body">
+                {{-- <h2 class="section-title">Users</h2> --}}
+
+
+
+                <div class="card">
+                    <form action="{{ route('penduduk.store') }}" method="POST">
+                        @csrf
+                        <div class="card-header">
+                            <h4>Form</h4>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="row" >
+                                
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Nama (sesuai di ktp) </label>
+                                    <input type="text"
+                                        class="form-control @error('name')
+                                    is-invalid
+                                @enderror"
+                                        name="name">
+                                    @error('name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-12" >
+                                <div class="form-group">
+                                    <label>NIK</label>
+                                    <input min="16" max="16" type="number"
+                                        class="form-control @error('email')
+                                    is-invalid
+                                @enderror"
+                                        name="email">
+                                    @error('email')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-3" >
+                                <div class="form-group">
+                                    <label>Agama</label>
+                                    <select class="form-control" name="agama">
+                                        <option value="islam">Islam</option>
+                                        <option value="kristen">Kristen</option>
+                                        <option value="katolik">Katolik</option>
+                                        <option value="hindu">Hindu</option>
+                                        <option value="budha">Budha</option>
+                                        <option value="konghucu">Konghucu</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="col-md-3" >
+                                <div class="form-group">
+                                    <label>Status Kawin</label>
+                                    <select class="form-control" name="status_nikah">
+                                        <option value="kawin">Kawin</option>
+                                        <option value="belum kawin">Belum Kawin</option>
+                                        <option value="cerai">Cerai</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                          
+
+                            <div class="col-md-2" >
+                                <div class="form-group">
+                                    <label>Gologongan darah</label>
+                                    <select class="form-control" name="golongan_darah">
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="AB">AB</option>
+                                        <option value="O">O</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3" >
+                                <div class="form-group">
+                                    <label>Tanggal lahir</label>
+                                    <input type="date" class="form-control" name="tanggal_lahir">
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Pekerjaan </label>
+                                    <input type="text"
+                                        class="form-control @error('name')
+                                    is-invalid
+                                @enderror"
+                                        name="name">
+                                    @error('name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Nomor KK </label>
+                                    <input type="text"
+                                        class="form-control @error('name')
+                                    is-invalid
+                                @enderror"
+                                        name="name">
+                                    @error('name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>alamat </label>
+                                    <textarea style="height: 100px" class="form-control" name="alamat"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label">Roles</label>
+                                    <div class="selectgroup w-100">
+                                        <label class="selectgroup-item">
+                                            <input type="radio" name="roles" value="ADMIN" class="selectgroup-input"
+                                                checked="">
+                                            <span class="selectgroup-button">Penduduk</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="radio" name="roles" value="STAFF" class="selectgroup-input">
+                                            <span class="selectgroup-button">RT</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="radio" name="roles" value="USER" class="selectgroup-input">
+                                            <span class="selectgroup-button">RW</span>
+                                        </label>
+    
+                                    </div>
+                                </div> 
+                            </div>
+                                
+                            
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </div>
+@endsection
+
+@push('scripts')
+@endpush
+
