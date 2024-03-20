@@ -4,6 +4,10 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
+use App\Http\Middleware\Rw;
+use App\Http\Middleware\Masyarakat;
+use App\Http\Middleware\Rt;
+
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
@@ -11,7 +15,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            'rw'=>Rw::class,
+            'rt'=>Rt::class,
+            'masyarakat'=>Masyarakat::class
+        ]);
+       
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
