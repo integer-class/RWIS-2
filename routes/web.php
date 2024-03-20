@@ -8,6 +8,9 @@ Route::middleware(['auth', 'verified','rw'])->group(function () {
     Route::get('/rw', function () {
         return view('rw.index');
     })->name('rw');
+
+    Route::resource('penduduk', \App\Http\Controllers\PendudukController::class);
+
 });
 
 Route::middleware(['auth', 'verified','rt'])->group(function () {
