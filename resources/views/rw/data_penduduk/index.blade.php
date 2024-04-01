@@ -11,7 +11,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Penduduk</h1>
+                <h1>Pendudu</h1>
                 <div class="section-header-button">
                     {{-- <a href="{{ route('category.create') }}" class="btn btn-primary">Add New</a> --}}
                     <a href="{{ route('penduduk.create') }}" class="btn btn-primary">Tambah Penduduk</a>
