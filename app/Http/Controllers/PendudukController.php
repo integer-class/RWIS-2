@@ -36,9 +36,41 @@ class PendudukController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    
+
+
+    // $request->validate([
+    //     'nik' => 'required|size:16|unique:penduduk',
+    //     'nomor_kk' => 'required',
+    //     'nama' => 'required',
+    //     'tempat_lahir' => 'required',
+    //     'tanggal_lahir' => 'required',
+    //     'jenis_kelamin' => 'required',
+    //     'golongan_darah' => 'required',
+    //     'alamat' => 'required',
+    //     'agama' => 'required',
+    //     'status_perkawinan' => 'required',
+    //     'pekerjaan' => 'required',
+    // ]);
+
+    $penduduk = new Penduduk;
+    $penduduk->nik = $request->nik;
+    $penduduk->nomor_kk = $request->nomor_kk;
+    $penduduk->nama = $request->nama;
+    $penduduk->tanggal_lahir = $request->tanggal_lahir;
+    $penduduk->jenis_kelamin = $request->jenis_kelamin;
+    $penduduk->golongan_darah = $request->golongan_darah;
+    $penduduk->alamat = $request->alamat;
+    $penduduk->agama = $request->agama;
+    $penduduk->status_perkawinan = $request->status_perkawinan;
+    $penduduk->pekerjaan = $request->pekerjaan;
+
+    echo $penduduk;
+
+    // $penduduk->save();
+}
+
 
     /**
      * Display the specified resource.

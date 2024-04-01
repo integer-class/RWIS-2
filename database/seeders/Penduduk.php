@@ -23,7 +23,6 @@ class Penduduk extends Seeder
             'agama' => 'Islam',
             'status_perkawinan' => 'Belum Kawin',
             'pekerjaan' => 'PNS',
-            'kewarganegaraan' => 'WNI',
         ]);
     }
 }

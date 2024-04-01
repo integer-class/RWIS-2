@@ -43,31 +43,17 @@
                                 <div class="form-group">
                                     <label>Nama (sesuai di ktp) </label>
                                     <input type="text"
-                                        class="form-control @error('name')
-                                    is-invalid
-                                @enderror"
-                                        name="name">
-                                    @error('name')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                        class="form-control"
+                                        name="nama">
                                 </div>
                             </div>
 
                             <div class="col-md-12" >
                                 <div class="form-group">
                                     <label>NIK</label>
-                                    <input min="16" max="16" type="number"
-                                        class="form-control @error('email')
-                                    is-invalid
-                                @enderror"
-                                        name="email">
-                                    @error('email')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <input type="number"
+                                        class="form-control"
+                                        name="nik">
                                 </div>
                             </div>
                             <div class="col-md-3" >
@@ -85,13 +71,13 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3" >
+                            <div class="col-md-2" >
                                 <div class="form-group">
                                     <label>Status Kawin</label>
-                                    <select class="form-control" name="status_nikah">
-                                        <option value="kawin">Kawin</option>
-                                        <option value="belum kawin">Belum Kawin</option>
-                                        <option value="cerai">Cerai</option>
+                                    <select class="form-control" name="status_perkawinan">
+                                        <option value="Kawin">Kawin</option>
+                                        <option value="Belum Kawin">Belum Kawin</option>
+                                        <option value="Cerai">Cerai</option>
                                     </select>
                                 </div>
                             </div>
@@ -110,7 +96,17 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3" >
+                            <div class="col-md-2" >
+                                <div class="form-group">
+                                    <label>Jenis Kelamin</label>
+                                    <select class="form-control" name="jenis_kelamin">
+                                        <option value="L">Laki-laki</option>
+                                        <option value="P">Perempuan</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2" >
                                 <div class="form-group">
                                     <label>Tanggal lahir</label>
                                     <input type="date" class="form-control" name="tanggal_lahir">
@@ -123,15 +119,8 @@
                                 <div class="form-group">
                                     <label>Pekerjaan </label>
                                     <input type="text"
-                                        class="form-control @error('name')
-                                    is-invalid
-                                @enderror"
-                                        name="name">
-                                    @error('name')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                        class="form-control"
+                                        name="pekerjaan">
                                 </div>
                             </div>
 
@@ -139,15 +128,8 @@
                                 <div class="form-group">
                                     <label>Nomor KK </label>
                                     <input type="text"
-                                        class="form-control @error('name')
-                                    is-invalid
-                                @enderror"
-                                        name="name">
-                                    @error('name')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                        class="form-control"
+                                        name="nomor_kk">
                                 </div>
                             </div>
 
@@ -163,16 +145,16 @@
                                     <label class="form-label">Roles</label>
                                     <div class="selectgroup w-100">
                                         <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="ADMIN" class="selectgroup-input"
+                                            <input type="radio" name="roles" value="3" class="selectgroup-input"
                                                 checked="">
                                             <span class="selectgroup-button">Penduduk</span>
                                         </label>
                                         <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="STAFF" class="selectgroup-input">
+                                            <input type="radio" name="roles" value="2" class="selectgroup-input">
                                             <span class="selectgroup-button">RT</span>
                                         </label>
                                         <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="USER" class="selectgroup-input">
+                                            <input type="radio" name="roles" value="1" class="selectgroup-input">
                                             <span class="selectgroup-button">RW</span>
                                         </label>
     

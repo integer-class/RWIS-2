@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('agama');
             $table->enum('status_perkawinan', ['Kawin', 'Belum Kawin', 'Cerai']);
             $table->string('pekerjaan');
-            $table->string('kewarganegaraan');
             $table->foreignId('nomor_kk')->references('nomor_kk')->on('kartu_keluarga');
 
 

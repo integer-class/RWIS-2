@@ -22,7 +22,6 @@ class Penduduk extends Model
         'agama',
         'status_perkawinan',
         'pekerjaan',
-        'kewarganegaraan',
         'nomor_kk',
     ];
 

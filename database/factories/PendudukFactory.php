@@ -26,7 +26,6 @@ class PendudukFactory extends Factory
             'agama' => $this->faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha', 'Konghucu']),
             'status_perkawinan' => $this->faker->randomElement(['Kawin', 'Belum Kawin', 'Cerai']),
             'pekerjaan' => $this->faker->jobTitle(),
-            'kewarganegaraan' => $this->faker->randomElement(['WNI', 'WNA']),
             'nomor_kk' => $this->faker->unique()->randomNumber(9),
         ];
     }
