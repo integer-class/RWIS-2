@@ -54,21 +54,48 @@ class PendudukController extends Controller
     //     'pekerjaan' => 'required',
     // ]);
 
-    $penduduk = new Penduduk;
-    $penduduk->nik = $request->nik;
-    $penduduk->nomor_kk = $request->nomor_kk;
-    $penduduk->nama = $request->nama;
-    $penduduk->tanggal_lahir = $request->tanggal_lahir;
-    $penduduk->jenis_kelamin = $request->jenis_kelamin;
-    $penduduk->golongan_darah = $request->golongan_darah;
-    $penduduk->alamat = $request->alamat;
-    $penduduk->agama = $request->agama;
-    $penduduk->status_perkawinan = $request->status_perkawinan;
-    $penduduk->pekerjaan = $request->pekerjaan;
+    // $penduduk = new Penduduk;
+    // $penduduk->nik = $request->nik;
+    // $penduduk->nomor_kk = $request->nomor_kk;
+    // $penduduk->nama = $request->nama;
+    // $penduduk->tanggal_lahir = $request->tanggal_lahir;
+    // $penduduk->jenis_kelamin = $request->jenis_kelamin;
+    // $penduduk->golongan_darah = $request->golongan_darah;
+    // $penduduk->alamat = $request->alamat;
+    // $penduduk->agama = $request->agama;
+    // $penduduk->status_perkawinan = $request->status_perkawinan;
+    // $penduduk->pekerjaan = $request->pekerjaan;
 
-    echo $penduduk;
+    // echo $penduduk;
 
     // $penduduk->save();
+
+    $cek_kk = \App\Models\KartuKeluarga::where('nomor_kk', $request->nomor_kk)->first();
+    if(!$cek_kk){
+        return redirect()->back()->with('error', 'Nomor KK Tidak Ditemukan');
+    }
+    
+
+
+        //save data di tabel penduduk
+        Penduduk::create([
+            'nik' => $request->nik,
+            'nomor_kk' => $request->nomor_kk,
+            'nama' => $request->nama,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'golongan_darah' => $request->golongan_darah,
+            'alamat' => $request->alamat,
+            'agama' => $request->agama,
+            'status_perkawinan' => $request->status_perkawinan,
+            'pekerjaan' => $request->pekerjaan,
+        ]);
+
+        //jika data berhasil ditambahkan, akan kembali ke halaman utama
+        return redirect()->route('penduduk.index')->with('success', 'Data Berhasil Ditambahkan');
+
+
 }
 
 
