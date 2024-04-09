@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penduduk;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class PendudukController extends Controller
@@ -53,11 +55,16 @@ class PendudukController extends Controller
     //     'status_perkawinan' => 'required',
     //     'pekerjaan' => 'required',
     // ]);
-
+    
+    $nama = $request->nama;
+    $namaArray = explode(' ', $nama);
+    $namaDepan = ucfirst($namaArray[0]);
+    $namaUpper = strtoupper($namaDepan);
+    
     // $penduduk = new Penduduk;
     // $penduduk->nik = $request->nik;
     // $penduduk->nomor_kk = $request->nomor_kk;
-    // $penduduk->nama = $request->nama;
+    // $penduduk->nama = $namaUpper; // Menggunakan nama pertama yang telah diubah menjadi huruf kapital dan huruf besar semua
     // $penduduk->tanggal_lahir = $request->tanggal_lahir;
     // $penduduk->jenis_kelamin = $request->jenis_kelamin;
     // $penduduk->golongan_darah = $request->golongan_darah;
@@ -66,18 +73,23 @@ class PendudukController extends Controller
     // $penduduk->status_perkawinan = $request->status_perkawinan;
     // $penduduk->pekerjaan = $request->pekerjaan;
 
-    // echo $penduduk;
+    
+
+    
+
+    // echo $namaUpper;
+
+
 
     // $penduduk->save();
 
-    $cek_kk = \App\Models\KartuKeluarga::where('nomor_kk', $request->nomor_kk)->first();
-    if(!$cek_kk){
-        return redirect()->back()->with('error', 'Nomor KK Tidak Ditemukan');
-    }
+    // $cek_kk = \App\Models\KartuKeluarga::where('nomor_kk', $request->nomor_kk)->first();
+    // if(!$cek_kk){
+    //     return redirect()->back()->with('error', 'Nomor KK Tidak Ditemukan');
+    // }
     
 
 
-        //save data di tabel penduduk
         Penduduk::create([
             'nik' => $request->nik,
             'nomor_kk' => $request->nomor_kk,
@@ -91,10 +103,19 @@ class PendudukController extends Controller
             'status_perkawinan' => $request->status_perkawinan,
             'pekerjaan' => $request->pekerjaan,
         ]);
+        // return redirect()->route('penduduk.index')->with('success', 'Data Berhasil Ditambahkan');
 
-        //jika data berhasil ditambahkan, akan kembali ke halaman utama
+
+        $user = User::create([
+            'name' => $namaUpper,
+            'role' => $request->roles,
+            'email' => $request->nik . '@gmail.com',
+            'nik' => $request->nik,
+            'password' => $namaUpper . $request->tanggal_lahir,
+            
+        ]);
+
         return redirect()->route('penduduk.index')->with('success', 'Data Berhasil Ditambahkan');
-
 
 }
 

@@ -4,13 +4,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
-Route::middleware(['auth', 'verified','rw'])->group(function () {
-    Route::get('/rw', function () {
+Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
+    Route::get('/', function () {
         return view('rw.index');
     })->name('rw');
 
-    Route::resource('penduduk', \App\Http\Controllers\PendudukController::class);
+    // Route::get('/kartu-keluarga', [KartuKeluargaController::class, 'index'])->name('rw.kartu-keluarga');
 
+    Route::resource('kartu-keluarga', \App\Http\Controllers\KartuKeluargaController::class);
+
+
+    Route::resource('penduduk', \App\Http\Controllers\PendudukController::class);
 });
 
 Route::middleware(['auth', 'verified','rt'])->group(function () {
