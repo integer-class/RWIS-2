@@ -30,7 +30,7 @@
 
 
                 <div class="card">
-                    <form action="{{ route('penduduk.store') }}" method="POST">
+                    <form action="{{ route('kartu-keluarga.store') }}" method="POST">
                         @csrf
                         <div class="card-header">
                             <h4>Form</h4>
@@ -44,7 +44,7 @@
                                     <label>Nomor KK</label>
                                     <input type="number"
                                         class="form-control"
-                                        name="nama">
+                                        name="nomor_kk">
                                 </div>
                             </div>
 
@@ -53,7 +53,7 @@
                                     <label>RT</label>
                                     <input type="number"
                                         class="form-control"
-                                        name="nik">
+                                        name="rt">
                                 </div>
                             </div>
 
@@ -62,7 +62,7 @@
                                     <label>RW</label>
                                     <input type="number"
                                         class="form-control"
-                                        name="nik">
+                                        name="rw">
                                 </div>
                             </div>
 
@@ -71,7 +71,7 @@
                                     <label>Kelurahan</label>
                                     <input type="text"
                                         class="form-control"
-                                        name="nik">
+                                        name="kelurahan">
                                 </div>
                             </div>
                             {{-- <div class="col-md-4">
@@ -84,27 +84,27 @@
                             <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Kecamatan</label>
-                                    <input type="number"
+                                    <input type="text"
                                         class="form-control"
-                                        name="nik">
+                                        name="kecamatan">
                                 </div>
                             </div>
 
                             <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Kabupaten</label>
-                                    <input type="number"
+                                    <input type="text"
                                         class="form-control"
-                                        name="nik">
+                                        name="kabupaten">
                                 </div>
                             </div>
 
                             <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Provinsi</label>
-                                    <input type="number"
+                                    <input type="text"
                                         class="form-control"
-                                        name="nik">
+                                        name="provinsi">
                                 </div>
                             </div>
 

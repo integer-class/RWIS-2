@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\KartuKeluarga;
 
 class KartuKeluargaController extends Controller
 {
@@ -15,10 +16,11 @@ class KartuKeluargaController extends Controller
             $kartukeluarga = \App\Models\KartuKeluarga::where('nama', 'LIKE', '%' . $request->search . '%')->paginate(8);
           }else{
                $kartukeluarga = \App\Models\KartuKeluarga::paginate(8);
+
              }
 
 
-         return view('rw.data_kartukeluarga.index', compact('kartukeluarga'));
+             return view('rw.data_kartukeluarga.index', compact('kartukeluarga'));
 
         
     }
@@ -28,6 +30,8 @@ class KartuKeluargaController extends Controller
      */
     public function create()
     {
+        $rt = \App\Models\Rt::all();
+
         return view('rw.data_kartukeluarga.tambah_kartukeluarga');
         
     }
@@ -37,7 +41,29 @@ class KartuKeluargaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        KartuKeluarga::create([
+            //nomor_kk
+            'nomor_kk' => $request->nomor_kk,
+            //alamat
+            'alamat' => $request->alamat,
+            //id_rt
+            'rt' => $request->rt,
+            //rw
+            'rw' => $request->rw,
+            //kelurahan
+            'kelurahan' => $request->kelurahan,
+            //kecamatan
+            'kecamatan' => $request->kecamatan,
+            //kabupaten
+            'kabupaten' => $request->kabupaten,
+            //provinsi
+            'provinsi' => $request->provinsi,
+           
+        ]);
+        return redirect()->route('kartu-keluarga.index')->with('success', 'Data Berhasil Ditambahkan');
+
+        
     }
 
     /**
