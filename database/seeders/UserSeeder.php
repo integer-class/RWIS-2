@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
 
         $user = \App\Models\User::factory()->create([
             'name' => 'Uzi',
-            'email' => 'uzi@uzi99.com',
+            'id_rt' => '1',
             'nik' => '1234567890123456',
             'password' => Hash::make('password'),
             'role' => '1',

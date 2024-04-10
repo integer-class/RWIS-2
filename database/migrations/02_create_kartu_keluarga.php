@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kartu_keluarga', function (Blueprint $table) {
             $table->id('nomor_kk');
             $table->string('alamat');
-            $table->string('rt');
+            $table->foreignId('id_rt')->references('id_rt')->on('rt');
             $table->string('rw');
             $table->string('kelurahan');
             $table->string('kecamatan');

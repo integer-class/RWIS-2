@@ -28,7 +28,8 @@ class KartuKeluargaController extends Controller
      */
     public function create()
     {
-        //
+        return view('rw.data_kartukeluarga.tambah_kartukeluarga');
+        
     }
 
     /**

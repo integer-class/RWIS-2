@@ -126,12 +126,15 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Nomor KK </label>
+                                    <label>Nomor KK <span style="color:red;">(Jika tidak memiliki KK, <a href="{{ route('kartu-keluarga.create') }}">buat disini</a>)</span></label>
+
                                     <input type="text"
                                         class="form-control"
                                         name="nomor_kk">
                                 </div>
                             </div>
+
+                            
 
                             <div class="col-md-12">
                                 <div class="form-group">

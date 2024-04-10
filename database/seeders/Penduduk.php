@@ -15,7 +15,7 @@ class Penduduk extends Seeder
         \App\Models\Penduduk::factory()->create([
             'nik' => '1234567890123456',
             'nama' => 'Test User',
-            'nomor_kk' => '161092610',
+            'nomor_kk' => '87138486',
             'tanggal_lahir' => '2000-01-01',
             'jenis_kelamin' => 'L',
             'golong_darah' => 'A',
