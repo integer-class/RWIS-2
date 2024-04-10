@@ -56,7 +56,7 @@
                                         name="nik">
                                 </div>
                             </div>
-                            <div class="col-md-3" >
+                            <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Agama</label>
                                     <select class="form-control" name="agama">
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-2" >
+                            <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Status Kawin</label>
                                     <select class="form-control" name="status_perkawinan">
@@ -84,7 +84,7 @@
 
                           
 
-                            <div class="col-md-2" >
+                            <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Gologongan darah</label>
                                     <select class="form-control" name="golongan_darah">
@@ -96,7 +96,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-2" >
+                            <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label>
                                     <select class="form-control" name="jenis_kelamin">
@@ -106,10 +106,22 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-2" >
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Tanggal lahir</label>
                                     <input type="date" class="form-control" name="tanggal_lahir">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>RT</label>
+                                    <select class="form-control" name="id_rt">
+                                        <option value="">Select RT</option>
+                                        @foreach($rt as $r)
+                                            <option value="{{ $r->id_rt }}">{{ $r->nama_rt }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 

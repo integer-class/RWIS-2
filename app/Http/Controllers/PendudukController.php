@@ -31,7 +31,10 @@ class PendudukController extends Controller
      */
     public function create()
     {
-        return view('rw.data_penduduk.tambah_penduduk');
+        $rt = \App\Models\Rt::all();
+
+        return view('rw.data_penduduk.tambah_penduduk', compact('rt'));
+
     }
 
     /**
@@ -109,8 +112,8 @@ class PendudukController extends Controller
         $user = User::create([
             'name' => $namaUpper,
             'role' => $request->roles,
-            'email' => $request->nik . '@gmail.com',
             'nik' => $request->nik,
+            'id_rt' => $request->id_rt,
             'password' => $namaUpper . $request->tanggal_lahir,
             
         ]);
