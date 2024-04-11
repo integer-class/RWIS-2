@@ -8,7 +8,8 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="nav-item dropdown }}">
+            <li class="nav-item dropdown {{ $type_menu === 'dashboard' ? 'active' : '' }}  ">
+                
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
@@ -28,23 +29,31 @@
                 </ul>
             </li>
             <li class="menu-header">Data</li>
+            <li class="nav-item dropdown {{ $type_menu === 'penduduk' || $type_menu === 'kartu-keluarga' ? 'active' : '' }}
+            ">
+
             
-            <li class="nav-item dropdown {{ Request::is('rw/penduduk') ? 'active' : '' }}">
+            {{-- <li class="nav-item dropdown {{ Request::is('rw/penduduk') ? 'active' : '' }}"> --}}
+                
                 <a href="#"
                     class="nav-link has-dropdown"
                     data-toggle="dropdown"><i class="fas fa-users"></i> <span>Penduduk</span></a>
                 <ul class="dropdown-menu">
-                    <li class='{{ Request::is('rw/penduduk') ? 'active' : '' }}'>
+                    {{-- <li class='{{ Request::is('rw/penduduk') ? 'active' : '' }}'> --}}
+                    <li class='{{ $type_menu === 'penduduk' ? 'active' : '' }}'>
                         <a class="nav-link" href="{{ route('penduduk.index') }}">Data Penduduk</a>
                     </li>
-                    <li class="{{ Request::is('transparent-sidebar') ? 'active' : '' }}">
+                    <li class='{{ $type_menu === 'kartu-keluarga' ? 'active' : '' }}'>
+                        <a class="nav-link" href="{{ route('kartu-keluarga.index') }}">Data Kartu Keluarga</a>
+                    </li>
+                    {{-- <li class="{{ Request::is('transparent-sidebar') ? 'active' : '' }}">
                         <a class="nav-link"
                             href="{{ url('transparent-sidebar') }}">Data Kematian</a>
                     </li>
                     <li class="{{ Request::is('layout-top-navigation') ? 'active' : '' }}">
                         <a class="nav-link"
                             href="{{ url('layout-top-navigation') }}">Data Kelahiran</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
 

@@ -6,7 +6,8 @@ Route::view('/', 'welcome');
 
 Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::get('/', function () {
-        return view('rw.index');
+        
+        return view('rw.index', ['type_menu' => '/dashboard']);
     })->name('rw');
 
     // Route::get('/kartu-keluarga', [KartuKeluargaController::class, 'index'])->name('rw.kartu-keluarga');

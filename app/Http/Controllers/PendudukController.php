@@ -35,9 +35,11 @@ class PendudukController extends Controller
     public function create()
     {
         $rt = \App\Models\Rt::all();
+        $type_menu = 'penduduk'; 
+
         //.
 
-        return view('rw.data_penduduk.tambah_penduduk', compact('rt'));
+        return view('rw.data_penduduk.tambah_penduduk', compact('rt','type_menu'));
 
     }
 

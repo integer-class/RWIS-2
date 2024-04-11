@@ -18,9 +18,12 @@ class KartuKeluargaController extends Controller
                $kartukeluarga = \App\Models\KartuKeluarga::paginate(8);
 
              }
+             $type_menu = 'kartu-keluarga'; 
 
 
-             return view('rw.data_kartukeluarga.index', compact('kartukeluarga'));
+
+
+             return view('rw.data_kartukeluarga.index', compact('kartukeluarga','type_menu'));
 
         
     }
