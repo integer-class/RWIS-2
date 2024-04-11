@@ -54,24 +54,25 @@
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
-                                            <th>No</th>
+                                            {{-- <th>No</th> --}}
                                             <th>NIK</th>
                                             <th>Nama</th>
-
                                             <th>Jenis Kelamin</th>
                                             <th>Pekerjaan</th>
                                             <th>Alamat</th>
+                                            <th>RT</th>
                                             <th>Action</th>
                                         </tr>
                                          @foreach ($penduduk as $p)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                {{-- <td>{{ $loop->iteration }}</td> --}}
                                                 <td>{{ $p->nik }}</td>
 
                                                 <td>{{ $p->nama }}</td>
                                                 <td>{{ $p->jenis_kelamin }}</td>
                                                 <td>{{ $p->pekerjaan }}</td>
                                                 <td>{{ $p->alamat }}</td>
+                                                <td>{{ $p->nama_rt }}</td>
 
                                                 <td>
                                                     <div class="d-flex justify-content-center">

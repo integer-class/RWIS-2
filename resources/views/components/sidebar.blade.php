@@ -12,25 +12,30 @@
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
-                    <li class='{{ Request::is('dashboard-general-dashboard') ? 'active' : '' }}'>
+                    <li class='nav-item dropdown {{ Request::is('rw') ? 'active' : '' }}'>
+
+                        
                         <a class="nav-link"
                             href="{{ url('dashboard-general-dashboard') }}">General Dashboard</a>
                     </li>
                     <li class="{{ Request::is('dashboard-ecommerce-dashboard') ? 'active' : '' }}">
-                        <a class="nav-link"
+                        <a class="nav-link"function newFunc() {
+
+
+    }
                             href="{{ url('dashboard-ecommerce-dashboard') }}">Ecommerce Dashboard</a>
                     </li>
                 </ul>
             </li>
             <li class="menu-header">Data</li>
-            <li class="nav-item dropdown" >
+            
+            <li class="nav-item dropdown {{ Request::is('rw/penduduk') ? 'active' : '' }}">
                 <a href="#"
                     class="nav-link has-dropdown"
                     data-toggle="dropdown"><i class="fas fa-users"></i> <span>Penduduk</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is('layout-default-layout') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{route('penduduk.index')}}">Data Penduduk</a>
+                    <li class='{{ Request::is('rw/penduduk') ? 'active' : '' }}'>
+                        <a class="nav-link" href="{{ route('penduduk.index') }}">Data Penduduk</a>
                     </li>
                     <li class="{{ Request::is('transparent-sidebar') ? 'active' : '' }}">
                         <a class="nav-link"
