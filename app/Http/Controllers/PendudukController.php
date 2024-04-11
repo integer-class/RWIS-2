@@ -97,7 +97,9 @@ class PendudukController extends Controller
      */
     public function show(Penduduk $penduduk)
     {
-        //
+
+        return view('rw.data_penduduk.detail_penduduk', compact('penduduk'));
+        
     }
 
     /**
