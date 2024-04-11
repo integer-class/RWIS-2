@@ -11,15 +11,15 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Pendudu</h1>
+                <h1>Penduduk</h1>
                 <div class="section-header-button">
                     {{-- <a href="{{ route('category.create') }}" class="btn btn-primary">Add New</a> --}}
                     <a href="{{ route('penduduk.create') }}" class="btn btn-primary">Tambah Penduduk</a>
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Penduduk</a></div>
-                    <div class="breadcrumb-item">Semua Penduduk</div>
+                    <div class="breadcrumb-item"><a href="#">Data</a></div>
+                    <div class="breadcrumb-item">Penduduk</div>
                 </div>
             </div>
             <div class="section-body">
@@ -75,23 +75,45 @@
                                                 <td>{{ $p->nama_rt }}</td>
 
                                                 <td>
-                                                    <div class="d-flex justify-content-center">
-                                                        <a href='{{ route('penduduk.edit', $p->nik) }}'
-                                                            class="btn btn-sm btn-info btn-icon">
-                                                            <i class="fas fa-edit"></i>
-                                                            Edit
+                                                    {{-- <div class="d-flex justify-content-center">
+                                                        
+                                                    
+                                                        <a href='{{ route('penduduk.edit', $p->nik) }}' class="btn btn-sm btn-success btn-icon">
+                                                            <i class="fas fa-eye"></i> View
                                                         </a>
-
-                                                        <form action="{{ route('penduduk.destroy', $p->nik) }}" method="POST"
-                                                            class="ml-2">
+                                                        <span style="margin-left: 10px;"></span>
+                                                        <a href='{{ route('penduduk.edit', $p->nik) }}' class="btn btn-sm btn-info btn-icon">
+                                                            <i class="fas fa-edit"></i> Edit
+                                                        </a>
+                                                        
+                                                        <form action="{{ route('penduduk.destroy', $p->nik) }}" method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE" />
-                                                            <input type="hidden" name="_token"
-                                                                value="{{ csrf_token() }}" />
+                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                                             <button class="btn btn-sm btn-danger btn-icon confirm-delete">
                                                                 <i class="fas fa-times"></i> Delete
                                                             </button>
                                                         </form>
+                                                    
+                                                     
+                                                        
+                                                    </div> --}}
+
+                                                    <div style="margin-left: -20px" class="dropdown">
+                                                        <a href="#"
+                                                            data-toggle="dropdown"
+                                                            class="btn btn-outline-primary dropdown-toggle">Options</a>
+                                                        <div class="dropdown-menu">
+                                                            <a href=" {{  }} "
+                                                                class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
+                                                            <a href="#"
+                                                                class="dropdown-item has-icon"><i class="far fa-edit"></i> Edit</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#"
+                                                                class="dropdown-item has-icon text-danger"><i
+                                                                    class="far fa-trash-alt"></i> Delete</a>
+                                                        </div>
                                                     </div>
+                                                    
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -14,15 +14,19 @@ class PendudukController extends Controller
      */
     public function index(Request $request)
     {
+        $type_menu = 'penduduk'; 
         if($request->has('search')){
-            $penduduk = \App\Models\Penduduk::where('nama', 'LIKE', '%' . $request->search . '%')->paginate(8);
+            $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
+            ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
+            ->where('penduduk.nama', 'LIKE', '%' . $request->search . '%')
+            ->paginate(8);
           }else{
             $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
             ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
             ->paginate(8);
              }
 
-             $type_menu = 'penduduk'; 
+            
 
          return view('rw.data_penduduk.index', compact('penduduk','type_menu'));
 

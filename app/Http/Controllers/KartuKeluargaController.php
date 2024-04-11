@@ -35,7 +35,8 @@ class KartuKeluargaController extends Controller
     {
         $rt = \App\Models\Rt::all();
 
-        return view('rw.data_kartukeluarga.tambah_kartukeluarga');
+        $type_menu = 'kartu-keluarga'; 
+        return view('rw.data_kartukeluarga.tambah_kartukeluarga', compact('type_menu'));
         
     }
 
