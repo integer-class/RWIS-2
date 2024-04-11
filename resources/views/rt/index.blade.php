@@ -1,1 +1,1 @@
-rt
+saya adalah rt dari {{auth()->user()->id_rt}}

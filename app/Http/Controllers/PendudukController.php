@@ -22,9 +22,7 @@ class PendudukController extends Controller
             ->paginate(8);
              }
 
-             $type_menu = 'penduduk'; // Define the type_menu variable here
-
-
+             $type_menu = 'penduduk'; 
 
          return view('rw.data_penduduk.index', compact('penduduk','type_menu'));
 
