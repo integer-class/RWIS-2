@@ -41,7 +41,8 @@
 </head>
 </head>
 
-<body>
+<body class="{{ $type_menu === 'detail_penduduk' ? 'sidebar-mini' : '' }} ">
+    
     <div id="app">
         <div class="main-wrapper">
             <!-- Header -->

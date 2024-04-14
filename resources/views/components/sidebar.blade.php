@@ -1,3 +1,4 @@
+
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
@@ -29,9 +30,7 @@
                 </ul>
             </li>
             <li class="menu-header">Data</li>
-            <li class="nav-item dropdown {{ $type_menu === 'penduduk' || $type_menu === 'kartu-keluarga' ? 'active' : '' }}
-            ">
-
+            <li class="nav-item dropdown {{ ($type_menu === 'penduduk' || $type_menu === 'kartu-keluarga') ? 'active' : ($type_menu === 'detail_penduduk' ? 'active' : '') }}">
             
             {{-- <li class="nav-item dropdown {{ Request::is('rw/penduduk') ? 'active' : '' }}"> --}}
                 
@@ -60,8 +59,8 @@
             <li class="nav-item dropdown }}">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-heart"></i> <span>Bansos</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ Request::is('bootstrap-alert') ? 'active' : '' }}">
+                    <ul class="dropdown-menu" @if($type_menu !== 'detail_penduduk') style="display: none;" @endif>
+                        <li class="{{ Request::is('bootstrap-alert') ? 'active' : '' }}">
                         <a class="nav-link"
                             href="{{ url('bootstrap-alert') }}">Verifikasi Penerima</a>
                     </li>
