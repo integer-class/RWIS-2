@@ -23,6 +23,7 @@ class Penduduk extends Seeder
             'agama' => 'Islam',
             'status_perkawinan' => 'Belum Kawin',
             'pekerjaan' => 'PNS',
+            'id_rt' => '1',
         ]);
 
         \App\Models\Penduduk::factory()->create([
@@ -36,6 +37,7 @@ class Penduduk extends Seeder
             'agama' => 'Kristen',
             'status_perkawinan' => 'Kawin',
             'pekerjaan' => 'Wirausaha',
+            'id_rt' => '1',
         ]);
 
         \App\Models\Penduduk::factory()->create([
@@ -49,6 +51,8 @@ class Penduduk extends Seeder
             'agama' => 'Hindu',
             'status_perkawinan' => 'Cerai',
             'pekerjaan' => 'Pengusaha',
+            'id_rt' => '1',
+
         ]);
     }
 }

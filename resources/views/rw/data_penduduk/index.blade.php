@@ -121,6 +121,7 @@
 
                                     </table>
                                 </div>
+                                
                                 {{-- <div class="float-right">
                                     {{ $categories->withQueryString()->links() }}
                                 </div> --}}
