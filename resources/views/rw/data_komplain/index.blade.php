@@ -49,7 +49,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
-                                            <th>Rt</th>
+                                            {{-- <th>Rt</th> --}}
                                             <th>Created At</th>
                                             <th>Status</th>
                                             <th>Action</th>
@@ -59,7 +59,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $k->penduduk->nama }}</td>
-                                            <td>{{ $k->rt->nama_rt }}</td>
+                                            {{-- <td>{{ $k->penduduk->rt }}</td> --}}
                                             <td>{{ $k->created_at }}</td>
                                             <td>
                                                

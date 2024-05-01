@@ -32,4 +32,9 @@ class Penduduk extends Model
     {
         return $this->belongsTo(KartuKeluarga::class);
     }
+
+    public function rt()
+    {
+        return $this->belongsTo(Rt::class, 'id_rt', 'id_rt');
+    }
 }
