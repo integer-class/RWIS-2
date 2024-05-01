@@ -14,20 +14,59 @@ class KomplainController extends Controller
     {
         if ($request->has('search')) {
             $komplain = Komplain::with('penduduk')
-                                ->whereHas('penduduk', function ($query) use ($request) {
-                                    $query->where('nama', 'LIKE', '%' . $request->search . '%');
+                                ->where(function ($query) use ($request) {
+                                    $query->whereHas('penduduk', function ($query) use ($request) {
+                                            $query->where('nama', 'LIKE', '%' . $request->search . '%');
+                                        })
+                                        ->orWhere('judul_komplain', 'LIKE', '%' . $request->search . '%');
                                 })
                                 ->paginate(8);
+            $jumlah_komplain = Komplain::count();
         } else {
+
             $komplain = Komplain::with('user')->paginate(8);
+
+            //hitung jumlah komplain
+            $jumlah_komplain = Komplain::count();
+
         }
 
         
         $type_menu = 'komplain'; 
-        return view('rw.data_komplain.index', compact('type_menu', 'komplain'));
+        return view('rw.data_komplain.index', compact('type_menu', 'komplain', 'jumlah_komplain'));
+
+    }
+    //diterima
+    public function diterima()
+    {
+    
+        if ($request->has('search')) {
+            $komplain = Komplain::with('penduduk')
+                                ->where(function ($query) use ($request) {
+                                    $query->whereHas('penduduk', function ($query) use ($request) {
+                                            $query->where('nama', 'LIKE', '%' . $request->search . '%');
+                                        })
+                                        ->orWhere('judul_komplain', 'LIKE', '%' . $request->search . '%');
+                                })
+                                ->paginate(8);
+            $jumlah_komplain = Komplain::count();
+        } else {
+
+            $komplain = Komplain::with('user')->paginate(8);
+
+            //hitung jumlah komplain
+            $jumlah_komplain = Komplain::count();
+
+        }
+
+        
+        $type_menu = 'komplain'; 
+        return view('rw.data_komplain.index', compact('type_menu', 'komplain', 'jumlah_komplain'));
 
 
+    
 
+  
     }
 
     /**

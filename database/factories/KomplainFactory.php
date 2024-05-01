@@ -18,8 +18,10 @@ class KomplainFactory extends Factory
     {
         return [
             'nik' => $this->faker->unique()->randomNumber(5),
+            'judul_komplain' => $this->faker->text(),
             'isi_komplain' => $this->faker->text(),
             'status_komplain' => $this->faker->randomElement(['Diterima', 'Diproses', 'Selesai']),
+            'id_kategori_komplain' => $this->faker->randomNumber(4),
         ];
     }
 }

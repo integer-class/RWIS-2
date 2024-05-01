@@ -14,7 +14,9 @@ class Komplain extends Model
     protected $fillable = [
         'nik',
         'isi_komplain',
+        'judul_komplain',
         'status_komplain',
+        'id_kategori_komplain',
     ];
 
     public function user()
@@ -25,6 +27,11 @@ class Komplain extends Model
     public function penduduk()
     {
         return $this->belongsTo(Penduduk::class, 'nik', 'nik');
+    }
+
+    public function kategori_komplain()
+    {
+        return $this->belongsTo(KategoriKomplain::class, 'id_kategori_komplain', 'id_kategori_komplain');
     }
 
 

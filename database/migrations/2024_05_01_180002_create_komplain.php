@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('komplain', function (Blueprint $table) {
             $table->id("id_komplain");
+            $table->string('judul_komplain');
+            $table->foreignId('id_kategori_komplain')->references('id_kategori_komplain')->on('kategori_komplain');
             $table->foreignId('nik')->references('nik')->on('users');
             $table->text('isi_komplain');
             $table->enum('status_komplain', ['Diterima', 'Diproses', 'Selesai']);
