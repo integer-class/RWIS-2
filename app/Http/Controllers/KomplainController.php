@@ -11,7 +11,12 @@ class KomplainController extends Controller
      */
     public function index()
     {
-        //
+
+        $type_menu = 'komplain'; 
+
+       
+        return view('rw.data_komplain.index', compact('type_menu'));
+
     }
 
     /**

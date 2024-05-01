@@ -98,9 +98,9 @@
             </li> --}}
             <li class="menu-header">Pendukung</li>
 
-             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link"
-                    href="{{ url('blank-page') }}"><i class="fas fa-exclamation"></i> <span>Komplain</span></a>
+             <li class="{{ $type_menu === 'komplain'? 'active' : ''  }}">
+                <a class="nav-link active"
+                    href="{{ route('komplain.index') }}"><i class="fas fa-exclamation"></i> <span>Komplain</span></a>
             </li>
 
             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">

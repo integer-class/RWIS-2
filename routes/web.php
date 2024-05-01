@@ -13,6 +13,8 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     // Route::get('/kartu-keluarga', [KartuKeluargaController::class, 'index'])->name('rw.kartu-keluarga');
 
     Route::resource('kartu-keluarga', \App\Http\Controllers\KartuKeluargaController::class);
+    Route::resource('komplain', \App\Http\Controllers\KomplainController::class);
+
 
 
     Route::resource('penduduk', \App\Http\Controllers\PendudukController::class);
