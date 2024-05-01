@@ -17,5 +17,19 @@ class Komplain extends Model
         'status_komplain',
     ];
 
+    //relasi
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'nik', 'nik');
+    }
+
+    //relasi user dengan penduduk
+    public function penduduk()
+    {
+        return $this->belongsTo(Penduduk::class, 'nik', 'nik');
+    }
+
+    
+
 
 }

@@ -34,8 +34,15 @@
                     <div class="col-12 col-md-12 col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Data Komplain Warga</h4>
-                            </div>
+                                <form method="GET" action="">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search" name="search">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>                            </div>
+                           
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table-bordered table-md table">
@@ -46,6 +53,29 @@
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
+
+                                        @foreach ($komplain as $k)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $k->penduduk->nama }}</td>
+                                            <td>{{ $k->created_at }}</td>
+                                            <td>
+                                               
+                                                @if ($k->status_komplain == 'Diproses')
+                                                    <div class="badge badge-primary">Diproses</div>
+                                                @elseif ($k->status_komplain == 'Diterima')
+                                                    <div class="badge badge-warning">Diterima</div>
+                                                @elseif ($k->status_komplain == 'Selesai')
+                                                    <div class="badge badge-success">Selesai</div>
+                                                @endif
+                                               
+                                            </td>
+                                            <td><a href="#"
+                                                    class="btn btn-secondary">Detail</a></td>   
+                                        </tr>   
+                                        @endforeach
+
+{{-- 
                                         <tr>
                                             <td>1</td>
                                             <td>Irwansyah Saputra</td>
@@ -55,37 +85,8 @@
                                             </td>
                                             <td><a href="#"
                                                     class="btn btn-secondary">Detail</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Hasan Basri</td>
-                                            <td>2017-01-09</td>
-                                            <td>
-                                                <div class="badge badge-success">Active</div>
-                                            </td>
-                                            <td><a href="#"
-                                                    class="btn btn-secondary">Detail</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Kusnadi</td>
-                                            <td>2017-01-11</td>
-                                            <td>
-                                                <div class="badge badge-danger">Not Active</div>
-                                            </td>
-                                            <td><a href="#"
-                                                    class="btn btn-secondary">Detail</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Rizal Fakhri</td>
-                                            <td>2017-01-11</td>
-                                            <td>
-                                                <div class="badge badge-success">Active</div>
-                                            </td>
-                                            <td><a href="#"
-                                                    class="btn btn-secondary">Detail</a></td>
-                                        </tr>
+                                        </tr> --}}
+                                       
                                     </table>
                                 </div>
                             </div>
