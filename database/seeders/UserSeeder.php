@@ -22,5 +22,21 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => '1',
         ]);
+
+        $user = \App\Models\User::factory()->create([
+            'name' => 'Rizki',
+            'id_rt' => '2',
+            'nik' => '1234567890123457',
+            'password' => Hash::make('password'),
+            'role' => '2',
+        ]);
+
+        $user = \App\Models\User::factory()->create([
+            'name' => 'Rizal',
+            'id_rt' => '3',
+            'nik' => '1234567890123458',
+            'password' => Hash::make('password'),
+            'role' => '3',
+        ]);
     }
 }

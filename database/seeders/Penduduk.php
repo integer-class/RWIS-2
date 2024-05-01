@@ -24,5 +24,31 @@ class Penduduk extends Seeder
             'status_perkawinan' => 'Belum Kawin',
             'pekerjaan' => 'PNS',
         ]);
+
+        \App\Models\Penduduk::factory()->create([
+            'nik' => '1234567890123457',
+            'nama' => 'Test User 2',
+            'nomor_kk' => '472751886',
+            'tanggal_lahir' => '2000-01-02',
+            'jenis_kelamin' => 'P',
+            'golong_darah' => 'B',
+            'alamat' => 'Jl. Test No. 2',
+            'agama' => 'Kristen',
+            'status_perkawinan' => 'Kawin',
+            'pekerjaan' => 'Wirausaha',
+        ]);
+
+        \App\Models\Penduduk::factory()->create([
+            'nik' => '1234567890123458',
+            'nama' => 'Test User 3',
+            'nomor_kk' => '472751886',
+            'tanggal_lahir' => '2000-01-03',
+            'jenis_kelamin' => 'L',
+            'golong_darah' => 'AB',
+            'alamat' => 'Jl. Test No. 3',
+            'agama' => 'Hindu',
+            'status_perkawinan' => 'Cerai',
+            'pekerjaan' => 'Pengusaha',
+        ]);
     }
 }

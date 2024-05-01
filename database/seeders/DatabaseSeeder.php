@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
                 $this->call(KartuKeluarga::class);
             $this->call(Penduduk::class);
             $this->call(UserSeeder::class);
+            $this->call(Komplain::class);
            
     }
 }
