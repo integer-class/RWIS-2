@@ -75,6 +75,7 @@ class PendudukController extends Controller
             'agama' => $request->agama,
             'status_perkawinan' => $request->status_perkawinan,
             'pekerjaan' => $request->pekerjaan,
+            'id_rt' => $request->id_rt,
         ]);
 
 
