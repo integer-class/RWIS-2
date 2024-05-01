@@ -35,11 +35,11 @@
             {{-- <li class="nav-item dropdown {{ Request::is('rw/penduduk') ? 'active' : '' }}"> --}}
                 
                 <a href="#"
-                    class="nav-link has-dropdown"
+                    class="nav-link has-dropdown" 
                     data-toggle="dropdown"><i class="fas fa-users"></i> <span>Penduduk</span></a>
                 <ul class="dropdown-menu">
                     {{-- <li class='{{ Request::is('rw/penduduk') ? 'active' : '' }}'> --}}
-                    <li class='{{ $type_menu === 'penduduk' ? 'active' : '' }}'>
+                    <li class='{{ $type_menu === 'penduduk' || $type_menu === 'detail_penduduk' ? 'active' : ''  }}'>
                         <a class="nav-link" href="{{ route('penduduk.index') }}">Data Penduduk</a>
                     </li>
                     <li class='{{ $type_menu === 'kartu-keluarga' ? 'active' : '' }}'>
@@ -56,10 +56,12 @@
                 </ul>
             </li>
 
+            
+
             <li class="nav-item dropdown }}">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-heart"></i> <span>Bansos</span></a>
-                    <ul class="dropdown-menu" @if($type_menu !== 'detail_penduduk') style="display: none;" @endif>
+                    <ul class="dropdown-menu" >
                         <li class="{{ Request::is('bootstrap-alert') ? 'active' : '' }}">
                         <a class="nav-link"
                             href="{{ url('bootstrap-alert') }}">Verifikasi Penerima</a>

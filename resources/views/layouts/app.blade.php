@@ -41,7 +41,8 @@
 </head>
 </head>
 
-<body class="{{ $type_menu === 'detail_penduduk' ? 'sidebar-mini' : '' }} ">
+{{-- <body class="{{ $type_menu === 'detail_penduduk' ? 'sidebar-mini' : '' }} "> --}}
+ <body> 
     
     <div id="app">
         <div class="main-wrapper">
