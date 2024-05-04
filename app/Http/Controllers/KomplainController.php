@@ -22,59 +22,103 @@ class KomplainController extends Controller
                                 })
                                 ->paginate(8);
             $jumlah_komplain = Komplain::count();
+           
+            $jumlah_komplain_diterima = Komplain::where('status_komplain', 'Diterima')->count();
+            $jumlah_komplain_diproses = Komplain::where('status_komplain', 'Diproses')->count();
+            $jumlah_komplain_selesai = Komplain::where('status_komplain', 'Selesai')->count();
         } else {
 
             $komplain = Komplain::with('user')->paginate(8);
 
             //hitung jumlah komplain
             $jumlah_komplain = Komplain::count();
+           
+            $jumlah_komplain_diterima = Komplain::where('status_komplain', 'Diterima')->count();
+            $jumlah_komplain_diproses = Komplain::where('status_komplain', 'Diproses')->count();
+            $jumlah_komplain_selesai = Komplain::where('status_komplain', 'Selesai')->count();
 
         }
 
         
         $type_menu = 'komplain'; 
-        return view('rw.data_komplain.index', compact('type_menu', 'komplain', 'jumlah_komplain'));
+        return view('rw.data_komplain.index', compact('type_menu', 'komplain', 'jumlah_komplain', 'jumlah_komplain_diterima', 'jumlah_komplain_diproses', 'jumlah_komplain_selesai'));
 
     }
     //diterima
-    public function diterima()
-    {
-    
-        if ($request->has('search')) {
-            $komplain = Komplain::with('penduduk')
-                                ->where(function ($query) use ($request) {
-                                    $query->whereHas('penduduk', function ($query) use ($request) {
+    public function diterima(Request $request)
+        {
+            if ($request->has('search')) {
+                $komplain = Komplain::with('penduduk')
+                                    ->where(function ($query) use ($request) {
+                                        $query->whereHas('penduduk', function ($query) use ($request) {
                                             $query->where('nama', 'LIKE', '%' . $request->search . '%');
                                         })
                                         ->orWhere('judul_komplain', 'LIKE', '%' . $request->search . '%');
-                                })
-                                ->paginate(8);
-            $jumlah_komplain = Komplain::count();
-        } else {
-
-            $komplain = Komplain::with('user')->paginate(8);
-
-            //hitung jumlah komplain
+                                    })
+                                    ->where('status_komplain', 'status_komplain') 
+                                    ->paginate(8);
             $jumlah_komplain = Komplain::count();
 
+                                    $jumlah_komplain_diterima = Komplain::where('status_komplain', 'Diterima')->count();
+                                    $jumlah_komplain_diproses = Komplain::where('status_komplain', 'Diproses')->count();
+                                    $jumlah_komplain_selesai = Komplain::where('status_komplain', 'Selesai')->count();
+
+            } else {
+                $komplain = Komplain::with('penduduk')
+                                    ->where('status_komplain', 'Diterima') 
+                                    ->paginate(8);
+            $jumlah_komplain = Komplain::count();
+
+                                    $jumlah_komplain_diterima = Komplain::where('status_komplain', 'Diterima')->count();
+                                    $jumlah_komplain_diproses = Komplain::where('status_komplain', 'Diproses')->count();
+                                    $jumlah_komplain_selesai = Komplain::where('status_komplain', 'Selesai')->count();
+
+            $type_menu = 'komplain'; 
+            return view('rw.data_komplain.diterima', compact('type_menu', 'komplain', 'jumlah_komplain', 'jumlah_komplain_diterima', 'jumlah_komplain_diproses', 'jumlah_komplain_selesai'));
         }
-
-        
-        $type_menu = 'komplain'; 
-        return view('rw.data_komplain.index', compact('type_menu', 'komplain', 'jumlah_komplain'));
-
-
-    
-
-  
     }
+
+
+    public function diproses(Request $request)
+        {
+            if ($request->has('search')) {
+                $komplain = Komplain::with('penduduk')
+                                    ->where(function ($query) use ($request) {
+                                        $query->whereHas('penduduk', function ($query) use ($request) {
+                                            $query->where('nama', 'LIKE', '%' . $request->search . '%');
+                                        })
+                                        ->orWhere('judul_komplain', 'LIKE', '%' . $request->search . '%');
+                                    })
+                                    ->where('status_komplain', 'status_komplain') 
+                                    ->paginate(8);
+            $jumlah_komplain = Komplain::count();
+
+                                    $jumlah_komplain_diterima = Komplain::where('status_komplain', 'Diterima')->count();
+                                    $jumlah_komplain_diproses = Komplain::where('status_komplain', 'Diproses')->count();
+                                    $jumlah_komplain_selesai = Komplain::where('status_komplain', 'Selesai')->count();
+
+            } else {
+                $komplain = Komplain::with('penduduk')
+                                    ->where('status_komplain', 'Diterima') 
+                                    ->paginate(8);
+            $jumlah_komplain = Komplain::count();
+
+                                    $jumlah_komplain_diterima = Komplain::where('status_komplain', 'Diterima')->count();
+                                    $jumlah_komplain_diproses = Komplain::where('status_komplain', 'Diproses')->count();
+                                    $jumlah_komplain_selesai = Komplain::where('status_komplain', 'Selesai')->count();
+
+            $type_menu = 'komplain'; 
+            return view('rw.data_komplain.diproses', compact('type_menu', 'komplain', 'jumlah_komplain', 'jumlah_komplain_diterima', 'jumlah_komplain_diproses', 'jumlah_komplain_selesai'));
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('rw.data_komplain.index');
     }
 
     /**

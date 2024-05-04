@@ -35,18 +35,17 @@
                             <div class="card-body">
                                 <ul class="nav nav-pills">
                                     <li class="nav-item">
-                                        <a class="nav-link active"
-                                            href="{{ route('komplain.index') }}">Semua Komplain <span class="badge badge-white"> 
+                                        <a class="nav-link"
+                                            href="{{ route('komplain.index') }}">Semua Komplain <span class="badge badge-primary">
                                                 {{ $jumlah_komplain}}
-                                                 </span></a>
+                                                </span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('komplain.diterima') }}">
-                                            Diterima <span class="badge badge-primary">
+                                        <a class="nav-link active"
+                                            href="{{ route('komplain.diterima') }}">Diterima <span class="badge badge-white"> 
                                                 {{ $jumlah_komplain_diterima}}
-                                            </span>
-                                        </a>
-                                            
+                                                
+                                                 </span></a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link"
