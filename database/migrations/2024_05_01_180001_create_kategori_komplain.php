@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('kategori_komplain', function (Blueprint $table) {
             $table->id("id_kategori_komplain");
+            $table->string('image_komplain')->nullable();
             $table->string('nama_kategori_komplain');
             $table->timestamps();
         });

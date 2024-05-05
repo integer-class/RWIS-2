@@ -9,6 +9,7 @@ class Komplain extends Model
 {
     use HasFactory;
     protected $table = 'komplain';
+    protected $primaryKey = 'id_komplain';
 
     //fillable
     protected $fillable = [
@@ -35,10 +36,10 @@ class Komplain extends Model
     }
 
 
-    public function rt()
-    {
-        return $this->belongsTo(Penduduk::class, 'id_rt', 'id');
-    }
+    // public function rt()
+    // {
+    //     return $this->belongsTo(Penduduk::class, 'id_rt', 'id');
+    // }
 
 
    

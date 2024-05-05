@@ -132,9 +132,11 @@ class KomplainController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id_komplain)
     {
-        //
+        $komplain = Komplain::with(['user', 'penduduk', 'kategori_komplain'])->find($id_komplain);
+        $type_menu = 'komplain';
+        return view('rw.data_komplain.detail_komplain', compact('type_menu', 'komplain'));
     }
 
     /**
