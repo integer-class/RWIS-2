@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Penduduk;
 use App\Models\User;
+use Alert;
 
 use Illuminate\Http\Request;
 
@@ -86,7 +87,13 @@ class PendudukController extends Controller
             'password' => $namaUpper . $request->tanggal_lahir,
         ]);
 
-        return redirect()->route('penduduk.index')->with('success', 'Data Berhasil Ditambahkan');
+        // return redirect()->route('penduduk.index')->with('success', 'Data Berhasil Ditambahkan');
+
+        Alert::success('Berhasil!', 'Berhasil menambahkan data!');
+    
+        // // Redirect atau kembali ke halaman yang sesuai
+        return redirect()->back();
+        
 
 }
 

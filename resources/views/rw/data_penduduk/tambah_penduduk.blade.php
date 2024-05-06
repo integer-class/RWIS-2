@@ -27,6 +27,7 @@
             <div class="section-body">
                 {{-- <h2 class="section-title">Users</h2> --}}
 
+                @include('sweetalert::alert')
 
 
                 <div class="card">
