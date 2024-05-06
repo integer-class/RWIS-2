@@ -80,12 +80,10 @@ class PendudukController extends Controller
 
 
         $user = User::create([
-            'name' => $namaUpper,
             'role' => $request->roles,
             'nik' => $request->nik,
             'id_rt' => $request->id_rt,
             'password' => $namaUpper . $request->tanggal_lahir,
-            
         ]);
 
         return redirect()->route('penduduk.index')->with('success', 'Data Berhasil Ditambahkan');
