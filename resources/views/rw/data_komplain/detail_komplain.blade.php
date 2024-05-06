@@ -12,22 +12,25 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Posts</h1>
+                <h1>Penduduk</h1>
                 <div class="section-header-button">
-                    <a href="features-post-create.html"
-                        class="btn btn-primary">Add New</a>
+                    {{-- <a href="{{ route('category.create') }}" class="btn btn-primary">Add New</a> --}}
+                    {{-- <a href="{{ route('penduduk.create') }}" class="btn btn-primary">Tambah Penduduk</a> --}}
                 </div>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Posts</a></div>
-                    <div class="breadcrumb-item">All Posts</div>
+                    <div class="breadcrumb-item active"><a href="#">Pendukung</a></div>
+                    <div class="breadcrumb-item"><a href="#">Komplain</a></div>
+                    <div class="breadcrumb-item">Detail Komplain</div>
                 </div>
             </div>
             <div class="section-body">
-                <h2 class="section-title">Posts</h2>
+                {{-- <h2 class="section-title">Posts</h2>
                 <p class="section-lead">
                     You can manage all posts, such as editing, deleting and more.
-                </p>
+                </p> --}}
+
+        
+                <a href="{{ route('komplain.index') }}" class="btn btn-primary">Kembali</a>
 
                 <div class="row">
                   
@@ -46,41 +49,72 @@
                                         <img src="https://cloud.jpnn.com/photo/jatim/news/normal/2023/09/25/tumpukan-sampah-yang-mulai-menutup-setengah-badan-jalan-di-j-ml8v.jpg" class="img-fluid" alt="Laporan Image">
                                     </div>
                                     <!-- Detail Laporan -->
+                                    @include('sweetalert::alert')
+
                                     <div class="col-md-8">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <strong>Title:</strong>
-                                                <p>Nama Laporan</p>
+                                                <strong>Judul:</strong>
+                                                <p>
+                                                    {{ $komplain->judul_komplain }}
+                                                </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <strong>Date:</strong>
-                                                <p>5 Mei 2024</p>
+                                                <p>
+                                                    {{ $komplain->created_at->format('Y-m-d') }}
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <strong>Pelapor:</strong>
+                                                <p>
+                                                    {{ $komplain->penduduk->nama }}
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <strong>Kategori:</strong>
+                                                <p>
+                                                    {{ $komplain->kategori_komplain->nama_kategori_komplain }}
+
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col-md-12">
-                                                <strong>Description:</strong>
-                                                <p>Deskripsi singkat tentang laporan.</p>
+                                                <strong>Deskripsi:</strong>
+                                                <p>{{$komplain->isi_komplain}}</p>
                                             </div>
                                         </div>
-                                        <div class="row mt-3">
-                                            <div class="col-md-12">
-                                                <strong>Details:</strong>
-                                                <p>Detail tambahan tentang laporan.</p>
-                                            </div>
-                                        </div>
+                                       
+                                        
                                         <!-- Form untuk mengubah status -->
                                         <div class="row mt-3">
                                             <div class="col-md-12">
                                                 <strong>Status:</strong>
-                                                <form>
+                                                <form action="{{ route('komplain.ubahstatus', $komplain->id_komplain) }}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('PUT') }}
                                                     <div class="form-group">
-                                                        <select class="form-control" id="status">
-                                                            <option value="on-going">On-going</option>
-                                                            <option value="resolved">Resolved</option>
-                                                            <option value="closed">Closed</option>
+
+                                                        <select name="status_komplain" class="form-control" id="status">
+                                                        
+{{-- 
+                                                            <option value="Diproses">Diproses</option>
+                                                            <option value="Selesai">Selesai</option> --}}
+
+                                            
+                                                            
+                                                            <option value="Diproses" {{ $komplain->status_komplain == 'Diproses' ? 'selected' : '' }}>Diproses</option>
+                                                            <option value="Selesai" {{ $komplain->status_komplain == 'Selesai' ? 'selected' : '' }}>Selesai</option>
+
+                                                            
                                                         </select>
                                                     </div>
+                                                    <input type="hidden" name="id_komplain" value="{{ $komplain->id_komplain }}">
+
                                                     <button type="submit" class="btn btn-primary">Update Status</button>
                                                 </form>
                                             </div>

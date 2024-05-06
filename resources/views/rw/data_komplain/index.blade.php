@@ -19,15 +19,15 @@
                 </div> --}}
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Posts</a></div>
-                    <div class="breadcrumb-item">All Posts</div>
+                    <div class="breadcrumb-item"><a href="#">Komplain</a></div>
+                    <div class="breadcrumb-item">Semua Komplain</div>
                 </div>
             </div>
             <div class="section-body">
-                <h2 class="section-title">Posts</h2>
+                {{-- <h2 class="section-title">Posts</h2>
                 <p class="section-lead">
                     You can manage all posts, such as editing, deleting and more.
-                </p>
+                </p> --}}
 
                 <div class="row">
                     <div class="col-12">

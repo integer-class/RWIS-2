@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Komplain;
+use Alert;
+
+
 
 class KomplainController extends Controller
 {
@@ -99,7 +102,7 @@ class KomplainController extends Controller
 
             } else {
                 $komplain = Komplain::with('penduduk')
-                                    ->where('status_komplain', 'Diterima') 
+                                    ->where('status_komplain', 'Diproses') 
                                     ->paginate(8);
             $jumlah_komplain = Komplain::count();
 
@@ -109,6 +112,39 @@ class KomplainController extends Controller
 
             $type_menu = 'komplain'; 
             return view('rw.data_komplain.diproses', compact('type_menu', 'komplain', 'jumlah_komplain', 'jumlah_komplain_diterima', 'jumlah_komplain_diproses', 'jumlah_komplain_selesai'));
+        }
+    }
+
+    public function selesai(Request $request)
+        {
+            if ($request->has('search')) {
+                $komplain = Komplain::with('penduduk')
+                                    ->where(function ($query) use ($request) {
+                                        $query->whereHas('penduduk', function ($query) use ($request) {
+                                            $query->where('nama', 'LIKE', '%' . $request->search . '%');
+                                        })
+                                        ->orWhere('judul_komplain', 'LIKE', '%' . $request->search . '%');
+                                    })
+                                    ->where('status_komplain', 'status_komplain') 
+                                    ->paginate(8);
+            $jumlah_komplain = Komplain::count();
+
+                                    $jumlah_komplain_diterima = Komplain::where('status_komplain', 'Diterima')->count();
+                                    $jumlah_komplain_diproses = Komplain::where('status_komplain', 'Diproses')->count();
+                                    $jumlah_komplain_selesai = Komplain::where('status_komplain', 'Selesai')->count();
+
+            } else {
+                $komplain = Komplain::with('penduduk')
+                                    ->where('status_komplain', 'Selesai') 
+                                    ->paginate(8);
+            $jumlah_komplain = Komplain::count();
+
+                                    $jumlah_komplain_diterima = Komplain::where('status_komplain', 'Diterima')->count();
+                                    $jumlah_komplain_diproses = Komplain::where('status_komplain', 'Diproses')->count();
+                                    $jumlah_komplain_selesai = Komplain::where('status_komplain', 'Selesai')->count();
+
+            $type_menu = 'komplain'; 
+            return view('rw.data_komplain.selesai', compact('type_menu', 'komplain', 'jumlah_komplain', 'jumlah_komplain_diterima', 'jumlah_komplain_diproses', 'jumlah_komplain_selesai'));
         }
     }
 
@@ -138,6 +174,48 @@ class KomplainController extends Controller
         $type_menu = 'komplain';
         return view('rw.data_komplain.detail_komplain', compact('type_menu', 'komplain'));
     }
+
+
+    //ubah status
+    public function ubahstatus(Request $request,$id_komplain)
+    {
+        // // Temukan entitas komplain berdasarkan id
+        $komplain = Komplain::find($id_komplain);
+    
+        // tangkap dari form
+        $status_komplain = request('status_komplain');
+
+
+        //save ke database
+        $komplain->status_komplain = $status_komplain;
+        $komplain->save();
+
+
+
+        
+    
+        // // Setelah mengubah status, Anda dapat menampilkan pesan berhasil
+        Alert::success('Hore!', 'Status Komplain Berhasil Diubah');
+    
+        // // Redirect atau kembali ke halaman yang sesuai
+        return redirect()->back();
+
+
+    
+    }
+    // {
+    //     // $komplain = Komplain::find($request->id_komplain);
+    //     // $komplain->status_komplain = $request->status_komplain;
+    //     // $komplain->save();
+
+    //     // return redirect()->route('komplain.index');
+
+    //     $id_komplain = $request->id_komplain;
+    //     $status_komplain = $request->status_komplain;
+
+    //     echo $id_komplain;
+    //     echo $status_komplain;
+    // }
 
     /**
      * Show the form for editing the specified resource.
