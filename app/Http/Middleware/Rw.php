@@ -23,12 +23,16 @@ class Rw
 
         $userRole=Auth::user()->role;
 
+
+
         if($userRole==1){
             return $next($request);
         }
 
         if($userRole==2){
-            return redirect()->route('rw');
+            // return redirect()->route('rw');
+            return redirect()->route('rt');
+
         }
 
         if($userRole==3){

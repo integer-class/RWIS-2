@@ -20,19 +20,21 @@ class Rt
         if(!Auth::check()){
             return redirect()->route('login');
         }
-
         $userRole=Auth::user()->role;
 
         if($userRole==2){
             return $next($request);
         }
 
-        if($userRole==1){
-            return redirect()->route('rw');
-        }
+
 
         if($userRole==3){
             return redirect()->route('masyarakat');
+        }
+
+
+        if($userRole==1){
+            return redirect()->route('rw');
         }
     }
 }
