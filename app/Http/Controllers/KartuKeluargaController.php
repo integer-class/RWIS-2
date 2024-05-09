@@ -34,10 +34,8 @@ class KartuKeluargaController extends Controller
     public function create()
     {
         $rt = \App\Models\Rt::all();
-
         $type_menu = 'kartu-keluarga'; 
         return view('rw.data_kartukeluarga.tambah_kartukeluarga', compact('type_menu'));
-        
     }
 
     /**
@@ -47,21 +45,13 @@ class KartuKeluargaController extends Controller
     {
         
         KartuKeluarga::create([
-            //nomor_kk
             'nomor_kk' => $request->nomor_kk,
-            //alamat
             'alamat' => $request->alamat,
-            //id_rt
             'rt' => $request->rt,
-            //rw
             'rw' => $request->rw,
-            //kelurahan
             'kelurahan' => $request->kelurahan,
-            //kecamatan
             'kecamatan' => $request->kecamatan,
-            //kabupaten
             'kabupaten' => $request->kabupaten,
-            //provinsi
             'provinsi' => $request->provinsi,
            
         ]);

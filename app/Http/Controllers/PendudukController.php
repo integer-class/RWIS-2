@@ -29,73 +29,58 @@ class PendudukController extends Controller
          return view('rw.data_penduduk.index', compact('penduduk','type_menu'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $rt = \App\Models\Rt::all();
         $type_menu = 'penduduk'; 
-
-        //.
-
         return view('rw.data_penduduk.tambah_penduduk', compact('rt','type_menu'));
-
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    
-    
-    $nama = $request->nama;
-    $namaArray = explode(' ', $nama);
-    $namaDepan = ucfirst($namaArray[0]);
-    $namaUpper = strtoupper($namaDepan);
-    
-
-    
-
-
-        Penduduk::create([
-            'nik' => $request->nik,
-            'nomor_kk' => $request->nomor_kk,
-            'nama' => $request->nama,
-            'tempat_lahir' => $request->tempat_lahir,
-            'tanggal_lahir' => $request->tanggal_lahir,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'golongan_darah' => $request->golongan_darah,
-            'alamat' => $request->alamat,
-            'agama' => $request->agama,
-            'status_perkawinan' => $request->status_perkawinan,
-            'pekerjaan' => $request->pekerjaan,
-            'id_rt' => $request->id_rt,
-        ]);
-
-
-        $user = User::create([
-            'role' => $request->roles,
-            'nik' => $request->nik,
-            'id_rt' => $request->id_rt,
-            'password' => $namaUpper . $request->tanggal_lahir,
-        ]);
-
-        // return redirect()->route('penduduk.index')->with('success', 'Data Berhasil Ditambahkan');
-
-        Alert::success('Berhasil!', 'Berhasil menambahkan data!');
-    
-        // // Redirect atau kembali ke halaman yang sesuai
-        return redirect()->back();
+    {
         
 
-}
+        $nama = $request->nama;
+        $namaArray = explode(' ', $nama);
+        $namaDepan = ucfirst($namaArray[0]);
+        $namaUpper = strtoupper($namaDepan);
+        
+            Penduduk::create([
+                'nik' => $request->nik,
+                'nomor_kk' => $request->nomor_kk,
+                'nama' => $request->nama,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'golongan_darah' => $request->golongan_darah,
+                'alamat' => $request->alamat,
+                'agama' => $request->agama,
+                'status_perkawinan' => $request->status_perkawinan,
+                'pekerjaan' => $request->pekerjaan,
+                'id_rt' => $request->id_rt,
+            ]);
 
 
-    /**
-     * Display the specified resource.
-     */
+            $user = User::create([
+                'role' => $request->roles,
+                'nik' => $request->nik,
+                'id_rt' => $request->id_rt,
+                'password' => $namaUpper . $request->tanggal_lahir,
+            ]);
+
+            
+
+            Alert::success('Berhasil!', 'Berhasil menambahkan data!');
+        
+            return redirect()->back();
+            
+
+    }
+
+
     public function show(Penduduk $penduduk)
     {
 
@@ -105,17 +90,13 @@ class PendudukController extends Controller
         
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(Penduduk $penduduk)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    
     public function update(Request $request, Penduduk $penduduk)
     {
         //
