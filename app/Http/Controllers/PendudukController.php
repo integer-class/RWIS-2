@@ -20,18 +20,13 @@ class PendudukController extends Controller
             $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
             ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
             ->where('penduduk.nama', 'LIKE', '%' . $request->search . '%')
-            ->paginate(8);
+            ->paginate(10);
           }else{
             $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
             ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
-            ->paginate(8);
-             }
-
-            
-
+            ->paginate(10);
+    }
          return view('rw.data_penduduk.index', compact('penduduk','type_menu'));
-
-
     }
 
     /**

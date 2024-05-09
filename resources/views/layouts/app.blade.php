@@ -54,7 +54,15 @@
             @include('components.header')
 
             <!-- Sidebar -->
-            @include('components.sidebar')
+
+            @if (auth()->user()->role == '1')
+                @include('components.sidebar')
+            @elseif (auth()->user()->role == '2')
+                @include('components.sidebar-rt')
+            @elseif (auth()->user()->role == '3')
+                @include('components.sidebar-warga')        
+            @endif
+            
 
             <!-- Content -->
             @yield('main')
