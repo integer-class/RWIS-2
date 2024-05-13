@@ -84,6 +84,14 @@ class PendudukController extends Controller
     public function show(Penduduk $penduduk)
     {
 
+        $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
+
+        ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
+        ->where('penduduk.nik', $penduduk->nik)
+        ->first();
+
+
+
 
         $type_menu = 'detail_penduduk'; 
         return view('rw.data_penduduk.detail_penduduk', compact('penduduk','type_menu'));

@@ -20,9 +20,6 @@ class KartuKeluargaController extends Controller
              }
              $type_menu = 'kartu-keluarga'; 
 
-
-
-
              return view('rw.data_kartukeluarga.index', compact('kartukeluarga','type_menu'));
 
         
