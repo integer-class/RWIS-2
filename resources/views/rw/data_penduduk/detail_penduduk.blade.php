@@ -13,10 +13,11 @@
 
         <div class="section">
             <div class="section-header">
-                <h1>Penduduk</h1>
+                <h1>
+                    {{ $penduduk->nama }}
+                </h1>
                 <div class="section-header-button">
                     {{-- <a href="{{ route('category.create') }}" class="btn btn-primary">Add New</a> --}}
-                    <a href="{{ route('penduduk.create') }}" class="btn btn-primary">Tambah Penduduk</a>
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
@@ -77,7 +78,9 @@
                                                 <h4>Total Komplain</h4>
                                             </div>
                                             <div class="card-body">
-                                                10
+                                                {{
+                                                    $komplain;
+                                                }}
                                             </div>
                                         </div>
                                     </div>
@@ -94,7 +97,9 @@
                                                 <h4>Jumlah Keluarga</h4>
                                             </div>
                                             <div class="card-body">
-                                                47
+                                                {{
+                                                    $jumlah_anggota_keluarga;
+                                                }}
                                             </div>
                                         </div>
                                     </div>
@@ -114,30 +119,35 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="jenis_kelamin">Jenis Kelamin</label>
-                                        <input type="text" class="form-control" id="jenis_kelamin" value="Laki-laki"
+
+                                        
+                                        <input type="text" class="form-control" id="jenis_kelamin" value="{{
+                                            $penduduk->jenis_kelamin == 'L' ? 'Laki-laki' : 'Perempuan'
+                                        
+                                        }}"
                                             readonly>
                                     </div>
                                     <div class="form-group ">
                                         <label for="tempat_lahir">Golongan Darah</label>
-                                        <input type="text" class="form-control lg" id="tempat_lahir" value="B"
+                                        <input type="text" class="form-control lg" id="tempat_lahir" value="{{ $penduduk->golong_darah }}"
                                             readonly>
                                     </div>
         
                                     <div class="form-group">
                                         <label for="tanggal_lahir">Tanggal Lahir</label>
-                                        <input type="text" class="form-control" id="tanggal_lahir" value="1990-01-01"
+                                        <input type="text" class="form-control" id="tanggal_lahir" value="{{ $penduduk->tanggal_lahir }}"
                                             readonly>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="tempat_lahir">Agama</label>
-                                        <input type="text" class="form-control lg" id="tempat_lahir" value="Islam"
+                                        <input type="text" class="form-control lg" id="tempat_lahir" value="{{ $penduduk->agama }}"
                                             readonly>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="tempat_lahir">Status Perkawinan</label>
-                                        <input type="text" class="form-control lg" id="tempat_lahir" value="Islam"
+                                        <input type="text" class="form-control lg" id="tempat_lahir" value="{{ $penduduk->status_perkawinan }}"
                                             readonly>
                                     </div>
                                 </div>
@@ -165,46 +175,35 @@
                                 </div>
                         </div>
 
+
+
+                        
+
+                        @if(isset($penduduk_kk) && $penduduk_kk->count() > 0)
                         <div class="card">
                             <div class="card-header">
                                 <h4>Actions</h4>
                             </div>
                             <div class="card-body">
-                                <ul class="list-unstyled list-unstyled-border">
-                                    <li class="media">
-                                        <img alt="image" class="rounded-circle mr-3" width="50" src="http://127.0.0.1:8001/img/avatar/avatar-1.png">
-                                        <div class="media-body">
-                                            <div class="font-weight-bold mt-0 mb-1">Hasan Basri</div>
-                                            <div class="text-success text-small font-600-bold"><i class="fas fa-circle"></i>
-                                                Kepala Keluarga</div>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <img alt="image" class="rounded-circle mr-3" width="50" src="http://127.0.0.1:8001/img/avatar/avatar-2.png">
-                                        <div class="media-body">
-                                            <div class="font-weight-bold mt-0 mb-1">Bagus Dwi Cahya</div>
-                                            <div class="text-success text-small font-600-bold"><i class="fas fa-circle"></i>
-                                                Anggota Keluarga</div>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <img alt="image" class="rounded-circle mr-3" width="50" src="http://127.0.0.1:8001/img/avatar/avatar-3.png">
-                                        <div class="media-body">
-                                            <div class="font-weight-bold mt-0 mb-1">Wildan Ahdian</div>
-                                            <div class="text-success text-small font-600-bold"><i class="fas fa-circle"></i>
-                                                Anggota Keluarga</div>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <img alt="image" class="rounded-circle mr-3" width="50" src="http://127.0.0.1:8001/img/avatar/avatar-4.png">
-                                        <div class="media-body">
-                                            <div class="font-weight-bold mt-0 mb-1">Rizal Fakhri</div>
-                                            <div class="text-success text-small font-600-bold"><i class="fas fa-circle"></i>
-                                                Anggota Keluarga</div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                @foreach ($penduduk_kk as $keluarga)
+                                    <ul class="list-unstyled list-unstyled-border">
+                                        <li class="media">
+                                            <img alt="image" class="rounded-circle mr-3" width="50" src="http://127.0.0.1:8001/img/avatar/avatar-1.png">
+                                            <div class="media-body">
+                                                <div class="font-weight-bold mt-0 mb-1">
+                                                    <a style="color: black" href="{{ route('penduduk.show', $keluarga->nik)}}">{{ $keluarga->nama }}</a>
+                                                </div>
+                                                <div class="text-success text-small font-600-bold"><i class="fas fa-circle"></i>
+                                                    Kepala Keluarga
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                @endforeach
                             </div>
+                        </div>
+                    @endif
+                    
 
 
                         

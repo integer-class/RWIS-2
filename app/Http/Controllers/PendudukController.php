@@ -91,10 +91,28 @@ class PendudukController extends Controller
         ->first();
 
 
+        $jumlah_anggota_keluarga = \App\Models\Penduduk::where('nomor_kk', $penduduk->nomor_kk)->count();
+
+
+        $komplain = \App\Models\Komplain::where('nik', $penduduk->nik)->count();
+
+
+
+
+        $penduduk_kk = \App\Models\Penduduk::where('nomor_kk', $penduduk->nomor_kk)
+        ->where('nik', '!=', $penduduk->nik) // Exclude the person
+        ->get();
+
+
+        $komplain = \App\Models\Komplain::where('nik', $penduduk->nik)->count();
+
+        
+
+
 
 
         $type_menu = 'detail_penduduk'; 
-        return view('rw.data_penduduk.detail_penduduk', compact('penduduk','type_menu'));
+        return view('rw.data_penduduk.detail_penduduk', compact('penduduk','type_menu','penduduk_kk','jumlah_anggota_keluarga','komplain'));
         
     }
 
