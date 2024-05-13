@@ -143,7 +143,7 @@
 
                                     <input type="text"
                                         class="form-control"
-                                        name="nomor_kk">
+                                        name="nomor_kk" id="tags">
                                 </div>
                             </div>
 
@@ -197,5 +197,25 @@
 @endsection
 
 @push('scripts')
+
+
+<script>
+    $( function() {
+      // Mengambil data penduduk dari controller Laravel dan menyimpannya dalam format yang sesuai
+      var availableTags = [
+        @foreach($kartukeluarga as $kk)
+          "{{ $kk->nomor_kk }}",
+        @endforeach
+      ];
+      $( "#tags" ).autocomplete({
+        source: availableTags
+      });
+    } );
+    </script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
 @endpush
 
