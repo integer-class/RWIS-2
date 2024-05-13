@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         // \App\Models\User::factory(9)->create();
 
         $user = \App\Models\User::factory()->create([
-            'name' => 'Uzi',
+            // 'name' => 'Uzi',
             'id_rt' => '1',
             'nik' => '1234567890123456',
             'password' => Hash::make('password'),
@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
         ]);
 
         $user = \App\Models\User::factory()->create([
-            'name' => 'Rizki',
+            // 'name' => 'Rizki',
             'id_rt' => '2',
             'nik' => '1234567890123457',
             'password' => Hash::make('password'),
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
         ]);
 
         $user = \App\Models\User::factory()->create([
-            'name' => 'Rizal',
+            // 'name' => 'Rizal',
             'id_rt' => '3',
             'nik' => '1234567890123458',
             'password' => Hash::make('password'),

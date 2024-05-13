@@ -25,9 +25,12 @@
                     <div class="breadcrumb-item">Penduduk</div>
                 </div>
             </div>
+            
 
 
             <div class="section-body">
+                <a style="width:130px; height:38px" href="{{ route('penduduk.index') }}" class="btn btn-lg btn-primary">Kembali</a>
+
                 <div class="">
                     <div style="margin-left: 30px;margin-top:90px" class="row">
 

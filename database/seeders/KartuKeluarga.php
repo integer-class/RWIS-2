@@ -17,6 +17,7 @@ class KartuKeluarga extends Seeder
 
         \App\Models\KartuKeluarga::factory()->create([
                 'nomor_kk' => '472751886',
+                'kepalakeluarga' => 'Budi',
                 'alamat' => 'Jl. Test No. 1',
                 'rt' => '001', // contoh nomor RT
                 'rw' => '002', // contoh nomor RW

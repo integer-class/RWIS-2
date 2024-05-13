@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('kartu_keluarga', function (Blueprint $table) {
             $table->id('nomor_kk');
+            $table->string('kepalakeluarga');
+            
             $table->string('alamat');
             $table->string('rt');
             $table->string('rw');

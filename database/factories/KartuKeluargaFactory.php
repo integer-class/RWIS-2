@@ -18,6 +18,7 @@ class KartuKeluargaFactory extends Factory
     {
         return [
             'nomor_kk' => $this->faker->unique()->randomNumber(9),
+            'kepalakeluarga' => $this->faker->name(),
             'alamat' => $this->faker->address(),
             'rt' => $this->faker->numberBetween(1, 10),
             'rw' => $this->faker->randomNumber(3),

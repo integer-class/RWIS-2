@@ -57,9 +57,7 @@
                                             <th>No</th>
                                             <th>Nomor KK</th>
                                             <th>alamat</th>
-                                            <th></th>
-                                            <th>Pekerjaan</th>
-                                            <th>Alamat</th>
+                                            <th>Kepala Keluarga</th>
                                             <th>Action</th>
                                         </tr>
                                          {{-- @foreach ($penduduk as $p)
