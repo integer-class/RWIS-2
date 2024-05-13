@@ -14,6 +14,7 @@ class KartuKeluarga extends Model
     protected $fillable = [
         'nomor_kk',
         'alamat',
+        'kepalakeluarga',
         'rt',
         'rw',
         'kelurahan',

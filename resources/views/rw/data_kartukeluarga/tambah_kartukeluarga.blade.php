@@ -25,6 +25,8 @@
             </div>
 
             <div class="section-body">
+                @include('sweetalert::alert')
+
                 {{-- <h2 class="section-title">Users</h2> --}}
 
 
@@ -45,6 +47,15 @@
                                     <input type="number"
                                         class="form-control"
                                         name="nomor_kk">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12" >
+                                <div class="form-group">
+                                    <label>Kepala Keluarga</label>
+                                    <input type="text"
+                                        class="form-control"
+                                        name="kepalakeluarga">
                                 </div>
                             </div>
 
@@ -107,6 +118,8 @@
                                         name="provinsi">
                                 </div>
                             </div>
+
+                            
 
 
 

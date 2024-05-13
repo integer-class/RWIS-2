@@ -60,37 +60,34 @@
                                             <th>Kepala Keluarga</th>
                                             <th>Action</th>
                                         </tr>
-                                         {{-- @foreach ($penduduk as $p)
+                                         @foreach ($kartukeluarga as $kk)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $p->nik }}</td>
+                                                <td>{{ $kk->nomor_kk }}</td>
+                                                <td>{{ $kk->alamat }}</td>
+                                                <td>{{ $kk->kepalakeluarga }}</td>
 
-                                                <td>{{ $p->nama }}</td>
-                                                <td>{{ $p->jenis_kelamin }}</td>
-                                                <td>{{ $p->pekerjaan }}</td>
-                                                <td>{{ $p->alamat }}</td>
-
+                                               
                                                 <td>
-                                                    <div class="d-flex justify-content-center">
-                                                        <a href='{{ route('penduduk.edit', $p->nik) }}'
-                                                            class="btn btn-sm btn-info btn-icon">
-                                                            <i class="fas fa-edit"></i>
-                                                            Edit
-                                                        </a>
-
-                                                        <form action="{{ route('penduduk.destroy', $p->nik) }}" method="POST"
-                                                            class="ml-2">
-                                                            <input type="hidden" name="_method" value="DELETE" />
-                                                            <input type="hidden" name="_token"
-                                                                value="{{ csrf_token() }}" />
-                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
-                                                                <i class="fas fa-times"></i> Delete
-                                                            </button>
-                                                        </form>
+                                                    <div style="margin-left: -20px" class="dropdown">
+                                                        <a href="#"
+                                                            data-toggle="dropdown"
+                                                            class="btn btn-outline-primary dropdown-toggle">Options</a>
+                                                        <div class="dropdown-menu">
+                                                            <a href="{{ route('penduduk.show', $kk->nomor_kk)}}"
+                                                                class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
+                                                            <a href="#"
+                                                                class="dropdown-item has-icon"><i class="far fa-edit"></i> Edit</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#"
+                                                                class="dropdown-item has-icon text-danger"><i
+                                                                    class="far fa-trash-alt"></i> Delete</a>
+                                                        </div>
                                                     </div>
+                                                   
                                                 </td>
                                             </tr>
-                                        @endforeach --}}
+                                        @endforeach
 
 
                                     </table>

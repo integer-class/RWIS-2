@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KartuKeluarga;
+use Alert;
+
 
 class KartuKeluargaController extends Controller
 {
@@ -13,7 +15,7 @@ class KartuKeluargaController extends Controller
     public function index(Request $request)
     {
         if($request->has('search')){
-            $kartukeluarga = \App\Models\KartuKeluarga::where('nama', 'LIKE', '%' . $request->search . '%')->paginate(8);
+            $kartukeluarga = \App\Models\KartuKeluarga::where('kepalakeluarga', 'LIKE', '%' . $request->search . '%')->paginate(8);
           }else{
                $kartukeluarga = \App\Models\KartuKeluarga::paginate(8);
 
@@ -43,6 +45,7 @@ class KartuKeluargaController extends Controller
         
         KartuKeluarga::create([
             'nomor_kk' => $request->nomor_kk,
+            'kepalakeluarga' => $request->kepalakeluarga,
             'alamat' => $request->alamat,
             'rt' => $request->rt,
             'rw' => $request->rw,
@@ -52,7 +55,9 @@ class KartuKeluargaController extends Controller
             'provinsi' => $request->provinsi,
            
         ]);
-        return redirect()->route('kartu-keluarga.index')->with('success', 'Data Berhasil Ditambahkan');
+        Alert::success('Berhasil!', 'Berhasil menambahkan data!');
+        
+        return redirect()->back();
 
         
     }
