@@ -58,10 +58,10 @@
                                 
 
                                 <div class="form-group">
-                                    <select style="height: 50px" class="form-control">
+                                    <select disabled style="height: 50px" class="form-control">
                                         <option>Warga</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
+                                        <option>RT</option>
+                                       
                                     </select>
                                 </div>
 

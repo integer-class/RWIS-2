@@ -58,9 +58,10 @@
                                             <th>NIK</th>
                                             <th>Nama</th>
                                             <th>Jenis Kelamin</th>
-                                            <th>Pekerjaan</th>
+                                          
                                             <th>Alamat</th>
                                             <th>RT</th>
+                                            <th>Role</th>
                                             <th>Action</th>
                                         </tr>
                                          @foreach ($penduduk as $p)
@@ -70,9 +71,18 @@
 
                                                 <td>{{ $p->nama }}</td>
                                                 <td>{{ $p->jenis_kelamin }}</td>
-                                                <td>{{ $p->pekerjaan }}</td>
+                                               
                                                 <td>{{ $p->alamat }}</td>
                                                 <td>{{ $p->nama_rt }}</td>
+                                                <td>
+                                                    @if ($p->role=='2')
+                                                    <div class="badge badge-success">Ketua RT</div>
+                                                    
+                                                    @elseif ($p->role=='3')
+                                                    <div class="badge badge-info">Warga</div>
+
+                                                    @endif
+                                                </td>
 
                                                 <td>
                                                     {{-- <div class="d-flex justify-content-center">

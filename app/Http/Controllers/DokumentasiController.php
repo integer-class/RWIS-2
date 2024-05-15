@@ -11,7 +11,8 @@ class DokumentasiController extends Controller
      */
     public function index()
     {
-        return view('rw.data_dokumentasi.index');
+        $type_menu = 'dokumentasi';
+        return view('rw.data_dokumentasi.index' , compact('type_menu'));
     }
 
     /**
