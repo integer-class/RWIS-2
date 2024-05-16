@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str; 
 use App\Models\Dokumentasi; 
 
-use Alert;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Session;
+
+
 
 
 class DokumentasiController extends Controller
@@ -66,14 +69,13 @@ class DokumentasiController extends Controller
 
         // Set flash
         return response()->json(['success' => true, 'message' => 'Images uploaded successfully.']);
+        
     } catch (\Exception $e) {
         // Log the error for debugging
         \Log::error('Error uploading images: ' . $e->getMessage());
 
         // Return a JSON response with an error message
         return response()->json(['success' => false, 'message' => 'An error occurred while uploading images.'], 500);
-        Alert::success('Berhasil!', 'Berhasil menambahkan data!');
-
     }
     
 }
