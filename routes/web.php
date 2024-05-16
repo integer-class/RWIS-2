@@ -13,6 +13,9 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
         return view('rw.index', ['type_menu' => '/dashboard']);
     })->name('rw');
 
+    Route::post('/file', [DokumentasiController::class, 'store'])->name('dokumentasi.store');
+
+
     Route::put('komplain/ubahstatus/{id}',[KomplainController::class,'ubahstatus'])->name('komplain.ubahstatus');
     
     Route::get('komplain/diterima', [KomplainController::class, 'diterima'])->name('komplain.diterima');
