@@ -14,7 +14,12 @@ return new class extends Migration
         Schema::create('pengumuman', function (Blueprint $table) {
             $table->id('id_pengumuman');
             $table->string('judul');
+            $table->string('kepentingan');
             $table->text('isi_pengumuman');
+            $table->string('foto');
+            $table->date('tanggal_pengumuman');
+            $table->timestamps();
+
         });
     }
 
