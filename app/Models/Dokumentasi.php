@@ -13,6 +13,11 @@ class Dokumentasi extends Model
     protected $primaryKey = "id_dokumentasi";
 
     protected $fillable = [
-        "foto"
+        "judul",
+        "deskripsi",
+        "kategori",
+        "nik",
+        "thumbnail"
+       
     ];
 }

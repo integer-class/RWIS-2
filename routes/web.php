@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 //komplain
 use App\Http\Controllers\KomplainController;
+//dokumentasi
+use App\Http\Controllers\DokumentasiController;
 
 
 Route::view('/', 'welcome');
@@ -10,8 +12,13 @@ Route::view('/', 'welcome');
 Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::get('/', function () {
         
+
         return view('rw.index', ['type_menu' => '/dashboard']);
     })->name('rw');
+
+
+    Route::post('dokumentasi/storefoto', [DokumentasiController::class, 'storefoto'])->name('dokumentasi.storefoto');
+
 
     Route::post('/file', [DokumentasiController::class, 'store'])->name('dokumentasi.store');
 

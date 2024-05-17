@@ -1,86 +1,112 @@
 @extends('layouts.app')
 
-@section('title', 'Multiple Upload')
+@section('title', 'Advanced Forms')
 
 @push('style')
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="{{ asset('library/dropzone/dist/dropzone.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    <link rel="stylesheet" href="{{ asset('library/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/select2/dist/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
 @endpush
 
 @section('main')
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Multiple Upload</h1>
+                <h1>Tambah Dokumentasi</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Components</a></div>
-                    <div class="breadcrumb-item">Multiple Upload</div>
+                    <div class="breadcrumb-item active"><a href="#">Data</a></div>
+                    <div class="breadcrumb-item"><a href="#">Dokumentasi</a></div>
+                    <div class="breadcrumb-item">Tambah Dokumentasi</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Multiple Upload</h2>
-                <p class="section-lead">
-                    We use 'Dropzone.js' made by @Dropzone. You can check the full documentation <a href="http://www.dropzonejs.com/">here</a>.
-                </p>
+                {{-- <h2 class="section-title">Users</h2> --}}
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Multiple Upload</h4>
-                            </div>
-                            <div class="card-body">
+                @include('sweetalert::alert')
+
+
+                <div class="card">
+                    <form action="{{ route('dokumentasi.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="card-header">
+                            <h4>Form</h4>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="row" >
                                 
-                                <form action="{{ route('dokumentasi.store') }}" method="post" enctype="multipart/form-data" class="dropzone" id="image-upload">
-                                    @csrf
-                                    <div>
-                                        <h4>Upload Multiple Image By Click On Box</h4>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Judul Dokumentasi Kegiatan </label>
+                                    <input type="text"
+                                        class="form-control"
+                                        name="judul">
+                                </div>
+                            </div>
+                            <div class="col-md-8" >
+                                <div class="form-group">
+                                    <label>Kategori</label>
+                                    <select class="form-control" name="kategori">
+                                        <option value="Keagamaan">Keagamaan</option>
+                                        <option value="Gotong Royong">Gotong Royong</option>
+                                        <option value="Hajatan">Hajatan</option>
+                                        <option value="Kegiatan Warga">Kegiatan Warga</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="form-group">
+                                    <label>Thumnail</label>
+                                    <div class="col-sm-9">
+                                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image">
+
                                     </div>
-                                </form>
-                                <button id="uploadFile" class="btn btn-success mt-1">Upload Images</button>
+                                    @error('image')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+    
+
+                            </div>
+                            <div class="col-md-12" >
+                                <div class="form-group">
+                                    <label>Keterangan</label>
+                                    <textarea style="height: 100px" class="form-control" name="keterangan"></textarea>
+                                   
+                                </div>
+                            </div>
+                           
+
+                           
+
+                          
+
+                        
+                                
+                            
                             </div>
                         </div>
-                    </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
+
             </div>
         </section>
     </div>
 @endsection
 
 @push('scripts')
-    <!-- JS Libraries -->
-    <script src="{{ asset('library/dropzone/dist/min/dropzone.min.js') }}"></script>
-    <!-- Include SweetAlert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <script type="text/javascript">
-        // Initialize Dropzone
-        Dropzone.autoDiscover = false;
-        var myDropzone = new Dropzone(".dropzone", { 
-            autoProcessQueue: false, // Disable automatic processing of the queue
-            paramName: "files",
-            uploadMultiple: true,
-            maxFilesize: 5, // Maximum file size in MB
-            acceptedFiles: ".jpeg,.jpg,.png,.gif",
-            addRemoveLinks: false // Disable delete option
-        });
-
-        // Trigger manual upload on button click
-        $('#uploadFile').click(function(){
-            myDropzone.processQueue(); // Manually process the queue on button click
-        });
-
-        // Handle the response after uploading images
-        myDropzone.on("success", function(file, response) {
-            // Display success message using SweetAlert
-            Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: response.message // Assuming the response contains a message field
-            });
-        });
-    </script>
 @endpush
+

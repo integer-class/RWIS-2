@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dokumentasi', function (Blueprint $table) {
-            $table->id("id_dokumentasi");
-            $table->foreignId('nik')->references('nik')->on('users');
-            $table->string("kategori");
-            $table->string("judul");
-            $table->string("thumbnail");
-            $table->string("deskripsi");
+        Schema::create('dokumentasi_foto', function (Blueprint $table) {
+            $table->foreignId('id_dokumentasi')->references('id_dokumentasi')->on('dokumentasi');
+            $table->string('filesize');
+            $table->string('path');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dokumentasi');
+        Schema::dropIfExists('dokumentasi_foto');
     }
 };
