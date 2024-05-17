@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('nik')->references('nik')->on('users');
             $table->string("kategori");
             $table->string("judul");
+            $table->date("tanggal");
             $table->string("thumbnail");
             $table->string("deskripsi");
             $table->timestamps();

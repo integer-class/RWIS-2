@@ -57,6 +57,7 @@ class DokumentasiController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'kategori' => 'required|string|max:255',
             'judul' => 'required|string|max:255',
+            'tanggal' => 'required|date',
             'keterangan' => 'required|string|max:255',
         ]);
     
@@ -71,6 +72,7 @@ class DokumentasiController extends Controller
                 'kategori' => $request->kategori,
                 'judul' => $request->judul,
                 'deskripsi' => $request->keterangan,
+                'tanggal' => $request->tanggal,
                 'nik' => Auth::user()->nik,
                 'thumbnail' => $filename,
             ]);

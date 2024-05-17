@@ -17,11 +17,12 @@ class DokumentasiFactory extends Factory
     public function definition(): array
     {
         return [
-
-            "id_user" => "3",
-            "judul" => $this->faker->sentence(3),
-            "deskripsi" => $this->faker->sentence(10),
-            "foto" => $this->faker->imageUrl(640, 480, 'animals', true),
+            "judul" => $this->faker->sentence(),
+            "deskripsi" => $this->faker->paragraph(),
+            "tanggal" => $this->faker->date(),
+            "kategori" => $this->faker->word(),
+            "nik" => $this->faker->randomNumber(),
+            "thumbnail" => $this->faker->word(),
         ];
     }
 }

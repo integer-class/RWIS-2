@@ -48,7 +48,7 @@
                                         name="judul">
                                 </div>
                             </div>
-                            <div class="col-md-8" >
+                            <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Kategori</label>
                                     <select class="form-control" name="kategori">
@@ -61,22 +61,34 @@
                                 </div>
                             </div>
 
-                            <div>
+                            <div class="col-md-4" >
                                 <div class="form-group">
-                                    <label>Thumnail</label>
-                                    <div class="col-sm-9">
-                                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image">
-
-                                    </div>
-                                    @error('image')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <label>Tanggal</label>
+                                    <input type="date" class="form-control" name="tanggal">
                                 </div>
-    
-
                             </div>
+
+                            <div class="col-md-4" >
+                                <div>
+                                    <div class="form-group">
+                                        <label>Thumnail</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image">
+    
+                                        </div>
+                                        @error('image')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+        
+    
+                                </div>
+                            </div>
+
+
+                           
                             <div class="col-md-12" >
                                 <div class="form-group">
                                     <label>Keterangan</label>

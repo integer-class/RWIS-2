@@ -6,6 +6,9 @@
     <!-- CSS Libraries -->
     <link rel="stylesheet"
         href="{{ asset('library/selectric/public/selectric.css') }}">
+
+        <link rel="stylesheet"
+        href="{{ asset('library/ionicons201/css/ionicons.min.css') }}">
 @endpush
 
 @section('main')
@@ -28,30 +31,29 @@
 
                 @foreach ( $dokumentasi as $dokumen )
 
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                    <article class="article">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                    <article class="article article-style-b">
                         <div class="article-header">
                             <div class="article-image"
                                 data-background="{{ asset('storage/thumbnail/'.$dokumen->thumbnail) }}">
                             </div>
-                            <div class="article-title">
-                                <h2><a href="#">
-                                    {{ $dokumen->judul }}
-
-                                    
-                                    </a></h2>
+                            <div class="article-badge">
+                                <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i> {{ $dokumen->kategori }} </div>
                             </div>
                         </div>
                         <div class="article-details">
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. </p>
+                            <div class="article-title">
+                                <h2><a href="#"> {{ $dokumen->judul }}</a></h2>
+                            </div>
+                            <p>{{ $dokumen->deskripsi }}</p>
                             <div class="article-cta">
-                                <a href="#"
-                                    class="btn btn-primary">Read More</a>
+                                <a href="{{ route('dokumentasi.show', $dokumen->id_dokumentasi) }}">Lihat<i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </article>
                 </div>
+
+              
                 
                     
                 @endforeach

@@ -15,6 +15,7 @@ class Dokumentasi extends Model
     protected $fillable = [
         "judul",
         "deskripsi",
+        "tanggal",
         "kategori",
         "nik",
         "thumbnail"

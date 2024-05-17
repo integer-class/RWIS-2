@@ -12,6 +12,13 @@ class Dokumentasi extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Dokumentasi::factory(10)->create();   
+        $user = \App\Models\Dokumentasi::factory()->create([
+            'judul' => 'Membereskan Sampah',
+            'deskripsi' => 'Gotong royong membersihkan sampah di sekitar lingkungan RW 01',
+            'tanggal' => '2024-05-17',
+            'kategori' => 'Gotong Royong',
+            'nik' => '1234567890123456',
+            'thumbnail' => '1715974412.jpg',
+        ]);
     }
 }

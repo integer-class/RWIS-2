@@ -4,7 +4,8 @@
 
 @push('style')
     <!-- CSS Libraries -->
-    <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet"
+    href="{{ asset('library/dropzone/dist/dropzone.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
     <style type="text/css">
         .dz-preview .dz-image img{
@@ -19,28 +20,31 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Multiple Upload</h1>
+                <h1>Tambah foto dokumentasi  </h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Components</a></div>
-                    <div class="breadcrumb-item">Multiple Upload</div>
+                    <div class="breadcrumb-item"><a href="#">Dokumentasi</a></div>
+                    <div class="breadcrumb-item">Tambah Foto</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Multiple Upload</h2>
-                <p class="section-lead">
-                    We use 'Dropzone.js' made by @Dropzone. You can check the full documentation <a href="http://www.dropzonejs.com/">here</a>.
-                </p>
+                <h2 class="section">
+                    
+                    <a style="width:130px; height:38px; margin-bottom:20px" href="{{ route('dokumentasi.index') }}" class="btn btn-lg btn-primary">Kembali</a>
 
+
+                </h2>
+                
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Multiple Upload</h4>
+                                <h4>Maximal upload foto 1mb
+                                </h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('dokumentasi.storefoto') }}" method="post" enctype="multipart/form-data" class="dropzone">
+                                <form style="margin-bottom: 20px" action="{{ route('dokumentasi.storefoto') }}" method="post" enctype="multipart/form-data" class="dropzone">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $id }}">
                                     <!-- Removed title input field -->
@@ -61,8 +65,10 @@
 @push('scripts')
     <!-- JS Libraries -->
     {{-- <script src="{{ asset('library/dropzone/dist/min/dropzone.min.js') }}"></script> --}}
-    <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ asset('library/dropzone/dist/min/dropzone.min.js') }}"></script>
+
+    <!-- Page Specific JS File -->
+    <script src="{{ asset('js/page/components-multiple-upload.js') }}"></script>
     <!-- Include SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
