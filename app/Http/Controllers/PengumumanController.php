@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pengumuman;
+use Illuminate\Support\Facades\DB;
 
 class PengumumanController extends Controller
 {
@@ -38,8 +40,44 @@ class PengumumanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi data input
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'agama' => 'required|string',
+            'masa_berlaku' => 'required|date',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'rt' => 'required|array',
+            'rt.*' => 'exists:rt,id_rt',
+            'alamat' => 'required|string',
+        ]);
+
+        // Simpan data pengumuman
+        $pengumuman = new Pengumuman();
+        $pengumuman->judul = $request->input('nama');
+        $pengumuman->kepentingan = $request->input('agama');
+        $pengumuman->tanggal_pengumuman = $request->input('masa_berlaku');
+        $pengumuman->isi_pengumuman = $request->input('alamat');
+        
+        // Cek apakah ada file yang diupload
+        if ($request->hasFile('foto')) {
+            $fileName = time().'.'.$request->foto->extension();
+            $request->foto->move(public_path('uploads'), $fileName);
+            $pengumuman->foto = $fileName;
+        }
+
+        $pengumuman->save();
+
+        // Simpan data ke tabel pengumuman_rt
+        foreach ($request->input('rt') as $rtId) {
+            DB::table('pengumuman_rt')->insert([
+                'id_pengumuman' => $pengumuman->id,
+                'id_rt' => $rtId,
+            ]);
+        }
+
+        return redirect()->route('pengumuman.index')->with('success', 'Pengumuman berhasil disimpan');
     }
+
 
     /**
      * Display the specified resource.

@@ -17,6 +17,7 @@ class Pengumuman extends Model
         'judul',
         'isi_pengumuman',
         'foto',
-        'tanggal_pengumuman'
+        'tanggal_pengumuman',
+        'kepentingan'
     ];
 }
