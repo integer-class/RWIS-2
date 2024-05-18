@@ -14,6 +14,7 @@ class Pengumuman extends Model
     protected $primaryKey = 'id_penguamuman';
 
     protected $fillable = [
+        'id_pengumuman',
         'judul',
         'isi_pengumuman',
         'foto',

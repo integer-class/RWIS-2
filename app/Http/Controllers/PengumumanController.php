@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pengumuman;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
 
 class PengumumanController extends Controller
 {
@@ -23,60 +25,68 @@ class PengumumanController extends Controller
      */
     public function create()
     {
-        
         $type_menu = 'pengumuman';
-
-        //ambil data pengumuman
         $rt = \App\Models\Rt::all();
 
+        // Panggil fungsi untuk membuat kode unik
+        $uniqueCode = $this->generateUniqueCode();
 
+        return view('rw.data_pengumuman.create', compact('type_menu', 'rt', 'uniqueCode'));
+    }
 
+    private function generateUniqueCode()
+    {
+        do {
+            $code = strtoupper(Str::random(6));
+        } while (Pengumuman::where('id_pengumuman', $code)->exists());
 
-        return view('rw.data_pengumuman.create', compact('type_menu','rt'));
+        return $code;
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        // Validasi data input
-        $request->validate([
-            'nama' => 'required|string|max:255',
-            'agama' => 'required|string',
-            'masa_berlaku' => 'required|date',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'rt' => 'required|array',
-            'rt.*' => 'exists:rt,id_rt',
-            'alamat' => 'required|string',
-        ]);
 
-        // Simpan data pengumuman
-        $pengumuman = new Pengumuman();
-        $pengumuman->judul = $request->input('nama');
-        $pengumuman->kepentingan = $request->input('agama');
-        $pengumuman->tanggal_pengumuman = $request->input('masa_berlaku');
-        $pengumuman->isi_pengumuman = $request->input('alamat');
-        
-        // Cek apakah ada file yang diupload
-        if ($request->hasFile('foto')) {
-            $fileName = time().'.'.$request->foto->extension();
-            $request->foto->move(public_path('uploads'), $fileName);
-            $pengumuman->foto = $fileName;
-        }
+     public function store(Request $request)
+{
 
-        $pengumuman->save();
+     // Validate data input
 
-        // Simpan data ke tabel pengumuman_rt
+
+    // Create a new Pengumuman instance
+    $pengumuman = new Pengumuman();
+    $pengumuman->judul = $request->input('judul');
+    $pengumuman->kepentingan = $request->input('kepentingan');
+    $pengumuman->tanggal_pengumuman = $request->input('masa_berlaku');
+    $pengumuman->isi_pengumuman = $request->input('isi_pengumuman');
+    $pengumuman->id_pengumuman = $request->input('id_pengumuman');
+
+    if ($request->hasFile('foto')) {
+        $fileName = time().'.'.$request->foto->extension();
+        $request->foto->move(public_path('pengumuman'), $fileName);
+        $pengumuman->foto = $fileName;
+    }
+
+    // Save the Pengumuman instance
+    $pengumuman->save();
+
+    // Debugging: Check if the Pengumuman instance has an ID
+   
+
+        // Save data to the pengumuman_rt table
         foreach ($request->input('rt') as $rtId) {
+
             DB::table('pengumuman_rt')->insert([
-                'id_pengumuman' => $pengumuman->id,
+                'id_pengumuman' => $request->id_pengumuman,
                 'id_rt' => $rtId,
             ]);
         }
 
         return redirect()->route('pengumuman.index')->with('success', 'Pengumuman berhasil disimpan');
-    }
+    
+   
+}
+   
 
 
     /**

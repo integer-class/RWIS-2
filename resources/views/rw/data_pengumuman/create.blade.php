@@ -42,6 +42,7 @@
                                     <div class="form-group">
                                         <label>Judul Pengumuman</label>
                                         <input type="text" class="form-control" name="judul">
+                                        <input type="hidden" name="id_pengumuman" value="{{ $uniqueCode }}">
                                     </div>
                                 </div>
                     
@@ -94,6 +95,7 @@
                             <button class="btn btn-primary">Submit</button>
                         </div>
                     </form>
+                    
                     
                     
                    
