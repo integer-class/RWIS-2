@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pengumuman', function (Blueprint $table) {
             $table->string('id_pengumuman', 100)->collation('utf8mb4_0900_ai_ci')->primary();
+            $table->foreignId('nik')->references('nik')->on('penduduk');
             $table->string('judul');
             $table->string('kepentingan');
             $table->text('isi_pengumuman');

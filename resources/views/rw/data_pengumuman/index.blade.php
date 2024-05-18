@@ -56,20 +56,20 @@
                                         <tr>
                                            
                                             <th>Judul</th>
-                                            <th>Kategori Komplain</th>
+                                            <th>Kepentingan</th>
                                             <th>
-                                                nama Pelapor
+                                                Nama Pembuat
                                             </th>
                                             <th>
-                                                Tanggal
+                                                Masa Berlaku
                                             </th>
                                             <th>Status</th>
                                         </tr>
-                                        {{-- @foreach ($komplain as $k) --}}
+                                        @foreach ($pengumuman as $k)
                                         <tr>
                                            
                                             <td>      
-                                                  {{-- {{$k->judul_komplain}} --}}
+                                                  {{$k->judul}}
                                                 <div class="table-links">
                                                     <a href="
                                                     {{-- {{ route('komplain.show') }} --}}
@@ -82,7 +82,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                {{-- {{$k->kategori_komplain->nama_kategori_komplain}} --}}
+                                                {{$k->kepentingan}}
                                             
                                             </td>
                                             <td>
@@ -93,11 +93,11 @@
                                                         width="35"
                                                         data-toggle="title"
                                                         title="">
-                                                    {{-- <div class="d-inline-block ml-1">{{ $k->penduduk->nama }}</div> --}}
+                                                    <div class="d-inline-block ml-1">{{ $k->nama }}</div>
                                                 </a>
                                             </td>
                                             <td>
-                                                {{-- {{ $k->created_at->format('Y-m-d') }} --}}
+                                                {{ $k->tanggal_pengumuman }}
 
                                             </td>
                                             <td>
@@ -111,7 +111,7 @@
                                                 @endif --}}
                                             </td>
                                         </tr>
-                                        {{-- @endforeach --}}
+                                        @endforeach
                                     </table>
                                 </div>
 

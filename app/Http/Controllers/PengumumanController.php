@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pengumuman;
+use App\Models\pengumuman_rt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -17,7 +18,17 @@ class PengumumanController extends Controller
     {
         //pengumuman
         $type_menu = 'pengumuman';
-        return view('rw.data_pengumuman.index', compact('type_menu'));
+
+        $pengumuman = Pengumuman::join('penduduk', 'pengumuman.nik', '=', 'penduduk.nik')
+            // ->where('users.nik', auth()->user()->nik)
+            ->get();
+
+
+
+
+
+
+        return view('rw.data_pengumuman.index', compact('type_menu','pengumuman'));
     }
 
     /**
@@ -60,6 +71,7 @@ class PengumumanController extends Controller
     $pengumuman->tanggal_pengumuman = $request->input('masa_berlaku');
     $pengumuman->isi_pengumuman = $request->input('isi_pengumuman');
     $pengumuman->id_pengumuman = $request->input('id_pengumuman');
+    $pengumuman->nik = auth()->user()->nik;
 
     if ($request->hasFile('foto')) {
         $fileName = time().'.'.$request->foto->extension();
