@@ -11,7 +11,7 @@ class Pengumuman_rt extends Model
 
     protected $table = 'pengumuman_rt';
 
-    protected $primaryKey = 'id_penguamuman';
+    
 
 
 }
