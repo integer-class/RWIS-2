@@ -18,25 +18,7 @@
     <div class="main-content">
         
 
-        <div class="modal fade" id="importantModal" tabindex="-1" role="dialog" aria-labelledby="importantModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="importantModalLabel">Pengumuman Penting</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Isi pengumuman penting -->
-                        {{ $pengumuman_rt->judul }}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
    
     
 
@@ -847,21 +829,42 @@
     <script src="{{ asset('library/summernote/dist/summernote-bs4.min.js') }}"></script>
     <script src="{{ asset('library/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
 
+
+
+
+        @if ($pengumuman_rt && $pengumuman_rt->kepentingan == 'Penting' && $tanggal_sekarang <= $pengumuman_rt->tanggal_pengumuman )
+            <div class="modal fade" id="importantModal" tabindex="-1" role="dialog" aria-labelledby="importantModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="importantModalLabel">Pengumuman Penting</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Isi pengumuman penting -->
+                            {{ $pengumuman_rt->judul }}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+      @endif
+
+
+    
+
     <script type="text/javascript">
         $(document).ready(function(){
-            var tanggalPengumuman = '{{ $pengumuman_rt->tanggal_pengumuman }}';
-            var tanggalSekarang = '{{ $tanggal_sekarang }}';
-
-            console.log('tanggalPengumuman:', tanggalPengumuman);
-            console.log('tanggalSekarang:', tanggalSekarang);
-            console.log('kepentingan:', '{{ $pengumuman_rt->kepentingan }}');
-
-            if ('{{ $pengumuman_rt->kepentingan }}' === 'Penting' && new Date(tanggalSekarang) <= new Date(tanggalPengumuman)) {
-                console.log('Menampilkan modal...');
+            
+            console.log('Menampilkan modal...');
                 $('#importantModal').modal('show');
-            } else {
-                console.log('Tidak menampilkan modal.');
-            }
+            
         });
     </script>
     

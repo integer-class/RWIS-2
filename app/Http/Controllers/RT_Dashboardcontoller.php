@@ -35,6 +35,9 @@ class RT_Dashboardcontoller extends Controller
     if ($pengumuman_rt) {
         $tanggal_pengumuman = $pengumuman_rt->tanggal; 
     } 
+    else {
+        $tanggal_pengumuman = null;
+    }
     $tanggal_sekarang = date('Y-m-d');
 
     $password_default = auth()->user()->default_password;
