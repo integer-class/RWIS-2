@@ -57,33 +57,12 @@
 
             
 
-            <li class="nav-item dropdown }}">
-                <a href="#"
-                    class="nav-link has-dropdown"><i class="fas fa-heart"></i> <span>Bansos</span></a>
-                    <ul class="dropdown-menu" >
-                        <li class="{{ Request::is('bootstrap-alert') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('bootstrap-alert') }}">Verifikasi Penerima</a>
-                    </li>
-                    <li class="{{ Request::is('bootstrap-alert') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('bootstrap-alert') }}">Data Bansos</a>
-                    </li>
-                    <li class="{{ Request::is('bootstrap-badge') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('bootstrap-badge') }}">Prioritas Penerima</a>
-                    </li>
-
-                </ul>
-            </li>
+           
             <li class="nav-item dropdown }}">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Iuran</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is('bootstrap-alert') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('bootstrap-alert') }}">Verifikasi Iuran</a>
-                    </li>
+                    
                     <li class="{{ Request::is('bootstrap-alert') ? 'active' : '' }}">
                         <a class="nav-link"
                             href="{{ url('bootstrap-alert') }}">Data Iuran</a>

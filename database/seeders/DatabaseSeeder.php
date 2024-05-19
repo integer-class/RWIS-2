@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
             $this->call(Komplain::class);
             $this->call(Dokumentasi::class);
             $this->call(Dokumentasi_foto::class);
+            $this->call(Pengumuman::class);
+            $this->call(PengumumanRt::class);
 
              
            
