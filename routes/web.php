@@ -40,7 +40,12 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
 });
 
 Route::middleware(['auth', 'verified','rt'])->group(function () {
+    Route::resource('rt_dashboard', \App\Http\Controllers\RT_Dashboardcontoller::class);
+
     Route::get('/rt', [RT_Dashboardcontoller::class, 'index'])->name('rt_dashboaard.index');
+
+
+    
 
 });
 

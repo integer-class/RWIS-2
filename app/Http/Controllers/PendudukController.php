@@ -64,6 +64,7 @@ class PendudukController extends Controller
                 'status_perkawinan' => $request->status_perkawinan,
                 'pekerjaan' => $request->pekerjaan,
                 'id_rt' => $request->id_rt,
+                'foto' => 'default.jpg',
             ]);
 
 

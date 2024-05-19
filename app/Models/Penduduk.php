@@ -26,6 +26,7 @@ class Penduduk extends Model
         'pekerjaan',
         'nomor_kk',
         'id_rt',
+        'foto',
     ];
 
     public function KartuKeluarga()
