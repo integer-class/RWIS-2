@@ -829,9 +829,6 @@
     <script src="{{ asset('library/summernote/dist/summernote-bs4.min.js') }}"></script>
     <script src="{{ asset('library/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
 
-
-
-
         @if ($pengumuman_rt && $pengumuman_rt->kepentingan == 'Penting' && $tanggal_sekarang <= $pengumuman_rt->tanggal_pengumuman )
             <div class="modal fade" id="importantModal" tabindex="-1" role="dialog" aria-labelledby="importantModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -843,30 +840,39 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <!-- Isi pengumuman penting -->
-                            {{ $pengumuman_rt->judul }}
+                            {{ $pengumuman_rt->isi_pengumuman }}
+
+                            @if ($pengumuman_rt->foto == !null)
+                                <img src="{{ asset('pengumuman/' . $pengumuman_rt->foto) }}" alt="foto pengumuman" style="width: 100%; height: auto;" class="mt-3" >
+                                                            
+                            @endif
+
+                            
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
                         </div>
                     </div>
                 </div>
             </div>
 
         
-      @endif
 
 
     
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            
-            console.log('Menampilkan modal...');
-                $('#importantModal').modal('show');
-            
-        });
+    <script >
+       
+
+        document.addEventListener('DOMContentLoaded', function () {
+                    console.log('masuk');
+                    $('#importantModal').modal('show');
+
+                   
+                });
     </script>
+@endif
+
     
 
     

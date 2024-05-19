@@ -30,19 +30,17 @@
                 </ul>
             </li>
             <li class="menu-header">Data</li>
-            {{-- <li class="nav-item dropdown {{ ($type_menu === 'penduduk' || $type_menu === 'kartu-keluarga') ? 'active' : ($type_menu === 'detail_penduduk' ? 'active' : '') }}"> --}}
-            <li class="nav-item dropdown ">
+            <li class="nav-item dropdown {{ ($type_menu === 'penduduk' || $type_menu === 'kartu-keluarga') ? 'active' : ($type_menu === 'detail_penduduk' ? 'active' : '') }}">
             
-            {{-- <li class="nav-item dropdown {{ Request::is('rw/penduduk') ? 'active' : '' }}"> --}}
-                
+
                 <a href="#"
                     class="nav-link has-dropdown" 
                     data-toggle="dropdown"><i class="fas fa-users"></i> <span>Penduduk</span></a>
                 <ul class="dropdown-menu">
                     {{-- <li class='{{ Request::is('rw/penduduk') ? 'active' : '' }}'> --}}
-                    <li >
-                        <a class="nav-link" href="{{ route('penduduk.index') }}">Data Penduduk</a>
-                    </li>
+                        <li class='{{ $type_menu === 'penduduk' || $type_menu === 'detail_penduduk' ? 'active' : ''  }}'>
+                            <a class="nav-link" href="{{ route('rt_penduduk.index') }}">Data Penduduk</a>
+                        </li>
                     <li>
                         <a class="nav-link" href="{{ route('kartu-keluarga.index') }}">Data Kartu Keluarga</a>
                     </li>
