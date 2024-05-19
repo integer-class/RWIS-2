@@ -16,12 +16,19 @@
 
 @section('main')
     <div class="main-content">
-        
-
-        
-   
+        <div id="firstAccessMessage" style="display: none;">
+            Selamat datang di dashboard RT!
+        </div>
     
-
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                if (!sessionStorage.getItem('hasVisited')) {
+                    sessionStorage.setItem('hasVisited', 'true');
+                    document.getElementById('firstAccessMessage').style.display = 'block';
+                }
+            });
+        </script>
+        
 
         @include('sweetalert::alert')
 
@@ -941,11 +948,11 @@
 
 
          <!-- JS Libraies -->
-    <script src="{{ asset('library/summernote/dist/summernote-bs4.js') }}"></script>
+    {{-- <script src="{{ asset('library/summernote/dist/summernote-bs4.js') }}"></script>
     <script src="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
     <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
     <script src="{{ asset('library/upload-preview/upload-preview.js') }}"></script>
 
     <!-- Page Specific JS File -->
-    <script src="{{ asset('js/page/features-post-create.js') }}"></script>
+    <script src="{{ asset('js/page/features-post-create.js') }}"></script> --}}
 @endpush
