@@ -22,12 +22,6 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::join('penduduk', 'pengumuman.nik', '=', 'penduduk.nik')
             // ->where('users.nik', auth()->user()->nik)
             ->get();
-
-
-
-
-
-
         return view('rw.data_pengumuman.index', compact('type_menu','pengumuman'));
     }
 

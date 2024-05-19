@@ -27,12 +27,6 @@ class DokumentasiController extends Controller
         $type_menu = 'dokumentasi';
 
         $dokumentasi = Dokumentasi::all();
-
-
-        // Menampilkan data dari table dokumentasi
-
-
-
         return view('rw.data_dokumentasi.index' , compact('type_menu','dokumentasi'));
     }
 
@@ -117,21 +111,13 @@ class DokumentasiController extends Controller
         ];
     }
 
-    // Store images in the database using create method
     foreach ($images as $imageData) {
         Dokumentasi_foto::create($imageData);
     }
- // Set flash 
   return response()->json(['success' => true, 'message' => 'Images uploaded successfully.']);
 
-    //  Session::flash('success', 'Images uploaded successfully.');
-    // return response()->json(['success'=>$images]);
 }
    
-
-
-
-
     /**
      * Display the specified resource.
      */

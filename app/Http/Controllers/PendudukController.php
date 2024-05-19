@@ -72,6 +72,7 @@ class PendudukController extends Controller
                 'nik' => $request->nik,
                 'id_rt' => $request->id_rt,
                 'password' => $namaUpper . $request->tanggal_lahir,
+                'default_password' => 'yes',
             ]);
 
             

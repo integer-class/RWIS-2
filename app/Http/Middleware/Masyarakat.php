@@ -28,7 +28,7 @@ class Masyarakat
         }
 
         if($userRole==2){
-            return redirect()->route('rt');
+            return redirect()->route('rt_dashboaard.index');
         }
 
         if($userRole==1){

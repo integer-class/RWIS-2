@@ -7,11 +7,26 @@
     <link rel="stylesheet"
         href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet"
-        href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
+        href="{{ asset('library/summernote/dist/summernote-bs4.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('library/selectric/public/selectric.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
 @endpush
 
 @section('main')
     <div class="main-content">
+
+
+     
+        
+
+
+    
+        
+
+
+
         <section class="section">
             <div class="section-header">
                 <h1>Dashboard</h1>
@@ -816,4 +831,90 @@
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/index-0.js') }}"></script>
+
+
+    @if ($penduduk->foto == null  )
+            <!-- Modal HTML -->
+            <div class="modal fade" id="fotoModal" tabindex="-1" role="dialog" aria-labelledby="fotoModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="fotoModalLabel">Foto Profil Diperlukan</h5>
+                        </div>
+                        <div class="modal-body">
+                            Silakan tambahkan foto profil Anda untuk melanjutkan.
+
+                            <form id="uploadFotoForm" method="post" enctype="multipart/form-data">
+                                @csrf
+
+
+                               @if ($password_default == 'yes')
+                                   
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" name="password" class="form-control" id="password" required>
+                                    </div>
+
+                                @endif
+                              
+
+                                <div style="margin: auto;" id="image-preview"class="image-preview">
+                                <label for="image-upload"
+                                    id="image-label">Choose File</label>
+                                <input type="file"
+                                    name="image"
+                                    id="image-upload" />
+                            </div>
+                                
+                              
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+
+                
+
+                
+                document.addEventListener('DOMContentLoaded', function () {
+                    $('#fotoModal').modal('show');
+
+                    $('#uploadFotoForm').on('submit', function (e) {
+                        e.preventDefault();
+                        var formData = new FormData(this);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: 'rt_dashboaard.edit',
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            success: function (response) {
+                                // Jika berhasil, reload halaman atau lakukan tindakan lain
+                                location.reload();
+                            },
+                            error: function (response) {
+                                // Tampilkan pesan error jika gagal
+                                alert('Terjadi kesalahan saat mengunggah foto. Silakan coba lagi.');
+                            }
+                        });
+                    });
+                });
+            </script>
+        @endif
+
+
+         <!-- JS Libraies -->
+    <script src="{{ asset('library/summernote/dist/summernote-bs4.js') }}"></script>
+    <script src="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
+    <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
+    <script src="{{ asset('library/upload-preview/upload-preview.js') }}"></script>
+
+    <!-- Page Specific JS File -->
+    <script src="{{ asset('js/page/features-post-create.js') }}"></script>
 @endpush

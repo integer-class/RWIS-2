@@ -22,6 +22,7 @@ class User extends Authenticatable
         'nik',
         'password',
         'role',
+        'default_password',
 
     ];
 

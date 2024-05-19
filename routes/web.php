@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KomplainController;
 //dokumentasi
 use App\Http\Controllers\DokumentasiController;
+//rt
+use App\Http\Controllers\RT_Dashboardcontoller;
 
 
 Route::view('/', 'welcome');
@@ -38,9 +40,8 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
 });
 
 Route::middleware(['auth', 'verified','rt'])->group(function () {
-    Route::get('/rt', function () {
-        return view('rt.index');
-    })->name('rt');
+    Route::get('/rt', [RT_Dashboardcontoller::class, 'index'])->name('rt_dashboaard.index');
+
 });
 
 

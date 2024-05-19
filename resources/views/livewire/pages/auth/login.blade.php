@@ -24,7 +24,9 @@ $login = function () {
             $this->redirectIntended(default: route('rw', absolute: false), navigate: true);
             break;
             case 2:
-            $this->redirectIntended(default: route('rt', absolute: false), navigate: true);
+            // $this->redirectIntended(default: route('rt.', absolute: false), navigate: true);
+            $this->redirectIntended(default: route('rt_dashboaard.index', absolute: false), navigate: true);
+
             break;
             case 3:
             $this->redirectIntended(default: route('masyarakat', absolute: false), navigate: true);

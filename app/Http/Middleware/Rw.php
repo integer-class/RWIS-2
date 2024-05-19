@@ -31,7 +31,7 @@ class Rw
 
         if($userRole==2){
             // return redirect()->route('rw');
-            return redirect()->route('rt');
+            return redirect()->route('rt_dashboaard.index');
 
         }
 

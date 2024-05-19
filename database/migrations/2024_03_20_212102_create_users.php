@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('role')->default(3);
             $table->foreignId('nik')->references('nik')->on('penduduk');
             $table->foreignId('id_rt')->references('id_rt')->on('rt');
-
+            $table->enum('default_password', ['yes', 'no'])->default('yes');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
