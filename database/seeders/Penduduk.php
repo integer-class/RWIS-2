@@ -24,6 +24,8 @@ class Penduduk extends Seeder
             'status_perkawinan' => 'Belum Kawin',
             'pekerjaan' => 'PNS',
             'id_rt' => '1',
+            'foto' => 'default.png',
+
         ]);
 
         \App\Models\Penduduk::factory()->create([
@@ -38,6 +40,8 @@ class Penduduk extends Seeder
             'status_perkawinan' => 'Kawin',
             'pekerjaan' => 'Wirausaha',
             'id_rt' => '1',
+            'foto' => 'default.png',
+
         ]);
 
         \App\Models\Penduduk::factory()->create([
@@ -52,6 +56,8 @@ class Penduduk extends Seeder
             'status_perkawinan' => 'Cerai',
             'pekerjaan' => 'Pengusaha',
             'id_rt' => '1',
+            'foto' => 'default.png',
+
 
         ]);
     }

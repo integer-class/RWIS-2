@@ -834,7 +834,7 @@
     <script src="{{ asset('js/page/index-0.js') }}"></script>
 
 
-    @if ($penduduk->foto == 'default.jpg' || $password_default == 'yes')
+    @if ($penduduk->foto == 'default.png' || $password_default == 'yes')
             <!-- Modal HTML -->
             <div class="modal fade" id="fotoModal" tabindex="-1" role="dialog" aria-labelledby="fotoModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                 <div class="modal-dialog" role="document">
@@ -844,7 +844,7 @@
                         </div>
                         <div class="modal-body">
 
-                            @if ($penduduk->foto == 'default.jpg')
+                            @if ($penduduk->foto == 'default.png')
                                 <p>Anda belum mengunggah foto profil. Silahkan unggah foto profil terlebih dahulu.</p>
                                 
                             @elseif ($password_default == 'yes')
@@ -864,7 +864,7 @@
                                     </div>
                                 @endif
                             
-                               @if ( $penduduk->foto == 'default.jpg')
+                               @if ( $penduduk->foto == 'default.png')
                                <div style="margin: auto;" id="image-preview" class="image-preview">
                                 <label for="image-upload" id="image-label">Choose File</label>
                                 <input type="file" name="image" id="image-upload" />

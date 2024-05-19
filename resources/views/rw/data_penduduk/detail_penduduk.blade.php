@@ -37,7 +37,7 @@
                         <div class="col-md-3">
                             <div class="">
                                 <img style="border-radius:50px;"
-                                    src="https://akademik.polinema.ac.id/upload_dir/foto_ktm_valid/2022/1667983329-nr2z6-QX8b8.jpg"
+                                    src=" {{ asset('penduduk/'.$penduduk->foto) }} "
                                     alt="profile" class="img-fluid">
                             </div>
 
