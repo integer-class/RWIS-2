@@ -46,7 +46,14 @@ class RT_PendudukController extends Controller
      */
     public function create()
     {
-        //
+        $type_menu = 'penduduk';
+
+        $rt = \App\Models\Rt::where('id_rt', auth()->user()->id_rt)->get();
+
+        $kartukeluarga = \App\Models\KartuKeluarga::all();
+        
+        return view('rt.rt_data_penduduk.create', compact('rt', 'type_menu', 'kartukeluarga'));
+        
     }
 
     /**
@@ -54,7 +61,38 @@ class RT_PendudukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nama = $request->nama;
+        $namaArray = explode(' ', $nama);
+        $namaDepan = ucfirst($namaArray[0]);
+        $namaUpper = strtoupper($namaDepan);
+        
+            Penduduk::create([
+                'nik' => $request->nik,
+                'nomor_kk' => $request->nomor_kk,
+                'nama' => $request->nama,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'agama' => $request->agama,
+                'pendidikan' => $request->pendidikan,
+                'pekerjaan' => $request->pekerjaan,
+                'status_perkawinan' => $request->status_perkawinan,
+                'status_hubungan' => $request->status_hubungan,
+                'kewarganegaraan' => $request->kewarganegaraan,
+                'id_rt' => $request->id_rt,
+                'alamat' => $request->alamat,
+                'status' => '1',
+            ]);
+
+            User::create([
+                'nik' => $request->nik,
+                'password' => bcrypt($request->nik),
+                'role' => '3',
+                'id_rt' => $request->id_rt,
+            ]);
+
+            Alert::success('Berhasil', 'Data Penduduk Berhasil Ditambahkan');
+            return redirect()->route('rt_penduduk.index');
     }
 
     /**
