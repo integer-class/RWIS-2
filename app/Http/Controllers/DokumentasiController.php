@@ -56,8 +56,14 @@ class DokumentasiController extends Controller
         ]);
     
         // Menyimpan file gambar
-        $filename = time() . '.' . $request->image->getClientOriginalExtension();
-        $path = $request->file('image')->storeAs('public/thumbnail', $filename);
+        // $filename = time() . '.' . $request->image->getClientOriginalExtension();
+        // $path = $request->file('image')->storeAs('public/thumbnail', $filename);
+
+        $imageName = time() . '_' . uniqid() . '.' . $request->image->getClientOriginalExtension();
+        $request->file('image')->move(public_path('images'), $imageName);
+
+
+        
     
         // Periksa apakah file berhasil disimpan
         if ($path) {
