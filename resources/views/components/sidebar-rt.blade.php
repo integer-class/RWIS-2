@@ -41,9 +41,12 @@
                         <li class='{{ $type_menu === 'penduduk' || $type_menu === 'detail_penduduk' ? 'active' : ''  }}'>
                             <a class="nav-link" href="{{ route('rt_penduduk.index') }}">Data Penduduk</a>
                         </li>
-                    <li>
-                        <a class="nav-link" href="{{ route('kartu-keluarga.index') }}">Data Kartu Keluarga</a>
-                    </li>
+
+                        {{-- <li class='{{ $type_menu === 'kartu-keluarga'? 'active' : ''  }}'>
+                            <a class="nav-link" href="{{ route('rt_kartukeluarga.index') }}">Data Kartu Keluarga</a>
+                        </li>
+                    --}}
+                    
                     {{-- <li class="{{ Request::is('transparent-sidebar') ? 'active' : '' }}">
                         <a class="nav-link"
                             href="{{ url('transparent-sidebar') }}">Data Kematian</a>
@@ -63,9 +66,8 @@
                     class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Iuran</span></a>
                 <ul class="dropdown-menu">
                     
-                    <li class="{{ Request::is('bootstrap-alert') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('bootstrap-alert') }}">Data Iuran</a>
+                    <li class='{{ $type_menu === 'iuran' ? 'active' : ''  }}'>
+                        <a class="nav-link" href="{{ route('rt_iuran.index') }}">Data Iuran</a>
                     </li>
 
                 </ul>

@@ -202,14 +202,22 @@
       // Mengambil data penduduk dari controller Laravel dan menyimpannya dalam format yang sesuai
       var availableTags = [
         @foreach($kartukeluarga as $kk)
-          "{{ $kk->nomor_kk }}",
+          {
+            label: "{{ $kk->nomor_kk }} - {{ $kk->kepalakeluarga }}",
+            value: "{{ $kk->nomor_kk }}",
+          },
         @endforeach
       ];
       $( "#tags" ).autocomplete({
-        source: availableTags
+        source: availableTags,
+        select: function(event, ui) {
+          // Mengisi input nama kepala keluarga saat nomor KK dipilih
+          $(this).val(ui.item.label);
+          return false;
+        }
       });
     } );
-    </script>
+  </script>
 
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">

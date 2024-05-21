@@ -62,13 +62,18 @@ class RT_PendudukController extends Controller
     public function store(Request $request)
     {
         $nama = $request->nama;
+        $nomor_kk = $request->nomor_kk;
+        $pieces = explode(" - ", $nomor_kk);
+        $nomor_kk = $pieces[0];
+
+
         $namaArray = explode(' ', $nama);
         $namaDepan = ucfirst($namaArray[0]);
         $namaUpper = strtoupper($namaDepan);
         
             Penduduk::create([
                 'nik' => $request->nik,
-                'nomor_kk' => $request->nomor_kk,
+                'nomor_kk' => $nomor_kk,
                 'nama' => $request->nama,
                 'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir' => $request->tanggal_lahir,
@@ -114,7 +119,10 @@ class RT_PendudukController extends Controller
         return view('rt.rt_data_penduduk.detail_penduduk', compact('penduduk', 'kartukeluarga', 'user', 'type_menu', 'komplain', 'jumlah_anggota_keluarga', 'penduduk_kk'));
 
 
-        // echo json_encode(array('penduduk' => $penduduk, 'kartukeluarga' => $kartukeluarga, 'user' => $user, 'type_menu' => $type_menu));
+        // echo $penduduk->nomor_kk;
+
+
+        echo json_encode(array('penduduk' => $penduduk, 'kartukeluarga' => $kartukeluarga, 'user' => $user, 'type_menu' => $type_menu));
 
       
 

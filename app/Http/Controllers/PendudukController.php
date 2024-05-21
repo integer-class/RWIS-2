@@ -47,6 +47,10 @@ class PendudukController extends Controller
         
 
         $nama = $request->nama;
+        $nomor_kk = $request->nomor_kk;
+        $pieces = explode(" - ", $nomor_kk);
+        $nomor_kk = $pieces[0];
+
         $namaArray = explode(' ', $nama);
         $namaDepan = ucfirst($namaArray[0]);
         $namaUpper = strtoupper($namaDepan);
