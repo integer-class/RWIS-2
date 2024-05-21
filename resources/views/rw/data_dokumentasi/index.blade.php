@@ -35,8 +35,8 @@
                     <article class="article article-style-b">
                         <div class="article-header">
                             <div class="article-image"
-                                data-background="{{ asset('storage/thumbnail/'.$dokumen->thumbnail) }}">
-                            </div>
+                            data-background="{{ asset('thumbnail/'.$dokumen->thumbnail) }}">
+                       </div>
                             <div class="article-badge">
                                 <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i> {{ $dokumen->kategori }} </div>
                             </div>

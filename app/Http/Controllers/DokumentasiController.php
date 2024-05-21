@@ -60,7 +60,7 @@ class DokumentasiController extends Controller
         // $path = $request->file('image')->storeAs('public/thumbnail', $filename);
 
         $imageName = time() . '_' . uniqid() . '.' . $request->image->getClientOriginalExtension();
-        $request->file('image')->move(public_path('images'), $imageName);
+        $path = $request->file('image')->move(public_path('thumbnail'), $imageName);
 
 
         
@@ -74,7 +74,7 @@ class DokumentasiController extends Controller
                 'deskripsi' => $request->keterangan,
                 'tanggal' => $request->tanggal,
                 'nik' => Auth::user()->nik,
-                'thumbnail' => $filename,
+                'thumbnail' => $imageName,
             ]);
     
             // Menampilkan alert sukses
