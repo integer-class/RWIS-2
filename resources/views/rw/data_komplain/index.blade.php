@@ -12,7 +12,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Posts</h1>
+                <h1>Komplain</h1>
                 {{-- <div class="section-header-button">
                     <a href="features-post-create.html"
                         class="btn btn-primary">Add New</a>
