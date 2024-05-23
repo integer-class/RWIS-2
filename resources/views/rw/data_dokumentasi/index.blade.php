@@ -22,8 +22,8 @@
                 </div> --}}
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Komplain</a></div>
-                    <div class="breadcrumb-item">Semua Komplain</div>
+                    <div class="breadcrumb-item"><a href="#">Dokumentasi</a></div>
+                    <div class="breadcrumb-item">Dokumentasi</div>
                 </div>
             </div>
             <div class="section-body">
