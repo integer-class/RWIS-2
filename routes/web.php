@@ -7,6 +7,8 @@ use App\Http\Controllers\KomplainController;
 use App\Http\Controllers\DokumentasiController;
 //rt
 use App\Http\Controllers\RT_Dashboardcontoller;
+use App\Http\Controllers\IuranController;
+
 
 
 Route::view('/', 'welcome');
@@ -14,9 +16,13 @@ Route::view('/', 'welcome');
 Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::get('/', function () {
         
+        
 
         return view('rw.index', ['type_menu' => '/dashboard']);
     })->name('rw');
+
+    Route::get('/status-pembayaran', [IuranController::class, 'index']);
+
 
 
     Route::post('dokumentasi/storefoto', [DokumentasiController::class, 'storefoto'])->name('dokumentasi.storefoto');
@@ -67,6 +73,8 @@ Route::middleware(['auth', 'verified','masyarakat'])->group(function () {
         return view('masyarakat.index');
     })->name('masyarakat');
 });
+
+
 
 
 

@@ -61,7 +61,7 @@
             
 
            
-            <li class="nav-item dropdown {{ ($type_menu === 'iuran' ? 'active' : '') }}">
+            <li class="nav-item dropdown }}">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Iuran</span></a>
                 <ul class="dropdown-menu">
