@@ -4,13 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Alert;
+
+
+
 
 class RT_IuranController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+
+     public function index(Request $request)
 {
     $type_menu = 'iuran';
 
@@ -37,10 +43,8 @@ class RT_IuranController extends Controller
         ->setBindings([$bulan, $tahun], 'select')
         ->get();
 
-    return view('rt.rt_data_iuran.index', compact('type_menu', 'result'));
+    return view('rt.rt_data_iuran.index', compact('type_menu', 'result', 'bulan', 'tahun'));
 }
-
-    
 
     /**
      * Show the form for creating a new resource.
@@ -55,7 +59,27 @@ class RT_IuranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nomor_kk' => 'required|exists:kartu_keluarga,nomor_kk',
+            'jumlah' => 'required|numeric',
+            'bulan' => 'required|numeric|min:1|max:12',
+            'tahun' => 'required|numeric|min:2020|max:' . date('Y'),
+        ]);
+
+        $tanggal = Carbon::createFromDate($validatedData['tahun'], $validatedData['bulan'], 1);
+
+        DB::table('iuran')->insert([
+            'nomor_kk' => $validatedData['nomor_kk'],
+            'jumlah' => $validatedData['jumlah'],
+            'tanggal' => $tanggal,
+            'is_paid' => true,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        Alert::success('Berhasil!', 'Berhasil menambahkan data!');
+        
+        return redirect()->back();
     }
 
     /**
