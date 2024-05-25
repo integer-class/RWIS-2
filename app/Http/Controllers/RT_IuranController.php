@@ -10,6 +10,7 @@ use Alert;
 
 
 
+
 class RT_IuranController extends Controller
 {
     /**
@@ -79,8 +80,7 @@ class RT_IuranController extends Controller
 
         Alert::success('Berhasil!', 'Berhasil menambahkan data!');
         
-        return redirect()->back();
-    }
+        return redirect()->back();    }
 
     /**
      * Display the specified resource.

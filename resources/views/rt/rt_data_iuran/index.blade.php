@@ -148,6 +148,12 @@
                                                                     for="jumlah">Jumlah:</label>
                                                                 <input type="text" class="form-control" name="jumlah"
                                                                     value="100000" required>
+
+                                                                <label style="margin-top : 10px">
+                                                                    Catatan:
+                                                                </label>
+                                                                <textarea style="height: 100px" type="text" class="form-control" name="keterangan"></textarea>
+
                                                             </div>
                                                             <div class="modal-footer bg-whitesmoke br">
                                                                 <button type="button" class="btn btn-secondary"

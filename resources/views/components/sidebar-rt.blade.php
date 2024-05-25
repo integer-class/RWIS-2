@@ -80,7 +80,7 @@
 
              <li>
                 <a class="nav-link active"
-                    href="{{ route('komplain.index') }}"><i class="fas fa-exclamation"></i> <span>Komplain</span></a>
+                    href="{{ route('rt_komplain.index') }}"><i class="fas fa-exclamation"></i> <span>Komplain</span></a>
             </li>
 
             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">

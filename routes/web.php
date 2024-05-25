@@ -56,6 +56,7 @@ Route::middleware(['auth', 'verified','rt'])->group(function () {
     Route::resource('rt_kartukeluarga', \App\Http\Controllers\RT_KartuKeluargaController::class);
 
     Route::resource('rt_iuran', \App\Http\Controllers\RT_IuranController::class);
+    Route::resource('rt_komplain', \App\Http\Controllers\RT_KomplainController::class);
 
     
 
