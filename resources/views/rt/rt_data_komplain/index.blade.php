@@ -82,7 +82,7 @@
                                     <tr>
                                         <td>{{ $k->judul_komplain }}
                                             <div class="table-links">
-                                                <a href="{{ route('komplain.show', $k->id_komplain) }}">View</a>
+                                                <a href="{{ route('rt_komplain.show', $k->id_komplain) }}">View</a>
                                                 <div class="bullet"></div>
                                                 <a href="#">Edit</a>
                                                 <div class="bullet"></div>
