@@ -78,7 +78,7 @@
             </li> --}}
             <li class="menu-header">Pendukung</li>
 
-             <li>
+             <li class="nav-item dropdown {{ ($type_menu === 'komplain' ? 'active' : '') }}">
                 <a class="nav-link active"
                     href="{{ route('rt_komplain.index') }}"><i class="fas fa-exclamation"></i> <span>Komplain</span></a>
             </li>

@@ -13,43 +13,49 @@ class RT_KomplainController extends Controller
      */
 
      public function index(Request $request)
-{
-    $id_rt = auth()->user()->id_rt; 
-
-    if ($request->has('search')) {
-        $komplain = Komplain::with('penduduk')
-                            ->whereHas('penduduk', function ($query) use ($id_rt, $request) {
-                                $query->where('id_rt', $id_rt)
-                                      ->where(function ($query) use ($request) {
-                                          $query->where('nama', 'LIKE', '%' . $request->search . '%')
-                                                ->orWhere('judul_komplain', 'LIKE', '%' . $request->search . '%');
-                                      });
-                            })
-                            ->paginate(8);
-    } else {
-        $komplain = Komplain::with('penduduk')
-                            ->whereHas('penduduk', function ($query) use ($id_rt) {
-                                $query->where('id_rt', $id_rt);
-                            })
-                            ->paginate(8);
-    }
-
-    $jumlah_komplain = Komplain::whereHas('penduduk', function ($query) use ($id_rt) {
-                                $query->where('id_rt', $id_rt);
-                            })->count();
-    $jumlah_komplain_diterima = Komplain::whereHas('penduduk', function ($query) use ($id_rt) {
-                                        $query->where('id_rt', $id_rt);
-                                    })->where('status_komplain', 'Diterima')->count();
-    $jumlah_komplain_diproses = Komplain::whereHas('penduduk', function ($query) use ($id_rt) {
-                                        $query->where('id_rt', $id_rt);
-                                    })->where('status_komplain', 'Diproses')->count();
-    $jumlah_komplain_selesai = Komplain::whereHas('penduduk', function ($query) use ($id_rt) {
-                                        $query->where('id_rt', $id_rt);
-                                    })->where('status_komplain', 'Selesai')->count();
-
-    $type_menu = 'komplain';
-    return view('rw.data_komplain.index', compact('type_menu', 'komplain', 'jumlah_komplain', 'jumlah_komplain_diterima', 'jumlah_komplain_diproses', 'jumlah_komplain_selesai'));
-}
+     {
+         $id_rt = auth()->user()->id_rt;
+     
+         // Default query
+         $query = Komplain::with('penduduk')
+                          ->whereHas('penduduk', function ($query) use ($id_rt) {
+                              $query->where('id_rt', $id_rt);
+                          });
+     
+         // Add search filter if exists
+         if ($request->has('search')) {
+             $query->whereHas('penduduk', function ($query) use ($request) {
+                 $query->where('nama', 'LIKE', '%' . $request->search . '%')
+                       ->orWhere('judul_komplain', 'LIKE', '%' . $request->search . '%');
+             });
+         }
+     
+         // Add status filter if exists
+         if ($request->has('status_komplain')) {
+             $query->where('status_komplain', $request->status_komplain);
+         }
+     
+         // Pagination
+         $komplain = $query->paginate(8);
+     
+      
+         $jumlah_komplain = Komplain::whereHas('penduduk', function ($query) use ($id_rt) {
+                                 $query->where('id_rt', $id_rt);
+                             })->count();
+         $jumlah_komplain_diterima = Komplain::whereHas('penduduk', function ($query) use ($id_rt) {
+                                         $query->where('id_rt', $id_rt);
+                                     })->where('status_komplain', 'Diterima')->count();
+         $jumlah_komplain_diproses = Komplain::whereHas('penduduk', function ($query) use ($id_rt) {
+                                         $query->where('id_rt', $id_rt);
+                                     })->where('status_komplain', 'Diproses')->count();
+         $jumlah_komplain_selesai = Komplain::whereHas('penduduk', function ($query) use ($id_rt) {
+                                         $query->where('id_rt', $id_rt);
+                                     })->where('status_komplain', 'Selesai')->count();
+     
+         $type_menu = 'komplain';
+         return view('rt.rt_data_komplain.index', compact('type_menu', 'komplain', 'jumlah_komplain', 'jumlah_komplain_diterima', 'jumlah_komplain_diproses', 'jumlah_komplain_selesai'));
+     }
+     
 
    
 

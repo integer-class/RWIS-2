@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Posts')
+@section('title', 'Komplain')
 
 @push('style')
 <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
@@ -24,18 +24,28 @@
                         <div class="card-body">
                             <ul class="nav nav-pills">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('komplain.index') }}">Semua Komplain <span class="badge badge-white">{{ $jumlah_komplain }}</span></a>
+                                    <a class="nav-link {{ request()->status_komplain == '' ? 'active' : '' }}" href="{{ route('rt_komplain.index') }}">
+                                        Semua Komplain <span class="badge badge-white">{{ $jumlah_komplain }}</span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('komplain.diterima') }}">Diterima <span class="badge badge-primary">{{ $jumlah_komplain_diterima }}</span></a>
+                                    <a class="nav-link {{ request()->status_komplain == 'Diterima' ? 'active' : '' }}" href="{{ route('rt_komplain.index', ['status_komplain' => 'Diterima']) }}">
+                                        Diterima <span class="badge badge-warning">{{ $jumlah_komplain_diterima }}</span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('komplain.diproses') }}">Diproses <span class="badge badge-primary">{{ $jumlah_komplain_diproses }}</span></a>
+                                    <a class="nav-link {{ request()->status_komplain == 'Diproses' ? 'active' : '' }}" href="{{ route('rt_komplain.index', ['status_komplain' => 'Diproses']) }}">
+                                        Diproses <span class="badge badge-primary">{{ $jumlah_komplain_diproses }}</span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('komplain.selesai') }}">Selesai <span class="badge badge-primary">{{ $jumlah_komplain_selesai }}</span></a>
+                                    <a class="nav-link {{ request()->status_komplain == 'Selesai' ? 'active' : '' }}" href="{{ route('rt_komplain.index', ['status_komplain' => 'Selesai']) }}">
+                                        Selesai <span class="badge badge-success">{{ $jumlah_komplain_selesai }}</span>
+                                    </a>
                                 </li>
                             </ul>
+                            
+                           
                         </div>
                     </div>
                 </div>
@@ -51,6 +61,7 @@
                                 <form method="GET" action="{{ route('komplain.index') }}">
                                     <div class="input-group">
                                         <input name="search" type="text" class="form-control" placeholder="Search" value="{{ request()->search }}">
+                                        <input name="status_komplain" type="hidden" value="{{ request()->status_komplain }}">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                         </div>
@@ -100,7 +111,7 @@
                                 </table>
                             </div>
                             <div class="float-right">
-                                {{ $komplain->links() }}
+                                {{ $komplain->appends(['search' => request()->search, 'status_komplain' => request()->status_komplain])->links() }}
                             </div>
                         </div>
                     </div>
