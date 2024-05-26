@@ -141,8 +141,9 @@
                                 <div class="form-group">
                                     <label>Nomor KK <span style="color:red;">(Jika tidak memiliki KK, <a href="{{ route('kartu-keluarga.create') }}">buat disini</a>)</span></label>
 
-                                    <input type="text" class="form-control" name="nomor_kk" id="tags">
-
+                                    <input type="text"
+                                        class="form-control"
+                                        name="nomor_kk" id="tags">
                                 </div>
                             </div>
 
@@ -199,26 +200,29 @@
 
 
 <script>
-    $(function() {
+    $( function() {
       // Mengambil data penduduk dari controller Laravel dan menyimpannya dalam format yang sesuai
       var availableTags = [
         @foreach($kartukeluarga as $kk)
           {
-            label: "{{ $kk->nomor_kk }} - {{ $kk->kepalakeluarga }} - {{ $kk->alamat }}",
+            label: "{{ $kk->nomor_kk }} - {{ $kk->kepalakeluarga }}",
             value: "{{ $kk->nomor_kk }}",
           },
         @endforeach
       ];
-      $("#tags").autocomplete({
+      $( "#tags" ).autocomplete({
         source: availableTags,
         select: function(event, ui) {
-          // Mengisi input dengan nomor KK saat entri dipilih
-          $(this).val(ui.item.value);
+          // Mengisi input nama kepala keluarga saat nomor KK dipilih
+          $(this).val(ui.item.label);
           return false;
         }
       });
-    });
-  </script>
+    } );
+</script>
+
+
+
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 {{-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> --}}

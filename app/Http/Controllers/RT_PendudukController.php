@@ -85,6 +85,7 @@ class RT_PendudukController extends Controller
                 'status_hubungan' => $request->status_hubungan,
                 'kewarganegaraan' => $request->kewarganegaraan,
                 'id_rt' => $request->id_rt,
+                'foto' => 'default.png', 
                 'alamat' => $request->alamat,
                 'status' => '1',
             ]);
