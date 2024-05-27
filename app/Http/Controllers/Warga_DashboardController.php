@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Penduduk;
+use App\Models\penduduk;
 use App\Models\Pengumuman_rt;
+use App\Models\User;
+use Alert;
 
 class Warga_DashboardController extends Controller
 {
@@ -73,9 +75,29 @@ class Warga_DashboardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $nik)
     {
-        //
+        $penduduk = Penduduk::where('nik', $nik)->first();
+
+
+        if ($request->has('password')) {
+            $user = User::where('nik', $penduduk->nik)->first();
+            $user->update([
+                'password' => bcrypt($request->password),
+                'default_password' => 'no', 
+            ]);
+        }
+    
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('penduduk'), $imageName);
+            $penduduk->update(['foto' => $imageName]);
+        }
+
+        Alert::success('Berhasil!', 'Berhasil menambahkan data!');
+        
+        return redirect()->back();
     }
 
     /**

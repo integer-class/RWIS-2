@@ -96,11 +96,13 @@ Situs web RW bertujuan memperkuat koneksi warga, memfasilitasi pertukaran inform
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <img src="{{ asset('frontend/images/senyum.jpg')}}" class="img-fluid" alt="" />
+                                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrhQxd2o5adxbbtb7lPa3Ss4AsmBRXEsqCPiOJ7qfetfH0SXFlSg781a9bmtZMCr7WmUoqSyt0bEbjSXBv2xhDMH_BdqXP1DHSGhefoS6rjVfw00HulX1OzW9kbbrFA79LhP8NAOs3O6aM3eRQWPTvCVB5PUosBXJRfBHgskRPheV6hksFWzXAz3jg67g3/s1600/WhatsApp%20Image%202023-08-26%20at%2010.57.06.jpeg" class="img-fluid" alt="" />
+
                                     </div>
 
                                     <div class="swiper-slide">
-                                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrhQxd2o5adxbbtb7lPa3Ss4AsmBRXEsqCPiOJ7qfetfH0SXFlSg781a9bmtZMCr7WmUoqSyt0bEbjSXBv2xhDMH_BdqXP1DHSGhefoS6rjVfw00HulX1OzW9kbbrFA79LhP8NAOs3O6aM3eRQWPTvCVB5PUosBXJRfBHgskRPheV6hksFWzXAz3jg67g3/s1600/WhatsApp%20Image%202023-08-26%20at%2010.57.06.jpeg" class="img-fluid" alt="" />
+                                        <img src="{{ asset('frontend/images/senyum.jpg')}}" class="img-fluid" alt="" />
+
                                     </div>
 
                                     <div class="swiper-slide">

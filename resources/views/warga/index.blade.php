@@ -907,7 +907,7 @@
                             @endif
                           
 
-                            <form method="post" enctype="multipart/form-data" action="{{ route('rt_dashboard.update', $penduduk->nik) }}">
+                            <form method="post" enctype="multipart/form-data" action="{{ route('warga_dashboard.update', $penduduk->nik) }}">
                                 @csrf
                                 @method('PUT') <!-- or @method('PATCH') -->
                             

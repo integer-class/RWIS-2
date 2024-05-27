@@ -29,41 +29,20 @@
                     </li>
                 </ul>
             </li>
-            <li class="menu-header">Data</li>
-            <li class="nav-item dropdown {{ ($type_menu === 'penduduk' || $type_menu === 'kartu-keluarga') ? 'active' : ($type_menu === 'detail_penduduk' ? 'active' : '') }}">
-            
 
-                <a href="#"
-                    class="nav-link has-dropdown" 
-                    data-toggle="dropdown"><i class="fas fa-users"></i> <span>Penduduk</span></a>
-                <ul class="dropdown-menu">
-                        <li class='{{ $type_menu === 'penduduk' || $type_menu === 'detail_penduduk' ? 'active' : ''  }}'>
-                            <a class="nav-link" href="{{ route('rt_penduduk.index') }}">Data Penduduk</a>
-                        </li>
-                </ul>
-            </li>
-
-            
-
-           
-            <li class="nav-item dropdown }}">
-                <a href="#"
-                    class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Iuran</span></a>
-                <ul class="dropdown-menu">
-                    
-                    <li class='{{ $type_menu === 'iuran' ? 'active' : ''  }}'>
-                        <a class="nav-link" href="{{ route('rt_iuran.index') }}">Data Iuran</a>
-                    </li>
-
-                </ul>
-            </li>
-     
-            <li class="menu-header">Pendukung</li>
-
-             <li>
+            <li>
                 <a class="nav-link active"
                     href="{{ route('komplain.index') }}"><i class="fas fa-exclamation"></i> <span>Komplain</span></a>
             </li>
+           
+        
+
+    
+           
+           
+     
+
+           
 
             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                 <a class="nav-link"
