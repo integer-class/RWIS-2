@@ -200,8 +200,17 @@ public function update(Request $request, Penduduk $penduduk)
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Penduduk $penduduk)
-    {
-        //
-    }
+    public function destroy($id)
+{
+    // Temukan penduduk berdasarkan ID
+    $penduduk = Penduduk::findOrFail($id);
+    
+    // Hapus penduduk dari database
+    $penduduk->delete();
+    
+    // Redirect kembali ke halaman index dengan pesan sukses
+    return redirect()->route('penduduk.index')->with('success', 'Penduduk berhasil dihapus');
+}
+
+    
 }
