@@ -24,7 +24,9 @@ class Warga_KomplainController extends Controller
      */
     public function create()
     {
-        //
+        $type_menu = 'komplain';
+        $kategori = \App\Models\KategoriKomplain::all();
+        return view('warga.komplain.create',compact('type_menu','kategori'));
     }
 
     /**
