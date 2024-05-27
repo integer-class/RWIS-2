@@ -16,11 +16,11 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Tambah Pengumuman</h1>
+                <h1>Tambah Penduduk</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Pengumuman</a></div>
-                    <div class="breadcrumb-item">Tambah Pengumuman</div>
+                    <div class="breadcrumb-item active"><a href="#">Data</a></div>
+                    <div class="breadcrumb-item"><a href="#">Penduduk</a></div>
+                    <div class="breadcrumb-item">Tambah Penduduk</div>
                 </div>
             </div>
 

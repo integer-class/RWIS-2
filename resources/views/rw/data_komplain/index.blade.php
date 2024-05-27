@@ -69,7 +69,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Komplain warga</h4>
+                                <h4>Komplain Warga</h4>
                             </div>
                             <div class="card-body">
                                 {{-- <div class="float-left">

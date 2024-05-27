@@ -12,6 +12,9 @@ use App\Http\Controllers\IuranController;
 //warga
 use App\Http\Controllers\Warga_DashboardController;
 
+//notif dashboard
+use App\Http\Controllers\NotificationController;
+
 
 
 Route::view('/', 'welcome');
@@ -62,6 +65,9 @@ Route::middleware(['auth', 'verified','rt'])->prefix('rt')->group(function () {
 
     Route::resource('rt_iuran', \App\Http\Controllers\RT_IuranController::class);
     Route::resource('rt_komplain', \App\Http\Controllers\RT_KomplainController::class);
+
+    Route::resource('rt_pengumuman', \App\Http\Controllers\RT_PengumumanController::class);
+
     
 
 });
@@ -71,6 +77,11 @@ Route::middleware(['auth', 'verified','masyarakat'])->prefix('warga')->group(fun
 
     Route::resource('warga_dashboard', \App\Http\Controllers\Warga_DashboardController::class);
 });
+
+Route::get('/notifications', [NotificationController::class, 'getLatestActivities']);
+
+
+
 
 
 

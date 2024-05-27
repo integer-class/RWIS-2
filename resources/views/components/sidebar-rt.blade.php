@@ -85,7 +85,7 @@
 
             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                 <a class="nav-link"
-                    href="{{ url('blank-page') }}"><i class="fa fa-clipboard"></i> <span>Pengumuman</span></a>
+                    href="{{ route('rt_pengumuman.index') }}"><i class="fa fa-clipboard"></i> <span>Pengumuman</span></a>
             </li>
 
              <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
