@@ -128,7 +128,8 @@ class PendudukController extends Controller
     
     public function edit(Penduduk $penduduk)
     {
-        //
+        return view('rw.data_penduduk.penduduk_edit', compact('penduduk'));
+
     }
 
     
