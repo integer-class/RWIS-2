@@ -56,7 +56,7 @@
                         </li>
                     </ul>
                     <div class="navbar-button d-none d-lg-inline-block">
-                        <a href="" class="btn btn-sm btn-primary btn-round">Sign Up</a>
+                        <a href="{{ route('login') }}" class="btn btn-sm btn-primary btn-round">Masuk</a>
                     </div>
                 </div>
             </div>
