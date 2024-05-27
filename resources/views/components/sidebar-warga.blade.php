@@ -37,24 +37,9 @@
                     class="nav-link has-dropdown" 
                     data-toggle="dropdown"><i class="fas fa-users"></i> <span>Penduduk</span></a>
                 <ul class="dropdown-menu">
-                    {{-- <li class='{{ Request::is('rw/penduduk') ? 'active' : '' }}'> --}}
                         <li class='{{ $type_menu === 'penduduk' || $type_menu === 'detail_penduduk' ? 'active' : ''  }}'>
                             <a class="nav-link" href="{{ route('rt_penduduk.index') }}">Data Penduduk</a>
                         </li>
-
-                        {{-- <li class='{{ $type_menu === 'kartu-keluarga'? 'active' : ''  }}'>
-                            <a class="nav-link" href="{{ route('rt_kartukeluarga.index') }}">Data Kartu Keluarga</a>
-                        </li>
-                    --}}
-                    
-                    {{-- <li class="{{ Request::is('transparent-sidebar') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('transparent-sidebar') }}">Data Kematian</a>
-                    </li>
-                    <li class="{{ Request::is('layout-top-navigation') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('layout-top-navigation') }}">Data Kelahiran</a>
-                    </li> --}}
                 </ul>
             </li>
 
@@ -72,10 +57,7 @@
 
                 </ul>
             </li>
-            {{-- <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link"
-                    href="{{ url('blank-page') }}"><i class=›"fa fa-money"></i> <span>Blank Page</span></a>
-            </li> --}}
+     
             <li class="menu-header">Pendukung</li>
 
              <li>
@@ -95,11 +77,6 @@
 
         </ul>
 
-        {{-- <div class="hide-sidebar-mini mt-4 mb-4 p-3">
-            <a href="https://getstisla.com/docs"
-                class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i> Documentation
-            </a>
-        </div> --}}
+      
     </aside>
 </div>

@@ -29,7 +29,7 @@ $login = function () {
 
             break;
             case 3:
-            $this->redirectIntended(default: route('masyarakat', absolute: false), navigate: true);
+            $this->redirectIntended(default: route('warga_dashboard.index', absolute: false), navigate: true);
             break;
             default:
                 return redirect('/');

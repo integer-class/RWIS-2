@@ -29,7 +29,7 @@ class Rt
 
 
         if($userRole==3){
-            return redirect()->route('masyarakat');
+            return redirect()->route('warga_dashboard.index');
         }
 
 

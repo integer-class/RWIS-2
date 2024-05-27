@@ -9,6 +9,9 @@ use App\Http\Controllers\DokumentasiController;
 use App\Http\Controllers\RT_Dashboardcontoller;
 use App\Http\Controllers\IuranController;
 
+//warga
+use App\Http\Controllers\Warga_DashboardController;
+
 
 
 Route::view('/', 'welcome');
@@ -64,10 +67,9 @@ Route::middleware(['auth', 'verified','rt'])->prefix('rt')->group(function () {
 });
 
 
-Route::middleware(['auth', 'verified','masyarakat'])->group(function () {
-    Route::get('/masyarakat', function () {
-        return view('masyarakat.index');
-    })->name('masyarakat');
+Route::middleware(['auth', 'verified','masyarakat'])->prefix('warga')->group(function () {
+
+    Route::resource('warga_dashboard', \App\Http\Controllers\Warga_DashboardController::class);
 });
 
 
