@@ -76,6 +76,8 @@ Route::middleware(['auth', 'verified','rt'])->prefix('rt')->group(function () {
 Route::middleware(['auth', 'verified','masyarakat'])->prefix('warga')->group(function () {
 
     Route::resource('warga_dashboard', \App\Http\Controllers\Warga_DashboardController::class);
+    Route::resource('warga_komplain', \App\Http\Controllers\Warga_KomplainController::class);
+
 });
 
 Route::get('/notifications', [NotificationController::class, 'getLatestActivities']);

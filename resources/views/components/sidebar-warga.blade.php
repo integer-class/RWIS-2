@@ -30,11 +30,11 @@
                 </ul>
             </li>
 
-            <li>
+            
+            <li class="{{ $type_menu === 'komplain'? 'active' : ''  }}">
                 <a class="nav-link active"
-                    href="{{ route('komplain.index') }}"><i class="fas fa-exclamation"></i> <span>Komplain</span></a>
+                    href="{{ route('warga_komplain.index') }}"><i class="fas fa-exclamation"></i> <span>Komplain</span></a>
             </li>
-           
         
 
     
