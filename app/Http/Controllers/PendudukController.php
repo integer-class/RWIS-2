@@ -59,7 +59,7 @@ class PendudukController extends Controller
         
             Penduduk::create([
                 'nik' => $request->nik,
-                'nomor_kk' => $request->nomor_kk,
+                'nomor_kk' => $nomor_kk,
                 'nama' => $request->nama,
                 'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir' => $request->tanggal_lahir,
