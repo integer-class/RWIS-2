@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\KartuKeluarga;
 use Alert;
-
+use App\Models\Penduduk;
 
 class KartuKeluargaController extends Controller
 {
@@ -65,9 +65,15 @@ class KartuKeluargaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $nomor_kk)
     {
-        //
+        $type_menu = 'kartu-keluarga'; 
+    
+    $kartuKeluarga = KartuKeluarga::where('nomor_kk', $nomor_kk)->first();
+    $penduduk = Penduduk::where('nomor_kk', $nomor_kk)->get();
+
+    // Pass the fetched record to the view
+    return view('rw.data_kartukeluarga.detail', compact('kartuKeluarga', 'type_menu', 'penduduk'));
     }
 
     /**
@@ -91,6 +97,16 @@ class KartuKeluargaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Find the KartuKeluarga record by its primary key (nomor_kk)
+        $kartuKeluarga = KartuKeluarga::findOrFail($id);
+    
+        // Delete the record
+        $kartuKeluarga->delete();
+    
+        // Redirect to a desired route with a success message
+        return redirect()->route('rw.data_kartukeluarga.index')->with('success', 'Kartu Keluarga deleted successfully.', 'type_menu');
     }
-}
+    
+        
+    }
+

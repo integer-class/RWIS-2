@@ -24,7 +24,6 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
         return view('rw.index', ['type_menu' => '/dashboard']);
     })->name('rw');
 
-    Route::get('/status-pembayaran', [IuranController::class, 'index']);
 
 
 
@@ -45,6 +44,7 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::resource('penduduk', \App\Http\Controllers\PendudukController::class);
     Route::resource('dokumentasi', \App\Http\Controllers\DokumentasiController::class);
     Route::resource('pengumuman', \App\Http\Controllers\PengumumanController::class);
+    
     
 });
 
