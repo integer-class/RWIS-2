@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Penduduk;
 use App\Models\User;
 use Alert;
+use App\Models\KartuKeluarga;
+use App\Models\Rt;
 
 use Illuminate\Http\Request;
 
@@ -126,11 +128,27 @@ class PendudukController extends Controller
     }
 
     
-    public function edit(Penduduk $penduduk)
-    {
-        return view('rw.data_penduduk.penduduk_edit', compact('penduduk'));
+    // public function edit(Penduduk $penduduk)
+    // {
+    //     return view('rw.data_penduduk.penduduk_edit', compact('penduduk'));
 
-    }
+    // }
+
+    public function edit($nik)
+{
+    // Retrieve the Penduduk record by NIK
+    $penduduk = Penduduk::where('nik', $nik)->firstOrFail();
+    
+    // Retrieve all RT records
+    $rt = Rt::all();
+    
+    // Retrieve all Kartu Keluarga records
+    $kartukeluarga = KartuKeluarga::all();
+    
+    // Return the edit view with the retrieved data
+    return view('rw.data_penduduk.penduduk_edit', compact('penduduk', 'rt', 'kartukeluarga'));
+}
+
 
     
     public function update(Request $request, Penduduk $penduduk)
