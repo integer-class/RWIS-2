@@ -118,9 +118,11 @@
                                                             <a href="{{ route('penduduk.edit', $p->nik) }}"
                                                                 class="dropdown-item has-icon"><i class="far fa-edit"></i> Edit</a>
                                                             <div class="dropdown-divider"></div>
-                                                            <a href=""
+                                                            
+                                                            {{-- delete button --}}
+                                                            {{-- <a href=""
                                                                 class="dropdown-item has-icon text-danger"><i
-                                                                    class="far fa-trash-alt"></i> Delete</a>
+                                                                    class="far fa-trash-alt"></i> Delete</a> --}}
                                                         </div>
                                                     </div>
                                                     

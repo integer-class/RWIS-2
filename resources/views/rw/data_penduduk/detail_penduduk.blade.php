@@ -173,8 +173,8 @@
                                     <h4>Actions</h4>
                                 </div>
                                 <div class="card-body">
-                                    <a href="#" class="btn btn-primary btn-lg btn-block">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-lg btn-block">Delete</a>
+                                    <a href="#" class="btn btn-primary btn-lg btn-block">Meninggal</a>
+                                    <a href="#" class="btn btn-danger btn-lg btn-block"></a>
                                 </div>
                         </div>
 
