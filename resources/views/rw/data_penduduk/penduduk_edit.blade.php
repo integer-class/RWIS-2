@@ -39,14 +39,14 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Nama (sesuai di KTP)</label>
-                                        <input type="text" class="form-control" name="nama" value="{{ old('nama', $penduduk->nama) }}">
+                                        <input type="text" class="form-control" name="nama" value="{{ $penduduk->nama }}">
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>NIK</label>
-                                        <input type="number" class="form-control" name="nik" value="{{ old('nik', $penduduk->nik) }}">
+                                        <input type="number" class="form-control" name="nik" value="{{ $penduduk->nik }}">
                                     </div>
                                 </div>
 
@@ -54,12 +54,12 @@
                                     <div class="form-group">
                                         <label>Agama</label>
                                         <select class="form-control" name="agama">
-                                            <option value="Islam" {{ old('agama', $penduduk->agama) == 'Islam' ? 'selected' : '' }}>Islam</option>
-                                            <option value="Kristen" {{ old('agama', $penduduk->agama) == 'Kristen' ? 'selected' : '' }}>Kristen</option>
-                                            <option value="Katolik" {{ old('agama', $penduduk->agama) == 'Katolik' ? 'selected' : '' }}>Katolik</option>
-                                            <option value="Hindu" {{ old('agama', $penduduk->agama) == 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                                            <option value="Budha" {{ old('agama', $penduduk->agama) == 'Budha' ? 'selected' : '' }}>Budha</option>
-                                            <option value="Konghucu" {{ old('agama', $penduduk->agama) == 'Konghucu' ? 'selected' : '' }}>Konghucu</option>
+                                            <option value="Islam" {{  $penduduk->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                            <option value="Kristen" {{  $penduduk->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                                            <option value="Katolik" {{  $penduduk->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                            <option value="Hindu" {{  $penduduk->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                            <option value="Budha" {{  $penduduk->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
+                                            <option value="Konghucu" {{  $penduduk->agama == 'Konghucu' ? 'selected' : '' }}>Konghucu</option>
                                         </select>
                                     </div>
                                 </div>
@@ -68,9 +68,9 @@
                                     <div class="form-group">
                                         <label>Status Kawin</label>
                                         <select class="form-control" name="status_perkawinan">
-                                            <option value="Kawin" {{ old('status_perkawinan', $penduduk->status_perkawinan) == 'Kawin' ? 'selected' : '' }}>Kawin</option>
-                                            <option value="Belum Kawin" {{ old('status_perkawinan', $penduduk->status_perkawinan) == 'Belum Kawin' ? 'selected' : '' }}>Belum Kawin</option>
-                                            <option value="Cerai" {{ old('status_perkawinan', $penduduk->status_perkawinan) == 'Cerai' ? 'selected' : '' }}>Cerai</option>
+                                            <option value="Kawin" {{ $penduduk->status_perkawinan == 'Kawin' ? 'selected' : '' }}>Kawin</option>
+                                            <option value="Belum Kawin" {{ $penduduk->status_perkawinan == 'Belum Kawin' ? 'selected' : '' }}>Belum Kawin</option>
+                                            <option value="Cerai" {{ $penduduk->status_perkawinan == 'Cerai' ? 'selected' : '' }}>Cerai</option>
                                         </select>
                                     </div>
                                 </div>
@@ -79,10 +79,10 @@
                                     <div class="form-group">
                                         <label>Golongan Darah</label>
                                         <select class="form-control" name="golongan_darah">
-                                            <option value="A" {{ old('golongan_darah', $penduduk->golongan_darah) == 'A' ? 'selected' : '' }}>A</option>
-                                            <option value="B" {{ old('golongan_darah', $penduduk->golongan_darah) == 'B' ? 'selected' : '' }}>B</option>
-                                            <option value="AB" {{ old('golongan_darah', $penduduk->golongan_darah) == 'AB' ? 'selected' : '' }}>AB</option>
-                                            <option value="O" {{ old('golongan_darah', $penduduk->golongan_darah) == 'O' ? 'selected' : '' }}>O</option>
+                                            <option value="A" {{ $penduduk->golongan_darah == 'A' ? 'selected' : '' }}>A</option>
+                                            <option value="B" {{ $penduduk->golongan_darah == 'B' ? 'selected' : '' }}>B</option>
+                                            <option value="AB" {{ $penduduk->golongan_darah == 'AB' ? 'selected' : '' }}>AB</option>
+                                            <option value="O" {{ $penduduk->golongan_darah == 'O' ? 'selected' : '' }}>O</option>
                                         </select>
                                     </div>
                                 </div>
@@ -91,8 +91,8 @@
                                     <div class="form-group">
                                         <label>Jenis Kelamin</label>
                                         <select class="form-control" name="jenis_kelamin">
-                                            <option value="L" {{ old('jenis_kelamin', $penduduk->jenis_kelamin) == 'L' ? 'selected' : '' }}>Laki-laki</option>
-                                            <option value="P" {{ old('jenis_kelamin', $penduduk->jenis_kelamin) == 'P' ? 'selected' : '' }}>Perempuan</option>
+                                            <option value="L" {{ $penduduk->jenis_kelamin == 'L' ? 'selected' : '' }}>Laki-laki</option>
+                                            <option value="P" {{ $penduduk->jenis_kelamin == 'P' ? 'selected' : '' }}>Perempuan</option>
                                         </select>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Tanggal Lahir</label>
-                                        <input type="date" class="form-control" name="tanggal_lahir" value="{{ old('tanggal_lahir', $penduduk->tanggal_lahir) }}">
+                                        <input type="date" class="form-control" name="tanggal_lahir" value="{{ $penduduk->tanggal_lahir }}">
                                     </div>
                                 </div>
 
@@ -110,7 +110,7 @@
                                         <select class="form-control" name="id_rt">
                                             <option value="">Select RT</option>
                                             @foreach($rt as $r)
-                                                <option value="{{ $r->id_rt }}" {{ old('id_rt', $penduduk->id_rt) == $r->id_rt ? 'selected' : '' }}>{{ $r->nama_rt }}</option>
+                                                <option value="{{ $r->id_rt }}" {{  $penduduk->id_rt == $r->id_rt ? 'selected' : '' }}>{{ $r->nama_rt }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -119,21 +119,21 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Pekerjaan</label>
-                                        <input type="text" class="form-control" name="pekerjaan" value="{{ old('pekerjaan', $penduduk->pekerjaan) }}">
+                                        <input type="text" class="form-control" name="pekerjaan" value="{{ $penduduk->pekerjaan }}">
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Nomor KK <span style="color:red;">(Jika tidak memiliki KK, <a href="{{ route('kartu-keluarga.create') }}">buat disini</a>)</span></label>
-                                        <input type="text" class="form-control" name="nomor_kk" id="tags" value="{{ old('nomor_kk', $penduduk->nomor_kk) }}">
+                                        <input type="text" class="form-control" name="nomor_kk" id="tags" value="{{ $penduduk->nomor_kk }}">
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Alamat</label>
-                                        <textarea style="height: 100px" class="form-control" name="alamat">{{ old('alamat', $penduduk->alamat) }}</textarea>
+                                        <textarea style="height: 100px" class="form-control" name="alamat">{{ $penduduk->alamat }}</textarea>
                                     </div>
                                 </div>
 

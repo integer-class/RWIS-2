@@ -83,4 +83,7 @@ Route::get('/notifications', [NotificationController::class, 'getLatestActivitie
 
 
 
+
+
+
 require __DIR__.'/auth.php';

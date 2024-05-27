@@ -135,7 +135,9 @@ class PendudukController extends Controller
     // }
 
     public function edit($nik)
-{
+    {
+    $type_menu = 'penduduk'; 
+
     // Retrieve the Penduduk record by NIK
     $penduduk = Penduduk::where('nik', $nik)->firstOrFail();
     
@@ -146,15 +148,35 @@ class PendudukController extends Controller
     $kartukeluarga = KartuKeluarga::all();
     
     // Return the edit view with the retrieved data
-    return view('rw.data_penduduk.penduduk_edit', compact('penduduk', 'rt', 'kartukeluarga'));
-}
+    return view('rw.data_penduduk.penduduk_edit', compact('penduduk', 'rt', 'kartukeluarga','type_menu'));
+    }
 
 
     
     public function update(Request $request, Penduduk $penduduk)
     {
-        //
+    // Validasi data yang diterima dari form
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'alamat' => 'required|string|max:255',
+        'tanggal_lahir' => 'required|date',
+        'jenis_kelamin' => 'required|in:L,P',
+        // tambahkan aturan validasi lainnya sesuai kebutuhan
+    ]);
+
+    // Memperbarui data penduduk di database
+    $penduduk->update([
+        'nama' => $request->input('nama'),
+        'alamat' => $request->input('alamat'),
+        'tanggal_lahir' => $request->input('tanggal_lahir'),
+        'jenis_kelamin' => $request->input('jenis_kelamin'),
+        // tambahkan field lainnya sesuai kebutuhan
+    ]);
+
+    // Mengirimkan respon atau mengarahkan kembali ke halaman yang sesuai dengan pesan sukses
+    return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diperbarui.');
     }
+
 
     /**
      * Remove the specified resource from storage.
