@@ -48,6 +48,7 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::resource('dokumentasi', \App\Http\Controllers\DokumentasiController::class);
     Route::resource('pengumuman', \App\Http\Controllers\PengumumanController::class);
     
+    
 });
 
 Route::middleware(['auth', 'verified','rt'])->prefix('rt')->group(function () {
