@@ -149,19 +149,25 @@ class PendudukController extends Controller
     
     // Return the edit view with the retrieved data
     return view('rw.data_penduduk.penduduk_edit', compact('penduduk', 'rt', 'kartukeluarga','type_menu'));
-    }
+}
 
 
     
-    public function update(Request $request, Penduduk $penduduk)
-    {
+public function update(Request $request, Penduduk $penduduk)
+{
     // Validasi data yang diterima dari form
     $request->validate([
         'nama' => 'required|string|max:255',
         'alamat' => 'required|string|max:255',
         'tanggal_lahir' => 'required|date',
         'jenis_kelamin' => 'required|in:L,P',
-        // tambahkan aturan validasi lainnya sesuai kebutuhan
+        'agama' => 'required|in:Islam,Kristen,Katolik,Hindu,Budha,Konghucu', // Sesuaikan dengan opsi agama yang tersedia
+        'status_perkawinan' => 'required|in:Kawin,Belum Kawin,Cerai', // Sesuaikan dengan opsi status perkawinan yang tersedia
+        'golongan_darah' => 'required|in:A,B,AB,O', // Sesuaikan dengan opsi golongan darah yang tersedia
+        'id_rt' => 'required|exists:rt,id_rt', // Pastikan RT yang dipilih ada dalam database
+        'pekerjaan' => 'required|string|max:255',
+        'nomor_kk' => 'required|string|max:255',
+        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Optional: Validasi foto jika diunggah
     ]);
 
     // Memperbarui data penduduk di database
@@ -170,8 +176,21 @@ class PendudukController extends Controller
         'alamat' => $request->input('alamat'),
         'tanggal_lahir' => $request->input('tanggal_lahir'),
         'jenis_kelamin' => $request->input('jenis_kelamin'),
-        // tambahkan field lainnya sesuai kebutuhan
+        'agama' => $request->input('agama'),
+        'status_perkawinan' => $request->input('status_perkawinan'),
+        'golongan_darah' => $request->input('golongan_darah'),
+        'id_rt' => $request->input('id_rt'),
+        'pekerjaan' => $request->input('pekerjaan'),
+        'nomor_kk' => $request->input('nomor_kk'),
     ]);
+
+    // Optional: Upload foto jika diunggah
+    if ($request->hasFile('foto')) {
+        $fotoName = $request->file('foto')->getClientOriginalName();
+        $request->file('foto')->storeAs('fotos', $fotoName, 'public');
+        $penduduk->foto = $fotoName;
+        $penduduk->save();
+    }
 
     // Mengirimkan respon atau mengarahkan kembali ke halaman yang sesuai dengan pesan sukses
     return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diperbarui.');
