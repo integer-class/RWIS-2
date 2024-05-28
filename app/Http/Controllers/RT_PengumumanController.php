@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pengumuman;
-use App\Models\pengumuman_rt;
+use App\Models\Rt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
 
 class RT_PengumumanController extends Controller
 {
@@ -17,19 +15,13 @@ class RT_PengumumanController extends Controller
      */
     public function index()
     {
-
-
         //pengumuman
         $type_menu = 'pengumuman';
 
-        $pengumuman = Pengumuman_rt::join('pengumuman', 'pengumuman_rt.id_pengumuman', '=', 'pengumuman.id_pengumuman')
-        ->where('pengumuman_rt.id_rt', auth()->user()->id_rt)
-        ->get();
-        return view('rt.rt_data_pengumuman.index', compact('type_menu','pengumuman'));
-
-
-        // return json_encode($pengumuman);
-        
+        $pengumuman = Pengumuman::join('penduduk', 'pengumuman.nik', '=', 'penduduk.nik')
+            ->select('pengumuman.*', 'penduduk.nama')
+            ->get();
+        return view('rt.rt_data_pengumuman.index', compact('type_menu', 'pengumuman'));
     }
 
     /**
@@ -38,7 +30,7 @@ class RT_PengumumanController extends Controller
     public function create()
     {
         $type_menu = 'pengumuman';
-        $rt =  auth()->user()->id_rt;
+        $rt = Rt::all();
 
         // Panggil fungsi untuk membuat kode unik
         $uniqueCode = $this->generateUniqueCode();
@@ -67,42 +59,39 @@ class RT_PengumumanController extends Controller
             'masa_berlaku' => 'required|date',
             'isi_pengumuman' => 'required|string',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'rt' => 'required|integer|exists:rt,id_rt',
+            'rt' => 'required|array',
+            'rt.*' => 'integer|exists:rt,id_rt',
         ]);
-    
-        try {
-            // Create a new Pengumuman instance
-            $pengumuman = new Pengumuman();
-            $pengumuman->judul = $request->input('judul');
-            $pengumuman->kepentingan = $request->input('kepentingan');
-            $pengumuman->tanggal_pengumuman = $request->input('masa_berlaku');
-            $pengumuman->isi_pengumuman = $request->input('isi_pengumuman');
-            $pengumuman->id_pengumuman = $request->input('id_pengumuman');
-            $pengumuman->nik = auth()->user()->nik;
-    
-            if ($request->hasFile('foto')) {
-                $fileName = time().'.'.$request->foto->extension();
-                $request->foto->move(public_path('pengumuman'), $fileName);
-                $pengumuman->foto = $fileName;
-            }
-    
-            // Save the Pengumuman instance
-            $pengumuman->save();
-    
-            // Save data to the pengumuman_rt table
+
+        // Create a new Pengumuman instance
+        $pengumuman = new Pengumuman();
+        $pengumuman->judul = $request->input('judul');
+        $pengumuman->kepentingan = $request->input('kepentingan');
+        $pengumuman->tanggal_pengumuman = $request->input('masa_berlaku');
+        $pengumuman->isi_pengumuman = $request->input('isi_pengumuman');
+        $pengumuman->id_pengumuman = $request->input('id_pengumuman');
+        $pengumuman->nik = auth()->user()->nik;
+
+        if ($request->hasFile('foto')) {
+            $fileName = time() . '.' . $request->foto->extension();
+            $request->foto->move(public_path('pengumuman'), $fileName);
+            $pengumuman->foto = $fileName;
+        }
+
+        // Save the Pengumuman instance
+        $pengumuman->save();
+
+        // Save data to the pengumuman_rt table
+        foreach ($request->input('rt') as $rtId) {
             DB::table('pengumuman_rt')->insert([
                 'id_pengumuman' => $pengumuman->id_pengumuman,
-                'id_rt' => $request->input('rt'),
+                'id_rt' => $rtId,
             ]);
-    
-            return redirect()->route('rt_pengumuman.index')->with('success', 'Pengumuman berhasil disimpan');
-        } catch (\Exception $e) {
-            // Log the error for debugging
-            \Log::error('Error saving Pengumuman: '.$e->getMessage());
-            return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan pengumuman.');
         }
+
+        return redirect()->route('rt_pengumuman.index')->with('success', 'Pengumuman berhasil disimpan');
     }
-    
+
     /**
      * Display the specified resource.
      */

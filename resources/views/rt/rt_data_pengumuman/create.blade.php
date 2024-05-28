@@ -16,19 +16,16 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Tambah Penduduk</h1>
+                <h1>Tambah Pengumuman</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Data</a></div>
-                    <div class="breadcrumb-item"><a href="#">Penduduk</a></div>
-                    <div class="breadcrumb-item">Tambah Penduduk</div>
+                    <div class="breadcrumb-item"><a href="#">Pengumuman</a></div>
+                    <div class="breadcrumb-item">Tambah Pengumuman</div>
                 </div>
             </div>
 
             <div class="section-body">
-                {{-- <h2 class="section-title">Users</h2> --}}
-
                 @include('sweetalert::alert')
-
 
                 <div class="card">
                     <form action="{{ route('rt_pengumuman.store') }}" method="POST" enctype="multipart/form-data">
@@ -41,15 +38,15 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Judul Pengumuman</label>
-                                        <input type="text" class="form-control" name="judul">
+                                        <input type="text" class="form-control" name="judul" required>
                                         <input type="hidden" name="id_pengumuman" value="{{ $uniqueCode }}">
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Tipe Pengumuman</label>
-                                        <select class="form-control" name="kepentingan">
+                                        <select class="form-control" name="kepentingan" required>
                                             <option value="Sangat Penting">Sangat Penting</option>
                                             <option value="Penting">Penting</option>
                                             <option value="Sedang">Sedang</option>
@@ -57,67 +54,50 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Masa Berlaku</label>
-                                        <input type="date" class="form-control" name="masa_berlaku">
+                                        <input type="date" class="form-control" name="masa_berlaku" required>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Foto (opsional)</label>
                                         <input type="file" class="form-control" name="foto">
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        {{-- <label>Pilih RT (bisa lebih dari 1)</label>
-                                        <select name="rt[]" class="form-control selectric" multiple>
-                                            @foreach ($rt as $r)
-                                                <option value="{{ $r->id_rt }}">{{ $r->nama_rt }}</option>
-                                            @endforeach
-                                        </select> --}}
-
-                                        <input type="text" class="form-control" disabled value="{{ $rt }}" name="rt">
+                                        <label>RT yang Dipilih</label>
+                                        <input type="text" class="form-control" disabled value="{{ $rt->skip(1)->first()->nama_rt }}">
+                                        <input type="hidden" name="rt[]" value="{{ $rt->skip(1)->first()->id_rt }}">
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Isi pengumuman</label>
-                                        <textarea style="height: 100px" class="form-control" name="isi_pengumuman"></textarea>
+                                        <textarea style="height: 100px" class="form-control" name="isi_pengumuman" required></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Submit</button>
+                            <button class="btn btn-primary" type="submit">Submit</button>
                         </div>
                     </form>
-                    
-                    
-                    
-                   
                 </div>
-
             </div>
         </section>
     </div>
 @endsection
 
 @push('scripts')
-
-
-
-
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
-<script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
-
-<link rel="stylesheet" href="/resources/demos/style.css">
-{{-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> --}}
-<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
 @endpush
-
