@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Penduduk;
 use App\Models\User;
 use Alert;
+use App\Models\KartuKeluarga;
+use App\Models\Rt;
 
 use Illuminate\Http\Request;
 
@@ -57,7 +59,7 @@ class PendudukController extends Controller
         
             Penduduk::create([
                 'nik' => $request->nik,
-                'nomor_kk' => $request->nomor_kk,
+                'nomor_kk' => $nomor_kk,
                 'nama' => $request->nama,
                 'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir' => $request->tanggal_lahir,
@@ -126,22 +128,89 @@ class PendudukController extends Controller
     }
 
     
-    public function edit(Penduduk $penduduk)
+    // public function edit(Penduduk $penduduk)
+    // {
+    //     return view('rw.data_penduduk.penduduk_edit', compact('penduduk'));
+
+    // }
+
+    public function edit($nik)
     {
-        //
-    }
+    $type_menu = 'penduduk'; 
+
+    // Retrieve the Penduduk record by NIK
+    $penduduk = Penduduk::where('nik', $nik)->firstOrFail();
+    
+    // Retrieve all RT records
+    $rt = Rt::all();
+    
+    // Retrieve all Kartu Keluarga records
+    $kartukeluarga = KartuKeluarga::all();
+    
+    // Return the edit view with the retrieved data
+    return view('rw.data_penduduk.penduduk_edit', compact('penduduk', 'rt', 'kartukeluarga','type_menu'));
+}
+
 
     
-    public function update(Request $request, Penduduk $penduduk)
-    {
-        //
+public function update(Request $request, Penduduk $penduduk)
+{
+    // Validasi data yang diterima dari form
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'alamat' => 'required|string|max:255',
+        'tanggal_lahir' => 'required|date',
+        'jenis_kelamin' => 'required|in:L,P',
+        'agama' => 'required|in:Islam,Kristen,Katolik,Hindu,Budha,Konghucu', // Sesuaikan dengan opsi agama yang tersedia
+        'status_perkawinan' => 'required|in:Kawin,Belum Kawin,Cerai', // Sesuaikan dengan opsi status perkawinan yang tersedia
+        'golongan_darah' => 'required|in:A,B,AB,O', // Sesuaikan dengan opsi golongan darah yang tersedia
+        'id_rt' => 'required|exists:rt,id_rt', // Pastikan RT yang dipilih ada dalam database
+        'pekerjaan' => 'required|string|max:255',
+        'nomor_kk' => 'required|string|max:255',
+        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Optional: Validasi foto jika diunggah
+    ]);
+
+    // Memperbarui data penduduk di database
+    $penduduk->update([
+        'nama' => $request->input('nama'),
+        'alamat' => $request->input('alamat'),
+        'tanggal_lahir' => $request->input('tanggal_lahir'),
+        'jenis_kelamin' => $request->input('jenis_kelamin'),
+        'agama' => $request->input('agama'),
+        'status_perkawinan' => $request->input('status_perkawinan'),
+        'golongan_darah' => $request->input('golongan_darah'),
+        'id_rt' => $request->input('id_rt'),
+        'pekerjaan' => $request->input('pekerjaan'),
+        'nomor_kk' => $request->input('nomor_kk'),
+    ]);
+
+    // Optional: Upload foto jika diunggah
+    if ($request->hasFile('foto')) {
+        $fotoName = $request->file('foto')->getClientOriginalName();
+        $request->file('foto')->storeAs('fotos', $fotoName, 'public');
+        $penduduk->foto = $fotoName;
+        $penduduk->save();
     }
+
+    // Mengirimkan respon atau mengarahkan kembali ke halaman yang sesuai dengan pesan sukses
+    return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diperbarui.');
+    }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Penduduk $penduduk)
-    {
-        //
-    }
+    public function destroy($id)
+{
+    // Temukan penduduk berdasarkan ID
+    $penduduk = Penduduk::findOrFail($id);
+    
+    // Hapus penduduk dari database
+    $penduduk->delete();
+    
+    // Redirect kembali ke halaman index dengan pesan sukses
+    return redirect()->route('penduduk.index')->with('success', 'Penduduk berhasil dihapus');
+}
+
+    
 }

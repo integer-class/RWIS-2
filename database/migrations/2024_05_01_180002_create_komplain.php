@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('id_kategori_komplain')->references('id_kategori_komplain')->on('kategori_komplain');
             $table->foreignId('nik')->references('nik')->on('users');
             $table->text('isi_komplain');
+            $table->string('foto_komplain')->nullable();
             $table->enum('status_komplain', ['Diterima', 'Diproses', 'Selesai']);
             $table->timestamps();
         });

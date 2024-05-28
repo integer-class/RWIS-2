@@ -74,14 +74,12 @@
                                                             data-toggle="dropdown"
                                                             class="btn btn-outline-primary dropdown-toggle">Options</a>
                                                         <div class="dropdown-menu">
-                                                            <a href="{{ route('penduduk.show', $kk->nomor_kk)}}"
+                                                            <a href="{{ route('kartu-keluarga.show', $kk->nomor_kk)}}"
                                                                 class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
                                                             <a href="#"
                                                                 class="dropdown-item has-icon"><i class="far fa-edit"></i> Edit</a>
                                                             <div class="dropdown-divider"></div>
-                                                            <a href="#"
-                                                                class="dropdown-item has-icon text-danger"><i
-                                                                    class="far fa-trash-alt"></i> Delete</a>
+                                                            
                                                         </div>
                                                     </div>
                                                    
