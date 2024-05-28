@@ -34,7 +34,31 @@ class Warga_KomplainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+    
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'kategori_komplain_id' => 'required|exists:kategori_komplain,id_kategori_komplain',
+            'pekerjaan' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $komplain = new Komplain();
+        $komplain->judul_komplain = $request->input('nama');
+        $komplain->id_kategori_komplain = $request->input('kategori_komplain_id');
+        $komplain->isi_komplain = $request->input('isi');
+        $komplain->nik = Auth::user()->nik; // Assuming you have a user relationship and NIK in your user model
+        $komplain->status_komplain = 'pending'; // default status
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $komplain->thumbnail = $imagePath;
+        }
+
+        $komplain->save();
+
+        return redirect()->route('warga_komplain.index')->with('success', 'Komplain berhasil ditambahkan!');
+    
     }
 
     /**
