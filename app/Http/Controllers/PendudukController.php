@@ -96,7 +96,6 @@ class PendudukController extends Controller
     {
 
         $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
-
         ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
         ->where('penduduk.nik', $penduduk->nik)
         ->first();
