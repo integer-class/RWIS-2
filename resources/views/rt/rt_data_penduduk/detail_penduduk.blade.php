@@ -29,7 +29,7 @@
 
 
             <div class="section-body">
-                <a style="width:130px; height:38px" href="{{ route('penduduk.index') }}" class="btn btn-lg btn-primary">Kembali</a>
+                <a style="width:130px; height:38px" href="{{ route('rt_penduduk.index') }}" class="btn btn-lg btn-primary">Kembali</a>
 
                 <div class="">
                     <div style="margin-left: 30px;margin-top:90px" class="row">
@@ -170,11 +170,40 @@
                         <div class="col-md-3">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>Actions</h4>
+                                    <h4>Status</h4>
                                 </div>
                                 <div class="card-body">
-                                    <a href="#" class="btn btn-primary btn-lg btn-block">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-lg btn-block">Delete</a>
+
+                                  
+
+
+                                    @if ($penduduk->status == 'hidup')
+
+                                    <span class="btn btn-primary btn-lg btn-block">Hidup</span>
+
+
+                                    @elseif ($penduduk->status == 'meninggal')
+
+                                    <span  class="btn btn-danger btn-lg btn-block">Meninggal</span> 
+
+
+                                    @elseif ($penduduk->status == 'pindah')
+
+                                    <span  class="btn btn-warning btn-lg btn-block">Pindah</span>
+
+
+
+                                        
+                                    @endif
+
+
+
+                                    {{-- @foreach ( as $d  )
+                                        
+                                    @endforeach
+                                    <a href="#" class="btn btn-primary btn-lg btn-block">Hidup</a>
+                                    <a href="#" class="btn btn-primary btn-lg btn-block">Pindah</a>
+                                    <a href="#" class="btn btn-danger btn-lg btn-block">Meninggal</a> --}}
                                 </div>
                         </div>
 
@@ -185,15 +214,13 @@
                         @if(isset($penduduk_kk) && $penduduk_kk->count() > 0)
                         <div class="card">
                             <div class="card-header">
-                                <h4>Actions</h4>
+                                <h4>Keluarga</h4>
                             </div>
                             <div class="card-body">
                                 @foreach ($penduduk_kk as $keluarga)
                                     <ul class="list-unstyled list-unstyled-border">
                                         <li class="media">
-                                            <img alt="image" class="rounded-circle mr-3" width="40" height="45" src="{{
-                                                asset('penduduk/'.$keluarga->foto)
-                                            }}">
+                                            <img alt="image" class="rounded-circle mr-3" width="50" src="http://127.0.0.1:8001/img/avatar/avatar-1.png">
                                             <div class="media-body">
                                                 <div class="font-weight-bold mt-0 mb-1">
                                                     <a style="color: black" href="{{ route('penduduk.show', $keluarga->nik)}}">{{ $keluarga->nama }}</a>
@@ -209,6 +236,12 @@
                         </div>
                     @endif
                     
+
+
+                        
+                          
+
+
                     </div>
 
 
