@@ -214,7 +214,7 @@
                         @if(isset($penduduk_kk) && $penduduk_kk->count() > 0)
                         <div class="card">
                             <div class="card-header">
-                                <h4>Actions</h4>
+                                <h4>Keluarga</h4>
                             </div>
                             <div class="card-body">
                                 @foreach ($penduduk_kk as $keluarga)
