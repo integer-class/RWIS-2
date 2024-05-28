@@ -137,93 +137,65 @@
                                 <table class="table-striped table">
                                     <tr>
                                         <th>No</th>
-                                        <th>Nomor KK</th>
-                                        <th>Kepala Keluarga</th>
-                                        <th>Status</th>
+                                        <th>Tanggal</th>
+                                        <th>Jenis</th>
+                                        <th>Jumlah</th>
                                         <th>Action</th>
                                     </tr>
-                                    {{-- @foreach ($result as $kk)
+                                    @foreach ($iuran as $tr)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $kk->nomor_kk }}</td>
-                                            <td>{{ $kk->kepalakeluarga }}</td>
+                                            <td>{{ $tr->tanggal }}</td>
                                             <td>
-                                                @if ($kk->sudah_bayar == 'sudah')
-                                                    <span class="badge badge-success">Lunas</span>
+                                                @if ($tr->status == 'pemasukan')
+                                                    <span class="badge badge-success">Pemasukan</span>
                                                 @else
-                                                    <span class="badge badge-danger">Belum Lunas</span>
+                                                    <span class="badge badge-danger">Pengeluaran</span>
                                                 @endif
                                             </td>
+
                                             <td>
-                                                @if ($kk->sudah_bayar == 'belum')
+                                                {{
+                                                     $tr->jumlah
+                                                }}
+                                            
+                                            </td>
+
+
+
+                                            {{-- <td>{{ $tr->nomor_kk }} - {{ $tr->kepalakeluarga }}</td> --}}
+
+                                            
+                                            <td>
+                                              
                                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                        data-target="#exampleModal{{ $kk->nomor_kk }}">
-                                                        Bayar Iuran
+                                                        data-target="#exampleModal{{ $tr->id_iuran }}">
+                                                        Detail
                                                     </button>
 
-                                                @else
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                        data-target="#exampleModal{{ $kk->nomor_kk }}" disabled>
-                                                        Bayar Iuran
-                                                    </button>
-                                                @endif
+                                               
                                                 
                                             </td>
                                         </tr>
 
                                         <div class="modal fade" tabindex="-1" role="dialog"
-                                            id="exampleModal{{ $kk->nomor_kk }}">
+                                            id="exampleModal{{ $tr->id_iuran }}">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Bayar Iuran</h5>
+                                                        <h5 class="modal-title">Detail</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="{{ route('rt_iuran.store') }}" method="POST">
-                                                            @csrf
-                                                            <input type="hidden" name="nomor_kk"
-                                                                value="{{ $kk->nomor_kk }}">
-                                                            <input type="hidden" name="bulan"
-                                                                value="{{ $bulan }}">
-                                                            <input type="hidden" name="tahun"
-                                                                value="{{ $tahun }}">
-                                                            <div class="form-group">
-                                                                <label for="nomor_kk">Nomor KK:</label>
-                                                                <input type="text" class="form-control"
-                                                                    value="{{ $kk->nomor_kk }}" disabled>
-
-                                                                <label style="margin-top : 10px" for="kepalakeluarga">Kepala
-                                                                    Keluarga:</label>
-                                                                <input type="text" class="form-control"
-                                                                    value="{{ $kk->kepalakeluarga }}" disabled>
-
-                                                                <label style="margin-top : 10px"
-                                                                    for="jumlah">Jumlah:</label>
-                                                                <input type="text" class="form-control" name="jumlah"
-                                                                    value="100000" required>
-
-                                                                <label style="margin-top : 10px">
-                                                                    Catatan:
-                                                                </label>
-                                                                <textarea style="height: 100px" type="text" class="form-control" name="keterangan"></textarea>
-
-                                                            </div>
-                                                            <div class="modal-footer bg-whitesmoke br">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    changes</button>
-                                                            </div>
-                                                        </form>
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach --}}
+                                    @endforeach
 
 
                                 </table>

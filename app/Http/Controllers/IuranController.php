@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Iuran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class IuranController extends Controller
 {
@@ -18,8 +21,17 @@ class IuranController extends Controller
 
         $bulan = $request->input('bulan', date('m')); // Default to current month if not provided
         $tahun = $request->input('tahun', date('Y')); 
+
+        $iuran = Iuran::join('kartu_keluarga', 'iuran.nomor_kk', '=', 'kartu_keluarga.nomor_kk')->get();
+
+        // $iuran = Iuran::all();
+
+
         
-        return view ('rw.data_iuran.index',compact('bulan','tahun','type_menu'));
+        
+        return view ('rw.data_iuran.index',compact('bulan','tahun','type_menu','iuran'));
+
+        // return json_encode($iuran);
     }
 
     /**
