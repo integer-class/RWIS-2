@@ -200,7 +200,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header">   
                             <h4>Authors</h4>
                         </div>
                         <div class="card-body">

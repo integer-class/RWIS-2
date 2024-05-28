@@ -148,7 +148,7 @@ class PendudukController extends Controller
     
     // Return the edit view with the retrieved data
     return view('rw.data_penduduk.penduduk_edit', compact('penduduk', 'rt', 'kartukeluarga','type_menu'));
-}
+    }
 
 
     
