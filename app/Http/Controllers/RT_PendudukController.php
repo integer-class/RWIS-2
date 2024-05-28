@@ -180,7 +180,7 @@ class RT_PendudukController extends Controller
             'kewarganegaraan' => $request->kewarganegaraan,
             'id_rt' => $request->rt,
             'alamat' => $request->alamat,
-            'status' => '1',
+            'status' => strtolower($request->input('status')),
         ]);
 
         Alert::success('Berhasil', 'Data Penduduk Berhasil Diubah');
