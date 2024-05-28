@@ -69,9 +69,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="home-contact mt-4">
-                            <p class="text-primary font-weight-bold">Time date and problem monitoring</p>
+                            <p class="text-primary font-weight-bold">Rukun Warga Information System</p>
 
-                            <h1 class="home-title mt-3">Manajemen Data dan Pemantauan Kas</h1>
+                            <h1 class="home-title mt-3">R W K U</h1>
 
                             <p class="text-muted mt-4">
                              
