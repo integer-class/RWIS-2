@@ -76,7 +76,7 @@
                                                         <div class="dropdown-menu">
                                                             <a href="{{ route('kartu-keluarga.show', $kk->nomor_kk)}}"
                                                                 class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
-                                                            <a href="#"
+                                                            <a href="{{ route('kartu-keluarga.edit', $kk->nomor_kk)}}"
                                                                 class="dropdown-item has-icon"><i class="far fa-edit"></i> Edit</a>
                                                             <div class="dropdown-divider"></div>
                                                             
