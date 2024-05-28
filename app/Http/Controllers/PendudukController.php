@@ -161,13 +161,14 @@ public function update(Request $request, Penduduk $penduduk)
         'alamat' => 'required|string|max:255',
         'tanggal_lahir' => 'required|date',
         'jenis_kelamin' => 'required|in:L,P',
-        'agama' => 'required|in:Islam,Kristen,Katolik,Hindu,Budha,Konghucu', // Sesuaikan dengan opsi agama yang tersedia
-        'status_perkawinan' => 'required|in:Kawin,Belum Kawin,Cerai', // Sesuaikan dengan opsi status perkawinan yang tersedia
-        'golongan_darah' => 'required|in:A,B,AB,O', // Sesuaikan dengan opsi golongan darah yang tersedia
-        'id_rt' => 'required|exists:rt,id_rt', // Pastikan RT yang dipilih ada dalam database
+        'agama' => 'required|in:Islam,Kristen,Katolik,Hindu,Budha,Konghucu', 
+        'status_perkawinan' => 'required|in:Kawin,Belum Kawin,Cerai',
+        'golongan_darah' => 'required|in:A,B,AB,O',
+        'id_rt' => 'required|exists:rt,id_rt',
         'pekerjaan' => 'required|string|max:255',
         'nomor_kk' => 'required|string|max:255',
-        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Optional: Validasi foto jika diunggah
+        'status' => 'required|in:hidup,meninggal,pindah',
+        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 
     // Memperbarui data penduduk di database
@@ -182,6 +183,7 @@ public function update(Request $request, Penduduk $penduduk)
         'id_rt' => $request->input('id_rt'),
         'pekerjaan' => $request->input('pekerjaan'),
         'nomor_kk' => $request->input('nomor_kk'),
+        'status' => strtolower($request->input('status')),
     ]);
 
     // Optional: Upload foto jika diunggah
@@ -194,22 +196,6 @@ public function update(Request $request, Penduduk $penduduk)
 
     // Mengirimkan respon atau mengarahkan kembali ke halaman yang sesuai dengan pesan sukses
     return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diperbarui.');
-    }
-
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-{
-    // Temukan penduduk berdasarkan ID
-    $penduduk = Penduduk::findOrFail($id);
-    
-    // Hapus penduduk dari database
-    $penduduk->delete();
-    
-    // Redirect kembali ke halaman index dengan pesan sukses
-    return redirect()->route('penduduk.index')->with('success', 'Penduduk berhasil dihapus');
 }
 
     
