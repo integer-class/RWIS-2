@@ -164,20 +164,6 @@ class RT_PendudukController extends Controller
     public function update(Request $request, Penduduk $penduduk)
     {
         // Validasi data yang diterima dari form
-    $request->validate([
-        'nama' => 'required|string|max:255',
-        'alamat' => 'required|string|max:255',
-        'tanggal_lahir' => 'required|date',
-        'jenis_kelamin' => 'required|in:L,P',
-        'agama' => 'required|in:Islam,Kristen,Katolik,Hindu,Budha,Konghucu', 
-        'status_perkawinan' => 'required|in:Kawin,Belum Kawin,Cerai',
-        'golongan_darah' => 'required|in:A,B,AB,O',
-        'id_rt' => 'required|exists:rt,id_rt',
-        'pekerjaan' => 'required|string|max:255',
-        'nomor_kk' => 'required|string|max:255',
-        'status' => 'required|in:hidup,meninggal,pindah',
-        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
 
     // Memperbarui data penduduk di database
     $penduduk->update([
