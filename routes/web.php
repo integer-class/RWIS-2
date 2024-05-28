@@ -8,6 +8,8 @@ use App\Http\Controllers\DokumentasiController;
 //rt
 use App\Http\Controllers\RT_Dashboardcontoller;
 use App\Http\Controllers\IuranController;
+use App\Http\Controllers\RT_DokumentasiController;
+
 
 //warga
 use App\Http\Controllers\Warga_DashboardController;
@@ -56,6 +58,8 @@ Route::middleware(['auth', 'verified','rt'])->prefix('rt')->group(function () {
 
 
     Route::get('/', [RT_Dashboardcontoller::class, 'index'])->name('rt_dashboaard.index');
+    Route::post('rt_dokumentasi/storefoto', [RT_DokumentasiController::class, 'storefoto'])->name('rt_dokumentasi.storefoto');
+
 
 
     Route::resource('rt_dashboard', \App\Http\Controllers\RT_Dashboardcontoller::class);

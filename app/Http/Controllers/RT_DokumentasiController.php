@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Session;
+use App\Models\Penduduk;
 use Alert;
 
 
@@ -26,7 +27,13 @@ class RT_DokumentasiController extends Controller
     {
         $type_menu = 'dokumentasi';
 
-        $dokumentasi = Dokumentasi::all();
+
+        $nik = Penduduk::where('nik', Auth::user()->nik)->first();
+
+        $id_rt = $nik->id_rt;
+
+        $dokumentasi = Dokumentasi::where('nik', Auth::user()->nik)->get();
+
         return view('rt.rt_data_dokumentasi.index' , compact('type_menu','dokumentasi'));
     }
 
