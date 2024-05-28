@@ -90,7 +90,7 @@
 
              <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                 <a class="nav-link"
-                    href="{{ url('blank-page') }}"><i class="fa fa-camera"></i> <span>Dokumentasi</span></a>
+                    href="{{ route('rt_dokumentasi.index') }}"><i class="fa fa-camera"></i> <span>Dokumentasi</span></a>
             </li>
 
         </ul>
