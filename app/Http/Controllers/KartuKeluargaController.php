@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\KartuKeluarga;
 use Alert;
 use App\Models\Penduduk;
+use App\Models\Rt;
+
 
 class KartuKeluargaController extends Controller
 {
@@ -79,9 +81,19 @@ class KartuKeluargaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $nomor_kk)
     {
-        //
+        $type_menu = 'kartu-keluarga'; 
+
+    // Retrieve the Penduduk record by NIK
+    $kartuKeluarga = KartuKeluarga::where('nomor_kk', $nomor_kk)->firstOrFail();
+    
+    
+    // Retrieve all Kartu Keluarga records
+    $kartukeluarga = KartuKeluarga::all();
+    
+    // Return the edit view with the retrieved data
+    return view('rw.data_kartukeluarga.tambah_kartukeluarga', compact('kartukeluarga','type_menu'));
     }
 
     /**
@@ -89,24 +101,24 @@ class KartuKeluargaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+       
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        // Find the KartuKeluarga record by its primary key (nomor_kk)
-        $kartuKeluarga = KartuKeluarga::findOrFail($id);
-    
-        // Delete the record
-        $kartuKeluarga->delete();
-    
-        // Redirect to a desired route with a success message
-        return redirect()->route('rw.data_kartukeluarga.index')->with('success', 'Kartu Keluarga deleted successfully.', 'type_menu');
-    }
-    
+   public function destroy(string $id)
+{
+    // Find the KartuKeluarga record by its primary key (nomor_kk)
+    $kartuKeluarga = KartuKeluarga::findOrFail($id);
+
+    // Delete the record
+    $kartuKeluarga->delete();
+
+    // Redirect to a desired route with a success message
+    return redirect()->route('rw.data_kartukeluarga.index')->with('success', 'Kartu Keluarga deleted successfully.', 'type_menu');
+}
+
         
     }
 
