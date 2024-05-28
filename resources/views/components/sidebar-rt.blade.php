@@ -88,7 +88,7 @@
                     href="{{ route('rt_pengumuman.index') }}"><i class="fa fa-clipboard"></i> <span>Pengumuman</span></a>
             </li>
 
-             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+            <li class="nav-item dropdown {{ ($type_menu === 'dokumentasi' ? 'active' : '') }}">
                 <a class="nav-link"
                     href="{{ route('rt_dokumentasi.index') }}"><i class="fa fa-camera"></i> <span>Dokumentasi</span></a>
             </li>
