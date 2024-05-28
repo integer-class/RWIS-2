@@ -31,7 +31,7 @@
 
 
                 <div class="card">
-                    <form action="{{ route('pengumuman.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('rt_pengumuman.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header">
                             <h4>Form</h4>
@@ -74,12 +74,14 @@
                     
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Pilih RT (bisa lebih dari 1)</label>
+                                        {{-- <label>Pilih RT (bisa lebih dari 1)</label>
                                         <select name="rt[]" class="form-control selectric" multiple>
                                             @foreach ($rt as $r)
                                                 <option value="{{ $r->id_rt }}">{{ $r->nama_rt }}</option>
                                             @endforeach
-                                        </select>
+                                        </select> --}}
+
+                                        <input type="text" class="form-control" disabled value="{{ $rt }}" name="rt">
                                     </div>
                                 </div>
                     
