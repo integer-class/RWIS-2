@@ -170,11 +170,11 @@
                         <div class="col-md-3">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>Actions</h4>
+                                    <h4>Status</h4>
                                 </div>
                                 <div class="card-body">
                                     <a href="#" class="btn btn-primary btn-lg btn-block">Meninggal</a>
-                                    <a href="#" class="btn btn-danger btn-lg btn-block"></a>
+                                    <a href="#" class="btn btn-danger btn-lg btn-block">Pindah</a>
                                 </div>
                         </div>
 
