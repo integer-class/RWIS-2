@@ -173,8 +173,9 @@
                                     <h4>Status</h4>
                                 </div>
                                 <div class="card-body">
-                                    <a href="#" class="btn btn-primary btn-lg btn-block">Meninggal</a>
-                                    <a href="#" class="btn btn-danger btn-lg btn-block">Pindah</a>
+                                    <a href="#" class="btn btn-primary btn-lg btn-block">Hidup</a>
+                                    <a href="#" class="btn btn-primary btn-lg btn-block">Pindah</a>
+                                    <a href="#" class="btn btn-danger btn-lg btn-block">Meninggal</a>
                                 </div>
                         </div>
 

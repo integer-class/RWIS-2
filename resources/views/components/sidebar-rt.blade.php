@@ -83,7 +83,7 @@
                     href="{{ route('rt_komplain.index') }}"><i class="fas fa-exclamation"></i> <span>Komplain</span></a>
             </li>
 
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+            <li class="nav-item dropdown {{ ($type_menu === 'pengumuman' ? 'active' : '') }}">
                 <a class="nav-link"
                     href="{{ route('rt_pengumuman.index') }}"><i class="fa fa-clipboard"></i> <span>Pengumuman</span></a>
             </li>

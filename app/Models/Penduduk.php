@@ -25,8 +25,14 @@ class Penduduk extends Model
         'status_perkawinan',
         'pekerjaan',
         'nomor_kk',
+        'status',
         'id_rt',
         'foto',
+    ];
+
+    // Tambahkan casting untuk status jika diperlukan
+    protected $casts = [
+        'status' => 'string',
     ];
 
     public function KartuKeluarga()

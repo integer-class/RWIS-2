@@ -25,10 +25,7 @@
             </div>
 
             <h2 class="section">
-                    
                 <a style="width:130px; height:38px; margin-bottom:20px" href="{{ route('penduduk.index') }}" class="btn btn-lg btn-primary">Kembali</a>
-
-
             </h2>
 
             <div class="section-body">
@@ -61,12 +58,12 @@
                                     <div class="form-group">
                                         <label>Agama</label>
                                         <select class="form-control" name="agama">
-                                            <option value="Islam" {{  $penduduk->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
-                                            <option value="Kristen" {{  $penduduk->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
-                                            <option value="Katolik" {{  $penduduk->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
-                                            <option value="Hindu" {{  $penduduk->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                                            <option value="Budha" {{  $penduduk->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
-                                            <option value="Konghucu" {{  $penduduk->agama == 'Konghucu' ? 'selected' : '' }}>Konghucu</option>
+                                            <option value="Islam" {{ $penduduk->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                            <option value="Kristen" {{ $penduduk->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                                            <option value="Katolik" {{ $penduduk->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                            <option value="Hindu" {{ $penduduk->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                            <option value="Budha" {{ $penduduk->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
+                                            <option value="Konghucu" {{ $penduduk->agama == 'Konghucu' ? 'selected' : '' }}>Konghucu</option>
                                         </select>
                                     </div>
                                 </div>
@@ -117,7 +114,7 @@
                                         <select class="form-control" name="id_rt">
                                             <option value="">Select RT</option>
                                             @foreach($rt as $r)
-                                                <option value="{{ $r->id_rt }}" {{  $penduduk->id_rt == $r->id_rt ? 'selected' : '' }}>{{ $r->nama_rt }}</option>
+                                                <option value="{{ $r->id_rt }}" {{ $penduduk->id_rt == $r->id_rt ? 'selected' : '' }}>{{ $r->nama_rt }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -153,26 +150,31 @@
                                         @endif
                                     </div>
                                 </div>
+
+                                <div class="col-md-12"> 
+                                    <div class="form-group">
+                                        <label class="form-label">Status</label>
+                                        <div class="selectgroup w-100">
+                                            <label class="selectgroup-item">
+                                                <input type="radio" name="status" value="hidup" class="selectgroup-input" {{ $penduduk->status == 'hidup' ? 'checked' : '' }}>
+                                                <span class="selectgroup-button">Hidup</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="radio" name="status" value="meninggal" class="selectgroup-input" {{ $penduduk->status == 'meninggal' ? 'checked' : '' }}>
+                                                <span class="selectgroup-button">Meninggal</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="radio" name="status" value="pindah" class="selectgroup-input" {{ $penduduk->status == 'pindah' ? 'checked' : '' }}>
+                                                <span class="selectgroup-button">Pindah</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                    
+
                             </div>
                         </div>
 
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="form-label">Status</label>
-                                <div class="selectgroup w-100">
-                                    <label class="selectgroup-item">
-                                        <input type="radio" name="roles" value="3" class="selectgroup-input"
-                                            checked="">
-                                        <span class="selectgroup-button">Meninggal</span>
-                                    </label>
-                                    <label class="selectgroup-item">
-                                        <input type="radio" name="roles" value="2" class="selectgroup-input">
-                                        <span class="selectgroup-button">Pindah</span>
-                                    </label>
-                                </div>
-                            </div> 
-                        </div>
-                            
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Update</button>
                         </div>
