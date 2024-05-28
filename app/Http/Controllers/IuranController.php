@@ -16,22 +16,34 @@ class IuranController extends Controller
     public function index(Request $request)
     {
 
-    $type_menu = 'iuran';
+        $type_menu = 'iuran';
 
+
+        
 
         $bulan = $request->input('bulan', date('m')); // Default to current month if not provided
-        $tahun = $request->input('tahun', date('Y')); 
+        $tahun = $request->input('tahun', date('Y'));
 
-        $iuran = Iuran::join('kartu_keluarga', 'iuran.nomor_kk', '=', 'kartu_keluarga.nomor_kk')->get();
 
-        // $iuran = Iuran::all();
+        $totalPemasukan = Iuran::where('status', 'pemasukan')
+        ->whereMonth('tanggal', $bulan)
+        ->whereYear('tanggal', $tahun)
+        ->sum('jumlah');
 
+        $totalPengeluaran = Iuran::where('status', 'pengeluaran')
+        ->whereMonth('tanggal', $bulan)
+        ->whereYear('tanggal', $tahun)
+        ->sum('jumlah');
 
         
+        $iuran = Iuran::join('kartu_keluarga', 'iuran.nomor_kk', '=', 'kartu_keluarga.nomor_kk')
+            ->whereMonth('iuran.created_at', $bulan)
+            ->whereYear('iuran.created_at', $tahun)
+            ->get();
         
-        return view ('rw.data_iuran.index',compact('bulan','tahun','type_menu','iuran'));
+        return view ('rw.data_iuran.index',compact('bulan','tahun','type_menu','iuran','totalPemasukan','totalPengeluaran'));
+        
 
-        // return json_encode($iuran);
     }
 
     /**

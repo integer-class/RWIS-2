@@ -11,60 +11,60 @@
     <div class="main-content">
         <div class="section-body">
 
-          
 
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon bg-primary">
-                                    <i class="far fa-user"></i>
-                                </div>
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4>Total</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        10
-                                    </div>
-                                </div>
-                            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="far fa-user"></i>
                         </div>
-                       
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon bg-success">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4>Pemasukan Bulan Ini</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        47
-                                    </div>
-                                </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total</h4>
                             </div>
-                        </div>
-
-
-
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon bg-success">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4>Pengeluaran Bulan Ini</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        47
-                                    </div>
-                                </div>
+                            <div class="card-body">
+                                Rp {{ number_format($totalPemasukan - $totalPengeluaran, 2, ',', '.') }}
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-success">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Pemasukan Bulan Ini</h4>
+                            </div>
+                            <div class="card-body">
+                                Rp {{ number_format($totalPemasukan, 2, ',', '.') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-success">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Pengeluaran Bulan Ini</h4>
+                            </div>
+                            <div class="card-body">
+                                Rp {{ number_format($totalPengeluaran, 2, ',', '.') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
 
+
+          
+
+                    
                 
 
             <div class="card">
@@ -145,7 +145,7 @@
                                     @foreach ($iuran as $tr)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $tr->tanggal }}</td>
+                                            <td>{{ $tr->created_at }}</td>
                                             <td>
                                                 @if ($tr->status == 'pemasukan')
                                                     <span class="badge badge-success">Pemasukan</span>
@@ -190,6 +190,46 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
+                                                        <h6><strong>Tanggal :</strong></h6>
+                                                        <p id="tanggal">
+                                                            {{ $tr->created_at }}
+                                                        </p>
+                                        
+                                                        <h6><strong>Nama:</strong></h6>
+                                                        <p id="nama">
+                                                            {{ $tr->kepalakeluarga }}
+                                                        </p>
+
+
+                                                        <h6><strong>Jumlah:</strong></h6>
+                                                        <p id="nama">
+                                                            {{ $tr->jumlah }}
+                                                        </p>
+
+
+
+    
+                                                       
+                                                        <h6><strong>Jenis:</strong></h6>
+                                                        <p id="status_komplain">
+                                                            @if ($tr->status == 'pemasukan')
+                                                                <div class="badge badge-primary">Pemasukan</div>
+                                                                
+                                                            @elseif ($tr->status == 'pengeluaran')
+                                                            <div class="badge badge-danger">Pengeluaran</div>
+    
+                                                            @endif
+                                                        </p>
+    
+    
+                                                        @if ($tr->keterangan != null)
+                                                            <h6><strong>Keterangan:</strong></h6>
+
+                                                            <p id="nama">
+                                                                {{ $tr->keterangan }}
+                                                            </p>
+                                                        @endif
+                                        
                                                        
                                                     </div>
                                                 </div>
