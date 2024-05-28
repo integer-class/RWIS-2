@@ -155,9 +155,9 @@
                                             </td>
 
                                             <td>
-                                                {{
-                                                     $tr->jumlah
-                                                }}
+
+                                                Rp {{ number_format( $tr->jumlah, 2, ',', '.') }}
+                                               
                                             
                                             </td>
 

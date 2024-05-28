@@ -60,29 +60,27 @@ class RT_IuranController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nomor_kk' => 'required|exists:kartu_keluarga,nomor_kk',
-            'jumlah' => 'required|numeric',
-            'bulan' => 'required|numeric|min:1|max:12',
-            'tahun' => 'required|numeric|min:2020|max:' . date('Y'),
-        ]);
+        $kk = KartuKeluarga::where('nik', auth()->user()->nik)->first();
 
-        $tanggal = Carbon::createFromDate($validatedData['tahun'], $validatedData['bulan'], 1);
+    $validatedData = $request->validate([
+        'jumlah' => 'required|numeric',
+        'tanggal' => 'required|date',
+        'keterangan' => 'required|string',
+    ]);
 
-        DB::table('iuran')->insert([
-            'nomor_kk' => $validatedData['nomor_kk'],
-            'jumlah' => $validatedData['jumlah'],
-            'tanggal' => $tanggal,
-            'id_rt' => auth()->user()->id_rt,
+    DB::table('iuran')->insert([
+        'nomor_kk' => $kk->nomor_kk,
+        'jumlah' => $validatedData['jumlah'],
+        'tanggal' => $validatedData['tanggal'],
+        'id_rt' => auth()->user()->id_rt,
+        'is_paid' => true,
+        'created_at' => now(),
+        'updated_at' => now(),
+    ]);
 
-            'is_paid' => true,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+    Alert::success('Berhasil!', 'Berhasil menambahkan data!');
 
-        Alert::success('Berhasil!', 'Berhasil menambahkan data!');
-        
-        return redirect()->back();    }
+    return redirect()->back();    }
 
     /**
      * Display the specified resource.

@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Iuran;
+use App\Models\KartuKeluarga;
+use App\Models\Penduduk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Alert;
 
 
 class IuranController extends Controller
@@ -56,7 +59,12 @@ class IuranController extends Controller
      */
     public function create()
     {
-        //
+        $type_menu = 'form_pengeluaran';
+
+        
+        return view ('rw.data_iuran.create',compact('type_menu'));
+
+        
     }
 
     /**
@@ -64,7 +72,29 @@ class IuranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+     
+        $kk = Penduduk::where('nik', auth()->user()->nik)->first();
+
+        DB::table('iuran')->insert([
+            'nomor_kk' => $kk->nomor_kk,
+            'jumlah' => $request->jumlah,
+            'tanggal' => $request->tanggal,
+            'keterangan' =>  $request->keterangan,
+            'status' => 'pengeluaran',
+            'id_rt' => auth()->user()->id_rt,
+            'is_paid' => true,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        Alert::success('Berhasil!', 'Berhasil menambahkan data!');
+        
+        return redirect()->back(); 
+
+        // echo $kk;
+        
+
     }
 
     /**
