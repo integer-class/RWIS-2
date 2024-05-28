@@ -111,12 +111,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>RT</label>
-                                        <select class="form-control" name="id_rt">
-                                            <option value="">Select RT</option>
-                                            {{-- @foreach($rt as $r)
-                                                <option value="{{ $r->id_rt }}" {{ $penduduk->id_rt == $r->id_rt ? 'selected' : '' }}>{{ $r->nama_rt }}</option>
-                                            @endforeach --}}
-                                        </select>
+                                        <input type="text" class="form-control" name="rt" value="{{ $penduduk->id_rt }}">
                                     </div>
                                 </div>
 

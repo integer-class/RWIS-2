@@ -161,38 +161,36 @@ class RT_PendudukController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Penduduk $penduduk)
-    {
-        // Validasi data yang diterima dari form
 
-    // Memperbarui data penduduk di database
-    $penduduk->update([
-        'nama' => $request->input('nama'),
-        'alamat' => $request->input('alamat'),
-        'tanggal_lahir' => $request->input('tanggal_lahir'),
-        'jenis_kelamin' => $request->input('jenis_kelamin'),
-        'agama' => $request->input('agama'),
-        'status_perkawinan' => $request->input('status_perkawinan'),
-        'golongan_darah' => $request->input('golongan_darah'),
-        'id_rt' => $request->input('id_rt'),
-        'pekerjaan' => $request->input('pekerjaan'),
-        'nomor_kk' => $request->input('nomor_kk'),
-        'status' => strtolower($request->input('status')),
-    ]);
+     public function update(Request $request)
+     {
 
-    // Optional: Upload foto jika diunggah
-    if ($request->hasFile('foto')) {
-        $fotoName = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('fotos', $fotoName, 'public');
-        $penduduk->foto = $fotoName;
-        $penduduk->save();
+        $penduduk = Penduduk::where('nik', $request->nik)->firstOrFail();
+        $penduduk->update([
+            'nomor_kk' => $request->nomor_kk,
+            'nama' => $request->nama,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'agama' => $request->agama,
+            'pendidikan' => $request->pendidikan,
+            'pekerjaan' => $request->pekerjaan,
+            'status_perkawinan' => $request->status_perkawinan,
+            'status_hubungan' => $request->status_hubungan,
+            'kewarganegaraan' => $request->kewarganegaraan,
+            'id_rt' => $request->rt,
+            'alamat' => $request->alamat,
+            'status' => '1',
+        ]);
+
+        Alert::success('Berhasil', 'Data Penduduk Berhasil Diubah');
+        return redirect()->route('rt_penduduk.index');
+
         
-    }
-    
+        
+     }
 
-    // Mengirimkan respon atau mengarahkan kembali ke halaman yang sesuai dengan pesan sukses
-    return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diperbarui.');
-}
+ 
 
     
     /**
