@@ -92,10 +92,13 @@ class RT_PendudukController extends Controller
 
             User::create([
                 'nik' => $request->nik,
-                'password' => bcrypt($request->nik),
+                'password' => $namaUpper . $request->tanggal_lahir,
                 'role' => '3',
                 'id_rt' => $request->id_rt,
+                'default_password' => 'yes',
+
             ]);
+
 
             Alert::success('Berhasil', 'Data Penduduk Berhasil Ditambahkan');
             return redirect()->route('rt_penduduk.index');
