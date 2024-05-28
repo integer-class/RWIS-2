@@ -35,13 +35,18 @@ class IuranController extends Controller
         ->whereYear('tanggal', $tahun)
         ->sum('jumlah');
 
+
+        $totalSemuaPemasukan = Iuran::where('status', 'pemasukan')->sum('jumlah');
+        $totalSemuaPengeluaran = Iuran::where('status', 'pengeluaran')->sum('jumlah');
+
         
         $iuran = Iuran::join('kartu_keluarga', 'iuran.nomor_kk', '=', 'kartu_keluarga.nomor_kk')
-            ->whereMonth('iuran.created_at', $bulan)
-            ->whereYear('iuran.created_at', $tahun)
+            ->whereMonth('iuran.tanggal', $bulan)
+            ->whereYear('iuran.tanggal', $tahun)
             ->get();
+            
         
-        return view ('rw.data_iuran.index',compact('bulan','tahun','type_menu','iuran','totalPemasukan','totalPengeluaran'));
+        return view ('rw.data_iuran.index',compact('bulan','tahun','type_menu','iuran','totalPemasukan','totalPengeluaran','totalSemuaPemasukan','totalSemuaPengeluaran'));
         
 
     }
