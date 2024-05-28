@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('iuran', function (Blueprint $table) {
             $table->bigIncrements('id_iuran');
+            $table->foreignId('id_rt')->references('id_rt')->on('rt');
             $table->unsignedBigInteger('nomor_kk');
             $table->decimal('jumlah', 10, 2);
             $table->date('tanggal');
             $table->string('keterangan')->nullable();
+            $table->enum('status', ['pengeluaran', 'pemasukan'])->default('pemasukan');
+
+
             $table->boolean('is_paid')->default(false);
             $table->timestamps();
 

@@ -73,6 +73,8 @@ class RT_IuranController extends Controller
             'nomor_kk' => $validatedData['nomor_kk'],
             'jumlah' => $validatedData['jumlah'],
             'tanggal' => $tanggal,
+            'id_rt' => auth()->user()->id_rt,
+
             'is_paid' => true,
             'created_at' => now(),
             'updated_at' => now(),

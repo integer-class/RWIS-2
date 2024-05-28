@@ -47,6 +47,7 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::resource('penduduk', \App\Http\Controllers\PendudukController::class);
     Route::resource('dokumentasi', \App\Http\Controllers\DokumentasiController::class);
     Route::resource('pengumuman', \App\Http\Controllers\PengumumanController::class);
+    Route::resource('iuran', \App\Http\Controllers\IuranController::class);
     
     
 });

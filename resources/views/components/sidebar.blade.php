@@ -87,7 +87,7 @@
                     </li>
                     <li class="{{ Request::is('bootstrap-alert') ? 'active' : '' }}">
                         <a class="nav-link"
-                            href="{{ url('bootstrap-alert') }}">Data Iuran</a>
+                            href="{{ route('iuran.index') }}">Data Iuran</a>
                     </li>
 
                 </ul>

@@ -10,6 +10,63 @@
 @section('main')
     <div class="main-content">
         <div class="section-body">
+
+          
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-primary">
+                                    <i class="far fa-user"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Total</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        10
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-success">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Pemasukan Bulan Ini</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        47
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-success">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Pengeluaran Bulan Ini</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        47
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                
+
             <div class="card">
                 <div class="card-header">
                     <h4>Filter</h4>
@@ -85,7 +142,7 @@
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
-                                    @foreach ($result as $kk)
+                                    {{-- @foreach ($result as $kk)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $kk->nomor_kk }}</td>
@@ -166,7 +223,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    @endforeach --}}
 
 
                                 </table>
