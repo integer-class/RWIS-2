@@ -35,23 +35,15 @@
                 <a class="nav-link active"
                     href="{{ route('warga_komplain.index') }}"><i class="fas fa-exclamation"></i> <span>Komplain</span></a>
             </li>
-        
-
-    
-           
-           
-     
-
-           
-
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link"
-                    href="{{ url('blank-page') }}"><i class="fa fa-clipboard"></i> <span>Pengumuman</span></a>
+            
+            <li class="{{ $type_menu === 'pengumuman'? 'active' : ''  }}">
+                <a class="nav-link active"
+                    href="{{ route('warga_pengumuman.index') }}"><i class="fas fa-exclamation"></i> <span>Pengumuman</span></a>
             </li>
-
-             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link"
-                    href="{{ url('blank-page') }}"><i class="fa fa-camera"></i> <span>Dokumentasi</span></a>
+             
+            <li class="{{ $type_menu === 'dokumentasi'? 'active' : ''  }}">
+                <a class="nav-link active"
+                    href="{{ route('warga_dokumentasi.index') }}"><i class="fas fa-exclamation"></i> <span>Dokumentasi</span></a>
             </li>
 
         </ul>
