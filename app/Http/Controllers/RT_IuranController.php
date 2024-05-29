@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\KartuKeluarga;
 use Carbon\Carbon;
 use Alert;
 
@@ -60,6 +61,10 @@ class RT_IuranController extends Controller
      */
     public function store(Request $request)
     {
+
+        $id_rt = auth()->user()->id_rt;
+
+
         $validatedData = $request->validate([
             'nomor_kk' => 'required|exists:kartu_keluarga,nomor_kk',
             'jumlah' => 'required|numeric',
@@ -74,13 +79,15 @@ class RT_IuranController extends Controller
             'jumlah' => $validatedData['jumlah'],
             'tanggal' => $tanggal,
             'is_paid' => true,
+            'id_rt' => $id_rt,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         Alert::success('Berhasil!', 'Berhasil menambahkan data!');
-        
-        return redirect()->back();    }
+
+        return redirect()->back();
+           }
 
     /**
      * Display the specified resource.

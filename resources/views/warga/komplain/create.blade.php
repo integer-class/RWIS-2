@@ -25,7 +25,7 @@
                 @include('sweetalert::alert')
 
                 <div class="card">
-                    <form id="complaintForm" action="{{ route('rt_penduduk.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('warga_komplain.store') }}" method="POST">
                         @csrf
                         <div class="card-header">
                             <h4>Form</h4>
@@ -38,6 +38,8 @@
                                         <input type="text" class="form-control" name="nama" required>
                                     </div>
                                 </div>
+
+
 
                                 <div class="col-md-5">
                                     <div class="form-group">
@@ -53,17 +55,30 @@
                                 <div class="col-md-7">
                                     <div class="form-group">
                                         <label>Isi Komplain</label>
-                                        <textarea style="height: 100px" class="form-control" name="pekerjaan" required></textarea>
+                                        <textarea style="height: 100px" class="form-control" name="isi" required></textarea>
                                     </div>
                                 </div>
 
                                 <!-- Dropzone Section -->
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Upload Files</label>
-                                        <div class="dropzone" id="my-dropzone"></div>
+                                <div class="col-md-5" >
+                                    <div>
+                                        <div class="form-group">
+                                            <label>Thumbnail</label>
+                                            <div class="col-sm-9">
+                                                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image">
+        
+                                            </div>
+                                            @error('image')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+            
+        
                                     </div>
                                 </div>
+                               
                             </div>
                         </div>
                         <div class="card-footer text-right">
@@ -81,41 +96,5 @@
     <!-- Dropzone JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
 
-    <script>
-        Dropzone.options.myDropzone = {
-            url: '{{ route('rt_penduduk.store') }}',
-            autoProcessQueue: false,
-            uploadMultiple: true,
-            parallelUploads: 10,
-            maxFiles: 10,
-            paramName: 'file',
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            },
-            init: function() {
-                var myDropzone = this;
-
-                this.on("sendingmultiple", function(file, xhr, formData) {
-                    // Append the form data
-                    $("form#complaintForm").serializeArray().forEach(function(field) {
-                        formData.append(field.name, field.value);
-                    });
-                });
-
-                $("form#complaintForm").on('submit', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    myDropzone.processQueue();
-                });
-            },
-            successmultiple: function(files, response) {
-                console.log(response);
-                // Handle the response after a successful upload
-            },
-            errormultiple: function(files, response) {
-                console.log(response);
-                // Handle the response after a failed upload
-            }
-        };
-    </script>
+    
 @endpush

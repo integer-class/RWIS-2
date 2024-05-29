@@ -69,9 +69,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="home-contact mt-4">
-                            <p class="text-primary font-weight-bold">Time date and problem monitoring</p>
+                            <p class="text-primary font-weight-bold">Rukun Warga Information System</p>
 
-                            <h1 class="home-title mt-3">Manajemen Data dan Pemantauan Kas</h1>
+                            <h1 class="home-title mt-3">R W K U</h1>
 
                             <p class="text-muted mt-4">
                              
@@ -134,7 +134,7 @@ Situs web RW bertujuan memperkuat koneksi warga, memfasilitasi pertukaran inform
                         <div class="text-center">
                             <p class="title-sub-heading text-primary f-18">Specialized Skill</p>
                             <h2 class="title-heading">Why do people love us</h2>
-                            <p class="title-desc text-muted mt-2">Donec dapibus dolor at semper dictum phasellus fringilla sem risus mollis faucibus dolor eleifend id maecenas viverra.</p>
+                            <p class="title-desc text-muted mt-2"></p>
                         </div>
                     </div>
                 </div>
@@ -144,7 +144,7 @@ Situs web RW bertujuan memperkuat koneksi warga, memfasilitasi pertukaran inform
                         <div class="counter-box mt-4 p-4">
                             <h2 class="counter-count text-primary"><span class="counter-value" data-count="898">0</span> <span class="count-plus"></span></h2>
                             <h5 class="mt-2 f-18">Jumlah Penduduk</h5>
-                            <p class="text-muted mt-3 mb-0">Aliquam erat volutpat elit quisque porta varius malesauada nuarnc turpis imperdiet id odio.</p>
+                            <p class="text-muted mt-3 mb-0">-</p>
                         </div>
                     </div>
 
@@ -152,15 +152,15 @@ Situs web RW bertujuan memperkuat koneksi warga, memfasilitasi pertukaran inform
                         <div class="counter-box mt-4 p-4">
                             <h2 class="counter-count text-primary"><span class="counter-value" data-count="215">0</span> <span class="count-plus"></span></h2>
                             <h5 class="mt-2 f-18">Jumlah KK</h5>
-                            <p class="text-muted mt-3 mb-0">Vivamus id lorem ut dolor sagittis elementum finibus vel felis maecenas laoreet leo sollicitudin.</p>
+                            <p class="text-muted mt-3 mb-0">-</p>
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="counter-box mt-4 p-4">
-                            <h2 class="counter-count text-primary"><span class="counter-value" data-count="20">0</span> <span class="count-plus"></span></h2>
+                            <h2 class="counter-count text-primary"><span class="counter-value" data-count="11">0</span> <span class="count-plus"></span></h2>
                             <h5 class="mt-2 f-18">Jumlah RT</h5>
-                            <p class="text-muted mt-3 mb-0">Vivamus id lorem ut dolor sagittis elementum finibus vel felis maecenas laoreet leo sollicitudin.</p>
+                            <p class="text-muted mt-3 mb-0">-</p>
                         </div>
                     </div>
                 </div>

@@ -92,10 +92,13 @@ class RT_PendudukController extends Controller
 
             User::create([
                 'nik' => $request->nik,
-                'password' => bcrypt($request->nik),
+                'password' => $namaUpper . $request->tanggal_lahir,
                 'role' => '3',
                 'id_rt' => $request->id_rt,
+                'default_password' => 'yes',
+
             ]);
+
 
             Alert::success('Berhasil', 'Data Penduduk Berhasil Ditambahkan');
             return redirect()->route('rt_penduduk.index');
@@ -138,19 +141,61 @@ class RT_PendudukController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Penduduk $penduduk)
+    public function edit($nik)
     {
-        //
+
+    $type_menu = 'penduduk'; 
+
+    // Retrieve the Penduduk record by NIK
+    $penduduk = Penduduk::where('nik', $nik)->firstOrFail();
+    
+    // // Retrieve all RT records
+    // $rt = Rt::all();
+    
+    // Retrieve all Kartu Keluarga records
+    $kartukeluarga = KartuKeluarga::all();
+    
+    // Return the edit view with the retrieved data
+    return view('rt.rt_data_penduduk.rt_penduduk_edit', compact('penduduk', 'kartukeluarga','type_menu'));
+    
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Penduduk $penduduk)
-    {
-        //
-    }
 
+     public function update(Request $request)
+     {
+
+        $penduduk = Penduduk::where('nik', $request->nik)->firstOrFail();
+        $penduduk->update([
+            'nomor_kk' => $request->nomor_kk,
+            'nama' => $request->nama,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'agama' => $request->agama,
+            'pendidikan' => $request->pendidikan,
+            'pekerjaan' => $request->pekerjaan,
+            'status_perkawinan' => $request->status_perkawinan,
+            'status_hubungan' => $request->status_hubungan,
+            'kewarganegaraan' => $request->kewarganegaraan,
+            'id_rt' => $request->rt,
+            'alamat' => $request->alamat,
+            'status' => strtolower($request->input('status')),
+        ]);
+
+        Alert::success('Berhasil', 'Data Penduduk Berhasil Diubah');
+        return redirect()->route('rt_penduduk.index');
+
+        
+        
+     }
+
+ 
+
+    
     /**
      * Remove the specified resource from storage.
      */

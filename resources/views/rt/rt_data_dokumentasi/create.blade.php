@@ -25,18 +25,13 @@
             </div>
 
             <div class="section-body">
-                <h2 class="section">
-                    
-                    <a style="width:130px; height:38px; margin-bottom:20px" href="{{ route('dokumentasi.index') }}" class="btn btn-lg btn-primary">Kembali</a>
-
-
-                </h2>
+                {{-- <h2 class="section-title">Users</h2> --}}
 
                 @include('sweetalert::alert')
 
 
                 <div class="card">
-                    <form action="{{ route('dokumentasi.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('rt_dokumentasi.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header">
                             <h4>Form</h4>

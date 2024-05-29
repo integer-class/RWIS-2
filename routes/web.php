@@ -8,6 +8,8 @@ use App\Http\Controllers\DokumentasiController;
 //rt
 use App\Http\Controllers\RT_Dashboardcontoller;
 use App\Http\Controllers\IuranController;
+use App\Http\Controllers\RT_DokumentasiController;
+
 
 //warga
 use App\Http\Controllers\Warga_DashboardController;
@@ -47,6 +49,7 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::resource('penduduk', \App\Http\Controllers\PendudukController::class);
     Route::resource('dokumentasi', \App\Http\Controllers\DokumentasiController::class);
     Route::resource('pengumuman', \App\Http\Controllers\PengumumanController::class);
+    Route::resource('iuran', \App\Http\Controllers\IuranController::class);
     
     
 });
@@ -55,6 +58,8 @@ Route::middleware(['auth', 'verified','rt'])->prefix('rt')->group(function () {
 
 
     Route::get('/', [RT_Dashboardcontoller::class, 'index'])->name('rt_dashboaard.index');
+    Route::post('rt_dokumentasi/storefoto', [RT_DokumentasiController::class, 'storefoto'])->name('rt_dokumentasi.storefoto');
+
 
 
     Route::resource('rt_dashboard', \App\Http\Controllers\RT_Dashboardcontoller::class);
@@ -67,6 +72,8 @@ Route::middleware(['auth', 'verified','rt'])->prefix('rt')->group(function () {
     Route::resource('rt_komplain', \App\Http\Controllers\RT_KomplainController::class);
 
     Route::resource('rt_pengumuman', \App\Http\Controllers\RT_PengumumanController::class);
+
+    Route::resource('rt_dokumentasi', \App\Http\Controllers\RT_DokumentasiController::class);
 
     
 

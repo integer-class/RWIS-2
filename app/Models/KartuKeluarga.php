@@ -10,6 +10,9 @@ class KartuKeluarga extends Model
     use HasFactory;
 
     protected $table = 'kartu_keluarga';
+    protected $primaryKey = 'nomor_kk';
+
+
 
     protected $fillable = [
         'nomor_kk',

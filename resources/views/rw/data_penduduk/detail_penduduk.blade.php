@@ -173,9 +173,37 @@
                                     <h4>Status</h4>
                                 </div>
                                 <div class="card-body">
+
+                                  
+
+
+                                    @if ($penduduk->status == 'hidup')
+
+                                    <span class="btn btn-primary btn-lg btn-block">Hidup</span>
+
+
+                                    @elseif ($penduduk->status == 'meninggal')
+
+                                    <span  class="btn btn-danger btn-lg btn-block">Meninggal</span> 
+
+
+                                    @elseif ($penduduk->status == 'pindah')
+
+                                    <span  class="btn btn-warning btn-lg btn-block">Pindah</span>
+
+
+
+                                        
+                                    @endif
+
+
+
+                                    {{-- @foreach ( as $d  )
+                                        
+                                    @endforeach
                                     <a href="#" class="btn btn-primary btn-lg btn-block">Hidup</a>
                                     <a href="#" class="btn btn-primary btn-lg btn-block">Pindah</a>
-                                    <a href="#" class="btn btn-danger btn-lg btn-block">Meninggal</a>
+                                    <a href="#" class="btn btn-danger btn-lg btn-block">Meninggal</a> --}}
                                 </div>
                         </div>
 
@@ -186,7 +214,7 @@
                         @if(isset($penduduk_kk) && $penduduk_kk->count() > 0)
                         <div class="card">
                             <div class="card-header">
-                                <h4>Actions</h4>
+                                <h4>Keluarga</h4>
                             </div>
                             <div class="card-body">
                                 @foreach ($penduduk_kk as $keluarga)
