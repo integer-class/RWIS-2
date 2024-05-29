@@ -38,12 +38,8 @@
                         </div>  
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Nomor KK</label>
-                                        <input type="number" disabled class="form-control" name="nomor_kk" value="{{ old('nomor_kk', $kartuKeluarga->nomor_kk) }}">
-                                    </div>
-                                </div>
+                                <input type="hidden"  class="form-control" name="nomor_kk"  value="{{$kartuKeluarga->nomor_kk}}">
+
 
                                 <div class="col-md-12">
                                     <div class="form-group">
