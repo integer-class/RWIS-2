@@ -15,7 +15,7 @@ class PengumumanRt extends Seeder
         // \App\Models\Pengumuman_rt::factory(3)->create();
 
         \App\Models\Pengumuman_rt::factory()->create([
-            'id_pengumuman' => '9318SW',
+            'id_pengumuman' => '13123',
             'id_rt' => '2',
             'updated_at' => '2024-12-06',
             

@@ -21,6 +21,9 @@ class RT_PengumumanController extends Controller
         $pengumuman = Pengumuman::join('penduduk', 'pengumuman.nik', '=', 'penduduk.nik')
             ->select('pengumuman.*', 'penduduk.nama')
             ->get();
+
+
+      
         return view('rt.rt_data_pengumuman.index', compact('type_menu', 'pengumuman'));
     }
 
@@ -42,11 +45,12 @@ class RT_PengumumanController extends Controller
     private function generateUniqueCode()
     {
         do {
-            $code = strtoupper(Str::random(6));
+            $code = mt_rand(100000, 999999); // Menghasilkan angka acak antara 100000 dan 999999
         } while (Pengumuman::where('id_pengumuman', $code)->exists());
-
+    
         return $code;
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -66,7 +70,7 @@ class RT_PengumumanController extends Controller
     
         // Create a new Pengumuman instance
         $pengumuman = new Pengumuman();
-        $pengumuman->id_pengumuman = $request->input('id_pengumuman');
+        $pengumuman->id_pengumuman = $this->generateUniqueCode(); // Generate and set the unique code
         $pengumuman->judul = $request->input('judul');
         $pengumuman->kepentingan = $request->input('kepentingan');
         $pengumuman->tanggal_pengumuman = $request->input('masa_berlaku');
@@ -82,16 +86,20 @@ class RT_PengumumanController extends Controller
         // Save the Pengumuman instance
         $pengumuman->save();
     
+        // Use the saved id_pengumuman from the Pengumuman instance
+        $idPengumuman = $pengumuman->id_pengumuman;
+    
         // Save data to the pengumuman_rt table
         foreach ($request->input('rt') as $rtId) {
             DB::table('pengumuman_rt')->insert([
-                'id_pengumuman' =>  $request->id_pengumuman,
+                'id_pengumuman' => $idPengumuman, // Use the saved id_pengumuman
                 'id_rt' => $rtId,
             ]);
         }
     
         return redirect()->route('rt_pengumuman.index')->with('success', 'Pengumuman berhasil disimpan');
     }
+    
  
 /**
  * Display the specified resource.
@@ -110,14 +118,34 @@ public function show(string $id)
  */
 public function edit(string $id)
 {
+    $type_menu = 'pengumuman';
+
+    $id_rt = auth()->user()->id_rt;
+    
+    $rt = Rt::where('id_rt', $id_rt)->get();
+
     // Find the Pengumuman instance by its ID
     $pengumuman = Pengumuman::findOrFail($id);
 
     // Assuming you have a method to fetch all RTs, replace this with your actual implementation
-    $rt = RT::all();
+   
+    // echo $id_rt;
+    
+
+
+
+
+
+
+    
+
+    // echo $rt;
 
     // Pass the Pengumuman instance and RTs to the view
-    return view('rt.rt_data_pengumuman.edit', compact('pengumuman', 'rt'));
+    return view('rt.rt_data_pengumuman.edit', compact('pengumuman','rt','type_menu','id_rt'));
+
+
+    // echo $id;
 }
 
 /**
@@ -156,7 +184,7 @@ public function update(Request $request, string $id)
     $pengumuman->save();
 
     // Update data in the pengumuman_rt table
-    $pengumuman->rt()->sync($request->input('rt'));
+    // $pengumuman->rt()->sync($request->input('rt'));
 
     return redirect()->route('rt_pengumuman.index')->with('success', 'Pengumuman berhasil diperbarui');
 }

@@ -15,7 +15,7 @@ class Pengumuman extends Seeder
         // \App\Models\Pengumuman::factory(3)->create();
 
         \App\Models\Pengumuman::factory()->create([
-            'id_pengumuman' => '9318SW', 
+            'id_pengumuman' => '13123', 
             'nik' => '1234567890123456',
             'judul' => 'Pengumuman Penting',
             'isi_pengumuman' => 'Perhatian warga RT 02, kami ingin menginformasikan bahwa akan ada penutupan jalan pada [tanggal] untuk keperluan pemeliharaan. Mohon gunakan rute alternatif. Terima kasih atas pengertian dan kerjasama Anda.',

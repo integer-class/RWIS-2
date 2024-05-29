@@ -70,7 +70,10 @@
                                                     {{-- {{ route('komplain.show') }} --}}
                                                     ">View</a>
                                                     <div class="bullet"></div>
-                                                    <a href="#">Edit</a>
+                                                    {{-- {{
+                                                        $huruf = $k->id_pengumuman
+                                                    }} --}}
+                                                    <a href="{{ route('rt_pengumuman.edit', $k->id_pengumuman) }}">Edit</a>
                                                     <div class="bullet"></div>
                                                     <a href="#"
                                                         class="text-danger">Trash</a>

@@ -40,13 +40,14 @@ class PengumumanController extends Controller
     }
 
     private function generateUniqueCode()
-    {
-        do {
-            $code = strtoupper(Str::random(6));
-        } while (Pengumuman::where('id_pengumuman', $code)->exists());
+{
+    do {
+        $code = mt_rand(100000, 999999); // Menghasilkan angka acak antara 100000 dan 999999
+    } while (Pengumuman::where('id_pengumuman', $code)->exists());
 
-        return $code;
-    }
+    return $code;
+}
+
 
     /**
      * Store a newly created resource in storage.
