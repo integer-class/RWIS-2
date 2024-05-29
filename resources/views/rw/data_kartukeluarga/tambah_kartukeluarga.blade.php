@@ -23,6 +23,8 @@
                     <div class="breadcrumb-item">Tambah Kartu Keluarga</div>
                 </div>
             </div>
+            <div class="section-body">
+                <a style="width:120px; height:38px" href="{{ route('kartu-keluarga.index') }}" class="btn btn-lg btn-primary">Kembali</a>
 
             <div class="section-body">
                 @include('sweetalert::alert')

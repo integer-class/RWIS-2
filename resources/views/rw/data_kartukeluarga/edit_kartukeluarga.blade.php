@@ -25,6 +25,9 @@
             </div>
 
             <div class="section-body">
+                <a style="width:130px; height:38px" href="{{ route('kartu-keluarga.index') }}" class="btn btn-lg btn-primary">Kembali</a>
+
+            <div class="section-body">
                 @include('sweetalert::alert')
 
                 {{-- <h2 class="section-title">Users</h2> --}}
