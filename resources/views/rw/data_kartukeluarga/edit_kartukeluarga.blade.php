@@ -16,7 +16,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Tambah Kartu Keluarga</h1>
+                <h1>Memperbaharui Kartu Keluarga</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Data</a></div>
                     <div class="breadcrumb-item"><a href="#">Kartu keluarga</a></div>
