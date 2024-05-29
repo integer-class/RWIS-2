@@ -16,7 +16,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Tambah Kartu Keluarga</h1>
+                <h1>Edit Kartu Keluarga</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Data</a></div>
                     <div class="breadcrumb-item"><a href="#">Kartu Keluarga</a></div>
@@ -28,7 +28,7 @@
 
             <div class="section-body">
                 @include('sweetalert::alert')
-
+                
                 <div class="card">
                     <form action="{{ route('kartu-keluarga.update', $kartuKeluarga->nomor_kk) }}" method="POST">
                         @csrf
