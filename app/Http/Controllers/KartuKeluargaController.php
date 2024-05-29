@@ -61,8 +61,9 @@ class KartuKeluargaController extends Controller
         return view('rw.data_kartukeluarga.edit_kartukeluarga', compact('kartuKeluarga', 'type_menu'));
     }
 
-    public function update(Request $request, $nomor_kk, Penduduk $penduduk)
+    public function update(Request $request)
     {
+        $nomor_kk = $request->input('nomor_kk');
         // Validasi data sebelum update
         $request->validate([
             'nomor_kk' => 'required|numeric',
@@ -75,30 +76,32 @@ class KartuKeluargaController extends Controller
             'provinsi' => 'required|string|max:255',
             'alamat' => 'required|string',
         ]);
-
-        $penduduk->update([
-            'nama' => $request->input('nama'),
-            'alamat' => $request->input('alamat'),
-            'tanggal_lahir' => $request->input('tanggal_lahir'),
-            'jenis_kelamin' => $request->input('jenis_kelamin'),
-            'agama' => $request->input('agama'),
-            'status_perkawinan' => $request->input('status_perkawinan'),
-            'golongan_darah' => $request->input('golongan_darah'),
-            'id_rt' => $request->input('id_rt'),
-            'pekerjaan' => $request->input('pekerjaan'),
-            'nomor_kk' => $request->input('nomor_kk'),
-            'status' => strtolower($request->input('status')),
-        ]);
-    
-
+        
         // Cari record berdasarkan primary key `nomor_kk`
         $kartuKeluarga = KartuKeluarga::where('nomor_kk', $nomor_kk)->firstOrFail();
-
-        // Update data
-        $kartuKeluarga->update($request->all());
-
+        
+        // Update data Kartu Keluarga
+        $kartuKeluarga->update([
+            'nomor_kk' => $request->input('nomor_kk'),
+            'kepalakeluarga' => $request->input('kepalakeluarga'),
+            'rt' => $request->input('rt'),
+            'rw' => $request->input('rw'),
+            'kelurahan' => $request->input('kelurahan'),
+            'kecamatan' => $request->input('kecamatan'),
+            'kabupaten' => $request->input('kabupaten'),
+            'provinsi' => $request->input('provinsi'),
+            'alamat' => $request->input('alamat'),
+        ]);
+        
+      
+        
+    
         return redirect()->route('kartu-keluarga.index')->with('success', 'Data updated successfully');
     }
+  
+    
+    
+    
 
     public function destroy(string $nomor_kk)
     {
@@ -106,4 +109,6 @@ class KartuKeluargaController extends Controller
         $kartuKeluarga->delete();
         return redirect()->route('kartu-keluarga.index')->with('success', 'Kartu Keluarga deleted successfully.');
     }
+
 }
+
