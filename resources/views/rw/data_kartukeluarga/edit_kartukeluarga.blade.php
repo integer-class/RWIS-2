@@ -28,7 +28,7 @@
 
             <div class="section-body">
                 @include('sweetalert::alert')
-
+                
                 <div class="card">
                     <form action="{{ route('kartu-keluarga.update', $kartuKeluarga->nomor_kk) }}" method="POST">
                         @csrf

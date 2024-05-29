@@ -6,6 +6,8 @@ use App\Models\KartuKeluarga;
 use Alert;
 use App\Models\Penduduk;
 use App\Models\Rt;
+use Illuminate\Database\Eloquent\Model;
+
 
 class KartuKeluargaController extends Controller
 {
@@ -59,24 +61,45 @@ class KartuKeluargaController extends Controller
         return view('rw.data_kartukeluarga.edit_kartukeluarga', compact('kartuKeluarga', 'type_menu'));
     }
 
-    public function update(Request $request, string $nomor_kk)
+    public function update(Request $request, $nomor_kk, Penduduk $penduduk)
     {
-        $kartuKeluarga = KartuKeluarga::where('nomor_kk', $nomor_kk)->firstOrFail();
-        $validatedData = $request->validate([
+        // Validasi data sebelum update
+        $request->validate([
             'nomor_kk' => 'required|numeric',
-            'kepalakeluarga' => 'required|string',
+            'kepalakeluarga' => 'required|string|max:255',
             'rt' => 'required|numeric',
             'rw' => 'required|numeric',
-            'kelurahan' => 'required|string',
-            'kecamatan' => 'required|string',
-            'kabupaten' => 'required|string',
-            'provinsi' => 'required|string',
+            'kelurahan' => 'required|string|max:255',
+            'kecamatan' => 'required|string|max:255',
+            'kabupaten' => 'required|string|max:255',
+            'provinsi' => 'required|string|max:255',
             'alamat' => 'required|string',
         ]);
-        $kartuKeluarga->update($validatedData);
-        return redirect()->route('kartu-keluarga.index')->with('success', 'Data berhasil diupdate');
-    }
+
+        $penduduk->update([
+            'nama' => $request->input('nama'),
+            'alamat' => $request->input('alamat'),
+            'tanggal_lahir' => $request->input('tanggal_lahir'),
+            'jenis_kelamin' => $request->input('jenis_kelamin'),
+            'agama' => $request->input('agama'),
+            'status_perkawinan' => $request->input('status_perkawinan'),
+            'golongan_darah' => $request->input('golongan_darah'),
+            'id_rt' => $request->input('id_rt'),
+            'pekerjaan' => $request->input('pekerjaan'),
+            'nomor_kk' => $request->input('nomor_kk'),
+            'status' => strtolower($request->input('status')),
+        ]);
     
+
+        // Cari record berdasarkan primary key `nomor_kk`
+        $kartuKeluarga = KartuKeluarga::where('nomor_kk', $nomor_kk)->firstOrFail();
+
+        // Update data
+        $kartuKeluarga->update($request->all());
+
+        return redirect()->route('kartu-keluarga.index')->with('success', 'Data updated successfully');
+    }
+
     public function destroy(string $nomor_kk)
     {
         $kartuKeluarga = KartuKeluarga::where('nomor_kk', $nomor_kk)->firstOrFail();
