@@ -12,8 +12,7 @@ class Rt extends Model
     protected $table = 'rt';
 
     protected $fillable = [
-      'id_rt',
-      'nama_rt',
-
+        'id_rt',
+        'nama_rt'
     ];
 }

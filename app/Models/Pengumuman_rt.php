@@ -10,6 +10,4 @@ class Pengumuman_rt extends Model
     use HasFactory;
 
     protected $table = 'pengumuman_rt';
-
-
 }
