@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- favicon-->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico')}}">
-    <!-- Site Title-->
-    <title>Jagga - Architectural Interior Design HTML Template</title>
+    <!-- Site Title-->e
+    <title>SENGGOLLL</title>
     <meta name="description" content="A Template for Architectural Interior Design company website.">
     <!-- Bootstrap CSS file-->
     <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -44,7 +44,7 @@
             </ul>
             <ul class="nav-modules">
               <!-- Social nav-->
-              <li class="d-flex align-items-center"><i class="fas fa-phone-alt"></i><a class="nav-link text-ebony-clay pr-0" href="page-contact.html">+19 855 518 386</a></li>
+              <li class="d-flex align-items-center"><i class="fas fa-phone-alt"></i><a class="nav-link text-ebony-clay pr-0" href="page-contact.html">+62 0292833838888</a></li>
             </ul>
           </div>
         </div>
@@ -62,9 +62,10 @@
                 <div class="col-lg-6 col-md-12 pb-lg-4 my-auto">
                   <div class="mt-lg-0 mt-md-5 mt-4">
                     <div class="pr-lg-6 pr-md-6">
-                      <h1 class="mt-3 mb-4 text-white">Help You to Find Highest Qualityq Real Estate</h1>
+                      <h1 class="mt-3 mb-4 text-white">RWKU</h1>
                       <div class="pt-2">
-                        <p class="lead mb-4 text-white">Enim ad minim veniam, quis nostrud exercitation ullamc laboris nisi ut aliquip ex ea commodo consequat. Donec ornare orci est, a condimentum elit varius eu.</p>
+                        <p class="lead mb-4 text-white">Situs web RW bertujuan memperkuat koneksi warga, memfasilitasi pertukaran informasi penting, menyediakan berita terbaru, agenda kegiatan, dan info relevan sehari-hari.
+                        </p>
                       </div><a class="btn btn-white text-cornflower-blue mt-4" href="page-about-us.html">Get Started</a>
                     </div>
                   </div>
@@ -78,7 +79,7 @@
           <div class="row">
             <div class="col-lg-5">
               <div class="pr-lg-5">
-                <h1>We Provide Expert Insight to make buying a Home smart.</h1>
+                <h1>VISI-MISI RWKU</h1>
               </div>
             </div>
           </div>
@@ -90,8 +91,8 @@
               <div class="bg-athens-gray">
                 <div class="px-4 py-5">
                   <div class="px-2"> <i class="fas fa-shield-alt icon-border bg-cornflower-blue"></i>
-                    <h4 class="mb-3">Easy and Safe</h4>
-                    <p class="mb-0">Aptent taciti sociosqud ad litora torquent per con ubia nos inceptos himenaeos. Pellentesque eget scelerisque turpis. consequat enim.</p>
+                    <h4 class="mb-3">AMAN</h4>
+                    <p class="mb-0">Aplikasi ini aman digunakan dan sangat privasi </p>
                   </div>
                 </div>
               </div>
@@ -100,8 +101,8 @@
               <div class="bg-cornflower-blue">
                 <div class="px-4 py-5">
                   <div class="px-2"><i class="px-3 fas fa-handshake icon-border bg-white text-cornflower-blue"></i>
-                    <h4 class="mb-3 text-white">Easy and Safe</h4>
-                    <p class="mb-0 text-white">Aptent taciti sociosqud ad litora torquent per con ubia nos inceptos himenaeos. Pellentesque eget scelerisque turpis. consequat enim.</p>
+                    <h4 class="mb-3 text-white">MUDAH DIGUNAKAN</h4>
+                    <p class="mb-0 text-white">Semua WARGA bisa menggunakan Aplikasi ini</p>
                   </div>
                 </div>
               </div>
@@ -110,8 +111,8 @@
               <div class="bg-brilliant-rose">
                 <div class="px-4 py-5">
                   <div class="px-2"><i class="px-4 fas fa-file-contract icon-border bg-white text-brilliant-rose"></i>
-                    <h4 class="mb-3 text-white">Easy and Safe</h4>
-                    <p class="mb-0 text-white">Aptent taciti sociosqud ad litora torquent per con ubia nos inceptos himenaeos. Pellentesque eget scelerisque turpis. consequat enim.</p>
+                    <h4 class="mb-3 text-white">MEMUDAHKAN MENCARI INFORMASI</h4>
+                    <p class="mb-0 text-white">WARGA mudah untuk mecari informasi terbaru</p>
                   </div>
                 </div>
               </div>
@@ -121,12 +122,14 @@
         <!--one place-->
         <div class="container mt-lg-8 mt-md-6 mt-5"> 
           <div class="row gx-lg-5">
-            <div class="col-lg-6 order-lg-1"><img src="{{ asset('assets/images/home/h2.jpg')}}" alt="home"></div>
+            <div class="col-lg-6 order-lg-1"><img src="https://avatars.githubusercontent.com/u/145303948?v=4" alt="home"></div>
             <div class="col-lg-6 col-md-12 pb-lg-4 my-auto">
               <div class="mt-lg-0 mt-md-5 mt-3">
                 <div class="pr-lg-9 pr-md-7 pr-4">
-                  <h1 class="mt-3 mb-4">Buying and Selling All in One Place</h1>
-                  <p class="mb-lg-5 mb-md-4 mb-4">Curabitur metus risus, mollis sollicitudin vulputate volutpat risus. Etiam in sem ac nulla eleifend volutpat. Morbi nec posuere orci. Suspendisse enim velit, venenatis quis arcu sed, convallis euismod risus.</p><a class="btn btn-cornflower-blue" href="page-contact.html">Contact Us</a>
+                  <h1 class="mt-3 mb-4"> <marquee behavior="alternate">Kebijakan Privasi</marquee></h1>
+                  <p class="mb-lg-5 mb-md-4 mb-4">Selamat datang di web <B>RWKU</B>.Kami menghargai privasi Anda dan berkomitmen untuk melindungi data pribadi yang Anda bagikan kepada kami. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda.</p>
+                  <p class="mb-lg-5 mb-md-4 mb-4">Informasi lebih lanjut klik dibawah ini.</p>
+                  <a class="btn btn-cornflower-blue" href="page-contact.html">Contact Us</a>
                 </div>
               </div>
             </div>
@@ -253,7 +256,7 @@
                   <div class="text-center">
                     <h1 class="mb-3 text-white">Ready to get started?</h1>
                     <div class="pt-3">
-                      <p class="px-lg-6 mb-5 text-white">Enim ad minim veniam, quis nostrud exercitation ullamc laboris nisi ut aliquip ex ea commodo consequat. Donec ornare orci est, a condimentum elit varius eu.</p>
+                      <p class="px-lg-6 mb-5 text-white">Situs web RW bertujuan memperkuat koneksi warga, memfasilitasi pertukaran informasi penting, menyediakan berita terbaru, agenda kegiatan, dan info relevan sehari-hari.                    </p>
                     </div><a class="btn btn-white text-cornflower-blue" href="page-contact.html">Contact Us</a>
                   </div>
                 </div>
@@ -270,7 +273,7 @@
           <div class="row gx-lg-5">
             <div class="col-lg-6 pr-lg-10">
               <div class="footer-widget footer-widget-1">
-                <h2 class="mb-4 text-ebony-clay">Jagga</h2>
+                <h2 class="mb-4 text-ebony-clay">RWKU</h2>
                 <p class="text-abbey pr-6">Ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Aenean accumsan lectus magna facilisis mauris.</p>
               </div>
             </div>
