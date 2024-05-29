@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="section-body">
-                <a style="width:130px; height:38px" href="{{ route('kartu-keluarga.index') }}" class="btn btn-lg btn-primary">Kembali</a>
+                <a style="width:130px; height:38px; margin-bottom:40px" href="{{ route('kartu-keluarga.index') }}" class="btn btn-lg btn-primary">Kembali</a>
 
             <div class="section-body">
                 @include('sweetalert::alert')
