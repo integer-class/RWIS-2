@@ -1,1228 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Floaks</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Premium Bootstrap 4 Landing Page Template" />
-        <meta name="keywords" content="bootstrap 4, premium, marketing, multipurpose" />
-        <meta content="Themesdesign" name="author" />
-        <!-- favicon -->
-        <link rel="shortcut icon" href="images/favicon.ico" />
-        <!-- css -->
-        <link href="{{ asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
-        <link href="{{ asset('frontend/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
-        <!-- magnific pop-up -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/magnific-popup.css') }}" />
-        <!-- magnific pop-up -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/ion.rangeSlider.min.css') }}" />
-        <!-- Pe-icon-7 icon -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/pe-icon-7-stroke.css') }}" />
-        <!-- Swiper CSS -->
-        <link rel="stylesheet" href="{{ asset('frontend/css/swiper.min.css') }}" />
-        <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet" type="text/css" />
-    </head>
-
-    <body>
-        <!--Navbar Start-->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- favicon-->
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico')}}">
+    <!-- Site Title-->e
+    <title>SENGGOLLL</title>
+    <meta name="description" content="A Template for Architectural Interior Design company website.">
+    <!-- Bootstrap CSS file-->
+    <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Flickity CSS file-->
+    <link href="{{ asset('assets/css/flickity.min.css')}}" rel="stylesheet">
+    <!-- Main CSS file-->
+    <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
+    <!-- Fontawesome 5 CSS file-->
+    <link href="{{ asset('assets/css/fontawesome-all.min.css')}}" rel="stylesheet">
+    <!-- Magnific Popup CSS-->
+    <link href="{{ asset('assets/css/magnific-popup.css')}}" rel="stylesheet">
+    <!-- Google Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap">
+  </head>
+  <body>
+    <!-- Navbar-->
+    <div class="site-header">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container"><a class="navbar-brand" href="index.html"><img class="site-logo" src="{{ asset('assets/images/logo.png')}}" alt="Logo"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                <div class="dropdown-menu"><a class="dropdown-item" href="page-services.html">Services</a><a class="dropdown-item" href="page-about-us.html">About Us</a><a class="dropdown-item" href="page-contact.html">Contact Us</a><a class="dropdown-item" href="page-faq.html">Faq's</a><a class="dropdown-item" href="page-agents.html">Agents</a><a class="dropdown-item" href="page-testimonials.html">Testimonials</a><a class="dropdown-item" href="page-featured-box.html">Featured Box</a><a class="dropdown-item" href="page-partners.html">Partners</a><a class="dropdown-item" href="page-process.html">Process</a><a class="dropdown-item" href="page-404.html">404</a></div>
+              </li>
+              <li class="nav-item dropdown mega_menu_holder"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Blog</a>
+                <div class="dropdown-menu"><a class="dropdown-item" href="blog.html">Blog</a><a class="dropdown-item" href="blog-right-sidebar.html">Right Sidebar</a><a class="dropdown-item" href="blog-left-sidebar.html">Left Sidebar</a><a class="dropdown-item" href="blog-three-col.html">Three Col</a><a class="dropdown-item" href="blog-two-col-right-sidebar.html">Two Col Right Sidebar</a><a class="dropdown-item" href="blog-two-col-left-sidebar.html">Two Col Left Sidebar</a><a class="dropdown-item" href="blog-card-right-sidebar.html">Card Right Sidebar</a><a class="dropdown-item" href="blog-card-left-sidebar.html">Card Left Sidebar</a><a class="dropdown-item" href="blog-card-three-col.html">Card Three Col</a><a class="dropdown-item" href="blog-card-two-col-right-sidebar.html">Card two Col Right Sidebar</a><a class="dropdown-item" href="blog-card-two-col-left-sidebar.html">Card two Col Left Sidebar</a><a class="dropdown-item" href="blog-single-post.html">Single Post</a><a class="dropdown-item" href="blog-single-post-gallery.html">Single Gallary Post </a><a class="dropdown-item" href="blog-single-post-video.html">Single Video Post</a><a class="dropdown-item" href="blog-single-post-audio.html">Single Audio Post</a></div>
+              </li>
+              <li class="nav-item dropdown mega_menu_holder"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Properties</a>
+                <div class="dropdown-menu"><a class="dropdown-item" href="page-property-list.html">Properties List</a><a class="dropdown-item" href="property-single.html">Single Property</a></div>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="element-accordions.html">Element</a></li>
+            </ul>
+            <ul class="nav-modules">
+              <!-- Social nav-->
+              <li class="d-flex align-items-center"><i class="fas fa-phone-alt"></i><a class="nav-link text-ebony-clay pr-0" href="page-contact.html">+62 0292833838888</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- End Navbar-->
+    <article class="entry">
+      <div class="entry-content">
+        <!-- head title-->
+        <div class="seventy-five-percent-bg">
+          <div class="pt-lg-6 pb-lg-0 pt-md-6 pb-md-7 pt-5 pb-5">
+            <div class="container mt-2 mb-lg-7"> 
+              <div class="row">
+                <div class="col-lg-6 mn-7 order-lg-1"><img src="{{ asset('assets/images/home/h1.jpg')}}" alt="home"></div>
+                <div class="col-lg-6 col-md-12 pb-lg-4 my-auto">
+                  <div class="mt-lg-0 mt-md-5 mt-4">
+                    <div class="pr-lg-6 pr-md-6">
+                      <h1 class="mt-3 mb-4 text-white">RWKU</h1>
+                      <div class="pt-2">
+                        <p class="lead mb-4 text-white">Situs web RW bertujuan memperkuat koneksi warga, memfasilitasi pertukaran informasi penting, menyediakan berita terbaru, agenda kegiatan, dan info relevan sehari-hari.
+                        </p>
+                      </div><a class="btn btn-white text-cornflower-blue mt-4" href="page-about-us.html">Get Started</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content title-->
+        <div class="container pt-lg-8 pb-lg-5 pt-md-6 pb-md-5 pt-5 pb-4">
+          <div class="row">
+            <div class="col-lg-5">
+              <div class="pr-lg-5">
+                <h1>VISI-MISI RWKU</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- icon box-->
+        <div class="container mt-2">
+          <div class="row gx-lg-5">
+            <div class="col-lg-4">
+              <div class="bg-athens-gray">
+                <div class="px-4 py-5">
+                  <div class="px-2"> <i class="fas fa-shield-alt icon-border bg-cornflower-blue"></i>
+                    <h4 class="mb-3">AMAN</h4>
+                    <p class="mb-0">Aplikasi ini aman digunakan dan sangat privasi </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mt-lg-0 mt-md-4 mt-3">
+              <div class="bg-cornflower-blue">
+                <div class="px-4 py-5">
+                  <div class="px-2"><i class="px-3 fas fa-handshake icon-border bg-white text-cornflower-blue"></i>
+                    <h4 class="mb-3 text-white">MUDAH DIGUNAKAN</h4>
+                    <p class="mb-0 text-white">Semua WARGA bisa menggunakan Aplikasi ini</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mt-lg-0 mt-md-4 mt-3">
+              <div class="bg-brilliant-rose">
+                <div class="px-4 py-5">
+                  <div class="px-2"><i class="px-4 fas fa-file-contract icon-border bg-white text-brilliant-rose"></i>
+                    <h4 class="mb-3 text-white">MEMUDAHKAN MENCARI INFORMASI</h4>
+                    <p class="mb-0 text-white">WARGA mudah untuk mecari informasi terbaru</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--one place-->
+        <div class="container mt-lg-8 mt-md-6 mt-5"> 
+          <div class="row gx-lg-5">
+            <div class="col-lg-6 order-lg-1"><img src="https://avatars.githubusercontent.com/u/145303948?v=4" alt="home"></div>
+            <div class="col-lg-6 col-md-12 pb-lg-4 my-auto">
+              <div class="mt-lg-0 mt-md-5 mt-3">
+                <div class="pr-lg-9 pr-md-7 pr-4">
+                  <h1 class="mt-3 mb-4"> <marquee behavior="alternate">Kebijakan Privasi</marquee></h1>
+                  <p class="mb-lg-5 mb-md-4 mb-4">Selamat datang di web <B>RWKU</B>.Kami menghargai privasi Anda dan berkomitmen untuk melindungi data pribadi yang Anda bagikan kepada kami. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda.</p>
+                  <p class="mb-lg-5 mb-md-4 mb-4">Informasi lebih lanjut klik dibawah ini.</p>
+                  <a class="btn btn-cornflower-blue" href="page-contact.html">Contact Us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container mt-lg-7 mb-lg-5 mt-md-6 mb-md-4 mt-5 mb-4">
+          <div class="row">
+            <div class="col-lg-6">
+              <h1 class="mb-4">Featured Properties</h1>
+              <div class="pr-6">
+                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Aenean accumsan lectus magna</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- property-->
+        <div class="container">
+          <div class="row gx-lg-5 property-block">
+            <div class="col-lg-4">
+              <article class="property-item">
+                <div class="content-image"><img src="{{ asset('assets/images/property/pf1.jpg')}}" alt="property"></div>
+                <h5 class="content-title"><a href="">1511 Ridge Ave, Evanston</a></h5>
+                <div class="content-price">$8201,00</div><span class="content-meta"><span class="pr-3"><i class="fas fa-ruler-combined pr-3"> </i>300 sq ft</span>|     <span class="px-3"><i class="fas fa-bed pr-3"> </i>3 beds</span>|<span class="pl-3"><i class="fas fa-bath pr-3"> </i>2 baths </span></span>
+              </article>
+            </div>
+            <div class="col-lg-4 mt-lg-0 mt-md-5 mt-5">
+              <article class="property-item">
+                <div class="content-image"><img src="{{ asset('assets/images/property/pf2.jpg')}}" alt="property"></div>
+                <h5 class="content-title"><a href="">310 S Federal St, Chicago</a></h5>
+                <div class="content-price">$409,900</div><span class="content-meta"><span class="pr-3"><i class="fas fa-ruler-combined pr-3"> </i>300 sq ft</span>|     <span class="px-3"><i class="fas fa-bed pr-3"> </i>3 beds</span>|<span class="pl-3"><i class="fas fa-bath pr-3"> </i>2 baths</span></span>
+              </article>
+            </div>
+            <div class="col-lg-4 mt-lg-0 mt-md-5 mt-5">
+              <article class="property-item">
+                <div class="content-image"><img src="{{ asset('assets/images/property/pf3.jpg')}}" alt="property"></div>
+                <h5 class="content-title"><a href="">Modern villa Land , Chicago</a></h5>
+                <div class="content-price">$357,000</div><span class="content-meta"><span class="pr-3"><i class="fas fa-ruler-combined pr-3"> </i>300 sq ft</span>|     <span class="px-3"><i class="fas fa-bed pr-3"> </i>3 beds</span>|<span class="pl-3"><i class="fas fa-bath pr-3"> </i>2 baths</span></span>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="container text-center"><a class="btn btn-athens-gray text-ebonny-clay" href="page-property-list.html">Find more property</a></div>
+        <!-- team-->
+        <div class="bg-athens-gray mt-lg-8 mt-md-7 mt-6">
+          <div class="py-lg-8 py-md-6 py-5">
             <div class="container">
-                <!-- LOGO -->
-                <a class="navbar-brand logo text-uppercase" href="index.html">
-                    <img src="{{ asset('frontend/images/logo-dark.png') }}" alt="" height="22" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="mdi mdi-menu"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav ml-auto navbar-center" id="mySidenav">
-                        <li class="nav-item active">
-                            <a href="#home" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#portfolio" class="nav-link">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#pricing" class="nav-link">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#team" class="nav-link">Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#testimonial" class="nav-link">Testimonial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#contact" class="nav-link">Contact</a>
-                        </li>
+              <div class="row">
+                <div class="col-lg-6">
+                  <h1 class="mb-4">Meet Our Agents</h1>
+                  <div class="pr-6">
+                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Aenean accumsan lectus magna</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container mt-lg-5 mt-md-4 mt-4">
+              <div class="row gx-lg-5 gy-5">
+                <div class="col-lg-4 mt-lg-5">
+                  <div class="member-image"><img src="{{ asset('assets/images/team/t1.jpg')}}" alt="team"></div>
+                  <div class="member-content">
+                    <div class="member-text">
+                      <h5 class="member-name">Hester Taylor</h5>
+                      <div class="member-tag"><span class="member-role">Agent</span></div>
+                      <ul class="list-unstyled list-inlinetrue">
+                        <li class="list-inline-item"><a class="pr-2 text-ebony-clay" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li class="list-inline-item"><a class="pr-2 text-ebony-clay" href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a class="pr-2 text-ebony-clay" href="#"><i class="fab fa-instagram"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 mt-lg-4 mt-lg-5 mt-md-6 mt-5">
+                  <div class="member-image"><img src="{{ asset('assets/images/team/t2.jpg')}}" alt="team"></div>
+                  <div class="member-content">
+                    <div class="member-text">
+                      <h5 class="member-name">Henry Grantham</h5>
+                      <div class="member-tag"><span class="member-role">Agent</span></div>
+                      <ul class="list-unstyled list-inlinetrue">
+                        <li class="list-inline-item"><a class="pr-2 text-ebony-clay" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li class="list-inline-item"><a class="pr-2 text-ebony-clay" href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a class="pr-2 text-ebony-clay" href="#"><i class="fab fa-instagram"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 mt-lg-4 mt-lg-5 mt-md-6 mt-5">
+                  <div class="member-image"><img src="{{ asset('assets/images/team/t3.jpg')}}" alt="team"></div>
+                  <div class="member-content">
+                    <div class="member-text">
+                      <h5 class="member-name">Reda McClain</h5>
+                      <div class="member-tag"><span class="member-role">Agent</span></div>
+                      <ul class="list-unstyled list-inlinetrue">
+                        <li class="list-inline-item"><a class="pr-2 text-ebony-clay" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li class="list-inline-item"><a class="pr-2 text-ebony-clay" href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a class="pr-2 text-ebony-clay" href="#"><i class="fab fa-instagram"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container text-center mt-5"><a class="btn btn-white text-ebonny-clay" href="page-agents.html">View Members</a></div>
+          </div>
+        </div>
+        <!-- memeber-->
+        <div class="container my-lg-9 my-md-7 my-5">
+          <div class="row gx-lg-0"> 
+            <div class="col-lg-6"><img src="{{ asset('assets/images/home/h3.jpg')}}" alt="member"></div>
+            <div class="col-lg-6 mn-6 bg-livender my-auto">
+              <div class="py-lg-6 px-lg-6 py-md-6 px-md-5 py-5 px-4"><i class="mb-4 h2 display-5 fas fa-quote-left text-cornflower-blue"></i>
+                <p class="paragraph-extend mb-lg-5 mb-md-4 mb-3">We are so happy to have found Jagga and do not know how we could have made it through buying process without them.</p>
+                <h5>Daniel J. Carr</h5>
+                <p class="mb-0">Professional Content creator</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ready to get started-->
+        <div class="bg-cornflower-blue">
+          <div class="container">
+            <div class="py-lg-8 py-md-7 py-6">
+              <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                  <div class="text-center">
+                    <h1 class="mb-3 text-white">Ready to get started?</h1>
+                    <div class="pt-3">
+                      <p class="px-lg-6 mb-5 text-white">Situs web RW bertujuan memperkuat koneksi warga, memfasilitasi pertukaran informasi penting, menyediakan berita terbaru, agenda kegiatan, dan info relevan sehari-hari.                    </p>
+                    </div><a class="btn btn-white text-cornflower-blue" href="page-contact.html">Contact Us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <!-- Footer-->
+    <footer class="site-footer">
+      <div class="footer-widgets">
+        <div class="container">
+          <div class="row gx-lg-5">
+            <div class="col-lg-6 pr-lg-10">
+              <div class="footer-widget footer-widget-1">
+                <h2 class="mb-4 text-ebony-clay">RWKU</h2>
+                <p class="text-abbey pr-6">Ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Aenean accumsan lectus magna facilisis mauris.</p>
+              </div>
+            </div>
+            <div class="col-lg-6"> 
+              <div class="row gx-lg-5">
+                <div class="col-lg-4">
+                  <div class="footer-widget footer-widget-4">
+                    <ul>
+                      <li><a href="page-contact-us.html">Contact Us</a></li>
+                      <li><a href="page-contact-us.html">hello@Jagga.com</a></li>
+                      <li><a href="page-contact-us.html">+19 235 2518 356</a></li>
+                      <li><a href="page-contact-us.html">Careers</a></li>
+                      <li><a href="page-contact-us.html">Press</a></li>
                     </ul>
-                    <div class="navbar-button d-none d-lg-inline-block">
-                        <a href="{{ route('login') }}" class="btn btn-sm btn-primary btn-round">Masuk</a>
-                    </div>
+                  </div>
                 </div>
+                <div class="col-lg-5">
+                  <div class="footer-widget footer-widget-3">
+                    <div class="text-abbey">
+                      <p class="mb-0">Headquarters</p>123 Main Street New York,
+                      <p>NY 20001</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="footer-widget footer-widget-2">
+                    <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="blog.html">Blog</a></li>
+                      <li><a href="page-services.html">Service</a></li>
+                      <li><a href="page-about-us.html">About Us</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-        </nav>
-        <!-- Navbar End -->
-
-        <!-- START HOME -->
-        <section class="bg-home align-items-center" id="home">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="home-contact mt-4">
-                            <p class="text-primary font-weight-bold">Rukun Warga Information System</p>
-
-                            <h1 class="home-title mt-3">R W K U</h1>
-
-                            <p class="text-muted mt-4">
-                             
-                               
-Situs web RW bertujuan memperkuat koneksi warga, memfasilitasi pertukaran informasi penting, menyediakan berita terbaru, agenda kegiatan, dan info relevan sehari-hari.
-                            </p>
-
-                            <div class="mt-4 pt-3">
-                                <a href="" class="btn btn-primary mr-3">Estimate project</a>
-                                <a href="" class="btn btn-outline-primary">Our portfolio</a>
-                            </div>
-
-                            <div class="watch-video pt-5">
-                                <a href="http://vimeo.com/99025203" class="video-play-icon text-white"><i class="mdi mdi-play play-icon-circle play play-iconbar"></i> <span class="text-dark">Watch our company video!</span></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <!-- Swiper -->
-                        <div class="slider mt-4">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrhQxd2o5adxbbtb7lPa3Ss4AsmBRXEsqCPiOJ7qfetfH0SXFlSg781a9bmtZMCr7WmUoqSyt0bEbjSXBv2xhDMH_BdqXP1DHSGhefoS6rjVfw00HulX1OzW9kbbrFA79LhP8NAOs3O6aM3eRQWPTvCVB5PUosBXJRfBHgskRPheV6hksFWzXAz3jg67g3/s1600/WhatsApp%20Image%202023-08-26%20at%2010.57.06.jpeg" class="img-fluid" alt="" />
-
-                                    </div>
-
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('frontend/images/senyum.jpg')}}" class="img-fluid" alt="" />
-
-                                    </div>
-
-                                    <div class="swiper-slide">
-                                        <img src="images/features/img-3.png" class="img-fluid" alt="" />
-                                    </div>
-
-                                    <div class="swiper-slide">
-                                        <img src="images/features/img-4.png" class="img-fluid" alt="" />
-                                    </div>
-
-                                    <div class="swiper-slide">
-                                        <img src="images/features/img-5.png" class="img-fluid" alt="" />
-                                    </div>
-                                </div>
-                                <!-- Add Pagination -->
-                                <div class="swiper-pagination"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-area">
+        <div class="container">
+          <div class="row gx-lg-5 align-items-center">
+            <div class="col-lg-6 col-md-12">
+              <div class="footer-widget">
+                <p class="m-md-0">© 2020 Energetic Themes</p>
+              </div>
             </div>
-        </section>
-        <!-- END HOME -->
-
-        <section class="section bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="title-sub-heading text-primary f-18">Specialized Skill</p>
-                            <h2 class="title-heading">Why do people love us</h2>
-                            <p class="title-desc text-muted mt-2"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row align-items-center mt-4 pt-3" id="counter">
-                    <div class="col-lg-4">
-                        <div class="counter-box mt-4 p-4">
-                            <h2 class="counter-count text-primary"><span class="counter-value" data-count="898">0</span> <span class="count-plus"></span></h2>
-                            <h5 class="mt-2 f-18">Jumlah Penduduk</h5>
-                            <p class="text-muted mt-3 mb-0">-</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="counter-box mt-4 p-4">
-                            <h2 class="counter-count text-primary"><span class="counter-value" data-count="215">0</span> <span class="count-plus"></span></h2>
-                            <h5 class="mt-2 f-18">Jumlah KK</h5>
-                            <p class="text-muted mt-3 mb-0">-</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="counter-box mt-4 p-4">
-                            <h2 class="counter-count text-primary"><span class="counter-value" data-count="11">0</span> <span class="count-plus"></span></h2>
-                            <h5 class="mt-2 f-18">Jumlah RT</h5>
-                            <p class="text-muted mt-3 mb-0">-</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="footer-widget">
+                <ul class="list-inline m-lg-0 p-lg-0 text-md-right footer-nav">
+                  <li><a href="page-privacy-terms.html">Privacy Policy</a></li>
+                  <li><a href="page-privacy-terms.html">Terms & Conditions</a></li>
+                  <li class="list-inline-item py-lg-2 py-md-4 py-3 pl-lg-5 pl-md-10 pr-2"><a href="#"><i class="fab fa-linkedin-in icon"></i></a></li>
+                  <li class="list-inline-item py-2 pr-2"><a href="#"><i class="fab fa-facebook-square icon"></i></a></li>
+                  <li class="list-inline-item py-2 pr-2"><a href="#"><i class="fab fa-twitter icon"></i></a></li>
+                  <li class="list-inline-item py-2 pr-2"><a href="#"><i class="fab fa-instagram icon"></i></a></li>
+                </ul>
+              </div>
             </div>
-        </section>
-
-        
-
-        <!-- START FEATURES -->
-        <section class="section pb-5" id="features">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="title-sub-heading text-primary f-18">Our Features</p>
-                            <h2 class="title-heading">Get work done in over 300+ different categories</h2>
-                            <p class="title-desc text-muted mt-2">Donec dapibus dolor at semper dictum phasellus fringilla sem risus mollis faucibus dolor eleifend id maecenas viverra.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5 pt-4">
-                    <div class="col-lg-4">
-                        <div class="features-box mt-4">
-                            <h1 class="features-title"> <img src="https://fajar.co.id/wp-content/uploads/2023/08/IMG_20230803_095730.jpg" class="img-fluid" alt="" /></h1>
-                            <!-- <div class="features-img">
-                                <img src="https://fajar.co.id/wp-content/uploads/2023/08/IMG_20230803_095730.jpg" class="img-fluid" alt="" />
-                            </div> -->
-
-                            <h5 class="f-18 mt-4">ANIS BASWEDAN</h5>
-                            <p class="text-muted mt-3">Pellentesque viverra augarue molestie convallis sit amet interdum bibendum sem urna condimentum.</p>
-                            <div class="mt-3">
-                                <a href="" class="text-primary font-weight-600"> Learn more <i class="mdi mdi-arrow-right ml-2"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="features-box mt-4">
-                            <h1 class="features-title"> <img src="https://fajar.co.id/wp-content/uploads/2023/08/IMG_20230803_095730.jpg" class="img-fluid" alt="" /></h1>
-                            <!-- <div class="features-img">
-                                <img src="https://fajar.co.id/wp-content/uploads/2023/08/IMG_20230803_095730.jpg" class="img-fluid" alt="" />
-                            </div> -->
-
-                            <h5 class="f-18 mt-4">ANIS BASWEDAN</h5>
-                            <p class="text-muted mt-3">Pellentesque viverra augarue molestie convallis sit amet interdum bibendum sem urna condimentum.</p>
-                            <div class="mt-3">
-                                <a href="" class="text-primary font-weight-600"> Learn more <i class="mdi mdi-arrow-right ml-2"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="features-box mt-4">
-                            <h1 class="features-title"> <img src="https://fajar.co.id/wp-content/uploads/2023/08/IMG_20230803_095730.jpg" class="img-fluid" alt="" /></h1>
-                            <!-- <div class="features-img">
-                                <img src="https://fajar.co.id/wp-content/uploads/2023/08/IMG_20230803_095730.jpg" class="img-fluid" alt="" />
-                            </div> -->
-
-                            <h5 class="f-18 mt-4">ANIS BASWEDAN</h5>
-                            <p class="text-muted mt-3">Pellentesque viverra augarue molestie convallis sit amet interdum bibendum sem urna condimentum.</p>
-                            <div class="mt-3">
-                                <a href="" class="text-primary font-weight-600"> Learn more <i class="mdi mdi-arrow-right ml-2"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END SERVICES -->
-
-        <!-- START WORK -->
-        <section class="section" id="portfolio">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="title-sub-heading text-primary f-18">Our Portfolio</p>
-                            <h2 class="title-heading">We work fast, but we do not do it alone.</h2>
-                            <p class="title-desc text-muted mt-2">Donec dapibus dolor at semper dictum phasellus fringilla sem risus mollis faucibus dolor eleifend id maecenas viverra.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5 pt-2">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <ul class="col container-filter portfolioFilte list-unstyled mb-0" id="filter">
-                                <li><a class="categories active" data-filter="*">All</a></li>
-                                <li><a class="categories" data-filter=".Brand">Brand</a></li>
-                                <li><a class="categories" data-filter=".Design">Design</a></li>
-                                <li><a class="categories" data-filter=".Graphic">Graphic</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- End portfolio  -->
-                <div class="port portfolio-masonry mt-5">
-                    <div class="portfolioContainer row">
-                        <div class="col-lg-4 col-md-4 Brand p-3">
-                            <div class="item-box p-2 rounded">
-                                <a class="cbox-gallary1 mfp-image" href="images/portfolio/img-1.png" title="Consumer Insights">
-                                    <img class="item-container rounded" src="images/portfolio/img-1.png" alt="work-img" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 Design p-3">
-                            <div class="item-box p-2 rounded">
-                                <a class="cbox-gallary1 mfp-image" href="images/portfolio/img-2.png" title="Financial Service">
-                                    <img class="item-container rounded" src="images/portfolio/img-2.png" alt="work-img" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 Design p-3">
-                            <div class="item-box p-2 rounded">
-                                <a class="cbox-gallary1 mfp-image" href="images/portfolio/img-3.png" title="Latest Technology">
-                                    <img class="item-container rounded" src="images/portfolio/img-3.png" alt="work-img" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 Graphic p-3">
-                            <div class="item-box p-2 rounded">
-                                <a class="cbox-gallary1 mfp-image" href="images/portfolio/img-4.png" title="Business Growth">
-                                    <img class="item-container rounded" src="images/portfolio/img-4.png" alt="work-img" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 Brand p-3">
-                            <div class="item-box p-2 rounded">
-                                <a class="cbox-gallary1 mfp-image" href="images/portfolio/img-5.png" title="International Business">
-                                    <img class="item-container rounded" src="images/portfolio/img-5.png" alt="work-img" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 Design Brand p-3">
-                            <div class="item-box p-2 rounded">
-                                <a class="cbox-gallary1 mfp-image" href="images/portfolio/img-6.png" title="Consumer Products">
-                                    <img class="item-container rounded" src="images/portfolio/img-6.png" alt="work-img" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END WORK -->
-
-        <!-- START COUNTER -->
-        <section class="section bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="title-sub-heading text-primary f-18">Specialized Skill</p>
-                            <h2 class="title-heading">Why do people love us</h2>
-                            <p class="title-desc text-muted mt-2">Donec dapibus dolor at semper dictum phasellus fringilla sem risus mollis faucibus dolor eleifend id maecenas viverra.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row align-items-center mt-4 pt-3" id="counter">
-                    <div class="col-lg-4">
-                        <div class="counter-box mt-4 p-4">
-                            <h2 class="counter-count text-primary"><span class="counter-value" data-count="49">25</span> <span class="count-plus"> M</span></h2>
-                            <h5 class="mt-2 f-18">Creative User</h5>
-                            <p class="text-muted mt-3 mb-0">Aliquam erat volutpat elit quisque porta varius malesauada nuarnc turpis imperdiet id odio.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="counter-box mt-4 p-4">
-                            <h2 class="counter-count text-primary"><span class="counter-value" data-count="97">36</span> <span class="count-plus"> %</span></h2>
-                            <h5 class="mt-2 f-18">Successful rate</h5>
-                            <p class="text-muted mt-3 mb-0">Vivamus id lorem ut dolor sagittis elementum finibus vel felis maecenas laoreet leo sollicitudin.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="p-4">
-                            <div class="mt-4">
-                                <p class="font-weight-500 mb-2">Html</p>
-                                <div class="progress" style="height: 9px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
-                                </div>
-                            </div>
-
-                            <div class="mt-4">
-                                <p class="font-weight-500 mb-2">Css</p>
-                                <div class="progress" style="height: 9px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 87%;" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100">87%</div>
-                                </div>
-                            </div>
-
-                            <div class="mt-4">
-                                <p class="font-weight-500 mb-2">Bootstrap</p>
-                                <div class="progress" style="height: 9px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END COUNTER -->
-
-        <!-- START PRICING -->
-        <section class="section pb-5" id="pricing">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="title-sub-heading text-primary f-18">Our Pricing</p>
-                            <h2 class="title-heading">Choose the offering that works best for you</h2>
-                            <p class="title-desc text-muted mt-2">Donec dapibus dolor at semper dictum phasellus fringilla sem risus mollis faucibus dolor eleifend id maecenas viverra.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5 pt-4">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <ul class="nav nav-pills rounded justify-content-center d-inline-block pricing-tab-border py-1 px-2" id="pills-tab" role="tablist">
-                                <li class="nav-item d-inline-block">
-                                    <a class="nav-link px-3 rounded active monthly" id="Monthly" data-toggle="pill" href="#Month" role="tab" aria-controls="Month" aria-selected="true">Monthly</a>
-                                </li>
-                                <li class="nav-item d-inline-block">
-                                    <a class="nav-link px-3 rounded yearly" id="Yearly" data-toggle="pill" href="#Year" role="tab" aria-controls="Year" aria-selected="false">
-                                        Yearly <span class="badge bg-success rounded text-white">20% Off </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="tab-content pt-3" id="pills-tabContent">
-                            <div class="tab-pane fade active show" id="Month" role="tabpanel" aria-labelledby="Monthly">
-                                <div class="row mt-3">
-                                    <div class="col-lg-4">
-                                        <div class="pricing-box shadow mt-4 rounded">
-                                            <h5>Freelancer</h5>
-
-                                            <div class="mt-4 text-center pb-2">
-                                                <h3 class="text-primary mt-4">$199<span class="f-14 text-muted">/Month</span></h3>
-                                                <h5 class="f-16 mb-2">1,000 Monthly Active Users</h5>
-                                            </div>
-
-                                            <div class="mt-4 bg-light p-3">
-                                                <input type="text" id="pricerange1" />
-                                            </div>
-                                            <div class="mt-4 pt-2">
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Verifide work and reviews</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Dedicated accounts managers</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Unlimited proposals</p>
-                                                <p class="mb-2"><i class="mdi mdi-close-box-outline text-danger f-18 mr-2"></i>Project tracking</p>
-                                                <p class="mb-2"><i class="mdi mdi-close-box-outline text-danger f-18 mr-2"></i>Easy payments</p>
-                                            </div>
-
-                                            <div class="mt-4 pt-3 text-center">
-                                                <a href="" class="btn btn-outline-primary">Start with Floaks</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4">
-                                        <div class="pricing-box shadow mt-4 rounded">
-                                            <div class="pricing-badge">
-                                                <span class="badge">Featured</span>
-                                            </div>
-                                            <h5>Startup</h5>
-
-                                            <div class="mt-4 text-center pb-2">
-                                                <h3 class="text-primary mt-4">$299<span class="f-14 text-muted">/Month</span></h3>
-                                                <h5 class="f-16 mb-2">5,000 Monthly Active Users</h5>
-                                            </div>
-
-                                            <div class="mt-4 bg-light p-3">
-                                                <input type="text" id="pricerange2" />
-                                            </div>
-                                            <div class="mt-4 pt-2">
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Verifide work and reviews</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Dedicated accounts managers</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Unlimited proposals</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Project tracking</p>
-                                                <p class="mb-2"><i class="mdi mdi-close-box-outline text-danger f-18 mr-2"></i>Easy payments</p>
-                                            </div>
-
-                                            <div class="mt-4 pt-3 text-center">
-                                                <a href="" class="btn btn-primary">Start with Floaks</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4">
-                                        <div class="pricing-box shadow mt-4 rounded">
-                                            <h5>Enterprice</h5>
-
-                                            <div class="mt-4 text-center pb-2">
-                                                <h3 class="text-primary mt-4">$399<span class="f-14 text-muted">/Month</span></h3>
-                                                <h5 class="f-16 mb-2">10,000 Monthly Active Users</h5>
-                                            </div>
-
-                                            <div class="mt-4 bg-light p-3">
-                                                <input type="text" id="pricerange3" />
-                                            </div>
-                                            <div class="mt-4 pt-2">
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Verifide work and reviews</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Dedicated accounts managers</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Unlimited proposals</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Project tracking</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Easy payments</p>
-                                            </div>
-
-                                            <div class="mt-4 pt-3 text-center">
-                                                <a href="" class="btn btn-outline-primary">Start with Floaks</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="Year" role="tabpanel" aria-labelledby="Yearly">
-                                <div class="row mt-3">
-                                    <div class="col-lg-4">
-                                        <div class="pricing-box shadow mt-4 rounded">
-                                            <h5>Freelancer</h5>
-
-                                            <div class="mt-4 text-center pb-2">
-                                                <h3 class="text-primary mt-4">$599<span class="f-14 text-muted">/Month</span></h3>
-                                                <h5 class="f-16 mb-2">1,000 Monthly Active Users</h5>
-                                            </div>
-
-                                            <div class="mt-4 bg-light p-3">
-                                                <input type="text" id="pricerange4" />
-                                            </div>
-                                            <div class="mt-4 pt-2">
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Verifide work and reviews</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Dedicated accounts managers</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Unlimited proposals</p>
-                                                <p class="mb-2"><i class="mdi mdi-close-box-outline text-danger f-18 mr-2"></i>Project tracking</p>
-                                                <p class="mb-2"><i class="mdi mdi-close-box-outline text-danger f-18 mr-2"></i>Easy payments</p>
-                                            </div>
-
-                                            <div class="mt-4 pt-3 text-center">
-                                                <a href="" class="btn btn-outline-primary">Start with Floaks</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4">
-                                        <div class="pricing-box shadow mt-4 rounded">
-                                            <div class="pricing-badge">
-                                                <span class="badge">Featured</span>
-                                            </div>
-                                            <h5>Startup</h5>
-
-                                            <div class="mt-4 text-center pb-2">
-                                                <h3 class="text-primary mt-4">$799<span class="f-14 text-muted">/Month</span></h3>
-                                                <h5 class="f-16 mb-2">5,000 Monthly Active Users</h5>
-                                            </div>
-
-                                            <div class="mt-4 bg-light p-3">
-                                                <input type="text" id="pricerange5" />
-                                            </div>
-                                            <div class="mt-4 pt-2">
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Verifide work and reviews</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Dedicated accounts managers</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Unlimited proposals</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Project tracking</p>
-                                                <p class="mb-2"><i class="mdi mdi-close-box-outline text-danger f-18 mr-2"></i>Easy payments</p>
-                                            </div>
-
-                                            <div class="mt-4 pt-3 text-center">
-                                                <a href="" class="btn btn-primary">Start with Floaks</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4">
-                                        <div class="pricing-box shadow mt-4 rounded">
-                                            <h5>Enterprice</h5>
-
-                                            <div class="mt-4 text-center pb-2">
-                                                <h3 class="text-primary mt-4">$999<span class="f-14 text-muted">/Month</span></h3>
-                                                <h5 class="f-16 mb-2">10,000 Monthly Active Users</h5>
-                                            </div>
-
-                                            <div class="mt-4 bg-light p-3">
-                                                <input type="text" id="pricerange6" />
-                                            </div>
-                                            <div class="mt-4 pt-2">
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Verifide work and reviews</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Dedicated accounts managers</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Unlimited proposals</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Project tracking</p>
-                                                <p class="mb-2"><i class="mdi mdi-check-box-outline text-primary f-18 mr-2"></i>Easy payments</p>
-                                            </div>
-
-                                            <div class="mt-4 pt-3 text-center">
-                                                <a href="" class="btn btn-outline-primary">Start with Floaks</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END PRICING -->
-
-        <!-- START TEAM -->
-        <section class="section" id="team">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="title-sub-heading text-primary f-18">Our Team</p>
-                            <h2 class="title-heading">Meet our expert people of payonline</h2>
-                            <p class="title-desc text-muted mt-2">Donec dapibus dolor at semper dictum phasellus fringilla sem risus mollis faucibus dolor eleifend id maecenas viverra.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5 pt-5">
-                    <div class="col-lg-3">
-                        <div class="team-box rounded shadow mt-4 bg-white rounded">
-                            <div class="p-4">
-                                <div class="team-img text-center">
-                                    <img src="images/user/img-1.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <div class="text-center mt-4">
-                                    <h5 class="f-18">Zachary Tevis</h5>
-                                    <p class="text-muted mb-0 f-14 mt-2">Zacharyt@gmail.com</p>
-                                </div>
-                            </div>
-
-                            <div class="team-border text-center">
-                                <p class="text-muted text-uppercase f-13 mb-0">Web Designer</p>
-                            </div>
-
-                            <div class="team-social text-center">
-                                <ul class="list-inline mb-0">
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-facebook"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-twitter"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-google"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-pinterest"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <div class="team-box rounded shadow mt-4 bg-white rounded">
-                            <div class="p-4">
-                                <div class="team-img text-center">
-                                    <img src="images/user/img-2.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <div class="text-center mt-4">
-                                    <h5 class="f-18">Jeremiah Eskew</h5>
-                                    <p class="text-muted mb-0 f-14 mt-2">JeremiahE@gmail.com</p>
-                                </div>
-                            </div>
-
-                            <div class="team-border text-center">
-                                <p class="text-muted text-uppercase f-13 mb-0">Manager</p>
-                            </div>
-
-                            <div class="team-social text-center">
-                                <ul class="list-inline mb-0">
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-facebook"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-twitter"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-google"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-pinterest"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="team-box rounded shadow mt-4 bg-white rounded">
-                            <div class="p-4">
-                                <div class="team-img text-center">
-                                    <img src="images/user/img-3.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <div class="text-center mt-4">
-                                    <h5 class="f-18">Zachary Tevis</h5>
-                                    <p class="text-muted mb-0 f-14 mt-2">ZacharyT@gmail.com</p>
-                                </div>
-                            </div>
-
-                            <div class="team-border text-center">
-                                <p class="text-muted text-uppercase f-13 mb-0">Web Developer</p>
-                            </div>
-
-                            <div class="team-social text-center">
-                                <ul class="list-inline mb-0">
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-facebook"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-twitter"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-google"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-pinterest"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="team-box rounded shadow mt-4 bg-white rounded">
-                            <div class="p-4">
-                                <div class="team-img text-center">
-                                    <img src="images/user/img-4.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <div class="text-center mt-4">
-                                    <h5 class="f-18">William Aldman</h5>
-                                    <p class="text-muted mb-0 f-14 mt-2">WilliamA@gmail.com</p>
-                                </div>
-                            </div>
-
-                            <div class="team-border text-center">
-                                <p class="text-muted text-uppercase f-13 mb-0">Ceo</p>
-                            </div>
-
-                            <div class="team-social text-center">
-                                <ul class="list-inline mb-0">
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-facebook"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-twitter"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-google"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="" class="text-reset"><i class="mdi mdi-pinterest"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END TEAM -->
-
-        <!-- START CTA -->
-        <section class="section bg-light">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="text-center">
-                            <h2>You are just <span class="text-primary">2 setps </span> away form us to know more about our work & aim</h2>
-
-                            <div class="search-form mt-5">
-                                <form action="#">
-                                    <input type="text" placeholder="Enter Your email address" />
-                                    <button type="submit" class="btn btn-primary">Send Now</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END CTA -->
-
-        <!-- START TESTIMONIAL -->
-        <section class="section bg-testimonial" id="testimonial">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="title-sub-heading text-primary mb-3">Our Feedback</p>
-                            <h2 class="title-heading">Few Words Form Our Satisfied Clients</h2>
-                            <p class="title-desc text-muted mt-2">Donec dapibus dolor at semper dictum phasellus fringilla sem risus mollis faucibus dolor eleifend id maecenas viverra.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5 pt-5 justify-content-center align-items-center">
-                    <div class="col-lg-8">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner pb-5">
-                                <div class="carousel-item active">
-                                    <div class="client-box bg-light mt-4">
-                                        <div class="media">
-                                            <div class="client-img">
-                                                <img src="images/user/img-1.jpg" class="img-fluid rounded-circle" alt="" />
-                                            </div>
-                                            <div class="media-body ml-3 mt-2">
-                                                <h5 class="f-18">Derek Monroe</h5>
-                                                <p class="text-primary mb-0">- Designer</p>
-                                            </div>
-                                            <div class="client-icon">
-                                                <i class="mdi mdi-format-quote-close text-primary"></i>
-                                            </div>
-                                        </div>
-
-                                        <p class="client-desc mt-4 mb-0 pt-1 f-18">
-                                            Vestibulum mollis auctor aliquam dolor sit amet consectetur adipiscing elit Aenean volutpat vitae metus quis diam dolor lobortis eros conetur ligula odio a magna interdum Maecenas sit amet
-                                            malesuada dolor vitae commodo magna dapibus sit amet.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <div class="client-box bg-light mt-4">
-                                        <div class="media">
-                                            <div class="client-img">
-                                                <img src="images/user/img-2.jpg" class="img-fluid rounded-circle" alt="" />
-                                            </div>
-                                            <div class="media-body ml-3 mt-2">
-                                                <h5 class="f-18">Brandon Carney</h5>
-                                                <p class="text-primary mb-0">- Designer</p>
-                                            </div>
-                                            <div class="client-icon">
-                                                <i class="mdi mdi-format-quote-close text-primary"></i>
-                                            </div>
-                                        </div>
-                                        <p class="client-desc mt-4 mb-0 pt-1 f-18">
-                                            Vestibulum mollis auctor aliquam dolor sit amet consectetur adipiscing elit Aenean volutpat vitae metus quis diam dolor lobortis eros conetur ligula odio a magna interdum Maecenas sit amet
-                                            malesuada dolor vitae commodo magna dapibus sit amet.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <div class="client-box bg-light mt-4">
-                                        <div class="media">
-                                            <div class="client-img">
-                                                <img src="images/user/img-3.jpg" class="img-fluid rounded-circle" alt="" />
-                                            </div>
-                                            <div class="media-body ml-3 mt-2">
-                                                <h5 class="f-18">Brandon Carney</h5>
-                                                <p class="text-primary mb-0">- Designer</p>
-                                            </div>
-                                            <div class="client-icon">
-                                                <i class="mdi mdi-format-quote-close text-primary"></i>
-                                            </div>
-                                        </div>
-                                        <p class="client-desc mt-4 mb-0 pt-1 f-18">
-                                            Vestibulum mollis auctor aliquam dolor sit amet consectetur adipiscing elit Aenean volutpat vitae metus quis diam dolor lobortis eros conetur ligula odio a magna interdum Maecenas sit amet
-                                            malesuada dolor vitae commodo magna dapibus sit amet.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <div class="client-box bg-light mt-4">
-                                        <div class="media">
-                                            <div class="client-img">
-                                                <img src="images/user/img-4.jpg" class="img-fluid rounded-circle" alt="" />
-                                            </div>
-                                            <div class="media-body ml-3 mt-2">
-                                                <h5 class="f-18">Brandon Carney</h5>
-                                                <p class="text-primary mb-0">- Designer</p>
-                                            </div>
-                                            <div class="client-icon">
-                                                <i class="mdi mdi-format-quote-close text-primary"></i>
-                                            </div>
-                                        </div>
-                                        <p class="client-desc mt-4 mb-0 pt-1 f-18">
-                                            Vestibulum mollis auctor aliquam dolor sit amet consectetur adipiscing elit Aenean volutpat vitae metus quis diam dolor lobortis eros conetur ligula odio a magna interdum Maecenas sit amet
-                                            malesuada dolor vitae commodo magna dapibus sit amet.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="text-center mt-2">
-                            <img src="images/testimonial.png" class="img-fluid" alt="" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END TESTIMONIAL -->
-
-        <!-- START BLOG -->
-        <section class="section bg-light" id="blog">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="title-sub-heading text-primary f-18">Our Blog</p>
-                            <h2 class="title-heading">Our latest blog posts insights articles</h2>
-                            <p class="title-desc text-muted mt-2">Donec dapibus dolor at semper dictum phasellus fringilla sem risus mollis faucibus dolor eleifend id maecenas viverra.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5 pt-3">
-                    <div class="col-lg-4">
-                        <div class="blog-box mt-4 bg-white">
-                            <img src="images/blog/img-1.jpg" class="img-fluid rounded" alt="" />
-
-                            <div class="blog-contain p-4">
-                                <div class="blog-user-box bg-white rounded">
-                                    <div class="media">
-                                        <div class="blog-user">
-                                            <img src="images/user/img-1.jpg" class="img-fluid rounded" alt="" />
-                                        </div>
-                                        <div class="media-body ml-3">
-                                            <h5 class="f-13 mb-1">Derek Monroe</h5>
-                                            <p class="text-primary f-10 mb-0 font-weight-600"><i class="mdi mdi-calender"></i>15 Sep 2020</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <h5 class="mt-4"><a href="" class="text-dark f-18">Phasellus sit amet tempus risus consectetur lobortis elementum elit commodo.</a></h5>
-
-                                <div class="mt-4 f-14">
-                                    <p class="mb-0">
-                                        <a href="" class="text-dark"><i class="mdi mdi-forum-outline ml-2 text-primary mr-2 f-16"></i>45 Comment</a>
-                                        <a href="" class="text-dark ml-4"><i class="mdi mdi-eye-outline ml-2 text-primary mr-2 f-16"></i>256 Views</a>
-                                    </p>
-                                </div>
-
-                                <div class="mt-4">
-                                    <a href="" class="btn btn-primary btn-sm">Read more <i class="mdi mdi-arrow-right ml-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="blog-box mt-4 bg-white">
-                            <img src="images/blog/img-2.jpg" class="img-fluid rounded" alt="" />
-
-                            <div class="blog-contain p-4">
-                                <div class="blog-user-box bg-white rounded">
-                                    <div class="media">
-                                        <div class="blog-user">
-                                            <img src="images/user/img-2.jpg" class="img-fluid rounded" alt="" />
-                                        </div>
-                                        <div class="media-body ml-3">
-                                            <h5 class="f-13 mb-1">Derek Monroe</h5>
-                                            <p class="text-primary f-10 mb-0 font-weight-600"><i class="mdi mdi-calender"></i>21 Sep 2020</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <h5 class="mt-4"><a href="" class="text-dark f-18"> Fusce vestibulum porta egestas phasellus laoreet lacaus rutrum vitae eleifend laoreet.</a></h5>
-
-                                <div class="mt-4 f-14">
-                                    <p class="mb-0">
-                                        <a href="" class="text-dark"><i class="mdi mdi-forum-outline ml-2 text-primary mr-2 f-16"></i>63 Comment</a>
-                                        <a href="" class="text-dark ml-4"><i class="mdi mdi-eye-outline ml-2 text-primary mr-2 f-16"></i>265 Views</a>
-                                    </p>
-                                </div>
-
-                                <div class="mt-4">
-                                    <a href="" class="btn btn-primary btn-sm">Read more <i class="mdi mdi-arrow-right ml-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="blog-box mt-4 bg-white">
-                            <img src="images/blog/img-3.jpg" class="img-fluid rounded" alt="" />
-
-                            <div class="blog-contain p-4">
-                                <div class="blog-user-box bg-white rounded">
-                                    <div class="media">
-                                        <div class="blog-user">
-                                            <img src="images/user/img-3.jpg" class="img-fluid rounded" alt="" />
-                                        </div>
-                                        <div class="media-body ml-3">
-                                            <h5 class="f-13 mb-1">
-                                                Brandon Carney
-                                            </h5>
-                                            <p class="text-primary f-10 mb-0 font-weight-600"><i class="mdi mdi-calender"></i>24 Sep 2020</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <h5 class="mt-4"><a href="" class="text-dark f-18">Maecenas lobortis sem ultricies vestibulum duari purus mauris congue agittis risus.</a></h5>
-
-                                <div class="mt-4 f-14">
-                                    <p class="mb-0">
-                                        <a href="" class="text-dark"><i class="mdi mdi-forum-outline ml-2 text-primary mr-2 f-16"></i>76 Comment</a>
-                                        <a href="" class="text-dark ml-4"><i class="mdi mdi-eye-outline ml-2 text-primary mr-2 f-16"></i>451 Views</a>
-                                    </p>
-                                </div>
-
-                                <div class="mt-4">
-                                    <a href="" class="btn btn-primary btn-sm">Read more <i class="mdi mdi-arrow-right ml-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END BLOG -->
-
-        <!-- START CONTACT -->
-        <section class="section" id="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="title-sub-heading text-primary f-18">Contact Us</p>
-                            <h2 class="title-heading">Let's talk about everything!</h2>
-                            <p class="title-desc text-muted mt-2">Donec dapibus dolor at semper dictum phasellus fringilla sem risus mollis faucibus dolor eleifend id maecenas viverra.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5 pt-5">
-                    <div class="col-lg-6">
-                        <div class="mt-4">
-                            <img src="images/img-1.png" class="img-fluid" alt="" />
-                        </div>
-
-                        <div class="row mt-3">
-                            <div class="col-lg-6">
-                                <div class="mt-4">
-                                    <h5 class="f-18">Online Services</h5>
-                                    <p class="mb-2 mt-3 text-muted"><i class="mdi mdi-email mr-2 text-primary"></i>JohnPBeau@jourrapide.com</p>
-                                    <p class="text-muted"><i class="mdi mdi-email mr-2 text-primary"></i>mycheapsale.com</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div class="mt-4">
-                                    <h5 class="f-18">Online Contact</h5>
-                                    <p class="mb-2 mt-3 text-muted"><i class="mdi mdi-phone mr-2 text-primary"></i> +112 708-231-9668</p>
-                                    <p class="text-muted"><i class="mdi mdi-phone mr-2 text-primary"></i>+125 458-565-9695</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-lg-12">
-                                <h5 class="f-18">Office Address</h5>
-                                <p class="mb-2 mt-3 text-muted"><i class="mdi mdi-map-marker mr-2 text-primary"></i>3429 Gnatty Creek Road Farmingdale, NY 11735</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="mt-4">
-                            <div class="custom-form mt-4">
-                                <div id="message"></div>
-                                <form method="post" action="php/contact.php" name="contact-form" id="contact-form">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group mt-1">
-                                                <label class="contact-lable">First Name</label>
-                                                <input name="name" id="name" class="form-control" type="text" />
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <div class="form-group mt-1">
-                                                <label class="contact-lable">Last Name</label>
-                                                <input name="name" id="lastname" class="form-control" type="text" />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group mt-1">
-                                                <label class="contact-lable">Email Address</label>
-                                                <input name="email" id="email" class="form-control" type="text" />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group mt-1">
-                                                <label class="contact-lable">Subject</label>
-                                                <input name="subject" id="subject" class="form-control" type="text" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group mt-1">
-                                                <label class="contact-lable">Your Message</label>
-                                                <textarea name="comments" id="comments" rows="5" class="form-control"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-12 mt-3 text-right">
-                                            <input id="submit" name="send" class="submitBnt btn btn-primary btn-round" value="Send Message" type="submit" />
-                                            <div id="simple-msg"></div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END CONTACT -->
-
-        <!-- START FOOTER -->
-        <section class="section bg-light pb-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="footer-info mt-4">
-                            <img src="images/logo-dark.png" alt="" height="22" />
-                            <h5 class="f-18 mt-4 pt-1 line-height_1_6">
-                                Business opportunities Are Like <br />
-                                Buses, There's Always Another <br />
-                                One Coming...
-                            </h5>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="mt-4">
-                                    <h5 class="f-18">Features</h5>
-                                    <ul class="list-unstyled footer-link mt-3">
-                                        <li><a href="">6 Home </a></li>
-                                        <li><a href="">Technology</a></li>
-                                        <li><a href="">News & Events</a></li>
-                                        <li><a href="">Company</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4">
-                                <div class="mt-4">
-                                    <h5 class="f-18">Policies</h5>
-                                    <ul class="list-unstyled footer-link mt-3">
-                                        <li><a href="">Security</a></li>
-                                        <li><a href="">Jobs</a></li>
-                                        <li><a href="">Policy</a></li>
-                                        <li><a href="">Condition</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4">
-                                <div class="mt-4">
-                                    <h5 class="f-18">Company</h5>
-                                    <ul class="list-unstyled footer-link mt-3">
-                                        <li><a href="">Leadership</a></li>
-                                        <li><a href="">Careers</a></li>
-                                        <li><a href="">Contact us</a></li>
-                                        <li><a href="">Maps</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <div class="mt-4 pl-0 pl-lg-4">
-                            <h5 class="f-18">Follow Us</h5>
-                            <ul class="list-inline social-icons-list pt-3">
-                                <li class="list-inline-item">
-                                    <a href="#"><i class="mdi mdi-facebook"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#"><i class="mdi mdi-twitter"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#"><i class="mdi mdi-linkedin"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#"><i class="mdi mdi-google-plus"></i></a>
-                                </li>
-                            </ul>
-
-                            <h5 class="f-18">Follow Us</h5>
-
-                            <div class="mt-4">
-                                <a href="" class="pr-3">
-                                    <img src="images/apple-store.png" height="30" alt="" />
-                                </a>
-                                <a href="">
-                                    <img src="images/google-play.png" height="30" alt="" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="my-5" />
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="text-center">
-                            <p class="text-muted mb-0">2020 © Floaks. Design by Themesdesign</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END FOOTER -->
-
-        <!-- javascript -->
-        <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('frontend/js/jquery.easing.min.js') }}"></script>
-        <script src="{{ asset('frontend/js/scrollspy.min.js') }}"></script>
-
-        <!-- Portfolio -->
-        <script src="{{ asset('frontend/js/ion.rangeSlider.min.js') }}"></script>
-
-        <!-- Portfolio -->
-        <script src="{{ asset('frontend/js/jquery.magnific-popup.min.js') }}"></script>
-        <script src="{{ asset('frontend/js/isotope.js') }}"></script>
-
-        <!-- counter init -->
-        <script src="{{ asset('frontend/js/counter.init.js') }}"></script>
-
-        <!-- Swiper JS -->
-        <script src="{{ asset('frontend/js/swiper.min.js') }}"></script>
-
-        <!--flex slider plugin-->
-        <script src="{{ asset('frontend/js/jquery.flexslider-min.js') }}"></script>
-
-        <!-- yt player -->
-        <script src="{{ asset('frontend/js/jquery.mb.YTPlayer.js') }}"></script>
-
-        <!-- contact init -->
-        <script src="{{ asset('frontend/js/contact.init.js') }}"></script>
-
-        <!-- Main Js -->
-        <script src="{{ asset('frontend/js/app.js') }}"></script>
-    </body>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer-->
+    <!-- javascript files-->
+    <!-- jquery-->
+    <script src="{{ asset('assets/js/jquery.min.css.js')}}"></script>
+    <!-- lozad js-->
+    <script src="{{ asset('assets/js/lozad.min.css.js')}}"></script>
+    <!-- Bootstrap js-->
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.css.js')}}"></script>
+    <!-- Aos js-->
+    <script src="{{ asset('assets/js/aos.js')}}"></script>
+    <!-- Slick flickity js-->
+    <script src="{{ asset('assets/js/flickity.pkgd.min.css.js')}}"></script>
+    <!-- Magnific popup js-->
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.css.js')}}"></script>
+    <!-- Countdown js-->
+    <script src="{{ asset('assets/js/jquery.countdown.js')}}"></script>
+    <!-- CountTo js-->
+    <script src="{{ asset('assets/js/jquery.countTo.js')}}"></script>
+    <!-- Masonry js-->
+    <script src="{{ asset('assets/js/masonry.pkgd.min.css.js')}}"></script>
+    <!-- Global - Main js-->
+    <script src="{{ asset('assets/js/global.js')}}"></script>
+  </body>
 </html>

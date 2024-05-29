@@ -6,6 +6,7 @@ use App\Models\KartuKeluarga;
 use Alert;
 use App\Models\Penduduk;
 use App\Models\Rt;
+
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -60,26 +61,15 @@ class KartuKeluargaController extends Controller
         $kartuKeluarga = KartuKeluarga::where('nomor_kk', $nomor_kk)->firstOrFail();
         return view('rw.data_kartukeluarga.edit_kartukeluarga', compact('kartuKeluarga', 'type_menu'));
     }
-
     public function update(Request $request)
     {
         $nomor_kk = $request->input('nomor_kk');
         // Validasi data sebelum update
-        $request->validate([
-            'nomor_kk' => 'required|numeric',
-            'kepalakeluarga' => 'required|string|max:255',
-            'rt' => 'required|numeric',
-            'rw' => 'required|numeric',
-            'kelurahan' => 'required|string|max:255',
-            'kecamatan' => 'required|string|max:255',
-            'kabupaten' => 'required|string|max:255',
-            'provinsi' => 'required|string|max:255',
-            'alamat' => 'required|string',
-        ]);
-        
-        // Cari record berdasarkan primary key `nomor_kk`
+       
+
+        // // Cari record berdasarkan primary key `nomor_kk`
         $kartuKeluarga = KartuKeluarga::where('nomor_kk', $nomor_kk)->firstOrFail();
-        
+
         // Update data Kartu Keluarga
         $kartuKeluarga->update([
             'nomor_kk' => $request->input('nomor_kk'),
@@ -92,13 +82,20 @@ class KartuKeluargaController extends Controller
             'provinsi' => $request->input('provinsi'),
             'alamat' => $request->input('alamat'),
         ]);
-        
-      
-        
-    
-        return redirect()->route('kartu-keluarga.index')->with('success', 'Data updated successfully');
+
+
+        // dd($nomor_kk);
+
+        // echo $nomor_kk;
+
+        Alert::success('Berhasil!', 'Berhasil Megedit data!');
+        return redirect()->back();
+       
+
+
+
+
     }
-  
     
     
     

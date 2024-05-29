@@ -22,10 +22,16 @@
             </div>
 
             <div class="section-body">
+
+                <h2 class="section">
+                    
+                    <a style="width:130px; height:38px; margin-bottom:20px" href="{{ route('warga_komplain.index') }}" class="btn btn-lg btn-primary">Kembali</a>
+                </h2>
                 @include('sweetalert::alert')
 
                 <div class="card">
-                    <form action="{{ route('warga_komplain.store') }}" method="POST">
+
+                    <form action="{{ route('warga_komplain.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header">
                             <h4>Form</h4>
@@ -35,60 +41,61 @@
                                 <div class="col-md-7">
                                     <div class="form-group">
                                         <label>Judul Komplain</label>
-                                        <input type="text" class="form-control" name="nama" required>
+                                        <input type="text" class="form-control" name="judul_komplain" required>
+                                        <input type="hidden" class="form-control" value="{{ $nik }}" name="nik" required>
+
                                     </div>
                                 </div>
-
-
-
+                    
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label>Kategori Komplain</label>
-                                        <select class="form-control" name="kategori_komplain_id" required>
+                                        <select class="form-control" name="id_kategori_komplain" required>
                                             @foreach ($kategori as $item)
                                                 <option value="{{ $item->id_kategori_komplain }}">{{ $item->nama_kategori_komplain }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-7">
                                     <div class="form-group">
                                         <label>Isi Komplain</label>
-                                        <textarea style="height: 100px" class="form-control" name="isi" required></textarea>
+                                        <textarea style="height: 100px" class="form-control" name="isi_komplain" required></textarea>
                                     </div>
                                 </div>
-
+                    
                                 <!-- Dropzone Section -->
                                 <div class="col-md-5" >
-                                    <div>
-                                        <div class="form-group">
-                                            <label>Thumbnail</label>
-                                            <div class="col-sm-9">
-                                                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image">
-        
+                                    <div class="form-group">
+                                        <label>Thumbnail</label>
+                                        <input type="file" class="form-control @error('foto_komplain') is-invalid @enderror" name="foto_komplain" id="foto_komplain">
+                                        @error('foto_komplain')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
                                             </div>
-                                            @error('image')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-            
-        
+                                        @enderror
                                     </div>
                                 </div>
-                               
                             </div>
                         </div>
                         <div class="card-footer text-right">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
+                    
+                   
                 </div>
             </div>
         </section>
     </div>
+
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 @endsection
 
 @push('scripts')

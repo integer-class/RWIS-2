@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="section-body">
-                <a style="width:130px; height:38px" href="{{ route('kartu-keluarga.index') }}" class="btn btn-lg btn-primary">Kembali</a>
+                <a style="width:130px; height:38px; margin-bottom:40px" href="{{ route('kartu-keluarga.index') }}" class="btn btn-lg btn-primary">Kembali</a>
 
             <div class="section-body">
                 @include('sweetalert::alert')
@@ -38,12 +38,8 @@
                         </div>  
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Nomor KK</label>
-                                        <input type="number" disabled class="form-control" name="nomor_kk" value="{{ old('nomor_kk', $kartuKeluarga->nomor_kk) }}">
-                                    </div>
-                                </div>
+                                <input type="hidden"  class="form-control" name="nomor_kk"  value="{{$kartuKeluarga->nomor_kk}}">
+
 
                                 <div class="col-md-12">
                                     <div class="form-group">
