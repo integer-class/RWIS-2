@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Komplain;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class Warga_KomplainController extends Controller
 {
@@ -12,11 +14,9 @@ class Warga_KomplainController extends Controller
      */
     public function index()
     {
-
         $type_menu = 'komplain';
         $komplain = Komplain::where('nik', auth()->user()->nik)->get();
-        return view('warga.komplain.index',compact('type_menu','komplain'));
-        
+        return view('warga.komplain.index', compact('type_menu', 'komplain'));
     }
 
     /**
@@ -25,48 +25,45 @@ class Warga_KomplainController extends Controller
     public function create()
     {
         $type_menu = 'komplain';
+        $nik = auth()->user()->nik;
+
         $kategori = \App\Models\KategoriKomplain::all();
-        return view('warga.komplain.create',compact('type_menu','kategori'));
+        return view('warga.komplain.create', compact('type_menu', 'kategori','nik'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        
-    
-        $request->validate([
-            'nama' => 'required|string|max:255',
-            'kategori_komplain_id' => 'required|exists:kategori_komplain,id_kategori_komplain',
-            'pekerjaan' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $komplain = new Komplain();
-        $komplain->judul_komplain = $request->input('nama');
-        $komplain->id_kategori_komplain = $request->input('kategori_komplain_id');
-        $komplain->isi_komplain = $request->input('isi');
-        $komplain->nik = Auth::user()->nik; // Assuming you have a user relationship and NIK in your user model
-        $komplain->status_komplain = 'pending'; // default status
-
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-            $komplain->thumbnail = $imagePath;
-        }
-
-        $komplain->save();
-
-        return redirect()->route('warga_komplain.index')->with('success', 'Komplain berhasil ditambahkan!');
-    
+{
+    // Handle file upload
+    if ($request->hasFile('foto_komplain')) {
+        $imagePath = $request->file('foto_komplain')->store('komplain_images');
+    } else {
+        $imagePath = null;
     }
+
+    // Create komplain
+    $komplain = new Komplain();
+    $komplain->judul_komplain = $request->judul_komplain;
+    $komplain->id_kategori_komplain = $request->id_kategori_komplain;
+    $komplain->nik = $request->nik;
+    $komplain->isi_komplain = $request->isi_komplain;
+    $komplain->foto_komplain = $imagePath;
+    $komplain->status_komplain = 'Diterima'; // Assuming initial status is 'Diterima'
+    $komplain->save();
+
+    // Redirect with success message
+    return redirect()->route('warga_komplain.index')->with('success', 'Komplain berhasil dibuat.');
+}
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        // Show the specified resource
     }
 
     /**
@@ -74,7 +71,7 @@ class Warga_KomplainController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // Show the form for editing the specified resource
     }
 
     /**
@@ -82,7 +79,7 @@ class Warga_KomplainController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Update the specified resource in storage
     }
 
     /**
@@ -90,6 +87,6 @@ class Warga_KomplainController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Remove the specified resource from storage
     }
 }
