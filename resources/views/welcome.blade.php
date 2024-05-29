@@ -158,7 +158,7 @@ Situs web RW bertujuan memperkuat koneksi warga, memfasilitasi pertukaran inform
 
                     <div class="col-lg-4">
                         <div class="counter-box mt-4 p-4">
-                            <h2 class="counter-count text-primary"><span class="counter-value" data-count="20">0</span> <span class="count-plus"></span></h2>
+                            <h2 class="counter-count text-primary"><span class="counter-value" data-count="11">0</span> <span class="count-plus"></span></h2>
                             <h5 class="mt-2 f-18">Jumlah RT</h5>
                             <p class="text-muted mt-3 mb-0">-</p>
                         </div>
