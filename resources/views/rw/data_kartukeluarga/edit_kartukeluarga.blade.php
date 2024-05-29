@@ -41,7 +41,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Nomor KK</label>
-                                        <input type="number" class="form-control" name="nomor_kk" value="{{ old('nomor_kk', $kartuKeluarga->nomor_kk) }}">
+                                        <input type="number" disabled class="form-control" name="nomor_kk" value="{{ old('nomor_kk', $kartuKeluarga->nomor_kk) }}">
                                     </div>
                                 </div>
 
