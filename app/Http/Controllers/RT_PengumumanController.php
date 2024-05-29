@@ -30,13 +30,14 @@ class RT_PengumumanController extends Controller
     public function create()
     {
         $type_menu = 'pengumuman';
-        $rt = Rt::all();
-
+        $rt = \App\Models\Rt::skip(1)->first(); // Mengambil hanya RT kedua
+    
         // Panggil fungsi untuk membuat kode unik
         $uniqueCode = $this->generateUniqueCode();
-
+    
         return view('rt.rt_data_pengumuman.create', compact('type_menu', 'rt', 'uniqueCode'));
     }
+    
 
     private function generateUniqueCode()
     {
@@ -62,65 +63,115 @@ class RT_PengumumanController extends Controller
             'rt' => 'required|array',
             'rt.*' => 'integer|exists:rt,id_rt',
         ]);
-
+    
         // Create a new Pengumuman instance
         $pengumuman = new Pengumuman();
+        $pengumuman->id_pengumuman = $request->input('id_pengumuman');
         $pengumuman->judul = $request->input('judul');
         $pengumuman->kepentingan = $request->input('kepentingan');
         $pengumuman->tanggal_pengumuman = $request->input('masa_berlaku');
         $pengumuman->isi_pengumuman = $request->input('isi_pengumuman');
-        $pengumuman->id_pengumuman = $request->input('id_pengumuman');
         $pengumuman->nik = auth()->user()->nik;
-
+    
         if ($request->hasFile('foto')) {
             $fileName = time() . '.' . $request->foto->extension();
-            $request->foto->move(public_path('pengumuman'), $fileName);
+            $request->foto->move(public_path('rt_data_pengumuman'), $fileName);
             $pengumuman->foto = $fileName;
         }
-
+    
         // Save the Pengumuman instance
         $pengumuman->save();
-
+    
         // Save data to the pengumuman_rt table
         foreach ($request->input('rt') as $rtId) {
             DB::table('pengumuman_rt')->insert([
-                'id_pengumuman' => $pengumuman->id_pengumuman,
+                'id_pengumuman' =>  $request->id_pengumuman,
                 'id_rt' => $rtId,
             ]);
         }
-
+    
         return redirect()->route('rt_pengumuman.index')->with('success', 'Pengumuman berhasil disimpan');
     }
+ 
+/**
+ * Display the specified resource.
+ */
+public function show(string $id)
+{
+    // Find the Pengumuman instance by its ID
+    $pengumuman = Pengumuman::findOrFail($id);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+    // Return the view with the Pengumuman instance
+    return view('rt.rt_data_pengumuman.show', compact('pengumuman'));
+}
+
+/**
+ * Show the form for editing the specified resource.
+ */
+public function edit(string $id)
+{
+    // Find the Pengumuman instance by its ID
+    $pengumuman = Pengumuman::findOrFail($id);
+
+    // Assuming you have a method to fetch all RTs, replace this with your actual implementation
+    $rt = RT::all();
+
+    // Pass the Pengumuman instance and RTs to the view
+    return view('rt.rt_data_pengumuman.edit', compact('pengumuman', 'rt'));
+}
+
+/**
+ * Update the specified resource in storage.
+ */
+public function update(Request $request, string $id)
+{
+    // Validate data input
+    $request->validate([
+        'judul' => 'required|string|max:255',
+        'kepentingan' => 'required|string',
+        'masa_berlaku' => 'required|date',
+        'isi_pengumuman' => 'required|string',
+        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'rt' => 'required|array',
+        'rt.*' => 'integer|exists:rt,id_rt',
+    ]);
+
+    // Find the Pengumuman instance by its ID
+    $pengumuman = Pengumuman::findOrFail($id);
+
+    // Update the Pengumuman instance with the new data
+    $pengumuman->judul = $request->input('judul');
+    $pengumuman->kepentingan = $request->input('kepentingan');
+    $pengumuman->tanggal_pengumuman = $request->input('masa_berlaku');
+    $pengumuman->isi_pengumuman = $request->input('isi_pengumuman');
+    $pengumuman->nik = auth()->user()->nik;
+
+    if ($request->hasFile('foto')) {
+        $fileName = time() . '.' . $request->foto->extension();
+        $request->foto->move(public_path('rt_data_pengumuman'), $fileName);
+        $pengumuman->foto = $fileName;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+    // Save the updated Pengumuman instance
+    $pengumuman->save();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    // Update data in the pengumuman_rt table
+    $pengumuman->rt()->sync($request->input('rt'));
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+    return redirect()->route('rt_pengumuman.index')->with('success', 'Pengumuman berhasil diperbarui');
+}
+
+/**
+ * Remove the specified resource from storage.
+ */
+public function destroy(string $id)
+{
+    // Find the Pengumuman instance by its ID
+    $pengumuman = Pengumuman::findOrFail($id);
+
+    // Delete the Pengumuman instance
+    $pengumuman->delete();
+
+    return redirect()->route('rt_pengumuman.index')->with('success', 'Pengumuman berhasil dihapus');
+}
 }

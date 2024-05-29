@@ -129,4 +129,3 @@
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/features-posts.js') }}"></script>
 @endpush
-
