@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- favicon-->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico')}}">
-    <!-- Site Title-->e
-    <title>SENGGOLLL</title>
+    <!-- Site Title-->
+    <title>RWKU</title>
     <meta name="description" content="A Template for Architectural Interior Design company website.">
     <!-- Bootstrap CSS file-->
     <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -58,7 +58,7 @@
           <div class="pt-lg-6 pb-lg-0 pt-md-6 pb-md-7 pt-5 pb-5">
             <div class="container mt-2 mb-lg-7"> 
               <div class="row">
-                <div class="col-lg-6 mn-7 order-lg-1"><img src="{{ asset('assets/images/home/h1.jpg')}}" alt="home"></div>
+                <div class="col-lg-6 mn-7 order-lg-1"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrhQxd2o5adxbbtb7lPa3Ss4AsmBRXEsqCPiOJ7qfetfH0SXFlSg781a9bmtZMCr7WmUoqSyt0bEbjSXBv2xhDMH_BdqXP1DHSGhefoS6rjVfw00HulX1OzW9kbbrFA79LhP8NAOs3O6aM3eRQWPTvCVB5PUosBXJRfBHgskRPheV6hksFWzXAz3jg67g3/s1600/WhatsApp%20Image%202023-08-26%20at%2010.57.06.jpeg" alt="home"></div>
                 <div class="col-lg-6 col-md-12 pb-lg-4 my-auto">
                   <div class="mt-lg-0 mt-md-5 mt-4">
                     <div class="pr-lg-6 pr-md-6">
@@ -74,8 +74,38 @@
             </div>
           </div>
         </div>
+
+        
         <!-- content title-->
-        <div class="container pt-lg-8 pb-lg-5 pt-md-6 pb-md-5 pt-5 pb-4">
+        <div  style="text-align: -webkit-center" class="container pt-lg-8 pb-lg-5 pt-md-6 pb-md-5 pt-5 pb-4">
+
+            <div class="col-lg-9 mb-7">
+                
+                <div class="row">
+                  <div class="col-sm-6 mb-4">
+                    <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $kartukeluarga }}" data-speed="5000" data-refresh-interval="50"></h1>
+                    <h5 class="mb-3">RT</h5>
+                    <p>Oratio pertinax cu vix, id aliquam habemus tractatos. Eu vis modo officiis liberavisse, an persequeris complectitur mei et.</p>
+                  </div>
+                  <div class="col-sm-6 mb-4">
+                    <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $penduduk }}" data-speed="5000" data-refresh-interval="50"></h1>
+                    <h5 class="mb-3">Penduduk</h5>
+                    <p>Oratio pertinax cu vix, id aliquam habemus tractatos. Eu vis modo officiis liberavisse, an persequeris complectitur mei et.</p>
+                  </div>
+                  <div class="col-sm-6 mb-4">
+                    <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $kartukeluarga }}" data-speed="5000" data-refresh-interval="50"></h1>
+                    <h5 class="mb-3">Keluarga</h5>
+                    <p>Oratio pertinax cu vix, id aliquam habemus tractatos. Eu vis modo officiis liberavisse, an persequeris complectitur mei et.</p>
+                  </div>
+                  <div class="col-sm-6 mb-4">
+                    <h1 class="mb-3 display-4 timer" data-from="0" data-to="9048" data-speed="5000" data-refresh-interval="50"></h1>
+                    <h5 class="mb-3">Working Hours</h5>
+                    <p>Oratio pertinax cu vix, id aliquam habemus tractatos. Eu vis modo officiis liberavisse, an persequeris complectitur mei et.</p>
+                  </div>
+                </div>
+            </div>
+
+            
           <div class="row">
             <div class="col-lg-5">
               <div class="pr-lg-5">
@@ -138,9 +168,9 @@
         <div class="container mt-lg-7 mb-lg-5 mt-md-6 mb-md-4 mt-5 mb-4">
           <div class="row">
             <div class="col-lg-6">
-              <h1 class="mb-4">Featured Properties</h1>
+              <h1 class="mb-4">Kegiatan Terakhir Warga</h1>
               <div class="pr-6">
-                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Aenean accumsan lectus magna</p>
+                <p>Berikut adalah beberapa kegiatan terbaru yang telah diadakan oleh warga, guna mempererat kebersamaan dan meningkatkan kesejahteraan Rw.</p>
               </div>
             </div>
           </div>
@@ -340,24 +370,25 @@
     <!-- End Footer-->
     <!-- javascript files-->
     <!-- jquery-->
-    <script src="{{ asset('assets/js/jquery.min.css.js')}}"></script>
+    <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
     <!-- lozad js-->
-    <script src="{{ asset('assets/js/lozad.min.css.js')}}"></script>
+    <script src="{{ asset('assets/js/lozad.min.js')}}"></script>
     <!-- Bootstrap js-->
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.css.js')}}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}"></script>
     <!-- Aos js-->
     <script src="{{ asset('assets/js/aos.js')}}"></script>
     <!-- Slick flickity js-->
-    <script src="{{ asset('assets/js/flickity.pkgd.min.css.js')}}"></script>
+    <script src="{{ asset('assets/js/flickity.pkgd.min.js')}}"></script>
     <!-- Magnific popup js-->
-    <script src="{{ asset('assets/js/jquery.magnific-popup.min.css.js')}}"></script>
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
     <!-- Countdown js-->
     <script src="{{ asset('assets/js/jquery.countdown.js')}}"></script>
     <!-- CountTo js-->
     <script src="{{ asset('assets/js/jquery.countTo.js')}}"></script>
     <!-- Masonry js-->
-    <script src="{{ asset('assets/js/masonry.pkgd.min.css.js')}}"></script>
+    <script src="{{ asset('assets/js/masonry.pkgd.min.js')}}"></script>
     <!-- Global - Main js-->
     <script src="{{ asset('assets/js/global.js')}}"></script>
+
   </body>
 </html>

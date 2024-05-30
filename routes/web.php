@@ -10,6 +10,9 @@ use App\Http\Controllers\RT_Dashboardcontoller;
 use App\Http\Controllers\IuranController;
 use App\Http\Controllers\RT_DokumentasiController;
 
+//landing
+use App\Http\Controllers\Landing_indexController;
+
 
 //warga
 use App\Http\Controllers\Warga_DashboardController;
@@ -18,7 +21,11 @@ use App\Http\Controllers\Warga_DashboardController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RT_PengumumanController;
 
-Route::view('/', 'welcome');
+
+Route::get('/', [Landing_indexController::class, 'index'])->name('index');
+
+
+
 
 Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::get('/', function () {
