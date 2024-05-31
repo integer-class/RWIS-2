@@ -40,12 +40,6 @@
                 <a class="nav-link active"
                     href="{{ route('warga_pengumuman.index') }}"><i class="fas fa-exclamation"></i> <span>Pengumuman</span></a>
             </li>
-             
-            <li class="{{ $type_menu === 'dokumentasi'? 'active' : ''  }}">
-                <a class="nav-link active"
-                    href="{{ route('warga_dokumentasi.index') }}"><i class="fas fa-exclamation"></i> <span>Dokumentasi</span></a>
-            </li>
-
         </ul>
 
       
