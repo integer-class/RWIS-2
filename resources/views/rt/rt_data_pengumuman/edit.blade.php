@@ -16,11 +16,11 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Tambah Pengumuman</h1>
+                <h1>Edit Pengumuman</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Data</a></div>
                     <div class="breadcrumb-item"><a href="#">Pengumuman</a></div>
-                    <div class="breadcrumb-item">Tambah Pengumuman</div>
+                    <div class="breadcrumb-item">Edit Pengumuman</div>
                 </div>
             </div>
 

@@ -71,7 +71,7 @@ Route::middleware(['auth', 'verified','rt'])->prefix('rt')->group(function () {
     Route::resource('rt_komplain', \App\Http\Controllers\RT_KomplainController::class);
 
     Route::resource('rt_pengumuman', \App\Http\Controllers\RT_PengumumanController::class);
-    Route::get('rt_data_pengumuman/update', [RT_PengumumanController::class, 'update'])->name('rt_data_pengumuman.update');
+    Route::get('rt_data_pengumuman/edit', [RT_PengumumanController::class, 'edit'])->name('rt_data_pengumuman.edit');
 
     Route::resource('rt_dokumentasi', \App\Http\Controllers\RT_DokumentasiController::class);
 

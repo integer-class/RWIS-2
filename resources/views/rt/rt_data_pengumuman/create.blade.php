@@ -73,7 +73,7 @@
                                     <div class="form-group">
                                         <label>RT yang Dipilih</label>
                                         <input type="text" class="form-control" disabled value="{{ $rt->skip(1)->first()->nama_rt }}">
-                                        <input type="hidden" name="rt[]" value="{{ $rt->skip(1)->first()->id_rt }}">
+                                        <input type="hidden" name="rt" value="{{ $rt->skip(1)->first()->id_rt }}">
                                         
                                     </div>
                                 </div>
