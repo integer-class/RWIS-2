@@ -8,6 +8,9 @@ use App\Models\KartuKeluarga;
 use App\Models\Penduduk;
 //rt
 use App\Models\Rt;
+//dokuemntasi
+use App\Models\Dokumentasi;
+
 
 
 
@@ -25,11 +28,25 @@ class Landing_indexController extends Controller
         $kartukeluarga = KartuKeluarga::count();
         $penduduk = Penduduk::count();
         $rt = Rt::count();
-        
+        $dokumentasi = Dokumentasi::all()
+        ->take(6)
+        ->sortByDesc('created_at');
+
+        $hari = [];
+        foreach ($dokumentasi as $doc) {
+            $hari[] = date('l', strtotime($doc->tanggal));
+        }
 
 
-        return view('landing.index', compact('kartukeluarga','penduduk'));
+
+        return view('landing.index', compact('kartukeluarga','penduduk','rt','dokumentasi','hari'));
         
+    }
+
+    public function dokumentasi()
+    {
+        // Your logic here
+        return view('landing.dokumentasi');
     }
 
     /**
