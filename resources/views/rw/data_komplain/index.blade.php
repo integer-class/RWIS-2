@@ -117,11 +117,11 @@
                                                     <a href="
                                                     {{ route('komplain.show', $k->id_komplain) }}
                                                     ">View</a>
-                                                    <div class="bullet"></div>
+                                                    {{-- <div class="bullet"></div>
                                                     <a href="#">Edit</a>
                                                     <div class="bullet"></div>
                                                     <a href="#"
-                                                        class="text-danger">Trash</a>
+                                                        class="text-danger">Trash</a> --}}
                                                 </div>
                                             </td>
                                             <td>
