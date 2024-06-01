@@ -45,8 +45,12 @@ class Landing_indexController extends Controller
 
     public function dokumentasi()
     {
+
+        $dokumentasi = Dokumentasi::all()
+        ->take(6)
+        ->pagitane(6);
         // Your logic here
-        return view('landing.dokumentasi');
+        return view('landing.dokumentasi', compact('dokumentasi'));
     }
 
     /**
