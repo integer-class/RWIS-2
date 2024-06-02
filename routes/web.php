@@ -23,6 +23,9 @@ use App\Http\Controllers\RT_PengumumanController;
 //penduduk
 use App\Http\Controllers\PendudukController;
 
+//dashboard contoller
+use App\Http\Controllers\DashboardController;
+
 
 Route::get('/', [Landing_indexController::class, 'index'])->name('index');
 
@@ -33,13 +36,9 @@ Route::get('/landing_dokumentasi', [Landing_indexController::class, 'dokumentasi
 
 
 
-Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
-    Route::get('/', function () {
-        
-        
-
-        return view('rw.index', ['type_menu' => '/dashboard']);
-    })->name('rw');
+    Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+    
 
 
 
