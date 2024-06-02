@@ -2,11 +2,11 @@
     <!-- Navbar-->
     <div class="site-header">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container"><a class="navbar-brand" href="index.html"><img class="site-logo" src="{{ asset('assets/images/logo.png')}}" alt="Logo"></a>
+        <div class="container"><a class="navbar-brand" href="{{url ("http://127.0.0.1:8000")}}"><img class="site-logo" src="{{ asset('assets/images/logo.png')}}" alt="Logo"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
               <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                 <div class="dropdown-menu"><a class="dropdown-item" href="page-services.html">Services</a><a class="dropdown-item" href="page-about-us.html">About Us</a><a class="dropdown-item" href="page-contact.html">Contact Us</a><a class="dropdown-item" href="page-faq.html">Faq's</a><a class="dropdown-item" href="page-agents.html">Agents</a><a class="dropdown-item" href="page-testimonials.html">Testimonials</a><a class="dropdown-item" href="page-featured-box.html">Featured Box</a><a class="dropdown-item" href="page-partners.html">Partners</a><a class="dropdown-item" href="page-process.html">Process</a><a class="dropdown-item" href="page-404.html">404</a></div>
               </li>

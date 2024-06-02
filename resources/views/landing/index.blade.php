@@ -25,7 +25,7 @@
                                             agenda kegiatan, dan info relevan sehari-hari.
                                         </p>
                                     </div><a class="btn btn-white text-cornflower-blue mt-4"
-                                        href="page-about-us.html">Get Started</a>
+                                        href="{{ route('login') }}">Login</a>
                                 </div>
                             </div>
                         </div>

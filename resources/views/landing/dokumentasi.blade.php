@@ -18,18 +18,18 @@
 
             <div class="col-lg-4">
                 <article>
-                  <figure class="entry-media"><a href="blog-single-post.html"><img class="lozad" src="assets/images/blog/b1-lqip.jpg" data-src="assets/images/blog/b1.jpg" alt="Entry Image"/></a>
+                  <figure class="entry-media"><a href="blog-single-post.html"><img class="lozad" src="{{ asset('thumbnail/'.$dokumen->thumbnail) }} " data-src="{{ asset('thumbnail/'.$dokumen->thumbnail) }}" alt="Entry Image"/></a>
                   </figure>
                   <div class="entry-content-wrapper">
                     <header class="entry-header">
-                      <h2 class="entry-title"><a href="blog-single-post.html">Five Tips To Start Investing In Real Estate</a></h2>
+                      <h2 class="entry-title"><a href="blog-single-post.html">{{$dokumen->judul }}</a></h2>
                       <div class="mb-2">
-                        <div class="entry-meta-top"><span class="entry-meta-date"> <i class="far fa-clock"></i>March 22, 2020</span>
+                        <div class="entry-meta-top"><span class="entry-meta-date"> <i class="far fa-clock"></i>{{$dokumen->tanggal}}</span>
                         </div>
                       </div>
                     </header>
                     <div class="entry-content">
-                      <p>Quisque sollicitudin lacinia sapien, eu tincidunt nunc accumsan laoreet. Curabitur feugiat posuere odio nec tincidunt Pellentesque sagittis nibh venenatis euismod.</p>
+                      <p>{{$dokumen->deskripsi}}</p>
                     </div>
                   </div>
                 </article>
