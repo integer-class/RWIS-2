@@ -1,4 +1,4 @@
-{{-- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('title', 'Detail Pengumuman')
 
@@ -19,14 +19,15 @@
                     <p><strong>Isi Pengumuman:</strong> {{ $pengumuman->isi_pengumuman }}</p>
                     <p><strong>RT yang Dipilih:</strong></p>
                     <ul>
+
                         @foreach ($pengumuman->rt as $rt)
                             <li>{{ $rt->nama_rt }}</li>
                         @endforeach
+
+                        
+                        
                     </ul>
-                    @if ($pengumuman->foto)
-                        <p><strong>Foto:</strong></p>
-                        <img src="{{ asset('pengumuman/' . $pengumuman->foto) }}" alt="Foto Pengumuman" class="img-fluid">
-                    @endif
+                    
                 </div>
                 <div class="card-footer text-right">
                     <a href="{{ route('rt_pengumuman.index') }}" class="btn btn-primary">Kembali</a>
@@ -35,4 +36,4 @@
         </div>
     </section>
 </div>
-@endsection --}}
+@endsection

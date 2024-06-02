@@ -67,7 +67,7 @@
                                                   {{$k->judul}}
                                                 <div class="table-links">
                                                     <a href="
-                                                    {{-- {{ route('komplain.show') }} --}}
+                                                    {{ route('rt_pengumuman.show', $k->id_pengumuman ) }}
                                                     ">View</a>
                                                     <div class="bullet"></div>
                                                     {{-- {{
@@ -99,14 +99,13 @@
 
                                             </td>
                                             <td>
-{{--                                                 
-                                                @if ($k->status_komplain == 'Diproses')
-                                                    <div class="badge badge-primary">Diproses</div>
-                                                @elseif ($k->status_komplain == 'Diterima')
-                                                    <div class="badge badge-warning">Diterima</div>
-                                                @elseif ($k->status_komplain == 'Selesai')
-                                                    <div class="badge badge-success">Selesai</div>
-                                                @endif --}}
+
+                                                @if ($k->tanggal_pengumuman > date('Y-m-d'))
+                                                    <div class="badge badge-success">Aktif</div>
+                                                @else
+                                                    <div class="badge badge-danger">Tidak Aktif</div>
+                                                @endif
+
                                             </td>
                                         </tr>
                                         @endforeach

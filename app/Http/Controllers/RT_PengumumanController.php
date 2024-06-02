@@ -101,11 +101,23 @@ class RT_PengumumanController extends Controller
  */
 public function show(string $id)
 {
+
+    $type_menu = 'pengumuman';
     // Find the Pengumuman instance by its ID
     $pengumuman = Pengumuman::findOrFail($id);
 
+
+    $pengumuman_rt = DB::table('pengumuman_rt')
+    ->join('rt', 'pengumuman_rt.id_rt', '=', 'rt.id_rt');
+
+    // foreach ($pengumuman_rt as $rt) {
+    //     echo $rt->id_rt;
+    // }
+
+       
+
     // Return the view with the Pengumuman instance
-    return view('rt.rt_data_pengumuman.show', compact('pengumuman'));
+    return view('rt.rt_data_pengumuman.show', compact('pengumuman','type_menu','pengumuman_rt'));
 }
 
 /**
