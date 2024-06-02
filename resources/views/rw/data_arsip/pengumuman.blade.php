@@ -34,20 +34,24 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <ul class="nav nav-pills">
+                                 
                                     <li class="nav-item">
-                                        <a class="nav-link active"
-                                            href="{{ route('arsip.index') }}">Penduduk<span class="badge badge-white"> 
+                                        <a class="nav-link" href=" {{route('arsip.index') }} ">
+                                            Penduduk <span class="badge badge-primary">
                                                 {{ $penduduk_hitung}}
-                                                 </span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href=" {{route('arsip.pengumuman') }} ">
-                                            Pengumuman <span class="badge badge-primary">
-                                                {{ $pengumuman_hitung}}
                                             </span>
                                         </a>
                                             
                                     </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link active"
+                                            href="{{ route('arsip.pengumuman') }}">Pengumuman<span class="badge badge-white"> 
+                                                {{ $pengumuman_hitung}}
+                                                 </span></a>
+                                    </li>
+
+                                    
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('arsip.dokumentasi') }}">
                                             Dokumentasi <span class="badge badge-primary">
@@ -94,52 +98,65 @@
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
-                                            <th>NIK</th>
-                                            <th>Nama</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>Alamat</th>
-                                            <th>RT</th>
+                                           
+                                            <th>Judul</th>
+                                            <th>Kepentingan</th>
+                                            <th>
+                                                Nama Pembuat
+                                            </th>
+                                            <th>
+                                                Masa Berlaku
+                                            </th>
                                             <th>Status</th>
-                                            <th>Action</th>
                                         </tr>
-                                        @foreach ($penduduk as $p)
-                                            <tr>
-                                                <td>{{ $p->nik }}</td>
-                                                <td>{{ $p->nama }}</td>
-                                                <td>{{ $p->jenis_kelamin }}</td>
-                                                <td>{{ $p->alamat }}</td>
-                                                <td>{{ $p->nama_rt }}</td>
-                                                <td>
+                                        @foreach ($pengumuman as $k)
+                                        <tr>
+                                           
+                                            <td>      
+                                                  {{$k->judul}}
+                                                <div class="table-links">
+                                                    <a href="
+                                                    {{ route('pengumuman.show', $k->id_pengumuman ) }}">View</a>
+                                                    <div class="bullet"></div>
+                                            
+                                                    <a href="#"
+                                                        class="text-danger swal-confirm-archive" data-id="{{ $k->id_pengumuman }}">Restore</a>
+                                                </div>
 
-                                                    @if ($p->status == 'meninggal')
-                                                        <div class="badge badge-danger">Meninggal</div>
-                                                    @elseif ($p->status == 'pindah')
-                                                        <div class="badge badge-warning">Pindah</div>
-                                                    @else 
-                                                    <div class="badge badge-default">Diarsipkan</div>
-                                                    
-                                                    @endif
-                                                 
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a href="#" data-toggle="dropdown" class="btn btn-outline-primary dropdown-toggle">Options</a>
-                                                        <div class="dropdown-menu">
-                                                            <a href="{{ route('penduduk.show', $p->nik)}}" class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
-                                                            @if ($p->status == 'hidup' )
-                                                            <a href="#" class="dropdown-item has-icon swal-confirm-archive" data-id="{{ $p->nik }}">
-                                                                <i class="fas fa-trash-restore"></i>Restore
-                                                            </a>
-                                                            @endif
-                                                            <div class="dropdown-divider"></div>
-                                                        </div>
-                                                    </div>
-                                                    <form id="archive-form-{{ $p->nik }}" action="{{ route('penduduk.restore', $p->nik) }}" method="POST" style="display: none;">
-                                                        @csrf
-                                                        @method('PUT')
-                                                    </form>
-                                                </td>
-                                            </tr>
+                                                <form id="archive-form-{{ $k->id_pengumuman }}" action="{{ route('pengumuman.restore', $k->id_pengumuman) }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                    @method('PUT')
+                                                </form>
+                                            </td>
+                                            <td>
+                                                {{$k->kepentingan}}
+                                            
+                                            </td>
+                                            <td>
+                                                <a href="#">
+                                                    <img alt="image"
+                                                        src="{{ asset('img/avatar/avatar-5.png') }}"
+                                                        class="rounded-circle"
+                                                        width="35"
+                                                        data-toggle="title"
+                                                        title="">
+                                                    <div class="d-inline-block ml-1">{{ $k->nama }}</div>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                {{ $k->tanggal_pengumuman }}
+
+                                            </td>
+                                            <td>
+                                                @if ($k->tanggal_pengumuman > date('Y-m-d'))
+                                                <div class="badge badge-success">Aktif</div>
+                                            @else
+                                                <div class="badge badge-danger">Tidak Aktif</div>
+                                            @endif
+                                     
+                                               
+                                            </td>
+                                        </tr>
                                         @endforeach
                                     </table>
                                 </div>

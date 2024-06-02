@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 //komplain
+use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\KomplainController;
 //dokumentasi
 use App\Http\Controllers\DokumentasiController;
@@ -22,6 +23,8 @@ use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\DashboardController;
 //pengumuman
 use App\Http\Controllers\PengumumanController;
+//arsip
+
 
 
 Route::get('/', [Landing_indexController::class, 'index'])->name('index');
@@ -36,21 +39,31 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::put('penduduk/arsip/{id}',[PendudukController::class,'arsip'])->name('penduduk.arsip');
     Route::put('pengumuman/arsip/{id}',[PengumumanController::class,'arsip'])->name('pengumuman.arsip');
     Route::put('dokumentasi/arsip/{id}',[DokumentasiController::class,'arsip'])->name('dokumentasi.arsip');
-    Route::resource('arsip', \App\Http\Controllers\ArsipController::class);
-
+    
+    //routing restore
     Route::put('penduduk/restore/{id}',[PendudukController::class,'restore'])->name('penduduk.restore');
+    Route::put('pengumuman/restore/{id}',[PengumumanController::class,'restore'])->name('pengumuman.restore');
+    Route::put('dokumentasi/restore/{id}',[DokumentasiController::class,'restore'])->name('dokumentasi.restore');
 
-
-
+    //routing page arsip
+   
+    Route::get('arsip/pengumuman', [ArsipController::class,'pengumuman'])->name('arsip.pengumuman');
+    Route::get('arsip/dokumentasi', [ArsipController::class, 'dokumentasi'])->name('arsip.dokumentasi');
+ 
+    //routing page komplain
     Route::get('komplain/diterima', [KomplainController::class, 'diterima'])->name('komplain.diterima');
     Route::get('komplain/diproses', [KomplainController::class, 'diproses'])->name('komplain.diproses');
     Route::get('komplain/selesai', [KomplainController::class, 'selesai'])->name('komplain.selesai');
+    
+
+    //routing resource  
     Route::resource('kartu-keluarga', \App\Http\Controllers\KartuKeluargaController::class);
     Route::resource('komplain', \App\Http\Controllers\KomplainController::class);
     Route::resource('penduduk', \App\Http\Controllers\PendudukController::class);
     Route::resource('dokumentasi', \App\Http\Controllers\DokumentasiController::class);
     Route::resource('pengumuman', \App\Http\Controllers\PengumumanController::class);
     Route::resource('iuran', \App\Http\Controllers\IuranController::class);
+    Route::resource('arsip', \App\Http\Controllers\ArsipController::class);
 });
 
 Route::middleware(['auth', 'verified','rt'])->prefix('rt')->group(function () {

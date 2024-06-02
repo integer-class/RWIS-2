@@ -50,6 +50,23 @@ class DokumentasiController extends Controller
         return redirect()->route('dokumentasi.index')->with('success', 'dokumentasi has been archived successfully');
     }
 
+    public function restore($id)
+    {
+        $dokumentasi = dokumentasi::find($id);
+    
+        if (!$dokumentasi) {
+            return redirect()->route('dokumentasi.index')->with('error', 'dokumentasi not found');
+        }
+    
+        // Update the 'arsip' attribute of the penduduk
+        $dokumentasi->arsip = 'false'; // Assuming 'true' means archived
+    
+        // Save the changes
+        $dokumentasi->save();
+    
+        return redirect()->route('dokumentasi.index')->with('success', 'dokumentasi has been archived successfully');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -26,17 +26,76 @@ class ArsipController extends Controller
                   ->orWhere('penduduk.status', 'pindah');
         })
         ->get();
-
         $pengumuman = Pengumuman::all()
-            ->where('arsip', 'true');
+        ->where('arsip', 'true');
 
         $dokumentasi = Dokumentasi::all()
-            ->where('arsip', 'true');
-            
+        ->where('arsip', 'true');
+
+
+        $pengumuman_hitung = Pengumuman::where('arsip', 'true')->count();
+        $dokumentasi_hitung = Dokumentasi::where('arsip', 'true')->count();
+
+        $penduduk_hitung = Penduduk::join('rt', 'penduduk.id_rt', '=', 'rt.id_rt')
+        ->where('penduduk.arsip', 'true')
+        ->where(function($query) {
+         $query->where('penduduk.status', 'meninggal')
+                ->orWhere('penduduk.arsip', 'true')
+                  ->orWhere('penduduk.status', 'pindah');
+        })
+        ->count();        
+        return view('rw.data_arsip.index', compact('type_menu','penduduk','pengumuman','dokumentasi','penduduk_hitung','pengumuman_hitung','dokumentasi_hitung'));
+    }
+
+    public function pengumuman()
+    {
+        $type_menu = 'arsip';
+
+        $penduduk_hitung = Penduduk::join('rt', 'penduduk.id_rt', '=', 'rt.id_rt')
+        ->where('penduduk.arsip', 'true')
+        ->where(function($query) {
+         $query->where('penduduk.status', 'meninggal')
+                ->orWhere('penduduk.arsip', 'true')
+                  ->orWhere('penduduk.status', 'pindah');
+        })
+        ->count();
+
+        $dokumentasi_hitung = Dokumentasi::where('arsip', 'true')->count();
+
+        $pengumuman_hitung = Pengumuman::where('arsip', 'true')->count();
+
+
+        $pengumuman = Pengumuman::join('penduduk', 'pengumuman.nik', '=', 'penduduk.nik')
+        ->where('pengumuman.arsip', 'true')         
+        ->get();
+
+        return view('rw.data_arsip.pengumuman', compact('type_menu','pengumuman','pengumuman_hitung','penduduk_hitung','dokumentasi_hitung'));
+    }
+
+    public function dokumentasi()
+    {
+        $type_menu = 'arsip';
+
+        $dokumentasi = Dokumentasi::all()
+        ->where('arsip', 'true');
+
+        $dokumentasi_hitung = Dokumentasi::where('arsip', 'true')->count();
+        $pengumuman_hitung = Pengumuman::where('arsip', 'true')->count();
+        $penduduk_hitung = Penduduk::join('rt', 'penduduk.id_rt', '=', 'rt.id_rt')
+        ->where('penduduk.arsip', 'true')
+        ->where(function($query) {
+         $query->where('penduduk.status', 'meninggal')
+                ->orWhere('penduduk.arsip', 'true')
+                  ->orWhere('penduduk.status', 'pindah');
+        })
+        ->count();
 
         
-        return view('rw.data_arsip.index', compact('type_menu','penduduk','pengumuman','dokumentasi'));
+
+        return view('rw.data_arsip.dokumentasi', compact('type_menu','dokumentasi','pengumuman_hitung','penduduk_hitung','dokumentasi_hitung'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.

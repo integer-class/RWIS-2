@@ -47,6 +47,25 @@ class PengumumanController extends Controller
         return redirect()->route('pengumuman.index')->with('success', 'pengumuman has been archived successfully');
     }
 
+    public function restore($id)
+    {
+        $pengumuman = Pengumuman::find($id);
+    
+        if (!$pengumuman) {
+            return redirect()->route('pengumuman.index')->with('error', 'Pengumuman not found');
+        }
+    
+        // Update the 'arsip' attribute of the penduduk
+        $pengumuman->arsip = 'false'; // Assuming 'true' means archived
+    
+        // Save the changes
+        $pengumuman->save();
+    
+        return redirect()->route('pengumuman.index')->with('success', 'pengumuman has been archived successfully');
+    }
+
+    
+
     /**
      * Show the form for creating a new resource.
      */

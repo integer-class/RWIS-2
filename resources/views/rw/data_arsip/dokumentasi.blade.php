@@ -34,28 +34,34 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <ul class="nav nav-pills">
+                                 
                                     <li class="nav-item">
-                                        <a class="nav-link active"
-                                            href="{{ route('arsip.index') }}">Penduduk<span class="badge badge-white"> 
+                                        <a class="nav-link" href=" {{route('arsip.index') }} ">
+                                            Penduduk <span class="badge badge-primary">
                                                 {{ $penduduk_hitung}}
-                                                 </span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href=" {{route('arsip.pengumuman') }} ">
-                                            Pengumuman <span class="badge badge-primary">
-                                                {{ $pengumuman_hitung}}
                                             </span>
                                         </a>
                                             
                                     </li>
+
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('arsip.dokumentasi') }}">
-                                            Dokumentasi <span class="badge badge-primary">
-                                                {{ $dokumentasi_hitung }}
+                                        <a class="nav-link" href="{{ route('arsip.pengumuman') }}">
+                                            Pengumuman <span class="badge badge-primary">
+                                                {{ $pengumuman_hitung }}
                                             </span>
                                         </a>
                                     </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link active"
+                                            href="{{ route('arsip.dokumentasi') }}">Dokumentasi<span class="badge badge-white"> 
+                                                {{ $dokumentasi_hitung}}
+                                                 </span></a>
+                                    </li>
+
+                                    
                                    
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -68,14 +74,7 @@
                                 <h4>arsip Warga</h4>
                             </div>
                             <div class="card-body">
-                                {{-- <div class="float-left">
-                                    <select class="form-control selectric">
-                                        <option>Action For Selected</option>
-                                        <option>Move to Draft</option>
-                                        <option>Move to Pending</option>
-                                        <option>Delete Pemanently</option>
-                                    </select>
-                                </div> --}}
+                          
                                 <div class="float-right">
                                     <form method="GET" >
                                         <div class="input-group">
@@ -92,56 +91,44 @@
                                 <div class="clearfix mb-3"></div>
 
                                 <div class="table-responsive">
-                                    <table class="table-striped table">
-                                        <tr>
-                                            <th>NIK</th>
-                                            <th>Nama</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>Alamat</th>
-                                            <th>RT</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                        @foreach ($penduduk as $p)
+                                    <div class="table-responsive">
+                                        <table class="table-striped table">
                                             <tr>
-                                                <td>{{ $p->nik }}</td>
-                                                <td>{{ $p->nama }}</td>
-                                                <td>{{ $p->jenis_kelamin }}</td>
-                                                <td>{{ $p->alamat }}</td>
-                                                <td>{{ $p->nama_rt }}</td>
-                                                <td>
-
-                                                    @if ($p->status == 'meninggal')
-                                                        <div class="badge badge-danger">Meninggal</div>
-                                                    @elseif ($p->status == 'pindah')
-                                                        <div class="badge badge-warning">Pindah</div>
-                                                    @else 
-                                                    <div class="badge badge-default">Diarsipkan</div>
-                                                    
-                                                    @endif
-                                                 
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a href="#" data-toggle="dropdown" class="btn btn-outline-primary dropdown-toggle">Options</a>
-                                                        <div class="dropdown-menu">
-                                                            <a href="{{ route('penduduk.show', $p->nik)}}" class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
-                                                            @if ($p->status == 'hidup' )
-                                                            <a href="#" class="dropdown-item has-icon swal-confirm-archive" data-id="{{ $p->nik }}">
-                                                                <i class="fas fa-trash-restore"></i>Restore
-                                                            </a>
-                                                            @endif
-                                                            <div class="dropdown-divider"></div>
-                                                        </div>
-                                                    </div>
-                                                    <form id="archive-form-{{ $p->nik }}" action="{{ route('penduduk.restore', $p->nik) }}" method="POST" style="display: none;">
-                                                        @csrf
-                                                        @method('PUT')
-                                                    </form>
-                                                </td>
+                                                <th>Nama Dokumentasi</th>
+                                                <th>Tanggal</th>
+                                                <th>Kategori</th>
+                                                <th>Keterangan</th>
+                                                <th>Action</th>
                                             </tr>
-                                        @endforeach
-                                    </table>
+                                            @foreach ($dokumentasi as $d)
+                                                <tr>
+                                                    <td>{{ $d->judul }}</td>
+                                                    <td>{{ $d->tanggal }}</td>
+                                                    <td>{{ $d->kategori }}</td>
+                                                    <td>{{ $d->deskripsi }}</td>
+                                                    
+                                                    
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <a href="#" data-toggle="dropdown" class="btn btn-outline-primary dropdown-toggle">Options</a>
+                                                            <div class="dropdown-menu">
+                                                                <a href="{{ route('dokumentasi.show', $d->id_dokumentasi)}}" class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
+                                                                
+                                                                <a href="#" class="dropdown-item has-icon swal-confirm-archive" data-id="{{ $d->id_dokumentasi }}">
+                                                                    <i class="fas fa-trash-restore"></i>Restore
+                                                                </a>
+                                                                <div class="dropdown-divider"></div>
+                                                            </div>
+                                                        </div>
+                                                        <form id="archive-form-{{ $d->id_dokumentasi }}" action="{{ route('dokumentasi.restore', $d->id_dokumentasi) }}" method="POST" style="display: none;">
+                                                            @csrf
+                                                            @method('PUT')
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                    </div>
                                 </div>
                                 <div class="float-right">
                                     <nav>
