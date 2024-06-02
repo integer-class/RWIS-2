@@ -72,10 +72,9 @@
                                                   {{$k->judul}}
                                                 <div class="table-links">
                                                     <a href="
-                                                    {{-- {{ route('komplain.show') }} --}}
-                                                    ">View</a>
+                                                    {{ route('pengumuman.show', $k->id_pengumuman ) }}">View</a>
                                                     <div class="bullet"></div>
-                                                    <a href="#">Edit</a>
+                                                    <a href="{{ route('pengumuman.edit', $k->id_pengumuman) }}">Edit</a>
                                                     <div class="bullet"></div>
                                                     <a href="#"
                                                         class="text-danger">Trash</a>

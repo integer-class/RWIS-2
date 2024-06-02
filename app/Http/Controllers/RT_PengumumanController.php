@@ -134,16 +134,8 @@ public function edit(string $id)
     
     $rt = Rt::where('id_rt', $id_rt)->get();
 
-    // Find the Pengumuman instance by its ID
     $pengumuman = Pengumuman::findOrFail($id);
 
-    // Assuming you have a method to fetch all RTs, replace this with your actual implementation
-   
-    // echo $id_rt;
-
-    // echo $rt;
-
-    // Pass the Pengumuman instance and RTs to the view
     return view('rt.rt_data_pengumuman.edit', compact('pengumuman','rt','type_menu','id_rt'));
 
 

@@ -7,6 +7,11 @@ use App\Models\Pengumuman;
 use App\Models\pengumuman_rt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Rt;
+
+
+
 
 
 class PengumumanController extends Controller
@@ -101,7 +106,22 @@ class PengumumanController extends Controller
      */
     public function show(string $id)
     {
-        //
+    $type_menu = 'pengumuman';
+    // Find the Pengumuman instance by its ID
+    $pengumuman = Pengumuman::findOrFail($id);
+
+
+    $pengumuman_rt = DB::table('pengumuman_rt')
+    ->join('rt', 'pengumuman_rt.id_rt', '=', 'rt.id_rt');
+
+    // foreach ($pengumuman_rt as $rt) {
+    //     echo $rt->id_rt;
+    // }
+
+       
+
+    // Return the view with the Pengumuman instance
+    return view('rw.data_pengumuman.show', compact('pengumuman','type_menu','pengumuman_rt'));
     }
 
     /**
@@ -109,7 +129,11 @@ class PengumumanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $type_menu = 'pengumuman';
+         $rt = Rt::all();
+         $pengumuman = Pengumuman::findOrFail($id);
+
+         return view('rw.data_pengumuman.edit', compact('pengumuman','rt','type_menu'));
     }
 
     /**
@@ -117,7 +141,30 @@ class PengumumanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'kepentingan' => 'required|string',
+            'masa_berlaku' => 'required|date',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'isi_pengumuman' => 'required|string',
+        ]);
+
+        $pengumuman = Pengumuman::findOrFail($id);
+        $pengumuman->judul = $request->judul;
+        $pengumuman->kepentingan = $request->kepentingan;
+        $pengumuman->tanggal_pengumuman	 = $request->masa_berlaku;
+        $pengumuman->isi_pengumuman = $request->isi_pengumuman;
+
+        if ($request->hasFile('foto')) {
+            $fotoName = time() . '.' . $request->foto->extension();
+            $request->foto->move(public_path('pengumuman'), $fotoName);
+            $pengumuman->foto = $fotoName;
+        }
+
+        $pengumuman->save();
+
+        Alert::success('Success', 'Pengumuman berhasil diupdate');
+        return redirect()->back();
     }
 
     /**
