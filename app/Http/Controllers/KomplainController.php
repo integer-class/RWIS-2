@@ -179,7 +179,6 @@ class KomplainController extends Controller
     //ubah status
     public function ubahstatus(Request $request,$id_komplain)
     {
-        // // Temukan entitas komplain berdasarkan id
         $komplain = Komplain::find($id_komplain);
     
         // tangkap dari form
@@ -190,7 +189,6 @@ class KomplainController extends Controller
         $komplain->status_komplain = $status_komplain;
         $komplain->save();
     
-        // // Setelah mengubah status, Anda dapat menampilkan pesan berhasil
         Alert::success('Hore!', 'Status Komplain Berhasil Diubah');
     
         // // Redirect atau kembali ke halaman yang sesuai

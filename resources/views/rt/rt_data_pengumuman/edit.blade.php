@@ -28,8 +28,9 @@
                 @include('sweetalert::alert')
 
                 <div class="card">
-                    <form action="{{ route('rt_pengumuman.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('rt_pengumuman.update', $pengumuman->id_pengumuman) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="card-header">
                             <h4>Form</h4>
                         </div>
@@ -38,6 +39,8 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Judul Pengumuman</label>
+                                        {{-- <input value="{{ $pengumuman->id_pengumuman }}" type="text" class="form-control" name="id_pengumuman" required> --}}
+
                                         <input value="{{ $pengumuman->judul }}" type="text" class="form-control" name="judul" required>
                                     </div>
                                 </div>
@@ -57,7 +60,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Masa Berlaku</label>
-                                        <input type="date" class="form-control" name="masa_berlaku" required>
+                                        <input type="date" class="form-control" value="{{$pengumuman->tanggal_pengumuman}}" name="masa_berlaku" required>
                                     </div>
                                 </div>
 
@@ -68,13 +71,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Rt</label>
-                                        <input type="text" value="{{$id_rt}}" class="form-control" name="foto">
-
-                                    </div>
-                                </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">

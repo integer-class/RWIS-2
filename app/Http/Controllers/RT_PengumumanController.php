@@ -7,6 +7,7 @@ use App\Models\Pengumuman;
 use App\Models\Rt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RT_PengumumanController extends Controller
 {
@@ -137,58 +138,33 @@ public function edit(string $id)
 /**
  * Update the specified resource in storage.
  */
-public function update(Request $request)
-{
-    // Validate data input
-    $request->update([
-        'judul' => 'required|string|max:255',
-        'kepentingan' => 'required|string',
-        'masa_berlaku' => 'required|date',
-        'isi_pengumuman' => 'required|string',
-        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'rt' => 'required|array',
-        'rt.*' => 'integer|exists:rt,id_rt',
-    ]);
-
-    // Find the Pengumuman instance by its ID
-    $pengumuman = Pengumuman::findOrFail();
-
-    // Update the Pengumuman instance with the new data
-    $pengumuman->judul = $request->input('judul');
-    $pengumuman->kepentingan = $request->input('kepentingan');
-    $pengumuman->tanggal_pengumuman = $request->input('masa_berlaku');
-    $pengumuman->isi_pengumuman = $request->input('isi_pengumuman');
-    $pengumuman->nik = auth()->user()->nik;
-
-    if ($request->hasFile('foto')) {
-        // Delete the old file if it exists
-        if ($pengumuman->foto && file_exists(public_path('rt_data_pengumuman/' . $pengumuman->foto))) {
-            unlink(public_path('rt_data_pengumuman/' . $pengumuman->foto));
-        }
-        
-        // Upload the new file
-        $fileName = time() . '.' . $request->foto->extension();
-        $request->foto->move(public_path('rt_data_pengumuman'), $fileName);
-        $pengumuman->foto = $fileName;
-    }
-
-    // Save the updated Pengumuman instance
-    $pengumuman->save();
-
-    // Update data in the pengumuman_rt table
-    // First, delete existing records associated with the current Pengumuman
-    DB::table('pengumuman_rt')->where('id_pengumuman')->delete();
-    // Then, insert new records
-    foreach ($request->input('rt') as $rtId) {
-        DB::table('pengumuman_rt')->insert([
-            'id_pengumuman',
-            'id_rt' => $rtId,
+public function update(Request $request, $id)
+    {
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'kepentingan' => 'required|string',
+            'masa_berlaku' => 'required|date',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'isi_pengumuman' => 'required|string',
         ]);
+
+        $pengumuman = Pengumuman::findOrFail($id);
+        $pengumuman->judul = $request->judul;
+        $pengumuman->kepentingan = $request->kepentingan;
+        $pengumuman->tanggal_pengumuman	 = $request->masa_berlaku;
+        $pengumuman->isi_pengumuman = $request->isi_pengumuman;
+
+        if ($request->hasFile('foto')) {
+            $fotoName = time() . '.' . $request->foto->extension();
+            $request->foto->move(public_path('pengumuman'), $fotoName);
+            $pengumuman->foto = $fotoName;
+        }
+
+        $pengumuman->save();
+
+        Alert::success('Success', 'Pengumuman berhasil diupdate');
+        return redirect()->back();
     }
-
-    return redirect()->route('rt_pengumuman.index')->with('success', 'Pengumuman berhasil diperbarui');
-}
-
 /**
  * Remove the specified resource from storage.
  */
