@@ -20,6 +20,8 @@ use App\Http\Controllers\RT_PengumumanController;
 use App\Http\Controllers\PendudukController;
 //dashboard contoller
 use App\Http\Controllers\DashboardController;
+//pengumuman
+use App\Http\Controllers\PengumumanController;
 
 
 Route::get('/', [Landing_indexController::class, 'index'])->name('index');
@@ -32,6 +34,8 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::post('dokumentasi/storefoto', [DokumentasiController::class, 'storefoto'])->name('dokumentasi.storefoto');
     Route::post('/file', [DokumentasiController::class, 'store'])->name('dokumentasi.store');
     Route::put('penduduk/arsip/{id}',[PendudukController::class,'arsip'])->name('penduduk.arsip');
+    Route::put('pengumuman/arsip/{id}',[PengumumanController::class,'arsip'])->name('pengumuman.arsip');
+
     Route::get('komplain/diterima', [KomplainController::class, 'diterima'])->name('komplain.diterima');
     Route::get('komplain/diproses', [KomplainController::class, 'diproses'])->name('komplain.diproses');
     Route::get('komplain/selesai', [KomplainController::class, 'selesai'])->name('komplain.selesai');

@@ -16,9 +16,12 @@ return new class extends Migration
             $table->foreignId('nik')->references('nik')->on('penduduk');
             $table->string('judul');
             $table->string('kepentingan');
+            $table->enum('arsip', ['true', 'false'])->default('false');
+
             $table->text('isi_pengumuman');
             $table->string('foto')->nullable();
             $table->date('tanggal_pengumuman');
+
             $table->timestamps();
 
         });

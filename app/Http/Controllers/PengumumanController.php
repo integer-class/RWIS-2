@@ -25,9 +25,26 @@ class PengumumanController extends Controller
         $type_menu = 'pengumuman';
 
         $pengumuman = Pengumuman::join('penduduk', 'pengumuman.nik', '=', 'penduduk.nik')
-            // ->where('users.nik', auth()->user()->nik)
-            ->get();
+        ->where('pengumuman.arsip', 'false')         
+        ->get();
         return view('rw.data_pengumuman.index', compact('type_menu','pengumuman'));
+    }
+
+    public function arsip($id)
+    {
+        $pengumuman = Pengumuman::find($id);
+    
+        if (!$pengumuman) {
+            return redirect()->route('pengumuman.index')->with('error', 'Pengumuman not found');
+        }
+    
+        // Update the 'arsip' attribute of the penduduk
+        $pengumuman->arsip = 'true'; // Assuming 'true' means archived
+    
+        // Save the changes
+        $pengumuman->save();
+    
+        return redirect()->route('pengumuman.index')->with('success', 'pengumuman has been archived successfully');
     }
 
     /**

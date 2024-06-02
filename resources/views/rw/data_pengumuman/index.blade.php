@@ -77,8 +77,13 @@
                                                     <a href="{{ route('pengumuman.edit', $k->id_pengumuman) }}">Edit</a>
                                                     <div class="bullet"></div>
                                                     <a href="#"
-                                                        class="text-danger">Trash</a>
+                                                        class="text-danger swal-confirm-archive" data-id="{{ $k->id_pengumuman }}">Arsip</a>
                                                 </div>
+
+                                                <form id="archive-form-{{ $k->id_pengumuman }}" action="{{ route('pengumuman.arsip', $k->id_pengumuman) }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                    @method('PUT')
+                                                </form>
                                             </td>
                                             <td>
                                                 {{$k->kepentingan}}
@@ -128,6 +133,30 @@
 
 @push('scripts')
     <!-- JS Libraies -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+     document.querySelectorAll('.swal-confirm-archive').forEach(function (element) {
+         element.addEventListener('click', function (event) {
+             event.preventDefault();
+             const id = this.getAttribute('data-id');
+             Swal.fire({
+                 title: 'Are you sure?',
+                 text: 'Once archived, this record will be moved to the archive!',
+                 icon: 'warning',
+                 showCancelButton: true,
+                 confirmButtonText: 'Yes, archive it!',
+                 cancelButtonText: 'No, keep it'
+             }).then((result) => {
+                 if (result.isConfirmed) {
+                     document.getElementById('archive-form-' + id).submit();
+                 } else if (result.dismiss === Swal.DismissReason.cancel) {
+                     Swal.fire('Cancelled', 'Your record is safe :)', 'error');
+                 }
+             });
+         });
+     });
+ });
+     </script>
     <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
 
     <!-- Page Specific JS File -->
