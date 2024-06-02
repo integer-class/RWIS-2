@@ -116,9 +116,11 @@
                           
                         </div>
                         <div class="card-body">
-                            <canvas id="donat"
-                                height="182"></canvas>
-                            <
+                     
+
+                            <canvas id="chartIuranBulanan" height="300"></canvas>
+
+                            
                         </div>
                     </div>
                 </div>
@@ -176,7 +178,8 @@
                 <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-body pt-2 pb-2">
-                            <div id="myWeather">Please wait</div>
+                            <canvas id="chartJumlahGender" height="100"></canvas>
+
                         </div>
                     </div>
                 </div>
@@ -186,56 +189,8 @@
                             <h4>Authors</h4>
                         </div>
                         <div class="card-body">
-                            <div class="row pb-2">
-                                <div class="col-6 col-sm-3 col-lg-3 mb-md-0 mb-4">
-                                    <div class="avatar-item mb-0">
-                                        <img alt="image"
-                                            src="{{ asset('img/avatar/avatar-5.png') }}"
-                                            class="img-fluid"
-                                            data-toggle="tooltip"
-                                            title="Alfa Zulkarnain">
-                                        <div class="avatar-badge"
-                                            title="Editor"
-                                            data-toggle="tooltip"><i class="fas fa-wrench"></i></div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-sm-3 col-lg-3 mb-md-0 mb-4">
-                                    <div class="avatar-item mb-0">
-                                        <img alt="image"
-                                            src="{{ asset('img/avatar/avatar-4.png') }}"
-                                            class="img-fluid"
-                                            data-toggle="tooltip"
-                                            title="Egi Ferdian">
-                                        <div class="avatar-badge"
-                                            title="Admin"
-                                            data-toggle="tooltip"><i class="fas fa-cog"></i></div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-sm-3 col-lg-3 mb-md-0 mb-4">
-                                    <div class="avatar-item mb-0">
-                                        <img alt="image"
-                                            src="{{ asset('img/avatar/avatar-1.png') }}"
-                                            class="img-fluid"
-                                            data-toggle="tooltip"
-                                            title="Jaka Ramadhan">
-                                        <div class="avatar-badge"
-                                            title="Author"
-                                            data-toggle="tooltip"><i class="fas fa-pencil-alt"></i></div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-sm-3 col-lg-3 mb-md-0 mb-4">
-                                    <div class="avatar-item mb-0">
-                                        <img alt="image"
-                                            src="{{ asset('img/avatar/avatar-2.png') }}"
-                                            class="img-fluid"
-                                            data-toggle="tooltip"
-                                            title="Ryan">
-                                        <div class="avatar-badge"
-                                            title="Admin"
-                                            data-toggle="tooltip"><i class="fas fa-cog"></i></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <canvas id="chartUsiaPenduduk" height="250"></canvas>
+
                         </div>
                     </div>
                 </div>
@@ -699,6 +654,8 @@
 @endsection
 
 @push('scripts')
+
+
     <!-- JS Libraies -->
     <script src="{{ asset('library/simpleweather/jquery.simpleWeather.min.js') }}"></script>
     <script src="{{ asset('library/chart.js/dist/Chart.min.js') }}"></script>
@@ -708,11 +665,95 @@
     <script src="{{ asset('library/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
 
 
-    {{-- donat chart --}}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        var ctx = document.getElementById('donat').getContext('2d');
-        var myChart = new Chart(ctx, {
+        // Skrip untuk Chart 1: Iuran Bulanan
+        var ctx1 = document.getElementById('chartIuranBulanan').getContext('2d');
+        var iuranBulanan = @json($iuran_bulanan);
+        var namaBulan = @json($nama_bulan);
+    
+        var labels1 = iuranBulanan.map(item => namaBulan[item.bulan]);
+        var data1 = iuranBulanan.map(item => item.total);
+    
+        var chart1 = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: labels1,
+                datasets: [{
+                    label: 'Jumlah Iuran Bulanan',
+                    data: data1,
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Jumlah Iuran Bulanan'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    
+        // Skrip untuk Chart 2: Usia Penduduk
+        var ctx2 = document.getElementById('chartUsiaPenduduk').getContext('2d');
+        const labelsUsia = @json($labels_usia);
+        const data2 = {
+          labels: labelsUsia,
+          datasets: [
+            {
+              label: 'Jumlah Penduduk',
+              data: @json($data_usia),
+              backgroundColor: 'rgba(54, 162, 235, 0.6)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+            }
+          ]
+        };
+    
+        const config2 = {
+          type: 'bar',
+          data: data2,
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Grafik Usia Penduduk'
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          },
+        };
+    
+        new Chart(ctx2, config2);
+    
+        // Skrip untuk Chart 3: Jumlah Laki-laki dan Perempuan
+        var ctx3 = document.getElementById('chartJumlahGender').getContext('2d');
+        var chart3 = new Chart(ctx3, {
             type: 'doughnut',
             data: {
                 labels: ['Laki-laki', 'Perempuan'],
@@ -746,6 +787,12 @@
             }
         });
     </script>
+
+   
+
+
+  
+
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/index-0.js') }}"></script>
