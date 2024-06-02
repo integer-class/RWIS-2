@@ -38,6 +38,9 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::put('dokumentasi/arsip/{id}',[DokumentasiController::class,'arsip'])->name('dokumentasi.arsip');
     Route::resource('arsip', \App\Http\Controllers\ArsipController::class);
 
+    Route::put('penduduk/restore/{id}',[PendudukController::class,'restore'])->name('penduduk.restore');
+
+
 
     Route::get('komplain/diterima', [KomplainController::class, 'diterima'])->name('komplain.diterima');
     Route::get('komplain/diproses', [KomplainController::class, 'diproses'])->name('komplain.diproses');
@@ -66,20 +69,11 @@ Route::middleware(['auth', 'verified','rt'])->prefix('rt')->group(function () {
 
 
 Route::middleware(['auth', 'verified','masyarakat'])->prefix('warga')->group(function () {
-
     Route::resource('warga_dashboard', \App\Http\Controllers\Warga_DashboardController::class);
     Route::resource('warga_komplain', \App\Http\Controllers\Warga_KomplainController::class);
     Route::resource('warga_pengumuman', \App\Http\Controllers\Warga_PengumumanController::class);
     Route::resource('warga_dokumentasi', \App\Http\Controllers\Warga_DokumentasiController::class);
-
 });
-
-Route::get('/notifications', [NotificationController::class, 'getLatestActivities']);
-
-
-
-
-
 
 
 

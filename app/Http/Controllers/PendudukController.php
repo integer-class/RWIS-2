@@ -21,12 +21,14 @@ class PendudukController extends Controller
             $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
                 ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
                 ->where('penduduk.nama', 'LIKE', '%' . $request->search . '%')
-                ->where('penduduk.arsip', 'false') // Filter records where arsip is 'false'
+                ->where('penduduk.arsip', 'false') 
+                ->where('penduduk.status', 'hidup') 
                 ->paginate(10);
         } else {
             $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
                 ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
                 ->where('penduduk.arsip', 'false') // Filter records where arsip is 'false'
+                ->where('penduduk.status', 'hidup') 
                 ->paginate(10);
         }
         return view('rw.data_penduduk.index', compact('penduduk', 'type_menu'));
@@ -146,6 +148,13 @@ class PendudukController extends Controller
             $penduduk->save();
         }
 
+        //jika status penduduk meninggal maka user akan diaresipkan
+        if($request->status == 'meninggal' || $request->status == 'pindah'){
+            $penduduk->arsip = 'true';
+            $penduduk->save();
+        }
+
+
         return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diperbarui.');
     }
 
@@ -156,12 +165,22 @@ class PendudukController extends Controller
     
         if (!$penduduk) {
             return redirect()->route('penduduk.index')->with('error', 'Penduduk not found');
-        }
+        }    
+        $penduduk->arsip = 'true'; 
+        $penduduk->save();
     
-        // Update the 'arsip' attribute of the penduduk
-        $penduduk->arsip = 'true'; // Assuming 'true' means archived
+        return redirect()->route('penduduk.index')->with('success', 'Penduduk has been archived successfully');
+    }
+
+
+    public function restore($id)
+    {
+        $penduduk = Penduduk::find($id);
     
-        // Save the changes
+        if (!$penduduk) {
+            return redirect()->route('penduduk.index')->with('error', 'Penduduk not found');
+        }    
+        $penduduk->arsip = 'false'; 
         $penduduk->save();
     
         return redirect()->route('penduduk.index')->with('success', 'Penduduk has been archived successfully');
