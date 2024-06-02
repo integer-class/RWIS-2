@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Penduduk;
+use App\Models\KartuKeluarga;
+//iuran
+use App\Models\Iuran;
+use App\Models\Komplain;
 
 class DashboardController extends Controller
 {
@@ -14,7 +19,36 @@ class DashboardController extends Controller
     {
         $type_menu = 'dashboard';
 
-        return view ('rw.index', compact('type_menu'));
+       //bagian hitung
+        $penduduk = Penduduk::all()
+        ->count();
+
+        $jumlah_laki = Penduduk::where('jenis_kelamin', 'L')
+            ->count();
+        $jumlah_perempuan = Penduduk::where('jenis_kelamin', 'P')
+            ->count();
+            
+
+        $kartu_keluarga = KartuKeluarga::all()
+            ->count();
+
+        $totalSemuaPemasukan = Iuran::where('status', 'pemasukan')->sum('jumlah');
+        $totalSemuaPengeluaran = Iuran::where('status', 'pengeluaran')->sum('jumlah');
+
+        $jumlah_kas = $totalSemuaPemasukan - $totalSemuaPengeluaran;
+
+
+        //bagian data
+
+        $komplain = Komplain::join('penduduk', 'komplain.nik', '=', 'penduduk.nik')
+        ->take(5)
+        ->get();
+
+
+
+        
+
+        return view ('rw.index', compact('type_menu', 'penduduk', 'jumlah_kas', 'kartu_keluarga', 'komplain', 'jumlah_laki', 'jumlah_perempuan'));
     }
 
     /**
