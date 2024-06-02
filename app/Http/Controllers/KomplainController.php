@@ -189,10 +189,6 @@ class KomplainController extends Controller
         //save ke database
         $komplain->status_komplain = $status_komplain;
         $komplain->save();
-
-
-
-        
     
         // // Setelah mengubah status, Anda dapat menampilkan pesan berhasil
         Alert::success('Hore!', 'Status Komplain Berhasil Diubah');

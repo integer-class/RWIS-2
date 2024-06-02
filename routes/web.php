@@ -20,6 +20,8 @@ use App\Http\Controllers\Warga_DashboardController;
 //notif dashboard
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RT_PengumumanController;
+//penduduk
+use App\Http\Controllers\PendudukController;
 
 
 Route::get('/', [Landing_indexController::class, 'index'])->name('index');
@@ -48,7 +50,14 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::post('/file', [DokumentasiController::class, 'store'])->name('dokumentasi.store');
 
 
-    Route::put('komplain/ubahstatus/{id}',[KomplainController::class,'ubahstatus'])->name('komplain.ubahstatus');
+    Route::put('penduduk/arsip/{id}',[PendudukController::class,'arsip'])->name('penduduk.arsip');
+
+
+    
+
+
+
+
     
     Route::get('komplain/diterima', [KomplainController::class, 'diterima'])->name('komplain.diterima');
     Route::get('komplain/diproses', [KomplainController::class, 'diproses'])->name('komplain.diproses');

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('foto')->nullable();
             $table->enum('status', ['hidup', 'meninggal','pindah'])->default('hidup');
             $table->foreignId('nomor_kk')->references('nomor_kk')->on('kartu_keluarga');
+            $table->enum('arsip', ['true', 'false'])->default('false');
             $table->foreignId('id_rt')->references('id_rt')->on('rt');
 
 
