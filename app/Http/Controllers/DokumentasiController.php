@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Session;
 use Alert;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -149,7 +150,44 @@ class DokumentasiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validasi input
+    $request->validate([
+        'judul' => 'required|string|max:255',
+        'kategori' => 'required|string|in:Keagamaan,Gotong Royong,Hajatan,Kegiatan Warga',
+        'tanggal' => 'required|date',
+        'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Jika thumbnail diunggah, pastikan itu gambar dan memiliki ekstensi yang valid
+        'keterangan' => 'nullable|string',
+    ]);
+
+    // Cari dokumen yang akan diperbarui
+    $dokumentasi = Dokumentasi::findOrFail($id);
+
+    // Simpan data yang diperbarui
+    $dokumentasi->judul = $request->judul;
+    $dokumentasi->kategori = $request->kategori;
+    $dokumentasi->tanggal = $request->tanggal;
+    $dokumentasi->deskripsi = $request->keterangan;
+
+    // Handle thumbnail jika diunggah
+    if ($request->hasFile('image')) {
+        Storage::delete($dokumentasi->thumbnail);
+    
+        $imageName = $request->file('image')->getClientOriginalName();
+        $thumbnailPath = $request->file('image')->move(public_path('thumbnail'), $imageName);
+    
+        $dokumentasi->thumbnail = $imageName;
+    }
+
+    $dokumentasi->save();
+
+
+    Alert::error('Berhasil!', 'Berhasil Mengedit file!');
+    
+    // Redirect kembali ke halaman form atau halaman lain yang sesuai
+    return redirect()->route('dokumentasi.index');
+
+    // Redirect atau berikan respons sukses
+    // return redirect()->route('rw.data_dokumentasi.index')->with('success', 'Dokumentasi berhasil diperbarui.');
     }
 
     /**
