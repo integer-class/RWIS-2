@@ -33,10 +33,8 @@ Route::get('/', [Landing_indexController::class, 'index'])->name('index');
 
 Route::get('/landing_dokumentasi', [Landing_indexController::class, 'dokumentasi'])->name('landing_dokumentasi');
 
-
-
-
     Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
+
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
     
 

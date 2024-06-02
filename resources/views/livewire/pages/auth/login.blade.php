@@ -21,7 +21,7 @@ $login = function () {
 
         switch($userRole){
             case 1:
-            $this->redirectIntended(default: route('rw', absolute: false), navigate: true);
+            $this->redirectIntended(default: route('dashboard.index', absolute: false), navigate: true);
             break;
             case 2:
             // $this->redirectIntended(default: route('rt.', absolute: false), navigate: true);

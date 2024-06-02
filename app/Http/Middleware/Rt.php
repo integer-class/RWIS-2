@@ -26,15 +26,13 @@ class Rt
             return $next($request);
         }
 
-
-
         if($userRole==3){
             return redirect()->route('warga_dashboard.index');
         }
 
 
         if($userRole==1){
-            return redirect()->route('rw');
+            return redirect()->route('dashboard.index');
         }
     }
 }

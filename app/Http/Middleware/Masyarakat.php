@@ -28,11 +28,11 @@ class Masyarakat
         }
 
         if($userRole==2){
-            return redirect()->route('rt_dashboaard.index');
+            return redirect()->route('rt_dashboard.index');
         }
 
         if($userRole==1){
-            return redirect()->route('rw');
+            return redirect()->route('dashboard.index');
         }
     }
 }
