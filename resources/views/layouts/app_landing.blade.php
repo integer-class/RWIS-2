@@ -14,6 +14,9 @@
     <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/css/fontawesome-all.min.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/css/magnific-popup.css')}}" rel="stylesheet">
+    <style>
+        
+        </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap">
 </head>
 <body>
