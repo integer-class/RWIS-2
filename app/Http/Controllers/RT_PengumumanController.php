@@ -20,7 +20,10 @@ class RT_PengumumanController extends Controller
         $type_menu = 'pengumuman';
 
         $pengumuman = Pengumuman::join('penduduk', 'pengumuman.nik', '=', 'penduduk.nik')
+            ->join('pengumuman_rt', 'pengumuman.id_pengumuman', '=', 'pengumuman_rt.id_pengumuman')
+            ->where('pengumuman_rt.id_rt', auth()->user()->id_rt)
             ->select('pengumuman.*', 'penduduk.nama')
+
             ->get();
 
 

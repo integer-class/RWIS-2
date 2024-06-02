@@ -23,10 +23,20 @@
                         @foreach ($pengumuman->rt as $rt)
                             <li>{{ $rt->nama_rt }}</li>
                         @endforeach
-
-                        
-                        
                     </ul>
+
+                    {{-- foto --}}
+                   @if ($pengumuman->foto != null)
+                   <div class="form-group">
+                    <label for="foto">Foto</label>
+                    <br>
+                    <img src="{{ asset('pengumuman/' . $pengumuman->foto) }}" alt="foto" style="width: 200px">
+
+                     </div>
+                       
+                   @endif
+
+                    
                     
                 </div>
                 <div class="card-footer text-right">
