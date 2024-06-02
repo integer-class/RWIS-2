@@ -12,9 +12,8 @@
             <li class="{{ $type_menu === 'dashboard'? 'active' : ''  }}">
 
                 <a class="nav-link active"
-                    href="{{ route('warga_dashboard.index') }}"><i class="fas fa-exclamation"></i> <span>Dashboard</span></a>
+                    href="{{ route('warga_dashboard.index') }}"><i class="fas fa-fire"></i> <span>Dashboard</span></a>
             </li>
-
             
             <li class="{{ $type_menu === 'komplain'? 'active' : ''  }}">
                 <a class="nav-link active"
@@ -23,7 +22,7 @@
             
             <li class="{{ $type_menu === 'pengumuman'? 'active' : ''  }}">
                 <a class="nav-link active"
-                    href="{{ route('warga_pengumuman.index') }}"><i class="fas fa-exclamation"></i> <span>Pengumuman</span></a>
+                    href="{{ route('warga_pengumuman.index') }}"><i class="fa fa-clipboard"></i> <span>Pengumuman</span></a>
             </li>
         </ul>
 
