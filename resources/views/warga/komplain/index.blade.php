@@ -119,7 +119,7 @@
 
                                                     @if ($komplains->foto_komplain != null)
                                                         <h6><strong>Foto Keluhan:</strong></h6>
-                                                        <img src="{{ asset('komplain/' . $komplains->foto_komplain) }}" alt="Foto Keluhan" width="200px">
+                                                        <img src="{{ asset('foto_komplain/' . $komplains->foto_komplain) }}" alt="Foto Keluhan" width="200px">
                                                     @endif
                                     
                                                    

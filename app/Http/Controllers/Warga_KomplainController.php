@@ -38,9 +38,11 @@ class Warga_KomplainController extends Controller
 {
     // Handle file upload
     if ($request->hasFile('foto_komplain')) {
-        $imagePath = $request->file('foto_komplain')->store('komplain_images');
+        $file = $request->file('foto_komplain');
+        $imageName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+        $path = $file->move(public_path('foto_komplain'), $imageName);
     } else {
-        $imagePath = null;
+        $imageName = null;
     }
 
     // Create komplain
@@ -49,13 +51,14 @@ class Warga_KomplainController extends Controller
     $komplain->id_kategori_komplain = $request->id_kategori_komplain;
     $komplain->nik = $request->nik;
     $komplain->isi_komplain = $request->isi_komplain;
-    $komplain->foto_komplain = $imagePath;
+    $komplain->foto_komplain = $imageName;
     $komplain->status_komplain = 'Diterima'; // Assuming initial status is 'Diterima'
     $komplain->save();
 
     // Redirect with success message
     return redirect()->route('warga_komplain.index')->with('success', 'Komplain berhasil dibuat.');
 }
+
 
 
     /**
