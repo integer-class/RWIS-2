@@ -27,8 +27,27 @@ class DokumentasiController extends Controller
     {
         $type_menu = 'dokumentasi';
 
-        $dokumentasi = Dokumentasi::all();
+        $dokumentasi = Dokumentasi::all()
+        ->where('arsip', 'false');
         return view('rw.data_dokumentasi.index' , compact('type_menu','dokumentasi'));
+    }
+
+
+    public function arsip($id)
+    {
+        $dokumentasi = dokumentasi::find($id);
+    
+        if (!$dokumentasi) {
+            return redirect()->route('dokumentasi.index')->with('error', 'dokumentasi not found');
+        }
+    
+        // Update the 'arsip' attribute of the penduduk
+        $dokumentasi->arsip = 'true'; // Assuming 'true' means archived
+    
+        // Save the changes
+        $dokumentasi->save();
+    
+        return redirect()->route('dokumentasi.index')->with('success', 'dokumentasi has been archived successfully');
     }
 
     /**

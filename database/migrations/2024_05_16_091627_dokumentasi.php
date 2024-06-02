@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("judul");
             $table->date("tanggal");
             $table->string("thumbnail");
+            $table->enum('arsip', ['true', 'false'])->default('false');
             $table->string("deskripsi");
             $table->timestamps();
         });

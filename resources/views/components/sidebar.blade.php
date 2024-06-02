@@ -90,6 +90,12 @@
                     href="{{ route('dokumentasi.index') }}"><i class="fa fa-camera"></i> <span>Dokumentasi</span></a>
             </li>
 
+
+            <li class="{{ $type_menu === 'arsip'? 'active' : ''  }}">
+                <a class="nav-link"
+                    href="{{ route('arsip.index') }}"><i class="fa fa-trash"></i> <span>Arsip</span></a>
+            </li>
+
         </ul>
     </aside>
 </div>

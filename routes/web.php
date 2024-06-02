@@ -35,6 +35,9 @@ Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::post('/file', [DokumentasiController::class, 'store'])->name('dokumentasi.store');
     Route::put('penduduk/arsip/{id}',[PendudukController::class,'arsip'])->name('penduduk.arsip');
     Route::put('pengumuman/arsip/{id}',[PengumumanController::class,'arsip'])->name('pengumuman.arsip');
+    Route::put('dokumentasi/arsip/{id}',[DokumentasiController::class,'arsip'])->name('dokumentasi.arsip');
+    Route::resource('arsip', \App\Http\Controllers\ArsipController::class);
+
 
     Route::get('komplain/diterima', [KomplainController::class, 'diterima'])->name('komplain.diterima');
     Route::get('komplain/diproses', [KomplainController::class, 'diproses'])->name('komplain.diproses');
