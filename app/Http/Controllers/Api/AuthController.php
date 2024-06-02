@@ -27,9 +27,16 @@ class AuthController extends Controller
             );
         }
         $user = User::where("nik", $request["nik"])->firstOrFail();
+        $token = $user->createToken("auth_token")->plainTextToken;
+
         $user_loggedin=[
-            'id' => $user->id,
+
             'nik' => $user->nik,
+            'role' => $user->role,
+            'id_rt' => $user->id_rt,
+           'user_token' => $token,
+            'token_type' => 'Bearer',
+            'verified' => true,
             'status'=>'loggedin'
         ];
         return response()->json(
