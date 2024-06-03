@@ -666,10 +666,10 @@
 
 
 
-
+{{-- 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
 
     <script>
         // Skrip untuk Chart 1: Iuran Bulanan
