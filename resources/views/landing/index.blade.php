@@ -45,29 +45,21 @@
                         <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $kartukeluarga }}" data-speed="5000"
                             data-refresh-interval="50"></h1>
                         <h5 class="mb-3">RT</h5>
-                        <p>Oratio pertinax cu vix, id aliquam habemus tractatos. Eu vis modo officiis liberavisse, an
-                            persequeris complectitur mei et.</p>
                     </div>
                     <div class="col-sm-6 mb-4">
                         <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $penduduk }}" data-speed="5000"
                             data-refresh-interval="50"></h1>
                         <h5 class="mb-3">Penduduk</h5>
-                        <p>Oratio pertinax cu vix, id aliquam habemus tractatos. Eu vis modo officiis liberavisse, an
-                            persequeris complectitur mei et.</p>
                     </div>
                     <div class="col-sm-6 mb-4">
                         <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $kartukeluarga }}" data-speed="5000"
                             data-refresh-interval="50"></h1>
                         <h5 class="mb-3">Keluarga</h5>
-                        <p>Oratio pertinax cu vix, id aliquam habemus tractatos. Eu vis modo officiis liberavisse, an
-                            persequeris complectitur mei et.</p>
                     </div>
                     <div class="col-sm-6 mb-4">
                         <h1 class="mb-3 display-4 timer" data-from="0" data-to="9048" data-speed="5000"
                             data-refresh-interval="50"></h1>
                         <h5 class="mb-3">Working Hours</h5>
-                        <p>Oratio pertinax cu vix, id aliquam habemus tractatos. Eu vis modo officiis liberavisse, an
-                            persequeris complectitur mei et.</p>
                     </div>
                 </div>
             </div>
@@ -125,7 +117,7 @@
                     <div class="mt-lg-0 mt-md-5 mt-3">
                         <div class="pr-lg-9 pr-md-7 pr-4">
                             <h1 class="mt-3 mb-4">
-                                <marquee behavior="slide">Kebijakan Privasi</marquee>
+                                <marquee behavior="slide">Tentang Aplikasi</marquee>
                             </h1>
                             <p class="mb-lg-5 mb-md-4 mb-4">Selamat datang di web <B>RWKU</B>.Kami menghargai privasi
                                 Anda dan berkomitmen untuk melindungi data pribadi yang Anda bagikan kepada kami.
@@ -210,10 +202,6 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <h1 class="mb-4">Meet Our Agents</h1>
-                            <div class="pr-6">
-                                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                                    Curae. Aenean accumsan lectus magna</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -277,21 +265,6 @@
                 </div>
                 <div class="container text-center mt-5"><a class="btn btn-white text-ebonny-clay"
                         href="page-agents.html">View Members</a></div>
-            </div>
-        </div>
-        <!-- memeber-->
-        <div class="container my-lg-9 my-md-7 my-5">
-            <div class="row gx-lg-0">
-                <div class="col-lg-6"><img src="{{ asset('assets/images/home/h3.jpg') }}" alt="member"></div>
-                <div class="col-lg-6 mn-6 bg-livender my-auto">
-                    <div class="py-lg-6 px-lg-6 py-md-6 px-md-5 py-5 px-4"><i
-                            class="mb-4 h2 display-5 fas fa-quote-left text-cornflower-blue"></i>
-                        <p class="paragraph-extend mb-lg-5 mb-md-4 mb-3">We are so happy to have found Jagga and do not
-                            know how we could have made it through buying process without them.</p>
-                        <h5>Daniel J. Carr</h5>
-                        <p class="mb-0">Professional Content creator</p>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- ready to get started-->

@@ -5,8 +5,9 @@
                 <div class="col-lg-6 pr-lg-10">
                     <div class="footer-widget footer-widget-1">
                         <h2 class="mb-4 text-ebony-clay">RWKU</h2>
-                        <p class="text-abbey pr-6">Ante ipsum primis in faucibus orci luctus et ultrices posuere
-                            cubilia Curae. Aenean accumsan lectus magna facilisis mauris.</p>
+                        <p class="text-abbey pr-6">Situs web RW bertujuan memperkuat koneksi warga,
+                            memfasilitasi pertukaran informasi penting, menyediakan berita terbaru,
+                            agenda kegiatan, dan info relevan sehari-hari.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -15,10 +16,8 @@
                             <div class="footer-widget footer-widget-4">
                                 <ul>
                                     <li><a href="page-contact-us.html">Contact Us</a></li>
-                                    <li><a href="page-contact-us.html">hello@Jagga.com</a></li>
-                                    <li><a href="page-contact-us.html">+19 235 2518 356</a></li>
-                                    <li><a href="page-contact-us.html">Careers</a></li>
-                                    <li><a href="page-contact-us.html">Press</a></li>
+                                    <li><a href="page-contact-us.html">jagoanmama@rwku.com</a></li>
+                                    <li><a href="page-contact-us.html">+6281333648343</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -33,9 +32,8 @@
                         <div class="col-lg-3">
                             <div class="footer-widget footer-widget-2">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="page-services.html">Service</a></li>
+                                    <li><a href="index.html">Beranda</a></li>
+                                    <li><a href="blog.html">Dokumentasi</a></li>
                                     <li><a href="page-about-us.html">About Us</a></li>
                                 </ul>
                             </div>
