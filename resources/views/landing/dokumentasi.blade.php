@@ -15,7 +15,6 @@
 
 
             @foreach ($dokumentasi as $dokumen)
-
             <div class="col-lg-4">
                 <article>
                   <figure class="entry-media"><a href="blog-single-post.html"><img class="lozad" src="{{ asset('thumbnail/'.$dokumen->thumbnail) }} " data-src="{{ asset('thumbnail/'.$dokumen->thumbnail) }}" alt="Entry Image"/></a>

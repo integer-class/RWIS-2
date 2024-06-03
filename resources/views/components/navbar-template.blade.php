@@ -12,13 +12,13 @@
               <head>
                 <style>
                     .btn-custom {
-                        background-color: #000000e9;
+                        background-color: #5d53ed;
                         color: white; 
                     }
                 </style>
             </head>
             <body>
-                </div><a class="btn btn-white text-cornflower-blue mt-2 btn-custom"
+                </div><a class="btn btn-cornflower-blue text-white mt-2 "
                             href="{{ route('login') }}">Login</a>
             </body>
             </ul>

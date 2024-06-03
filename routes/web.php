@@ -24,12 +24,19 @@ use App\Http\Controllers\DashboardController;
 //pengumuman
 use App\Http\Controllers\PengumumanController;
 //arsip
+//post landing pek
+use App\Http\Controllers\PostController;
+
 
 
 
 Route::get('/', [Landing_indexController::class, 'index'])->name('index');
 
 Route::get('/landing_dokumentasi', [Landing_indexController::class, 'dokumentasi'])->name('landing_dokumentasi');
+
+Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
+
+
 
 Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');

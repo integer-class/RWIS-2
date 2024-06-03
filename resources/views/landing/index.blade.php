@@ -192,7 +192,7 @@
 
         </div>
         <div class="container text-center">
-            <a class="btn btn-athens-gray text-ebonny-clay" href="{{ route('landing_dokumentasi') }}">
+            <a class="btn btn-cornflower-blue text-white mt-2" href="{{ route('landing_dokumentasi') }}">
                 View more
             </a>
         </div>
@@ -264,7 +264,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container text-center mt-5"><a class="btn btn-white text-ebonny-clay"
+                <div class="container text-center mt-5"><a class="btn btn-cornflower-blue text-white mt-2"
                         href="page-agents.html">View Members</a></div>
             </div>
         </div>
