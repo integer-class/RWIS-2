@@ -24,8 +24,7 @@
                                             memfasilitasi pertukaran informasi penting, menyediakan berita terbaru,
                                             agenda kegiatan, dan info relevan sehari-hari.
                                         </p>
-                                    </div><a class="btn btn-white text-cornflower-blue mt-4"
-                                        href="{{ route('login') }}">Login</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -41,25 +40,21 @@
             <div class="col-lg-9 mb-7">
 
                 <div class="row">
-                    <div class="col-sm-6 mb-4">
+                    <div class="col-sm-4 mb-4">
                         <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $kartukeluarga }}" data-speed="5000"
                             data-refresh-interval="50"></h1>
                         <h5 class="mb-3">RT</h5>
                     </div>
-                    <div class="col-sm-6 mb-4">
+                    <div class="col-sm-4 mb-4">
                         <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $penduduk }}" data-speed="5000"
                             data-refresh-interval="50"></h1>
                         <h5 class="mb-3">Penduduk</h5>
                     </div>
-                    <div class="col-sm-6 mb-4">
+                    <div class="col-sm-4 mb-4">
                         <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $kartukeluarga }}" data-speed="5000"
                             data-refresh-interval="50"></h1>
                         <h5 class="mb-3">Keluarga</h5>
                     </div>
-                    <div class="col-sm-6 mb-4">
-                        <h1 class="mb-3 display-4 timer" data-from="0" data-to="9048" data-speed="5000"
-                            data-refresh-interval="50"></h1>
-                        <h5 class="mb-3">Working Hours</h5>
                     </div>
                 </div>
             </div>
@@ -201,7 +196,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <h1 class="mb-4">Meet Our Agents</h1>
+                            <h1 class="mb-4">Struktur RW</h1>
                         </div>
                     </div>
                 </div>
@@ -212,8 +207,8 @@
                                     alt="team"></div>
                             <div class="member-content">
                                 <div class="member-text">
-                                    <h5 class="member-name">Hester Taylor</h5>
-                                    <div class="member-tag"><span class="member-role">Agent</span></div>
+                                    <h5 class="member-name">Uzi</h5>
+                                    <div class="member-tag"><span class="member-role">Ketua RW</span></div>
                                     <ul class="list-unstyled list-inlinetrue">
                                         <li class="list-inline-item"><a class="pr-2 text-ebony-clay"
                                                 href="#"><i class="fab fa-linkedin-in"></i></a></li>
@@ -230,8 +225,8 @@
                                     alt="team"></div>
                             <div class="member-content">
                                 <div class="member-text">
-                                    <h5 class="member-name">Henry Grantham</h5>
-                                    <div class="member-tag"><span class="member-role">Agent</span></div>
+                                    <h5 class="member-name">Nathan</h5>
+                                    <div class="member-tag"><span class="member-role">Admin</span></div>
                                     <ul class="list-unstyled list-inlinetrue">
                                         <li class="list-inline-item"><a class="pr-2 text-ebony-clay"
                                                 href="#"><i class="fab fa-linkedin-in"></i></a></li>
@@ -248,8 +243,8 @@
                                     alt="team"></div>
                             <div class="member-content">
                                 <div class="member-text">
-                                    <h5 class="member-name">Reda McClain</h5>
-                                    <div class="member-tag"><span class="member-role">Agent</span></div>
+                                    <h5 class="member-name">Udin</h5>
+                                    <div class="member-tag"><span class="member-role">Bendahara</span></div>
                                     <ul class="list-unstyled list-inlinetrue">
                                         <li class="list-inline-item"><a class="pr-2 text-ebony-clay"
                                                 href="#"><i class="fab fa-linkedin-in"></i></a></li>

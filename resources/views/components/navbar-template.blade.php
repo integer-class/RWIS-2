@@ -9,11 +9,22 @@
               <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Dokumentasi</a></li>
               <li class="nav-item"><a class="nav-link" href="element-accordions.html">About Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="element-accordions.html">LOGIN SIUU</a></li>
+              <head>
+                <style>
+                    .btn-custom {
+                        background-color: #000000e9; 
+                    }
+                </style>
+            </head>
+            <body>
+                </div><a class="btn btn-white text-cornflower-blue mt-2 btn-custom"
+                            href="{{ route('login') }}">Login</a>
+            </body>
+            
+        
             </ul>
             <ul class="nav-modules">
               <!-- Social nav-->
-              <li class="d-flex align-items-center"><i class="fas fa-phone-alt"></i><a class="nav-link text-ebony-clay pr-0" href="page-contact.html">+62 81333648343</a></li>
             </ul>
           </div>
         </div>

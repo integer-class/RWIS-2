@@ -24,8 +24,7 @@
                         <div class="col-lg-5">
                             <div class="footer-widget footer-widget-3">
                                 <div class="text-abbey">
-                                    <p class="mb-0">Headquarters</p>123 Main Street New York,
-                                    <p>NY 20001</p>
+                                    
                                 </div>
                             </div>
                         </div>
