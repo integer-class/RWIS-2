@@ -61,11 +61,9 @@
 
 
             <div class="row">
-                <div class="col-lg-5">
-                    <div class="pr-lg-5 ">
-                        <h1 class="mt-3 mb-4">
-                        <h1>VISI-MISI RWKU</h1>
-                        </h1>
+                <div class="col-lg-12">
+                    <div class="pr-lg-5 text-center">
+                        <h1 class="mt-3 mb-4">VISI-MISI RWKU</h1>
                     </div>
                 </div>
             </div>
@@ -74,29 +72,32 @@
         <div class="container mt-2">
             <div class="row gx-lg-5">
                 <div class="col-lg-4">
-                    <div class="bg-athens-gray">
+                    <div class="icon-box bg-athens-gray">
                         <div class="px-4 py-5">
-                            <div class="px-2"> <i class="fas fa-shield-alt icon-border bg-cornflower-blue"></i>
+                            <div class="px-2">
+                                <i class="fas fa-shield-alt icon-border bg-cornflower-blue"></i>
                                 <h4 class="mb-3">AMAN</h4>
-                                <p class="mb-0">Aplikasi ini aman digunakan dan sangat privasi </p>
+                                <p class="mb-0">Aplikasi ini aman digunakan dan sangat privasi</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 mt-lg-0 mt-md-4 mt-3">
-                    <div class="bg-cornflower-blue">
+                    <div class="icon-box bg-cornflower-blue">
                         <div class="px-4 py-5">
-                            <div class="px-2"><i class="fas fa-handshake icon-border bg-white text-cornflower-blue"></i>
+                            <div class="px-2">
+                                <i class="fas fa-handshake icon-border bg-white text-cornflower-blue"></i>
                                 <h4 class="mb-3 text-white">MUDAH DIGUNAKAN</h4>
                                 <p class="mb-0 text-white">Semua WARGA bisa menggunakan Aplikasi ini</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mt-lg-0 mt-md-4 mt-3">
-                    <div class="bg-brilliant-rose">
+                <div class="col-lg-4 mt-lg-0 mt-md-4 mt-1">
+                    <div class="icon-box bg-brilliant-rose">
                         <div class="px-4 py-5">
-                            <div class="px-2"><i class="fas fa-file-contract icon-border bg-white text-brilliant-rose"></i>
+                            <div class="px-2">
+                                <i class="fas fa-file-contract icon-border bg-white text-brilliant-rose"></i>
                                 <h4 class="mb-3 text-white">MEMUDAHKAN MENCARI INFORMASI</h4>
                                 <p class="mb-0 text-white">WARGA mudah untuk mecari informasi terbaru</p>
                             </div>
@@ -105,6 +106,46 @@
                 </div>
             </div>
         </div>
+
+        <style>
+            /* styles.css */
+/* Flexbox styling for the row */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Ensuring each col-lg-4 uses flexbox */
+.col-lg-4 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styling for the icon boxes to ensure they are the same height */
+.icon-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Additional styling for text elements within the icon boxes */
+.icon-box h4, .icon-box p {
+    margin: 0;
+}
+
+.icon-border {
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+        </style>
+        
         <!--one place-->
         <div class="container mt-lg-8 mt-md-6 mt-5">
             <div class="row gx-lg-5">
@@ -189,7 +230,7 @@
         </div>
         <div class="container text-center">
             <a class="btn btn-athens-gray text-ebonny-clay" href="{{ route('landing_dokumentasi') }}">
-                Find more property
+                View more
             </a>
         </div>
         <!-- team-->

@@ -6,7 +6,7 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{url ("http://127.0.0.1:8000")}}">Beranda</a></li>
               <li class="nav-item"><a class="nav-link" href="{{ route('landing_dokumentasi') }}">Dokumentasi</a></li>
               <li class="nav-item"><a class="nav-link" href="element-accordions.html">About Us</a></li>
               <head>
