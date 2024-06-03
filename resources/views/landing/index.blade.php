@@ -62,8 +62,10 @@
 
             <div class="row">
                 <div class="col-lg-5">
-                    <div class="pr-lg-5">
+                    <div class="pr-lg-5 ">
+                        <h1 class="mt-3 mb-4">
                         <h1>VISI-MISI RWKU</h1>
+                        </h1>
                     </div>
                 </div>
             </div>
