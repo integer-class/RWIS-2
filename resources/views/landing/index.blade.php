@@ -97,20 +97,17 @@
                 <div class="col-lg-4 mt-lg-0 mt-md-4 mt-3">
                     <div class="bg-cornflower-blue">
                         <div class="px-4 py-5">
-                            <div class="px-2"><i
-                                    class="px-3 fas fa-handshake icon-border bg-white text-cornflower-blue"></i>
+                            <div class="px-2"><i class="fas fa-handshake icon-border bg-white text-cornflower-blue"></i>
                                 <h4 class="mb-3 text-white">MUDAH DIGUNAKAN</h4>
                                 <p class="mb-0 text-white">Semua WARGA bisa menggunakan Aplikasi ini</p>
                             </div>
-
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 mt-lg-0 mt-md-4 mt-3">
                     <div class="bg-brilliant-rose">
                         <div class="px-4 py-5">
-                            <div class="px-2"><i
-                                    class="px-4 fas fa-file-contract icon-border bg-white text-brilliant-rose"></i>
+                            <div class="px-2"><i class="fas fa-file-contract icon-border bg-white text-brilliant-rose"></i>
                                 <h4 class="mb-3 text-white">MEMUDAHKAN MENCARI INFORMASI</h4>
                                 <p class="mb-0 text-white">WARGA mudah untuk mecari informasi terbaru</p>
                             </div>
