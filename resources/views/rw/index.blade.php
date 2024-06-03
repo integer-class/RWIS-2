@@ -178,7 +178,7 @@
                 <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-body pt-2 pb-2">
-                            <canvas id="chartJumlahGender" height="100"></canvas>
+                            <canvas id="chartJumlahGender" height="300"></canvas>
 
                         </div>
                     </div>
@@ -666,8 +666,8 @@
 
 
 
-{{-- 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
 
