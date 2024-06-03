@@ -170,6 +170,8 @@
 
 @push('scripts')
     <!-- JS Libraies -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
 
     <!-- Page Specific JS File -->
