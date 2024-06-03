@@ -12,7 +12,8 @@
               <head>
                 <style>
                     .btn-custom {
-                        background-color: #000000e9; 
+                        background-color: #000000e9;
+                        color: white; 
                     }
                 </style>
             </head>

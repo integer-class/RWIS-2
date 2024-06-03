@@ -53,7 +53,7 @@
                     <div class="col-sm-4 mb-4">
                         <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $kartukeluarga }}" data-speed="5000"
                             data-refresh-interval="50"></h1>
-                        <h5 class="mb-3">Keluarga</h5>
+                        <h5 class="mb-3">KK</h5>
                     </div>
                     </div>
                 </div>
