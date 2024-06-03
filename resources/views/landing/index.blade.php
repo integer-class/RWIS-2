@@ -5,6 +5,8 @@
 
 @section('main')
 
+<link rel="stylesheet" href="{{ asset('css/landing.css')}}">
+
 <article class="entry">
     <div class="entry-content">
         <!-- head title-->
@@ -20,9 +22,7 @@
                                 <div class="pr-lg-6 pr-md-6">
                                     <h1 class="mt-3 mb-4 text-white">RWKU</h1>
                                     <div class="pt-2">
-                                        <p class="lead mb-4 text-white">Situs web RW bertujuan memperkuat koneksi warga,
-                                            memfasilitasi pertukaran informasi penting, menyediakan berita terbaru,
-                                            agenda kegiatan, dan info relevan sehari-hari.
+                                        <p class="lead mb-4 text-white">Situs web RWKU hadir untuk mempererat tali silaturahmi antar warga. Dengan platform ini, informasi penting dapat dibagikan dengan cepat, berita terbaru selalu tersedia, agenda kegiatan terupdate, dan segala info relevan sehari-hari bisa diakses dengan mudah. Bergabunglah dengan kami untuk tetap terhubung dan selalu mendapatkan kabar terbaru dari lingkungan sekitar!
                                         </p>
                                     </div>
                                 </div>
@@ -72,79 +72,42 @@
         <div class="container mt-2">
             <div class="row gx-lg-5">
                 <div class="col-lg-4">
-                    <div class="icon-box bg-athens-gray">
+                    <div class="icon-box">
                         <div class="px-4 py-5">
                             <div class="px-2">
-                                <i class="fas fa-shield-alt icon-border bg-cornflower-blue"></i>
-                                <h4 class="mb-3">AMAN</h4>
-                                <p class="mb-0">Aplikasi ini aman digunakan dan sangat privasi</p>
+                                <i class="fas fa-shield-alt icon-border "></i>
+                                <h4 class="mb-3 text-white">AMAN</h4>
+                                <p class="mb-0 text-white">Aplikasi ini aman digunakan dan sangat privasi</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 mt-lg-0 mt-md-4 mt-3">
-                    <div class="icon-box bg-cornflower-blue">
+                    <div class="icon-box">
                         <div class="px-4 py-5">
                             <div class="px-2">
-                                <i class="fas fa-handshake icon-border bg-white text-cornflower-blue"></i>
-                                <h4 class="mb-3 text-white">MUDAH DIGUNAKAN</h4>
+                                <i class="fas fa-handshake icon-border "></i>
+                                <h4 class="mb-3 text-white ">MUDAH DIGUNAKAN</h4>
                                 <p class="mb-0 text-white">Semua WARGA bisa menggunakan Aplikasi ini</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mt-lg-0 mt-md-4 mt-1">
-                    <div class="icon-box bg-brilliant-rose">
+                <div class="col-lg-4 mt-lg-0 mt-md-4 mt-3">
+                    <div class="icon-box">
                         <div class="px-4 py-5">
                             <div class="px-2">
-                                <i class="fas fa-file-contract icon-border bg-white text-brilliant-rose"></i>
-                                <h4 class="mb-3 text-white">MEMUDAHKAN MENCARI INFORMASI</h4>
-                                <p class="mb-0 text-white">WARGA mudah untuk mecari informasi terbaru</p>
+                                <i class="fas fa-file-contract icon-border "></i>
+                                <h4 class="mb-3 text-white ">MEMUDAHKAN MENCARI INFORMASI</h4>
+                                <p class="mb-0 text-white">WARGA mudah untuk mencari informasi terbaru</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <style>
-            /* styles.css */
-/* Flexbox styling for the row */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 
-/* Ensuring each col-lg-4 uses flexbox */
-.col-lg-4 {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Styling for the icon boxes to ensure they are the same height */
-.icon-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    padding: 20px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-/* Additional styling for text elements within the icon boxes */
-.icon-box h4, .icon-box p {
-    margin: 0;
-}
-
-.icon-border {
-    font-size: 2rem;
-    padding: 10px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-        </style>
+        
+        
         
         <!--one place-->
         <div class="container mt-lg-8 mt-md-6 mt-5">

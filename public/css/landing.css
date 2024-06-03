@@ -1,0 +1,39 @@
+
+/*icon box sizing and hover stuff
+            /* Base styles for the icon boxes */
+            .icon-box {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding: 20px;
+                text-align: center;
+                box-sizing: border-box;
+                background-color: #5d53ed; /* Default background color */
+                color: #fff; /* Default text color */
+                transition: background-color 0.3s ease, color 0.3s ease;
+                border-radius: 10px;
+            }
+        
+            /* Hover styles for the icon boxes */
+            .icon-box:hover {
+                background-color: #FF55A3; /* Change to desired hover background color */
+                color: #ffffff; /* Change to desired hover text color */
+            }
+            /* Optional: Adjust icon color separately if needed */
+            .icon-box i {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+        
+            /* Additional styling for text elements within the icon boxes */
+            .icon-box:hover h4,
+            .icon-box:hover p 
+            .icon-box:hover i {
+                color:#ffffff;
+                margin: 0;
+            }
+            
+      
