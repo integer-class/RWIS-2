@@ -19,8 +19,8 @@
         
             /* Hover styles for the icon boxes */
             .icon-box:hover {
-                background-color: #FF55A3; /* Change to desired hover background color */
-                color: #ffffff; /* Change to desired hover text color */
+                background-color: #E2725B; /* Change to desired hover background color */
+                color: #E2725B; /* Change to desired hover text color */
             }
             /* Optional: Adjust icon color separately if needed */
             .icon-box i {
@@ -32,7 +32,7 @@
             .icon-box:hover h4,
             .icon-box:hover p 
             .icon-box:hover i {
-                color:#ffffff;
+                color:#5d53ed;
                 margin: 0;
             }
             
