@@ -51,7 +51,13 @@
     <div id="app">
         <div class="main-wrapper">
             <!-- Header -->
-            @include('components.header')
+            @if (auth()->user()->role == '1')
+                @include('components.header')
+            @elseif (auth()->user()->role == '2')
+                @include('components.header-rt')
+            @elseif (auth()->user()->role == '3')
+                @include('components.header-warga')
+            @endif
 
             <!-- Sidebar -->
 

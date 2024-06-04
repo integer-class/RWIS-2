@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LogoutController extends Controller
 {
@@ -14,6 +15,9 @@ class LogoutController extends Controller
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
+        Alert::success('Berhasil', 'Anda berhasil logout');
+        
 
         return redirect('/');
     }
