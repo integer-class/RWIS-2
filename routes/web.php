@@ -26,11 +26,14 @@ use App\Http\Controllers\PengumumanController;
 //arsip
 //post landing pek
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\Auth\LogoutController;
 
 
 
 
 Route::get('/', [Landing_indexController::class, 'index'])->name('index');
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
 
 Route::get('/landing_dokumentasi', [Landing_indexController::class, 'dokumentasi'])->name('landing_dokumentasi');
 Route::get('/aboutus', [Landing_indexController::class, 'aboutus'])->name('aboutus');
