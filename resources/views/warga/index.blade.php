@@ -153,6 +153,10 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled list-unstyled-border">
+
+                                @foreach ($pengumuman_rtt as $p )
+
+
                                 <li class="media">
                                     <img class="rounded-circle mr-3"
                                         width="50"
@@ -160,50 +164,26 @@
                                         alt="avatar">
                                     <div class="media-body">
                                         <div class="text-primary float-right">Now</div>
-                                        <div class="media-title">Farhan A Mujib</div>
-                                        <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla.
-                                            Nulla vel metus scelerisque ante sollicitudin.</span>
+                                        <div class="media-title">
+
+                                            {{
+                                                $p->judul;
+                                            }}
+                                        </div>
+                                        <span class="text-small text-muted">
+
+                                            {{ Str::limit($p->isi_pengumuman, 100) }}
+
+                                            
+                                            .</span>
                                     </div>
                                 </li>
-                                <li class="media">
-                                    <img class="rounded-circle mr-3"
-                                        width="50"
-                                        src="{{ asset('img/avatar/avatar-2.png') }}"
-                                        alt="avatar">
-                                    <div class="media-body">
-                                        <div class="float-right">12m</div>
-                                        <div class="media-title">Ujang Maman</div>
-                                        <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla.
-                                            Nulla vel metus scelerisque ante sollicitudin.</span>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img class="rounded-circle mr-3"
-                                        width="50"
-                                        src="{{ asset('img/avatar/avatar-3.png') }}"
-                                        alt="avatar">
-                                    <div class="media-body">
-                                        <div class="float-right">17m</div>
-                                        <div class="media-title">Rizal Fakhri</div>
-                                        <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla.
-                                            Nulla vel metus scelerisque ante sollicitudin.</span>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img class="rounded-circle mr-3"
-                                        width="50"
-                                        src="{{ asset('img/avatar/avatar-4.png') }}"
-                                        alt="avatar">
-                                    <div class="media-body">
-                                        <div class="float-right">21m</div>
-                                        <div class="media-title">Alfa Zulkarnain</div>
-                                        <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla.
-                                            Nulla vel metus scelerisque ante sollicitudin.</span>
-                                    </div>
-                                </li>
+                                    
+                                @endforeach
+                                
                             </ul>
                             <div class="pt-1 pb-1 text-center">
-                                <a href="#"
+                                <a href="{{ route('warga_pengumuman.index') }}"
                                     class="btn btn-primary btn-lg btn-round">
                                     View All
                                 </a>

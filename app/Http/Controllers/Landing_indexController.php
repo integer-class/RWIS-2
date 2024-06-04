@@ -31,6 +31,7 @@ class Landing_indexController extends Controller
         $penduduk = Penduduk::count();
         $rt = Rt::count();
         $dokumentasi = Dokumentasi::all()
+        ->where('arsip', 'false')
         ->take(6)
         ->sortByDesc('created_at');
 

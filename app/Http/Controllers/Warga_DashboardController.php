@@ -36,8 +36,22 @@ class Warga_DashboardController extends Controller
         $tanggal_sekarang = date('Y-m-d');
     
         $password_default = auth()->user()->default_password;
+
+
+        $pengumuman_rtt = Pengumuman_rt::where('id_rt', $penduduk->id_rt)
+    ->join('pengumuman', 'pengumuman_rt.id_pengumuman', '=', 'pengumuman.id_pengumuman')
+    ->select('pengumuman.*')
+    ->get();
+
+
+
+
+
+
+
         
-        return view('warga.index', compact('type_menu', 'penduduk', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman'));
+        
+        return view('warga.index', compact('type_menu', 'penduduk', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman','pengumuman_rtt'));
     }
 
     /**
