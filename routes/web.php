@@ -98,6 +98,7 @@ Route::middleware(['auth', 'verified','masyarakat'])->prefix('warga')->group(fun
     Route::resource('warga_komplain', \App\Http\Controllers\Warga_KomplainController::class);
     Route::resource('warga_pengumuman', \App\Http\Controllers\Warga_PengumumanController::class);
     Route::resource('warga_dokumentasi', \App\Http\Controllers\Warga_DokumentasiController::class);
+    
 });
 
 
