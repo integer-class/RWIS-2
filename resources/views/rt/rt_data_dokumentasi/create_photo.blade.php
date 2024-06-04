@@ -37,6 +37,70 @@
                 </h2>
                 
                 <div class="row">
+                    <div class="col-12" >
+                        <div class="card">
+                            <div class="card-body" >
+                                <form action="{{ route('rt_dokumentasi.update',$dokumentasi->id_dokumentasi) }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                     @method('PUT')
+                                    <div class="card-header">
+                                        <h4>Edit Dokumentasi</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Judul Dokumentasi Kegiatan</label>
+                                                    <input value="{{ $dokumentasi->judul }}" type="text" class="form-control" name="judul">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Kategori</label>
+                                                    <select class="form-control" name="kategori">
+                                                        <option value="Keagamaan" {{ $dokumentasi->kategori == 'Keagamaan' ? 'selected' : '' }}>Keagamaan</option>
+                                                        <option value="Gotong Royong" {{ $dokumentasi->kategori == 'Gotong Royong' ? 'selected' : '' }}>Gotong Royong</option>
+                                                        <option value="Hajatan" {{ $dokumentasi->kategori == 'Hajatan' ? 'selected' : '' }}>Hajatan</option>
+                                                        <option value="Kegiatan Warga" {{ $dokumentasi->kategori == 'Kegiatan Warga' ? 'selected' : '' }}>Kegiatan Warga</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Tanggal</label>
+                                                    <input type="date" value="{{ $dokumentasi->tanggal }}" class="form-control" name="tanggal">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Thumbnail</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image">
+                                                    </div>
+                                                    @error('image')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Keterangan</label>
+                                                    <textarea style="height: 100px" class="form-control" name="keterangan">{{ $dokumentasi->deskripsi }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <button class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                                
+
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
