@@ -120,7 +120,7 @@
                             <h1 class="mt-3 mb-4">
                                 <marquee behavior="slide">Tentang Aplikasi</marquee>
                             </h1>
-                            <p class="mb-lg-5 mb-md-4 mb-4">Selamat datang di web <B>RWKU</B>.Kami menghargai privasi
+                            <p class="mb-lg-5 mb-md-4 mb-4">Selamat datang di web <B>RWKU</B>.  Kami menghargai privasi
                                 Anda dan berkomitmen untuk melindungi data pribadi yang Anda bagikan kepada kami.
                                 Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan
                                 melindungi informasi pribadi Anda.</p>

@@ -31,8 +31,8 @@
                         <div class="col-lg-3">
                             <div class="footer-widget footer-widget-2">
                                 <ul>
-                                    <li><a href="index.html">Beranda</a></li>
-                                    <li><a href="blog.html">Dokumentasi</a></li>
+                                    <li><a href="{{url ("http://127.0.0.1:8000")}}">Beranda</a></li>
+                                    <li><a href="landing_dokumentasi">Dokumentasi</a></li>
                                     <li><a href="page-about-us.html">About Us</a></li>
                                 </ul>
                             </div>

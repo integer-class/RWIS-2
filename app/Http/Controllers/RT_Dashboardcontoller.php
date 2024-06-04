@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\penduduk;
 use App\Models\Pengumuman_rt;
+use App\Models\Komplain;
+
 use App\Models\User;
 use Alert;
 
@@ -27,6 +29,11 @@ class RT_Dashboardcontoller extends Controller
         return redirect()->route('error.page')->with('error', 'Data penduduk tidak ditemukan.');
     }
 
+    $komplain = Komplain::join('penduduk', 'komplain.nik', '=', 'penduduk.nik')
+    ->where('penduduk.id_rt',auth()->user()->id_rt)
+    ->take(8)
+    ->get();
+
     $pengumuman_rt = Pengumuman_rt::where('id_rt', $penduduk->id_rt)
         ->join('pengumuman', 'pengumuman_rt.id_pengumuman', '=', 'pengumuman.id_pengumuman')
         ->select('pengumuman.*')
@@ -42,7 +49,7 @@ class RT_Dashboardcontoller extends Controller
 
     $password_default = auth()->user()->default_password;
     
-    return view('rt.index', compact('type_menu', 'penduduk', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman'));
+    return view('rt.index', compact('type_menu', 'penduduk','komplain', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman'));
 }
 
 
