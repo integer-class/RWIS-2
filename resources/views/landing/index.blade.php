@@ -43,7 +43,7 @@
                     <div class="col-sm-4 mb-4">
                         <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $kartukeluarga }}" data-speed="5000"
                             data-refresh-interval="50"></h1>
-                        <h5 class="mb-3">RT</h5>
+                        <h5 class="mb-3">Rukun Tetangga</h5>
                     </div>
                     <div class="col-sm-4 mb-4">
                         <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $penduduk }}" data-speed="5000"
@@ -53,7 +53,7 @@
                     <div class="col-sm-4 mb-4">
                         <h1 class="mb-3 display-4 timer" data-from="0" data-to="{{ $kartukeluarga }}" data-speed="5000"
                             data-refresh-interval="50"></h1>
-                        <h5 class="mb-3">KK</h5>
+                        <h5 class="mb-3">Kartu Keluarga</h5>
                     </div>
                     </div>
                 </div>
