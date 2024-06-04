@@ -41,7 +41,7 @@
                                                 <td>
                                                     {{ $p->judul }}
                                                     <div class="table-links">
-                                                        <a href="#" data-toggle="modal" data-target="#exampleModal{{ $p->id }}">View</a>
+                                                        <a href="#" data-toggle="modal" data-target="#exampleModal{{ $p->id_pengumuman }}">View</a>
                                                     </div>
                                                 </td>
                                                 <td>{{ $p->kepentingan }}</td>
@@ -55,12 +55,12 @@
                                                 <td>{{ $p->status ?? 'N/A' }}</td> <!-- Tambahkan status -->
                                             </tr>
 
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal{{ $p->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel{{ $p->id }}" aria-hidden="true">
+                                            <!-- Modal -->  
+                                            <div class="modal fade" id="exampleModal{{ $p->id_pengumuman }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel{{ $p->id_pengumuman }}" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel{{ $p->id }}">Detail Pengumuman</h5>
+                                                            <h5 class="modal-title" id="exampleModalLabel{{ $p->id_pengumuman }}">Detail Pengumuman</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
@@ -84,7 +84,7 @@
                                                             @else
                                                                 <p>Tidak ada foto</p>
                                                             @endif
-                                                        </div>
+                                                        </div>  
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                                         </div>
