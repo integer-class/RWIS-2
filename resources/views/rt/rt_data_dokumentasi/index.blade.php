@@ -46,7 +46,14 @@
                             </div>
                             <p>{{ $dokumen->deskripsi }}</p>
                             <div class="article-cta">
-                                <a href="{{ route('rt_dokumentasi.show', $dokumen->id_dokumentasi) }}">Lihat<i class="fas fa-chevron-right"></i></a>
+                                <div class="dropdown">
+                                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Action</a>
+                                    <div class="dropdown-menu">
+                                        <a href="{{ route('rt_dokumentasi.show', $dokumen->id_dokumentasi) }}" class="dropdown-item has-icon"><i class="ion ion-edit"></i> Edit</a>
+                                    </div>
+
+                                   
+                            </div>
                             </div>
                         </div>
                     </article>
