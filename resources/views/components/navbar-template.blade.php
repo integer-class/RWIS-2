@@ -8,7 +8,7 @@
             <ul class="navbar-nav mx-auto">
               <li class="nav-item"><a class="nav-link" href="{{url ("http://127.0.0.1:8000")}}">Beranda</a></li>
               <li class="nav-item"><a class="nav-link" href="{{ route('landing_dokumentasi') }}">Dokumentasi</a></li>
-              <li class="nav-item"><a class="nav-link" href="element-accordions.html">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('aboutus') }}">About Us</a></li>
               <head>
                 <style>
                     .btn-custom {

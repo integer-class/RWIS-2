@@ -51,6 +51,15 @@ class Landing_indexController extends Controller
         return view('landing.dokumentasi', compact('dokumentasi'));
     }
 
+    public function aboutus()
+    {
+
+        // $dokumentasi = Dokumentasi::all();
+        // Your logic here
+        return view('landing.aboutus');
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
