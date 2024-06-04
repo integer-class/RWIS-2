@@ -19,14 +19,14 @@ class PendudukController extends Controller
         $type_menu = 'penduduk'; 
         if ($request->has('search')) {
             $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
-                ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
+                ->join('rt', 'penduduk.id_rt', '=', 'rt.id_rt')
                 ->where('penduduk.nama', 'LIKE', '%' . $request->search . '%')
                 ->where('penduduk.arsip', 'false') 
                 ->where('penduduk.status', 'hidup') 
                 ->paginate(10);
         } else {
             $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
-                ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
+                ->join('rt', 'penduduk.id_rt', '=', 'rt.id_rt')
                 ->where('penduduk.arsip', 'false') // Filter records where arsip is 'false'
                 ->where('penduduk.status', 'hidup') 
                 ->paginate(10);
@@ -147,6 +147,9 @@ class PendudukController extends Controller
             $penduduk->foto = $fotoName;
             $penduduk->save();
         }
+
+        
+       
 
         //jika status penduduk meninggal maka user akan diaresipkan
         if($request->status == 'meninggal' || $request->status == 'pindah'){
