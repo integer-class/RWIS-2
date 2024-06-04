@@ -9,15 +9,8 @@
 
 @section('main')
     <div class="main-content">
-        <section class="section">
-            <div class="section-header">
-                <h1>Pengumuman</h1>
-                <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Pengumuman</a></div>
-                    <div class="breadcrumb-item">Pengumuman</div>
-                </div>
-            </div>
+        
+            
             <div class="section-body">
                 <div class="row mt-4">
                     <div class="col-12">
@@ -63,17 +56,16 @@
                                             </tr>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal{{ $p->id }}">
+                                            <div class="modal fade" id="exampleModal{{ $p->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel{{ $p->id }}" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title">Detail Pengumuman</h5>
+                                                            <h5 class="modal-title" id="exampleModalLabel{{ $p->id }}">Detail Pengumuman</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-
                                                             <h6><strong>Judul:</strong></h6>
                                                             <p id="judul">{{ $p->judul }}</p>
 
@@ -88,15 +80,10 @@
 
                                                             <h6><strong>Foto :</strong></h6>
                                                             @if ($p->foto)
-                                                            <img src="{{ asset('pengumuman/' . $p->foto) }}" alt="Foto Pengumuman" width="200px">
-                                                        @else
-                                                            <p>Tidak ada foto</p>
-                                                        @endif
-
-                                                            
-
-                                                        
-                                                            <!-- Tambahkan atribut lainnya sesuai kebutuhan -->
+                                                                <img src="{{ asset('pengumuman/' . $p->foto) }}" alt="Foto Pengumuman" width="200px">
+                                                            @else
+                                                                <p>Tidak ada foto</p>
+                                                            @endif
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -119,8 +106,6 @@
 @push('scripts')
     <!-- JS Libraries -->
     <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
-
-    <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/features-posts.js') }}"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
