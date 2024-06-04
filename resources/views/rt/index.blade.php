@@ -200,6 +200,126 @@
     <script src="{{ asset('library/summernote/dist/summernote-bs4.min.js') }}"></script>
     <script src="{{ asset('library/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
 
+
+    
+    <script>
+        // Skrip untuk Chart 1: Iuran Bulanan
+        var ctx1 = document.getElementById('chartIuranBulanan').getContext('2d');
+        var iuranBulanan = @json($iuran_bulanan);
+        var namaBulan = @json($nama_bulan);
+    
+        var labels1 = iuranBulanan.map(item => namaBulan[item.bulan]);
+        var data1 = iuranBulanan.map(item => item.total);
+    
+        var chart1 = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: labels1,
+                datasets: [{
+                    label: 'Jumlah Iuran Bulanan',
+                    data: data1,
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Jumlah Iuran Bulanan'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    
+        // Skrip untuk Chart 2: Usia Penduduk
+        var ctx2 = document.getElementById('chartUsiaPenduduk').getContext('2d');
+        const labelsUsia = @json($labels_usia);
+        const data2 = {
+          labels: labelsUsia,
+          datasets: [
+            {
+              label: 'Jumlah Penduduk',
+              data: @json($data_usia),
+              backgroundColor: 'rgba(54, 162, 235, 0.6)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+            }
+          ]
+        };
+    
+        const config2 = {
+          type: 'bar',
+          data: data2,
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Grafik Usia Penduduk'
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          },
+        };
+    
+        new Chart(ctx2, config2);
+    
+        // Skrip untuk Chart 3: Jumlah Laki-laki dan Perempuan
+        var ctx3 = document.getElementById('chartJumlahGender').getContext('2d');
+        var chart3 = new Chart(ctx3, {
+            type: 'doughnut',
+            data: {
+                labels: ['Laki-laki', 'Perempuan'],
+                datasets: [{
+                    label: 'Jumlah',
+                    data: [@json($jumlah_laki), @json($jumlah_perempuan)],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Jumlah Laki-laki dan Perempuan'
+                },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+        });
+    </script>
+
+
         @if ($pengumuman_rt && $pengumuman_rt->kepentingan == 'Penting' && $tanggal_sekarang <= $pengumuman_rt->tanggal_pengumuman )
             <div class="modal fade" id="importantModal" tabindex="-1" role="dialog" aria-labelledby="importantModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -308,47 +428,7 @@
                    
                 });
             </script>
-        <script>
-// Skrip untuk Chart 1: Iuran Bulanan
-var ctx1 = document.getElementById('chartIuranBulanan').getContext('2d');
-        var iuranBulanan = @json($iuran_bulanan);
-        var namaBulan = @json($nama_bulan);
-    
-        var labels1 = iuranBulanan.map(item => namaBulan[item.bulan]);
-        var data1 = iuranBulanan.map(item => item.total);
-    
-        var chart1 = new Chart(ctx1, {
-            type: 'line',
-            data: {
-                labels: labels1,
-                datasets: [{
-                    label: 'Jumlah Iuran Bulanan',
-                    data: data1,
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    title: {
-                        display: true,
-                        text: 'Jumlah Iuran Bulanan'
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        </script>
+   
         @endif
 
 

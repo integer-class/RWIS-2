@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 use App\Models\penduduk;
 use App\Models\Pengumuman_rt;
 use App\Models\Komplain;
+use App\Models\KartuKeluarga;
+use App\Models\Iuran;
+use Illuminate\Support\Facades\DB;
+use DateTime;
+
 
 use App\Models\User;
 use Alert;
@@ -29,6 +34,22 @@ class RT_Dashboardcontoller extends Controller
         return redirect()->route('error.page')->with('error', 'Data penduduk tidak ditemukan.');
     }
 
+
+    $jumlah_laki = Penduduk::where('jenis_kelamin', 'L')->count();
+    $jumlah_perempuan = Penduduk::where('jenis_kelamin', 'P')->count();
+    $kartu_keluarga = KartuKeluarga::count();
+    $totalSemuaPemasukan = Iuran::where('status', 'pemasukan')->sum('jumlah');
+    $totalSemuaPengeluaran = Iuran::where('status', 'pengeluaran')->sum('jumlah');
+    $jumlah_kas = $totalSemuaPemasukan - $totalSemuaPengeluaran;
+
+
+
+
+
+
+
+
+
     $komplain = Komplain::join('penduduk', 'komplain.nik', '=', 'penduduk.nik')
     ->where('penduduk.id_rt',auth()->user()->id_rt)
     ->take(8)
@@ -48,8 +69,48 @@ class RT_Dashboardcontoller extends Controller
     $tanggal_sekarang = date('Y-m-d');
 
     $password_default = auth()->user()->default_password;
+
+
+    $iuran_bulanan = Iuran::where('status', 'pemasukan')
+    ->select(DB::raw('SUM(jumlah) as total'), DB::raw('MONTH(tanggal) as bulan'))
+    ->groupBy(DB::raw('MONTH(tanggal)'))
+    ->get();
+
+    // Array nama bulan
+    $nama_bulan = [];
+    for ($i = 1; $i <= 12; $i++) {
+        $nama_bulan[$i] = DateTime::createFromFormat('!m', $i)->format('F');
+    }
+
+    // Hitung usia setiap penduduk
+    $usia_penduduk = Penduduk::selectRaw('TIMESTAMPDIFF(YEAR, tanggal_lahir, CURDATE()) AS usia')->get();
+
+    // Kelompokkan penduduk berdasarkan usia
+    $kategori_usia = [
+        'Anak-anak' => 0,
+        'Remaja' => 0,
+        'Dewasa' => 0,
+        'Lansia' => 0
+    ];
+
+    foreach ($usia_penduduk as $orang) {
+        if ($orang->usia <= 12) {
+            $kategori_usia['Anak-anak']++;
+        } elseif ($orang->usia <= 18) {
+            $kategori_usia['Remaja']++;
+        } elseif ($orang->usia <= 60) {
+            $kategori_usia['Dewasa']++;
+        } else {
+            $kategori_usia['Lansia']++;
+        }
+    }
+
+    // Data untuk grafik batang
+    $labels_usia = array_keys($kategori_usia);
+    $data_usia = array_values($kategori_usia);
+
     
-    return view('rt.index', compact('type_menu', 'penduduk','komplain', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman'));
+    return view('rt.index', compact('type_menu', 'penduduk','komplain', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman','jumlah_kas', 'kartu_keluarga', 'komplain', 'jumlah_laki', 'jumlah_perempuan', 'iuran_bulanan', 'nama_bulan', 'labels_usia', 'data_usia'));
 }
 
 
