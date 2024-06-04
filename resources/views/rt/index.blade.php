@@ -49,7 +49,7 @@
                                 <h4>Total Penduduk</h4>
                             </div>
                             <div class="card-body">
-                                10
+                                {{ $penduduk_hitung }}
                             </div>
                         </div>
                     </div>

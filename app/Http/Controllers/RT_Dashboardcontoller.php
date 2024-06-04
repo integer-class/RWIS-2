@@ -30,13 +30,29 @@ class RT_Dashboardcontoller extends Controller
     $type_menu = 'dashboard';
 
     $penduduk = Penduduk::where('nik', auth()->user()->nik)->first();
+
+
+
+    $penduduk_hitung = Penduduk::all()
+    ->where('id_rt', auth()->user()->id_rt)
+    ->count();
+
     if (!$penduduk) {
         return redirect()->route('error.page')->with('error', 'Data penduduk tidak ditemukan.');
     }
 
 
-    $jumlah_laki = Penduduk::where('jenis_kelamin', 'L')->count();
-    $jumlah_perempuan = Penduduk::where('jenis_kelamin', 'P')->count();
+    $jumlah_laki = Penduduk::all()
+    ->where('jenis_kelamin', 'L')
+    ->where('id_rt', auth()->user()->id_rt)
+    ->count();
+
+
+    $jumlah_perempuan = Penduduk::all()
+    ->where('jenis_kelamin', 'P')
+    ->where('id_rt', auth()->user()->id_rt)
+    ->count();
+    
     $kartu_keluarga = KartuKeluarga::count();
     $totalSemuaPemasukan = Iuran::where('status', 'pemasukan')->sum('jumlah');
     $totalSemuaPengeluaran = Iuran::where('status', 'pengeluaran')->sum('jumlah');
@@ -110,7 +126,7 @@ class RT_Dashboardcontoller extends Controller
     $data_usia = array_values($kategori_usia);
 
     
-    return view('rt.index', compact('type_menu', 'penduduk','komplain', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman','jumlah_kas', 'kartu_keluarga', 'komplain', 'jumlah_laki', 'jumlah_perempuan', 'iuran_bulanan', 'nama_bulan', 'labels_usia', 'data_usia'));
+    return view('rt.index', compact('type_menu', 'penduduk','komplain','penduduk_hitung', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman','jumlah_kas', 'kartu_keluarga', 'komplain', 'jumlah_laki', 'jumlah_perempuan', 'iuran_bulanan', 'nama_bulan', 'labels_usia', 'data_usia'));
 }
 
 
