@@ -155,14 +155,14 @@
                     <div class="col-lg-4">
                         <article>
                             <figure class="entry-media">
-                                <a href="blog-single-post.html">
+                                <a href="">
                                     <img class="lozad" src="{{ asset('thumbnail/' . $dokumen->thumbnail) }}"
                                         data-src="{{ asset('thumbnail/' . $dokumen->thumbnail) }}" alt="Entry Image" />
                                 </a>
                             </figure>
                             <div class="entry-content-wrapper">
                                 <header class="entry-header">
-                                    <h2 class="entry-title"><a href="blog-single-post.html"> {{ $dokumen->judul }}
+                                    <h2 class="entry-title"><a href="{{ route('show', $dokumen->id_dokumentasi) }}"> {{ $dokumen->judul }}
                                         </a></h2>
                                     <div class="mb-2">
                                         <div class="entry-meta-top">

@@ -11,6 +11,8 @@ use App\Models\Rt;
 //dokuemntasi
 use App\Models\Dokumentasi;
 
+use App\Models\Dokumentasi_foto;
+
 
 
 
@@ -80,9 +82,21 @@ class Landing_indexController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
-    }
+{
+    $dokumentasi = Dokumentasi::where('id_dokumentasi', $id)
+        ->where('arsip', 'false')
+        ->first(); 
+
+    $dokumentasi_foto = Dokumentasi_foto::all()
+    ->where('id_dokumentasi', $id);
+    
+
+
+        
+
+    // Your logic here
+    return view('landing.show', compact('dokumentasi','dokumentasi_foto'));
+}
 
     /**
      * Show the form for editing the specified resource.

@@ -34,6 +34,7 @@ Route::get('/', [Landing_indexController::class, 'index'])->name('index');
 
 Route::get('/landing_dokumentasi', [Landing_indexController::class, 'dokumentasi'])->name('landing_dokumentasi');
 Route::get('/aboutus', [Landing_indexController::class, 'aboutus'])->name('aboutus');
+Route::get('/show/{id}', [Landing_indexController::class, 'show'])->name('show');
 
 Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
 
