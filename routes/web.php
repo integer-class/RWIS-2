@@ -42,11 +42,9 @@ Route::get('/show/{id}', [Landing_indexController::class, 'show'])->name('show')
 Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
 
 
-
 Route::middleware(['auth', 'verified', 'rw'])->prefix('rw')->group(function () {
 
 Route::get('profile/{id}', [DashboardController::class, 'profile'])->name('profile');
-Route::get('profile/{id}', [DashboardController::class, 'profile'])->name('rt_profile');
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::put('/komplain/{id_komplain}/ubahstatus', [KomplainController::class, 'ubahstatus'])->name('komplain.ubahstatus');

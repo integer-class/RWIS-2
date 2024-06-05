@@ -21,37 +21,22 @@ class Warga_DashboardController extends Controller
         if (!$penduduk) {
             return redirect()->route('error.page')->with('error', 'Data penduduk tidak ditemukan.');
         }
-    
+
         $pengumuman_rt = Pengumuman_rt::where('id_rt', $penduduk->id_rt)
             ->join('pengumuman', 'pengumuman_rt.id_pengumuman', '=', 'pengumuman.id_pengumuman')
             ->select('pengumuman.*')
             ->first();
     
-        if ($pengumuman_rt) {
-            $tanggal_pengumuman = $pengumuman_rt->tanggal; 
-        } 
-        else {
-            $tanggal_pengumuman = null;
-        }
+        $tanggal_pengumuman = $pengumuman_rt ? $pengumuman_rt->tanggal : null;
         $tanggal_sekarang = date('Y-m-d');
-    
         $password_default = auth()->user()->default_password;
 
-
         $pengumuman_rtt = Pengumuman_rt::where('id_rt', $penduduk->id_rt)
-    ->join('pengumuman', 'pengumuman_rt.id_pengumuman', '=', 'pengumuman.id_pengumuman')
-    ->select('pengumuman.*')
-    ->get();
+            ->join('pengumuman', 'pengumuman_rt.id_pengumuman', '=', 'pengumuman.id_pengumuman')
+            ->select('pengumuman.*')
+            ->get();
 
-
-
-
-
-
-
-        
-        
-        return view('warga.index', compact('type_menu', 'penduduk', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman','pengumuman_rtt'));
+        return view('warga.index', compact('type_menu', 'penduduk', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman', 'pengumuman_rtt'));
     }
 
     /**
@@ -59,7 +44,7 @@ class Warga_DashboardController extends Controller
      */
     public function create()
     {
-        //
+        // Code for creating a new resource can be added here.
     }
 
     /**
@@ -67,19 +52,16 @@ class Warga_DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Code for storing a new resource can be added here.
     }
 
     /**
      * Display the specified resource.
      */
-
-     //show ver 1
     public function show($id)
     {
-
         
-        $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
+         $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
             ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
             ->where('penduduk.nik', $id)
             ->first();
@@ -92,16 +74,16 @@ class Warga_DashboardController extends Controller
             ->get();
         $type_menu = 'detail_penduduk'; 
         return view('warga.show', compact('penduduk', 'type_menu', 'penduduk_kk', 'jumlah_anggota_keluarga', 'komplain'));
+
+
     }
-
-
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        //
+        // Code for editing a specific resource can be added here.
     }
 
     /**
@@ -111,7 +93,6 @@ class Warga_DashboardController extends Controller
     {
         $penduduk = Penduduk::where('nik', $nik)->first();
 
-
         if ($request->has('password')) {
             $user = User::where('nik', $penduduk->nik)->first();
             $user->update([
@@ -119,7 +100,7 @@ class Warga_DashboardController extends Controller
                 'default_password' => 'no', 
             ]);
         }
-    
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -137,6 +118,6 @@ class Warga_DashboardController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Code for removing a specific resource can be added here.
     }
 }

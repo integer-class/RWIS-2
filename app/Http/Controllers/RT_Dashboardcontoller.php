@@ -27,7 +27,7 @@ class RT_Dashboardcontoller extends Controller
      * Display a listing of the resource.
      */
     public function index()
-{
+    {
     $type_menu = 'dashboard';
 
     $penduduk = Penduduk::where('nik', auth()->user()->nik)->first();
@@ -150,7 +150,7 @@ class RT_Dashboardcontoller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
             ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
