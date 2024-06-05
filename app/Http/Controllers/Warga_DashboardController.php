@@ -73,21 +73,28 @@ class Warga_DashboardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Penduduk $penduduk)
+
+     //show ver 1
+    public function show($id)
     {
-        dd($penduduk);
-        // $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
-        //     ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
-        //     ->where('penduduk.nik', $penduduk->nik)
-        //     ->first();
-        // $jumlah_anggota_keluarga = \App\Models\Penduduk::where('nomor_kk', $penduduk->nomor_kk)->count();
-        // $komplain = \App\Models\Komplain::where('nik', $penduduk->nik)->count();
-        // $penduduk_kk = \App\Models\Penduduk::where('nomor_kk', $penduduk->nomor_kk)
-        //     ->where('nik', '!=', $penduduk->nik) // Exclude the person
-        //     ->get();
-        // $type_menu = 'detail_penduduk'; 
-        // return view('warga.show', compact('penduduk', 'type_menu', 'penduduk_kk', 'jumlah_anggota_keluarga', 'komplain'));
+
+        echo $id;
+        $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
+            ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
+            ->where('penduduk.nik', $id)
+            ->first();
+
+          
+        $jumlah_anggota_keluarga = \App\Models\Penduduk::where('nomor_kk', $penduduk->nomor_kk)->count();
+        $komplain = \App\Models\Komplain::where('nik', $penduduk->nik)->count();
+        $penduduk_kk = \App\Models\Penduduk::where('nomor_kk', $penduduk->nomor_kk)
+            ->where('nik', '!=', $penduduk->nik) 
+            ->get();
+        $type_menu = 'detail_penduduk'; 
+        return view('warga.show', compact('penduduk', 'type_menu', 'penduduk_kk', 'jumlah_anggota_keluarga', 'komplain'));
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
