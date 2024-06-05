@@ -78,7 +78,7 @@ class Warga_DashboardController extends Controller
     public function show($id)
     {
 
-        echo $id;
+        
         $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
             ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
             ->where('penduduk.nik', $id)
