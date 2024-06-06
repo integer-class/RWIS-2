@@ -25,6 +25,10 @@ return new class extends Migration
             $table->enum('status', ['hidup', 'meninggal','pindah'])->default('hidup');
             $table->foreignId('nomor_kk')->references('nomor_kk')->on('kartu_keluarga');
             $table->enum('arsip', ['true', 'false'])->default('false');
+            $table->integer('pendapatan');
+            $table->enum('status_sosial', ['Janda','yatimpiatu', 'Lainnya']);
+            $table->enum('status_rumah', ['Sewa', 'Kontrak', 'Milik', 'Lainnya']);
+            $table->enum('status_kesehatan', ['Sehat', 'Sakit', 'Disabilitas']);
             $table->foreignId('id_rt')->references('id_rt')->on('rt');
 
 

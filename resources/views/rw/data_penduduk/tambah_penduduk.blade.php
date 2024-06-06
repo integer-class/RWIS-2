@@ -135,7 +135,7 @@
 
 
 
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Pekerjaan </label>
                                     <input type="text"
@@ -143,6 +143,53 @@
                                         name="pekerjaan">
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Range Gaji </label>
+                                    <input type="number"
+                                        class="form-control"
+                                        name="pendapatan">
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Status Sosial </label>
+                                    <select class="form-control" name="status_sosial">
+                                        <option value="Janda">Janda</option>
+                                        <option value="yatimpiatu">Yatim Piatu</option>
+                                        <option value="Lainnya">Lainnya</option>
+
+                                    </select>
+                
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Status Rumah </label>
+                                    <select class="form-control" name="status_rumah">
+                                        <option value="milik">Milik Sendiri</option>
+                                        <option value="Sewa">Sewa</option>
+                                        <option value="Kontrak">Kontrak</option>
+                                        <option value="Lainnya">Lainnya</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Status Kesehatan </label>
+                                    <select class="form-control" name="status_kesehatan">
+                                        <option value="Sehat">Sehat</option>
+                                        <option value="Sakit">Sakit</option>
+                                        <option value="Disabilitas">Disabilitas</option>
+                                    </select>
+                                </div>
+                            </div>
+
 
                             <div class="col-md-12">
                                 <div class="form-group">

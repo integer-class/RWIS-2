@@ -27,4 +27,9 @@ class KartuKeluarga extends Model
         'kewarganegaraan',
     ];
 
+    public function penduduk()
+    {
+        return $this->hasMany(Penduduk::class, 'nomor_kk', 'nomor_kk');
+    }
+
 }

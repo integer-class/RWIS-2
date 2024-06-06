@@ -12,7 +12,7 @@ class KartuKeluarga extends Seeder
      */
     public function run(): void
     {
-        \App\Models\KartuKeluarga::factory(10)->create();
+        // \App\Models\KartuKeluarga::factory(10)->create();
         //buat manual
 
         \App\Models\KartuKeluarga::factory()->create([
@@ -26,6 +26,23 @@ class KartuKeluarga extends Seeder
                 'kabupaten' => 'Nama Kabupaten',
                 'provinsi' => 'Nama Provinsi',
             ]);
+
+
+            \App\Models\KartuKeluarga::factory()->create([
+                'nomor_kk' => '472751887',
+                'kepalakeluarga' => 'Budi',
+                'alamat' => 'Jl. Test No. 1',
+                'rt' => '001', // contoh nomor RT
+                'rw' => '002', // contoh nomor RW
+                'kelurahan' => 'Nama Kelurahan',
+                'kecamatan' => 'Nama Kecamatan',
+                'kabupaten' => 'Nama Kabupaten',
+                'provinsi' => 'Nama Provinsi',
+            ]);
+
+
+
+            
 
 
     }

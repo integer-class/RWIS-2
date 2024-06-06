@@ -76,6 +76,7 @@ Route::get('profile/{id}', [DashboardController::class, 'profile'])->name('profi
     Route::resource('penduduk', \App\Http\Controllers\PendudukController::class);
     Route::resource('dokumentasi', \App\Http\Controllers\DokumentasiController::class);
     Route::resource('pengumuman', \App\Http\Controllers\PengumumanController::class);
+    Route::resource('bansos', \App\Http\Controllers\BansosController::class);
     Route::resource('iuran', \App\Http\Controllers\IuranController::class);
     Route::resource('arsip', \App\Http\Controllers\ArsipController::class);
 });

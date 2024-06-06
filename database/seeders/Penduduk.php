@@ -25,6 +25,11 @@ class Penduduk extends Seeder
             'pekerjaan' => 'PNS',
             'id_rt' => '1',
             'foto' => 'default.png',
+            'pendapatan' => 5000000,
+            'status_sosial' => 'Lainnya',
+            'status_rumah' => 'Milik',
+            'status_kesehatan' => 'sehat',
+
 
         ]);
 
@@ -41,13 +46,17 @@ class Penduduk extends Seeder
             'pekerjaan' => 'Wirausaha',
             'id_rt' => '1',
             'foto' => 'default.png',
+            'pendapatan' => 2000000,
+            'status_sosial' => 'yatimpiatu',
+            'status_rumah' => 'Sewa',
+            'status_kesehatan' => 'sehat',
 
         ]);
 
         \App\Models\Penduduk::factory()->create([
             'nik' => '1234567890123458',
             'nama' => 'Test User 3',
-            'nomor_kk' => '472751886',
+            'nomor_kk' => '472751887',
             'tanggal_lahir' => '2000-01-03',
             'jenis_kelamin' => 'L',
             'golong_darah' => 'AB',
@@ -57,6 +66,10 @@ class Penduduk extends Seeder
             'pekerjaan' => 'Pengusaha',
             'id_rt' => '1',
             'foto' => 'default.png',
+            'pendapatan' => 2000000,
+            'status_sosial' => 'yatimpiatu',
+            'status_rumah' => 'Sewa',
+            'status_kesehatan' => 'sehat',
 
 
         ]);
