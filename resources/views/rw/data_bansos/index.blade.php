@@ -62,7 +62,7 @@
                                             <th>Action</th>
                                         </tr>
                                     
-                                        @foreach($kartu_keluarga as $kk)
+                                        @foreach($kartu_keluarga_sorted as $kk)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $kk->nomor_kk }}</td>

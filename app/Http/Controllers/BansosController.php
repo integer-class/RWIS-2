@@ -10,24 +10,40 @@ class BansosController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $type_menu = 'bansos';
-    
-        $kartu_keluarga = KartuKeluarga::all();
-    
-        // Melakukan perhitungan skor untuk setiap kartu keluarga
-        $skor_kartu_keluarga = [];
-        foreach ($kartu_keluarga as $kk) {
-            $skor_agregat_kk = $this->hitungSkorKartuKeluarga($kk);
-            $skor_kartu_keluarga[$kk->nomor_kk] = $skor_agregat_kk;
-        }
-    
-        // Mengurutkan skor dari terkecil ke terbesar
-        asort($skor_kartu_keluarga);
-    
-        return view('rw.data_bansos.index', compact('type_menu', 'kartu_keluarga', 'skor_kartu_keluarga'));
+
+     public function index()
+{
+    $type_menu = 'bansos';
+
+    $kartu_keluarga = KartuKeluarga::all();
+
+    // Melakukan perhitungan skor untuk setiap kartu keluarga
+    $skor_kartu_keluarga = [];
+    foreach ($kartu_keluarga as $kk) {
+        $skor_agregat_kk = $this->hitungSkorKartuKeluarga($kk);
+        $skor_kartu_keluarga[$kk->nomor_kk] = $skor_agregat_kk;
     }
+
+    // Mengurutkan kartu keluarga berdasarkan skor
+    asort($skor_kartu_keluarga);
+    
+    // Menyusun ulang array kartu keluarga berdasarkan urutan skor yang sudah diurutkan
+    $kartu_keluarga_sorted = [];
+    foreach ($skor_kartu_keluarga as $nomor_kk => $skor) {
+        foreach ($kartu_keluarga as $kk) {
+            if ($kk->nomor_kk == $nomor_kk) {
+                $kartu_keluarga_sorted[] = $kk;
+                break;
+            }
+        }
+    }
+
+    return view('rw.data_bansos.index', compact('type_menu', 'kartu_keluarga_sorted', 'skor_kartu_keluarga'));
+}
+
+
+     
+ 
 
     private function hitungSkorKartuKeluarga($kk)
     {
@@ -47,6 +63,7 @@ class BansosController extends Controller
         return $skor_agregat_kk;
     }
 
+    // Fungsi untuk menghitung skor individu untuk setiap anggota keluarga
     private function hitungSkorIndividu($anggota)
     {
         // Lakukan perhitungan skor individu sesuai dengan atribut yang dibutuhkan
@@ -60,6 +77,7 @@ class BansosController extends Controller
         return $skor_agregat;
     }
 
+    // Fungsi untuk menghitung skor status sosial
     private function hitungStatusSosialSkor($status_sosial)
     {
         switch ($status_sosial) {
@@ -74,10 +92,13 @@ class BansosController extends Controller
         }
     }
 
+    // Fungsi untuk menghitung skor usia
     private function hitungUsiaSkor($tanggal_lahir)
     {
+        // Hitung usia berdasarkan tanggal lahir
         $usia = now()->diffInYears($tanggal_lahir);
 
+        // Tentukan skor berdasarkan usia
         if ($usia < 17) {
             return 1;
         } elseif ($usia >= 17 && $usia < 60) {
@@ -87,6 +108,7 @@ class BansosController extends Controller
         }
     }
 
+    // Fungsi untuk menghitung skor pekerjaan
     private function hitungPekerjaanSkor($pekerjaan)
     {
         switch ($pekerjaan) {
@@ -110,10 +132,11 @@ class BansosController extends Controller
             case 'Pelajar/Mahasiswa':
                 return 0.1;
             default:
-                return 0;
+                return 0; // Jika pekerjaan tidak terdaftar
         }
     }
 
+    // Fungsi untuk menghitung skor status kesehatan
     private function hitungStatusKesehatanSkor($status_kesehatan)
     {
         return $status_kesehatan == 'sehat' ? 1 : 0;
