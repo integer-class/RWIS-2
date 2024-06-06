@@ -23,8 +23,8 @@ class BansosController extends Controller
             $skor_kartu_keluarga[$kk->nomor_kk] = $skor_agregat_kk;
         }
     
-        // Uncomment the following line if you need to debug the $skor_kartu_keluarga
-        // dd($skor_kartu_keluarga);
+        // Mengurutkan skor dari terkecil ke terbesar
+        asort($skor_kartu_keluarga);
     
         return view('rw.data_bansos.index', compact('type_menu', 'kartu_keluarga', 'skor_kartu_keluarga'));
     }
@@ -47,7 +47,6 @@ class BansosController extends Controller
         return $skor_agregat_kk;
     }
 
-    // Fungsi untuk menghitung skor individu untuk setiap anggota keluarga
     private function hitungSkorIndividu($anggota)
     {
         // Lakukan perhitungan skor individu sesuai dengan atribut yang dibutuhkan
@@ -61,7 +60,6 @@ class BansosController extends Controller
         return $skor_agregat;
     }
 
-    // Fungsi untuk menghitung skor status sosial
     private function hitungStatusSosialSkor($status_sosial)
     {
         switch ($status_sosial) {
@@ -76,13 +74,10 @@ class BansosController extends Controller
         }
     }
 
-    // Fungsi untuk menghitung skor usia
     private function hitungUsiaSkor($tanggal_lahir)
     {
-        // Hitung usia berdasarkan tanggal lahir
         $usia = now()->diffInYears($tanggal_lahir);
 
-        // Tentukan skor berdasarkan usia
         if ($usia < 17) {
             return 1;
         } elseif ($usia >= 17 && $usia < 60) {
@@ -92,7 +87,6 @@ class BansosController extends Controller
         }
     }
 
-    // Fungsi untuk menghitung skor pekerjaan
     private function hitungPekerjaanSkor($pekerjaan)
     {
         switch ($pekerjaan) {
@@ -116,11 +110,10 @@ class BansosController extends Controller
             case 'Pelajar/Mahasiswa':
                 return 0.1;
             default:
-                return 0; // Jika pekerjaan tidak terdaftar
+                return 0;
         }
     }
 
-    // Fungsi untuk menghitung skor status kesehatan
     private function hitungStatusKesehatanSkor($status_kesehatan)
     {
         return $status_kesehatan == 'sehat' ? 1 : 0;

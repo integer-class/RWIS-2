@@ -11,10 +11,10 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Kartu Keluarga</h1>
+                <h1>Bantuan Sosial </h1>
                 <div class="section-header-button">
                     {{-- <a href="{{ route('category.create') }}" class="btn btn-primary">Add New</a> --}}
-                    <a href="{{ route('kartu-keluarga.create') }}" class="btn btn-primary">Tambah Kartu Keluarga</a>
+                    {{-- <a href="{{ route('kartu-keluarga.create') }}" class="btn btn-primary">Tambah Kartu Keluarga</a> --}}
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>

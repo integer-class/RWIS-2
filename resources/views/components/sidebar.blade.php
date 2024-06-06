@@ -41,18 +41,12 @@
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-heart"></i> <span>Bansos</span></a>
                     <ul class="dropdown-menu" >
-                        <li class="{{ Request::is('bootstrap-alert') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('bootstrap-alert') }}">Verifikasi Penerima</a>
-                    </li>
+                      
                     <li class="{{ $type_menu === 'bansos'? 'active' : ''}}">
                         <a class="nav-link"
                             href="{{ route('bansos.index') }}">Data Bansos</a>
                     </li>
-                    <li class="{{ Request::is('bootstrap-badge') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ url('bootstrap-badge') }}">Prioritas Penerima</a>
-                    </li>
+                    
 
                 </ul>
             </li>
