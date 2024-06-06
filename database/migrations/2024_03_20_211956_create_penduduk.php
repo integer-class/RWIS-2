@@ -20,7 +20,22 @@ return new class extends Migration
             $table->enum('golong_darah', ['A', 'B', 'AB', 'O']);
             $table->string('agama');
             $table->enum('status_perkawinan', ['Kawin', 'Belum Kawin', 'Cerai']);
-            $table->string('pekerjaan');
+            $table->enum('pekerjaan', [
+                'PNS', 
+                'TNI',
+                'Polri',
+                'Karyawan Swasta',
+                'Wiraswasta',
+                'Petani',
+                'Nelayan',
+                'Buruh',
+                'Pedagang',
+                'Guru',
+                'Dokter',
+                'Pelajar/Mahasiswa',
+                'Ibu Rumah Tangga',
+                'Tidak Bekerja'
+            ]);
             $table->string('foto')->nullable();
             $table->enum('status', ['hidup', 'meninggal','pindah'])->default('hidup');
             $table->foreignId('nomor_kk')->references('nomor_kk')->on('kartu_keluarga');

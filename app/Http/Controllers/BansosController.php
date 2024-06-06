@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\KartuKeluarga;
 
-
 class BansosController extends Controller
 {
     /**
@@ -96,7 +95,29 @@ class BansosController extends Controller
     // Fungsi untuk menghitung skor pekerjaan
     private function hitungPekerjaanSkor($pekerjaan)
     {
-        return $pekerjaan == 'Tidak Bekerja' ? 1 : 0;
+        switch ($pekerjaan) {
+            case 'Tidak Bekerja':
+                return 1;
+            case 'Buruh':
+            case 'Petani':
+            case 'Nelayan':
+                return 0.75;
+            case 'Wiraswasta':
+            case 'Pedagang':
+            case 'Ibu Rumah Tangga':
+                return 0.5;
+            case 'PNS':
+            case 'TNI':
+            case 'Polri':
+            case 'Karyawan Swasta':
+            case 'Guru':
+            case 'Dokter':
+                return 0.25;
+            case 'Pelajar/Mahasiswa':
+                return 0.1;
+            default:
+                return 0; // Jika pekerjaan tidak terdaftar
+        }
     }
 
     // Fungsi untuk menghitung skor status kesehatan

@@ -8,6 +8,7 @@ use Alert;
 use App\Models\KartuKeluarga;
 use App\Models\Rt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PendudukController extends Controller
 {
@@ -48,43 +49,56 @@ class PendudukController extends Controller
      */
     public function store(Request $request)
     {
-        $nama = $request->nama;
+        // Validasi input
+        
+    
+        // Pisahkan nomor KK dan nama kepala keluarga
         $nomor_kk = $request->nomor_kk;
         $pieces = explode(" - ", $nomor_kk);
         $nomor_kk = $pieces[0];
-
+    
+        // Ambil nama depan dalam huruf besar
+        $nama = $request->nama;
         $namaArray = explode(' ', $nama);
         $namaDepan = ucfirst($namaArray[0]);
         $namaUpper = strtoupper($namaDepan);
-
-        Penduduk::create([
+    
+        // Buat data penduduk
+        $penduduk = Penduduk::create([
             'nik' => $request->nik,
             'nomor_kk' => $nomor_kk,
             'nama' => $request->nama,
-            'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
             'jenis_kelamin' => $request->jenis_kelamin,
-            'golongan_darah' => $request->golongan_darah,
+            'golong_darah' => $request->golongan_darah,
             'alamat' => $request->alamat,
             'agama' => $request->agama,
             'status_perkawinan' => $request->status_perkawinan,
             'pekerjaan' => $request->pekerjaan,
             'id_rt' => $request->id_rt,
+            'pendapatan' => $request->pendapatan,
+            'status_sosial' => $request->status_sosial,
+            'status_rumah' => $request->status_rumah,
+            'status_kesehatan' => $request->status_kesehatan,
             'foto' => 'default.png',
         ]);
-
+    
+        // Buat user
         $user = User::create([
             'role' => $request->roles,
             'nik' => $request->nik,
             'id_rt' => $request->id_rt,
-            'password' => $namaUpper . $request->tanggal_lahir,
+            'password' => Hash::make($namaUpper . $request->tanggal_lahir),
             'default_password' => 'yes',
         ]);
-
+    
+        // Beri feedback berhasil
         Alert::success('Berhasil!', 'Berhasil menambahkan data!');
         
-        return redirect()->back();
+        // Redirect kembali ke halaman form
+        return redirect()->route('penduduk.index');
     }
+    
 
     public function show(Penduduk $penduduk)
     {

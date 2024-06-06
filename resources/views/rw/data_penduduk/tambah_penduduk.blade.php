@@ -137,12 +137,26 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Pekerjaan </label>
-                                    <input type="text"
-                                        class="form-control"
-                                        name="pekerjaan">
+                                    <label for="pekerjaan">Pekerjaan</label>
+                                    <select class="form-control" name="pekerjaan" id="pekerjaan">
+                                        <option value="PNS">PNS</option>
+                                        <option value="TNI">TNI</option>
+                                        <option value="Polri">Polri</option>
+                                        <option value="Karyawan Swasta">Karyawan Swasta</option>
+                                        <option value="Wiraswasta">Wiraswasta</option>
+                                        <option value="Petani">Petani</option>
+                                        <option value="Nelayan">Nelayan</option>
+                                        <option value="Buruh">Buruh</option>
+                                        <option value="Pedagang">Pedagang</option>
+                                        <option value="Guru">Guru</option>
+                                        <option value="Dokter">Dokter</option>
+                                        <option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
+                                        <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+                                        <option value="Tidak Bekerja">Tidak Bekerja</option>
+                                    </select>
                                 </div>
                             </div>
+                            
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Range Gaji </label>

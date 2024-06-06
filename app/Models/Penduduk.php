@@ -12,9 +12,7 @@ class Penduduk extends Model
     protected $table = 'penduduk';
     protected $primaryKey = 'nik';
     public $incrementing = false; // Because nik is not an auto-incrementing integer
-    protected $keyType = 'string'; // Assuming nik is a string, set this to 'int' if it's an intege
-
-
+    protected $keyType = 'string'; // Assuming nik is a string, set this to 'int' if it's an integer
 
     protected $fillable = [
         'nik',
@@ -22,7 +20,7 @@ class Penduduk extends Model
         'tanggal_lahir',
         'jenis_kelamin',
         'alamat',
-        'golong_darah',
+        'golongan_darah',
         'agama',
         'status_perkawinan',
         'pekerjaan',
@@ -30,6 +28,11 @@ class Penduduk extends Model
         'status',
         'id_rt',
         'foto',
+        'pendapatan', // Added field
+        'status_sosial', // Added field
+        'status_rumah', // Added field
+        'status_kesehatan', // Added field
+        'tempat_lahir', // Added field
     ];
 
     // Tambahkan casting untuk status jika diperlukan
