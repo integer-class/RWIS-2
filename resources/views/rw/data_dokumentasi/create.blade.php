@@ -43,20 +43,21 @@
                         </div>
                         <div class="card-body">
 
-                            <div class="row" >
+                            <div class="row">
                                 
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Judul Dokumentasi Kegiatan </label>
                                     <input type="text"
                                         class="form-control"
-                                        name="judul">
+                                        name="judul"
+                                        required>
                                 </div>
                             </div>
-                            <div class="col-md-4" >
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Kategori</label>
-                                    <select class="form-control" name="kategori">
+                                    <select class="form-control" name="kategori" required>
                                         <option value="Keagamaan">Keagamaan</option>
                                         <option value="Gotong Royong">Gotong Royong</option>
                                         <option value="Hajatan">Hajatan</option>
@@ -66,19 +67,19 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4" >
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Tanggal</label>
-                                    <input type="date" class="form-control" name="tanggal">
+                                    <input type="date" class="form-control" name="tanggal" required>
                                 </div>
                             </div>
 
-                            <div class="col-md-4" >
+                            <div class="col-md-4">
                                 <div>
                                     <div class="form-group">
-                                        <label>Thumnail</label>
+                                        <label>Thumbnail</label>
                                         <div class="col-sm-9">
-                                            <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image">
+                                            <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image" required>
     
                                         </div>
                                         @error('image')
@@ -87,30 +88,17 @@
                                             </div>
                                         @enderror
                                     </div>
-        
-    
                                 </div>
                             </div>
 
-
-                           
-                            <div class="col-md-12" >
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Keterangan</label>
-                                    <textarea style="height: 100px" class="form-control" name="keterangan"></textarea>
+                                    <textarea style="height: 100px" class="form-control" name="keterangan" required></textarea>
                                    
                                 </div>
                             </div>
-                           
 
-                           
-
-                          
-
-                        
-                                
-                            
-                            </div>
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Submit</button>
@@ -126,4 +114,3 @@
 @push('scripts')
 
 @endpush
-

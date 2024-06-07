@@ -23,13 +23,12 @@
 
                 @include('sweetalert::alert')
 
-
                 <div class="card">
                     <form action="{{ route('iuran.store') }}" method="POST">
                         @csrf
                         <div class="card-body">
 
-                            <div class="row" >
+                            <div class="row">
 
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -45,11 +44,10 @@
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label>Keterangan</label>
-                                        <textarea style="height: 130px" class="form-control" required name="keterangan"></textarea>
+                                        <textarea style="height: 130px" class="form-control" name="keterangan" required></textarea>
                                     </div>
                                 </div>
-                              
-                            
+
                             </div>
                         </div>
                         <div class="card-footer text-right">
@@ -64,15 +62,8 @@
 @endsection
 
 @push('scripts')
-
-
-
-
-
-
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 {{-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> --}}
 <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
 @endpush
-

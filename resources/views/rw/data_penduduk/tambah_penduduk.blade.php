@@ -59,7 +59,7 @@
                             <div class="col-md-12" >
                                 <div class="form-group">
                                     <label>NIK</label>
-                                    <input type="number"
+                                    <input required type="number"
                                         class="form-control"
                                         name="nik">
                                 </div>
@@ -67,7 +67,7 @@
                             <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Agama</label>
-                                    <select class="form-control" name="agama">
+                                    <select required class="form-control" name="agama">
                                         <option value="islam">Islam</option>
                                         <option value="kristen">Kristen</option>
                                         <option value="katolik">Katolik</option>
@@ -82,7 +82,7 @@
                             <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Status Kawin</label>
-                                    <select class="form-control" name="status_perkawinan">
+                                    <select required class="form-control" name="status_perkawinan">
                                         <option value="Kawin">Kawin</option>
                                         <option value="Belum Kawin">Belum Kawin</option>
                                         <option value="Cerai">Cerai</option>
@@ -95,7 +95,7 @@
                             <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Gologongan darah</label>
-                                    <select class="form-control" name="golongan_darah">
+                                    <select required class="form-control" name="golongan_darah">
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="AB">AB</option>
@@ -107,7 +107,7 @@
                             <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label>
-                                    <select class="form-control" name="jenis_kelamin">
+                                    <select required class="form-control" name="jenis_kelamin">
                                         <option value="L">Laki-laki</option>
                                         <option value="P">Perempuan</option>
                                     </select>
@@ -117,14 +117,14 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Tanggal lahir</label>
-                                    <input type="date" class="form-control" name="tanggal_lahir">
+                                    <input required type="date" class="form-control" name="tanggal_lahir">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>RT</label>
-                                    <select class="form-control" name="id_rt">
+                                    <select required class="form-control" name="id_rt">
                                         <option value="">Select RT</option>
                                         @foreach($rt as $r)
                                             <option value="{{ $r->id_rt }}">{{ $r->nama_rt }}</option>
@@ -138,7 +138,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="pekerjaan">Pekerjaan</label>
-                                    <select class="form-control" name="pekerjaan" id="pekerjaan">
+                                    <select required class="form-control" name="pekerjaan" id="pekerjaan">
                                         <option value="PNS">PNS</option>
                                         <option value="TNI">TNI</option>
                                         <option value="Polri">Polri</option>
@@ -160,7 +160,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Range Gaji </label>
-                                    <input type="number"
+                                    <input required type="number"
                                         class="form-control"
                                         name="pendapatan">
                                 </div>
@@ -170,7 +170,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Status Sosial </label>
-                                    <select class="form-control" name="status_sosial">
+                                    <select required class="form-control" name="status_sosial">
                                         <option value="Janda">Janda</option>
                                         <option value="yatimpiatu">Yatim Piatu</option>
                                         <option value="Lainnya">Lainnya</option>
@@ -184,7 +184,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Status Rumah </label>
-                                    <select class="form-control" name="status_rumah">
+                                    <select required class="form-control" name="status_rumah">
                                         <option value="milik">Milik Sendiri</option>
                                         <option value="Sewa">Sewa</option>
                                         <option value="Kontrak">Kontrak</option>
@@ -196,7 +196,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Status Kesehatan </label>
-                                    <select class="form-control" name="status_kesehatan">
+                                    <select required class="form-control" name="status_kesehatan">
                                         <option value="Sehat">Sehat</option>
                                         <option value="Sakit">Sakit</option>
                                         <option value="Disabilitas">Disabilitas</option>
@@ -209,7 +209,7 @@
                                 <div class="form-group">
                                     <label>Nomor KK <span style="color:red;">(Jika tidak memiliki KK, <a href="{{ route('kartu-keluarga.create') }}">buat disini</a>)</span></label>
 
-                                    <input type="text"
+                                    <input required type="text"
                                         class="form-control"
                                         name="nomor_kk" id="tags">
                                 </div>
@@ -220,7 +220,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>alamat </label>
-                                    <textarea style="height: 100px" class="form-control" name="alamat"></textarea>
+                                    <textarea required style="height: 100px" class="form-control" name="alamat"></textarea>
                                 </div>
                             </div>
 
@@ -233,16 +233,16 @@
                                     <label class="form-label">Roles</label>
                                     <div class="selectgroup w-100">
                                         <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="3" class="selectgroup-input"
+                                            <input required type="radio" name="roles" value="3" class="selectgroup-input"
                                                 checked="">
                                             <span class="selectgroup-button">Penduduk</span>
                                         </label>
                                         <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="2" class="selectgroup-input">
+                                            <input required type="radio" name="roles" value="2" class="selectgroup-input">
                                             <span class="selectgroup-button">RT</span>
                                         </label>
                                         <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="1" class="selectgroup-input">
+                                            <input required type="radio" name="roles" value="1" class="selectgroup-input">
                                             <span class="selectgroup-button">RW</span>
                                         </label>
     
@@ -296,4 +296,3 @@
 {{-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> --}}
 <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
 @endpush
-
