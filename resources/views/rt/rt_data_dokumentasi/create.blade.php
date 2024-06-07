@@ -50,13 +50,14 @@
                                     <label>Judul Dokumentasi Kegiatan </label>
                                     <input type="text"
                                         class="form-control"
-                                        name="judul">
+                                        name="judul"
+                                        required>
                                 </div>
                             </div>
                             <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Kategori</label>
-                                    <select class="form-control" name="kategori">
+                                    <select class="form-control" name="kategori" required>
                                         <option value="Keagamaan">Keagamaan</option>
                                         <option value="Gotong Royong">Gotong Royong</option>
                                         <option value="Hajatan">Hajatan</option>
@@ -69,7 +70,7 @@
                             <div class="col-md-4" >
                                 <div class="form-group">
                                     <label>Tanggal</label>
-                                    <input type="date" class="form-control" name="tanggal">
+                                    <input type="date" class="form-control" name="tanggal" required>
                                 </div>
                             </div>
 
@@ -97,7 +98,7 @@
                             <div class="col-md-12" >
                                 <div class="form-group">
                                     <label>Keterangan</label>
-                                    <textarea style="height: 100px" class="form-control" name="keterangan"></textarea>
+                                    <textarea style="height: 100px" class="form-control" name="keterangan" required></textarea>
                                    
                                 </div>
                             </div>
@@ -126,4 +127,3 @@
 @push('scripts')
 
 @endpush
-
