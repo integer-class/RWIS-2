@@ -48,7 +48,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Judul Pengumuman</label>
-                                        <input type="text" class="form-control" name="judul">
+                                        <input type="text" class="form-control" name="judul" required>
                                         <input type="hidden" name="id_pengumuman" value="{{ $uniqueCode }}">
                                     </div>
                                 </div>
@@ -56,7 +56,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Tipe Pengumuman</label>
-                                        <select class="form-control" name="kepentingan">
+                                        <select class="form-control" name="kepentingan" required>
                                             <option value="Sangat Penting">Sangat Penting</option>
                                             <option value="Penting">Penting</option>
                                             <option value="Sedang">Sedang</option>
@@ -68,7 +68,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Masa Berlaku</label>
-                                        <input type="date" class="form-control" name="masa_berlaku">
+                                        <input type="date" class="form-control" name="masa_berlaku" required>
                                     </div>
                                 </div>
                     
@@ -82,7 +82,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Pilih RT (bisa lebih dari 1)</label>
-                                        <select name="rt[]" class="form-control selectric" multiple>
+                                        <select name="rt[]" class="form-control selectric" multiple required>
                                             @foreach ($rt as $r)
                                                 <option value="{{ $r->id_rt }}">{{ $r->nama_rt }}</option>
                                             @endforeach
@@ -93,7 +93,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Isi pengumuman</label>
-                                        <textarea style="height: 100px" class="form-control" name="isi_pengumuman"></textarea>
+                                        <textarea style="height: 100px" class="form-control" name="isi_pengumuman" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -102,10 +102,6 @@
                             <button class="btn btn-primary">Submit</button>
                         </div>
                     </form>
-                    
-                    
-                    
-                   
                 </div>
 
             </div>
@@ -115,9 +111,6 @@
 
 @push('scripts')
 
-
-
-
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
 
@@ -125,4 +118,3 @@
 {{-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> --}}
 <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
 @endpush
-

@@ -125,7 +125,7 @@
 
                                         
                                         <input type="text" class="form-control" id="jenis_kelamin" value="{{
-                                            $penduduk->jenis_kelamin == 'L' ? 'Laki-laki' : 'Perempuan'
+                                            $pendusduk->jenis_kelamin == 'L' ? 'Laki-laki' : 'Perempuan'
                                         
                                         }}"
                                             readonly>

@@ -24,10 +24,12 @@
                 </div>
             </div>
 
-             <h2 class="section">
+            <h2 class="section">
+                    
                 <a style="width:130px; height:38px; margin-bottom:20px" href="{{ route('penduduk.index') }}" class="btn btn-lg btn-primary">Kembali</a>
-            </h2>
 
+
+            </h2>
 
             <div class="section-body">
                 {{-- <h2 class="section-title">Users</h2> --}}
@@ -36,7 +38,7 @@
 
 
                 <div class="card">
-                    <form action="{{ route('rt_penduduk.store') }}" method="POST">
+                    <form action="{{ route('penduduk.store') }}" method="POST">
                         @csrf
                         <div class="card-header">
                             <h4>Form</h4>
@@ -122,21 +124,86 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>RT</label>
-
-                                    <input readonly class="form-control" type="text" name="id_rt" value="{{ Auth::user()->id_rt }}">
+                                    <select class="form-control" name="id_rt">
+                                        <option value="">Select RT</option>
+                                        @foreach($rt as $r)
+                                            <option value="{{ $r->id_rt }}">{{ $r->nama_rt }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
 
 
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Pekerjaan </label>
-                                    <input type="text"
-                                        class="form-control"
-                                        name="pekerjaan">
+                                    <label for="pekerjaan">Pekerjaan</label>
+                                    <select class="form-control" name="pekerjaan" id="pekerjaan">
+                                        <option value="PNS">PNS</option>
+                                        <option value="TNI">TNI</option>
+                                        <option value="Polri">Polri</option>
+                                        <option value="Karyawan Swasta">Karyawan Swasta</option>
+                                        <option value="Wiraswasta">Wiraswasta</option>
+                                        <option value="Petani">Petani</option>
+                                        <option value="Nelayan">Nelayan</option>
+                                        <option value="Buruh">Buruh</option>
+                                        <option value="Pedagang">Pedagang</option>
+                                        <option value="Guru">Guru</option>
+                                        <option value="Dokter">Dokter</option>
+                                        <option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
+                                        <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+                                        <option value="Tidak Bekerja">Tidak Bekerja</option>
+                                    </select>
                                 </div>
                             </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Range Gaji </label>
+                                    <input type="number"
+                                        class="form-control"
+                                        name="pendapatan">
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Status Sosial </label>
+                                    <select class="form-control" name="status_sosial">
+                                        <option value="Janda">Janda</option>
+                                        <option value="yatimpiatu">Yatim Piatu</option>
+                                        <option value="Lainnya">Lainnya</option>
+
+                                    </select>
+                
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Status Rumah </label>
+                                    <select class="form-control" name="status_rumah">
+                                        <option value="milik">Milik Sendiri</option>
+                                        <option value="Sewa">Sewa</option>
+                                        <option value="Kontrak">Kontrak</option>
+                                        <option value="Lainnya">Lainnya</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Status Kesehatan </label>
+                                    <select class="form-control" name="status_kesehatan">
+                                        <option value="Sehat">Sehat</option>
+                                        <option value="Sakit">Sakit</option>
+                                        <option value="Disabilitas">Disabilitas</option>
+                                    </select>
+                                </div>
+                            </div>
+
 
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -161,7 +228,7 @@
 
                             
 
-                            {{-- <div class="col-md-12">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="form-label">Roles</label>
                                     <div class="selectgroup w-100">
@@ -181,9 +248,7 @@
     
                                     </div>
                                 </div> 
-                            </div> --}}
-
-                            <input type="hidden" name="roles" value="3">
+                            </div>
                                 
                             
                             </div>
@@ -223,6 +288,8 @@
       });
     } );
 </script>
+
+
 
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">

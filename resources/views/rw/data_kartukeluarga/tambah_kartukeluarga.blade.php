@@ -26,156 +26,88 @@
             <div class="section-body">
                 <a style="width:120px; height:38px" href="{{ route('kartu-keluarga.index') }}" class="btn btn-lg btn-primary">Kembali</a>
 
-            <div class="section-body">
-                @include('sweetalert::alert')
+                <div class="section-body">
+                    @include('sweetalert::alert')
 
-                {{-- <h2 class="section-title">Users</h2> --}}
-
-
-
-                <div class="card">
-                    <form action="{{ route('kartu-keluarga.store') }}" method="POST">
-                        @csrf
-                        <div class="card-header">
-                            <h4>Form</h4>
-                        </div>
-                        <div class="card-body">
-
-                            <div class="row" >
-                                
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Nomor KK</label>
-                                    <input type="number"
-                                        class="form-control"
-                                        name="nomor_kk">
-                                </div>
+                    <div class="card">
+                        <form action="{{ route('kartu-keluarga.store') }}" method="POST">
+                            @csrf
+                            <div class="card-header">
+                                <h4>Form</h4>
                             </div>
-
-                            <div class="col-md-12" >
-                                <div class="form-group">
-                                    <label>Kepala Keluarga</label>
-                                    <input type="text"
-                                        class="form-control"
-                                        name="kepalakeluarga">
-                                </div>
-                            </div>
-
-                            <div class="col-md-4" >
-                                <div class="form-group">
-                                    <label>RT</label>
-                                    <input type="number"
-                                        class="form-control"
-                                        name="rt">
-                                </div>
-                            </div>
-
-                            <div class="col-md-4" >
-                                <div class="form-group">
-                                    <label>RW</label>
-                                    <input type="number"
-                                        class="form-control"
-                                        name="rw">
-                                </div>
-                            </div>
-
-                            <div class="col-md-4" >
-                                <div class="form-group">
-                                    <label>Kelurahan</label>
-                                    <input type="text"
-                                        class="form-control"
-                                        name="kelurahan">
-                                </div>
-                            </div>
-                            {{-- <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Kelurahan </label>
-                                    <input style="height: 100px" class="form-control" name="alamat"></input>
-                                </div>
-                            </div> --}}
-
-                            <div class="col-md-4" >
-                                <div class="form-group">
-                                    <label>Kecamatan</label>
-                                    <input type="text"
-                                        class="form-control"
-                                        name="kecamatan">
-                                </div>
-                            </div>
-
-                            <div class="col-md-4" >
-                                <div class="form-group">
-                                    <label>Kabupaten</label>
-                                    <input type="text"
-                                        class="form-control"
-                                        name="kabupaten">
-                                </div>
-                            </div>
-
-                            <div class="col-md-4" >
-                                <div class="form-group">
-                                    <label>Provinsi</label>
-                                    <input type="text"
-                                        class="form-control"
-                                        name="provinsi">
-                                </div>
-                            </div>
-
-                            
-
-
-
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>alamat </label>
-                                    <textarea style="height: 100px" class="form-control" name="alamat"></textarea>
-                                </div>
-                            </div>
-
-                    
-         
-
-                          
-
-                            
-
-                          
-
-                            
-
-                            
-
-                            {{-- <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="form-label">Roles</label>
-                                    <div class="selectgroup w-100">
-                                        <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="3" class="selectgroup-input"
-                                                checked="">
-                                            <span class="selectgroup-button">Penduduk</span>
-                                        </label>
-                                        <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="2" class="selectgroup-input">
-                                            <span class="selectgroup-button">RT</span>
-                                        </label>
-                                        <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="1" class="selectgroup-input">
-                                            <span class="selectgroup-button">RW</span>
-                                        </label>
-    
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Nomor KK</label>
+                                            <input type="number" class="form-control" name="nomor_kk" required>
+                                        </div>
                                     </div>
-                                </div> 
-                            </div> --}}
-                                
-                            
-                            </div>
-                        </div>
-                        <div class="card-footer text-right">
-                            <button class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                </div>
 
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Kepala Keluarga</label>
+                                            <input type="text" class="form-control" name="kepalakeluarga" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>RT</label>
+                                            <input type="number" class="form-control" name="rt" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>RW</label>
+                                            <input type="number" class="form-control" name="rw" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Kelurahan</label>
+                                            <input type="text" class="form-control" name="kelurahan" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Kecamatan</label>
+                                            <input type="text" class="form-control" name="kecamatan" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Kabupaten</label>
+                                            <input type="text" class="form-control" name="kabupaten" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Provinsi</label>
+                                            <input type="text" class="form-control" name="provinsi" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Alamat</label>
+                                            <textarea style="height: 100px" class="form-control" name="alamat" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
             </div>
         </section>
     </div>
@@ -183,4 +115,3 @@
 
 @push('scripts')
 @endpush
-
