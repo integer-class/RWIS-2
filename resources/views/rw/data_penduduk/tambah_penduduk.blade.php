@@ -50,7 +50,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Nama (sesuai di ktp) </label>
-                                    <input type="text"
+                                    <input required type="text"
                                         class="form-control"
                                         name="nama">
                                 </div>
