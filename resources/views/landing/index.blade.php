@@ -112,7 +112,7 @@
         <!--one place-->
         <div class="container mt-lg-8 mt-md-6 mt-5">
             <div class="row gx-lg-5">
-                <div class="col-lg-6 order-lg-1"><img src=""
+                <div class="col-lg-6 order-lg-1"><img src="{{ asset('assets/images/team/phonee.jpg') }}"
                         alt="home"></div>
                 <div class="col-lg-6 col-md-12 pb-lg-4 my-auto">
                     <div class="mt-lg-0 mt-md-5 mt-3">
