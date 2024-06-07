@@ -11,8 +11,8 @@ class Penduduk extends Model
 
     protected $table = 'penduduk';
     protected $primaryKey = 'nik';
-    public $incrementing = false; // Because nik is not an auto-incrementing integer
-    protected $keyType = 'string'; // Assuming nik is a string, set this to 'int' if it's an integer
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     protected $fillable = [
         'nik',
@@ -28,19 +28,18 @@ class Penduduk extends Model
         'status',
         'id_rt',
         'foto',
-        'pendapatan', // Added field
-        'status_sosial', // Added field
-        'status_rumah', // Added field
-        'status_kesehatan', // Added field
-        'tempat_lahir', // Added field
+        'pendapatan',
+        'status_sosial',
+        'status_rumah',
+        'status_kesehatan',
+        'tempat_lahir',
     ];
 
-    // Tambahkan casting untuk status jika diperlukan
     protected $casts = [
         'status' => 'string',
     ];
 
-    public function KartuKeluarga()
+    public function kartuKeluarga()
     {
         return $this->belongsTo(KartuKeluarga::class, 'nomor_kk', 'nomor_kk');
     }
