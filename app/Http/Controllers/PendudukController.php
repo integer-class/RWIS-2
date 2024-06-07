@@ -97,7 +97,7 @@ class PendudukController extends Controller
         
         // Redirect kembali ke halaman form
         return redirect()->route('penduduk.index');
-    }
+    }   
     
 
     public function show(Penduduk $penduduk)
@@ -126,20 +126,23 @@ class PendudukController extends Controller
 
     public function update(Request $request, Penduduk $penduduk)
     {
-        $request->validate([
-            'nama' => 'required|string|max:255',
-            'alamat' => 'required|string|max:255',
-            'tanggal_lahir' => 'required|date',
-            'jenis_kelamin' => 'required|in:L,P',
-            'agama' => 'required|in:Islam,Kristen,Katolik,Hindu,Budha,Konghucu', 
-            'status_perkawinan' => 'required|in:Kawin,Belum Kawin,Cerai',
-            'golongan_darah' => 'required|in:A,B,AB,O',
-            'id_rt' => 'required|exists:rt,id_rt',
-            'pekerjaan' => 'required|string|max:255',
-            'nomor_kk' => 'required|string|max:255',
-            'status' => 'required|in:hidup,meninggal,pindah',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        // $request->validate([
+        //     'nama' => 'required|string|max:255',
+        //     'alamat' => 'required|string|max:255',
+        //     'tanggal_lahir' => 'required|date',
+        //     'jenis_kelamin' => 'required|in:L,P',
+        //     'agama' => 'required|in:Islam,Kristen,Katolik,Hindu,Budha,Konghucu', 
+        //     'status_perkawinan' => 'required|in:Kawin,Belum Kawin,Cerai',
+        //     'golongan_darah' => 'required|in:A,B,AB,O',
+        //     'id_rt' => 'required|exists:rt,id_rt',
+        //     'pekerjaan' => 'required|string|max:255',
+        //     'nomor_kk' => 'required|string|max:255',
+        //     'status' => 'required|in:hidup,meninggal,pindah',
+        //     'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        //     'status_sosial' => 'required|in:Janda,Yatim Piatu,Lainnya',
+        //     'status_rumah' => 'required|in:Milik Sendiri,Sewa,Kontrak,Lainnya',
+        //     'status_kesehatan' =>'required|in:Sehat,Sakit,Disabilitas',
+        // ]);
 
         $penduduk->update([
             'nama' => $request->input('nama'),
@@ -148,11 +151,15 @@ class PendudukController extends Controller
             'jenis_kelamin' => $request->input('jenis_kelamin'),
             'agama' => $request->input('agama'),
             'status_perkawinan' => $request->input('status_perkawinan'),
-            'golongan_darah' => $request->input('golongan_darah'),
+            'golong_darah' => $request->input('golongan_darah'),
             'id_rt' => $request->input('id_rt'),
             'pekerjaan' => $request->input('pekerjaan'),
             'nomor_kk' => $request->input('nomor_kk'),
             'status' => strtolower($request->input('status')),
+            'pendapatan' => $request->input('pendapatan'),
+            'status_sosial' => $request->input('status_sosial'),
+            'status_rumah' => $request->input('status_rumah'),
+            'status_kesehatan' => $request->input('status_kesehatan'),
         ]);
 
         if ($request->hasFile('foto')) {

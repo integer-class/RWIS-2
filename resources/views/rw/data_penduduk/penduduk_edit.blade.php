@@ -39,76 +39,86 @@
                             <h4>Form</h4>
                         </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Nama (sesuai di KTP)</label>
-                                        <input type="text" class="form-control" name="nama" value="{{ $penduduk->nama }}">
-                                    </div>
-                                </div>
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>NIK</label>
-                                        <input type="number" class="form-control" name="nik" value="{{ $penduduk->nik }}">
-                                    </div>
+                            <div class="row" >
+                                
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Nama (sesuai di ktp) </label>
+                                    <input type="text"
+                                        class="form-control"
+                                        name="nama"
+                                        value="{{ $penduduk->nama }}">
                                 </div>
+                            </div>
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Agama</label>
-                                        <select class="form-control" name="agama">
-                                            <option value="Islam" {{ $penduduk->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                            <div class="col-md-12" >
+                                <div class="form-group">
+                                    <label>NIK</label>
+                                    <input type="number"
+                                        class="form-control"
+                                        name="nik"
+                                        value="{{ $penduduk->nik }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4" >
+                                <div class="form-group">
+                                    <label>Agama</label>
+                                    <select class="form-control" name="agama">
+                                         <option value="Islam" {{ $penduduk->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
                                             <option value="Kristen" {{ $penduduk->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
                                             <option value="Katolik" {{ $penduduk->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
                                             <option value="Hindu" {{ $penduduk->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
                                             <option value="Budha" {{ $penduduk->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
                                             <option value="Konghucu" {{ $penduduk->agama == 'Konghucu' ? 'selected' : '' }}>Konghucu</option>
-                                        </select>
-                                    </div>
+                                    </select>
+                                    
                                 </div>
+                            </div>
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Status Kawin</label>
-                                        <select class="form-control" name="status_perkawinan">
-                                            <option value="Kawin" {{ $penduduk->status_perkawinan == 'Kawin' ? 'selected' : '' }}>Kawin</option>
+                            <div class="col-md-4" >
+                                <div class="form-group">
+                                    <label>Status Kawin</label>
+                                    <select class="form-control" name="status_perkawinan">
+                                        <option value="Kawin" {{ $penduduk->status_perkawinan == 'Kawin' ? 'selected' : '' }}>Kawin</option>
                                             <option value="Belum Kawin" {{ $penduduk->status_perkawinan == 'Belum Kawin' ? 'selected' : '' }}>Belum Kawin</option>
                                             <option value="Cerai" {{ $penduduk->status_perkawinan == 'Cerai' ? 'selected' : '' }}>Cerai</option>
-                                        </select>
-                                    </div>
+                                    </select>
                                 </div>
+                            </div>
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Golongan Darah</label>
-                                        <select class="form-control" name="golongan_darah">
-                                            <option value="A" {{ $penduduk->golongan_darah == 'A' ? 'selected' : '' }}>A</option>
-                                            <option value="B" {{ $penduduk->golongan_darah == 'B' ? 'selected' : '' }}>B</option>
-                                            <option value="AB" {{ $penduduk->golongan_darah == 'AB' ? 'selected' : '' }}>AB</option>
-                                            <option value="O" {{ $penduduk->golongan_darah == 'O' ? 'selected' : '' }}>O</option>
-                                        </select>
-                                    </div>
+                          
+
+                            <div class="col-md-4" >
+                                <div class="form-group">
+                                    <label>Gologongan darah</label>
+                                    <select class="form-control" name="golongan_darah">
+                                        <option value="A" {{ $penduduk->golongan_darah == 'A' ? 'selected' : '' }}>A</option>
+                                        <option value="B" {{ $penduduk->golongan_darah == 'B' ? 'selected' : '' }}>B</option>
+                                        <option value="AB" {{ $penduduk->golongan_darah == 'AB' ? 'selected' : '' }}>AB</option>
+                                        <option value="O" {{ $penduduk->golongan_darah == 'O' ? 'selected' : '' }}>O</option>
+                                    </select>
                                 </div>
+                            </div>
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Jenis Kelamin</label>
-                                        <select class="form-control" name="jenis_kelamin">
-                                            <option value="L" {{ $penduduk->jenis_kelamin == 'L' ? 'selected' : '' }}>Laki-laki</option>
-                                            <option value="P" {{ $penduduk->jenis_kelamin == 'P' ? 'selected' : '' }}>Perempuan</option>
-                                        </select>
-                                    </div>
+                            <div class="col-md-4" >
+                                <div class="form-group">
+                                    <label>Jenis Kelamin</label>
+                                    <select class="form-control" name="jenis_kelamin">
+                                        <option value="L" {{ $penduduk->jenis_kelamin == 'L' ? 'selected' : '' }}>Laki-laki</option>
+                                        <option value="P" {{ $penduduk->jenis_kelamin == 'P' ? 'selected' : '' }}>Perempuan</option>
+                                    </select>
                                 </div>
+                            </div>
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Tanggal Lahir</label>
-                                        <input type="date" class="form-control" name="tanggal_lahir" value="{{ $penduduk->tanggal_lahir }}">
-                                    </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Tanggal lahir</label>
+                                    <input type="date" class="form-control" name="tanggal_lahir" value="{{ $penduduk->tanggal_lahir }}">
                                 </div>
+                            </div>
 
-                                <div class="col-md-4">
+                            <div class="col-md-4">
                                     <div class="form-group">
                                         <label>RT</label>
                                         <select class="form-control" name="id_rt">
@@ -120,38 +130,126 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Pekerjaan</label>
-                                        <input type="text" class="form-control" name="pekerjaan" value="{{ $penduduk->pekerjaan }}">
-                                    </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="pekerjaan">Pekerjaan</label>
+                                    <select class="form-control" name="pekerjaan" id="pekerjaan">
+                                        <option value="PNS">PNS</option>
+                                        <option value="TNI">TNI</option>
+                                        <option value="Polri">Polri</option>
+                                        <option value="Karyawan Swasta">Karyawan Swasta</option>
+                                        <option value="Wiraswasta">Wiraswasta</option>
+                                        <option value="Petani">Petani</option>
+                                        <option value="Nelayan">Nelayan</option>
+                                        <option value="Buruh">Buruh</option>
+                                        <option value="Pedagang">Pedagang</option>
+                                        <option value="Guru">Guru</option>
+                                        <option value="Dokter">Dokter</option>
+                                        <option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
+                                        <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+                                        <option value="Tidak Bekerja">Tidak Bekerja</option>
+                                    </select>
                                 </div>
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Nomor KK <span style="color:red;">(Jika tidak memiliki KK, <a href="{{ route('kartu-keluarga.create') }}">buat disini</a>)</span></label>
-                                        <input type="text" class="form-control" name="nomor_kk" id="tags" value="{{ $penduduk->nomor_kk }}">
-                                    </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Range Gaji </label>
+                                    <input type="number"
+                                        class="form-control"
+                                        name="pendapatan"
+                                        value="{{ $penduduk ->pendapatan }}">
                                 </div>
+                            </div>
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Alamat</label>
-                                        <textarea style="height: 100px" class="form-control" name="alamat">{{ $penduduk->alamat }}</textarea>
-                                    </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Status Sosial </label>
+                                    <select class="form-control" name="status_sosial">
+                                        <option value="Janda">Janda</option>
+                                        <option value="yatimpiatu">Yatim Piatu</option>
+                                        <option value="Lainnya">Lainnya</option>
+
+                                    </select>
+                
                                 </div>
+                            </div>
 
-                                {{-- <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Foto</label>
-                                        <input type="file" class="form-control-file" name="foto">
-                                        @if ($penduduk->foto)
-                                            <img src="{{ asset('storage/fotos/' . $penduduk->foto) }}" alt="Foto" class="img-thumbnail mt-2" width="150">
-                                        @endif
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Status Rumah </label>
+                                    <select class="form-control" name="status_rumah">
+                                        <option value="milik">Milik Sendiri</option>
+                                        <option value="Sewa">Sewa</option>
+                                        <option value="Kontrak">Kontrak</option>
+                                        <option value="Lainnya">Lainnya</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Status Kesehatan </label>
+                                    <select class="form-control" name="status_kesehatan">
+                                        <option value="Sehat">Sehat</option>
+                                        <option value="Sakit">Sakit</option>
+                                        <option value="Disabilitas">Disabilitas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Nomor KK <span style="color:red;">(Jika tidak memiliki KK, <a href="{{ route('kartu-keluarga.create') }}">buat disini</a>)</span></label>
+
+                                    <input type="text"
+                                        class="form-control"
+                                        name="nomor_kk" id="tags" value="{{ $penduduk->nomor_kk }}"s>
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Alamat </label>
+                                    <textarea style="height: 100px" class="form-control" name="alamat">{{ $penduduk->alamat }}</textarea>
+                                </div>
+                            </div>
+
+                            
+
+                            
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label">Roles</label>
+                                    <div class="selectgroup w-100">
+                                        <label class="selectgroup-item">
+                                            <input type="radio" name="roles" value="3" class="selectgroup-input"
+                                                checked="">
+                                            <span class="selectgroup-button">Penduduk</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="radio" name="roles" value="2" class="selectgroup-input">
+                                            <span class="selectgroup-button">RT</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="radio" name="roles" value="1" class="selectgroup-input">
+                                            <span class="selectgroup-button">RW</span>
+                                        </label>
+    
                                     </div>
-                                </div> --}}
-
-                                <div class="col-md-12"> 
+                                </div> 
+                                
+                            </div>
+                                
+                            <div class="col-md-12"> 
                                     <div class="form-group">
                                         <label class="form-label">Status</label>
                                         <div class="selectgroup w-100">
@@ -170,10 +268,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                    
-
                             </div>
+                            
                         </div>
+                        
+                                
 
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Update</button>
@@ -183,6 +282,7 @@
             </div>
         </section>
     </div>
+    
 @endsection
 
 @push('scripts')
