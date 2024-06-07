@@ -209,7 +209,7 @@
                 <div class="container mt-lg-5 mt-md-4 mt-4">
                     <div class="row gx-lg-5 gy-5">
                         <div class="col-lg-4 mt-lg-5">
-                            <div class="member-image"><img src="{{ asset('assets/images/team/t1.jpg') }}"
+                            <div class="member-image"><img src="{{ asset('assets/images/team/uzii.jpg') }}"
                                     alt="team"></div>
                             <div class="member-content">
                                 <div class="member-text">
@@ -226,8 +226,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 mt-lg-4 mt-lg-5 mt-md-6 mt-5">
-                            <div class="member-image"><img src="{{ asset('assets/images/team/t2.jpg') }}"
+                        <div class="col-lg-4 mt-lg-6 mt-lg-6 mt-md-6 mt-9">
+                            <div class="member-image"><img src="{{ asset('assets/images/team/arab.jpg') }}"
                                     alt="team"></div>
                             <div class="member-content">
                                 <div class="member-text">
@@ -245,7 +245,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 mt-lg-4 mt-lg-5 mt-md-6 mt-5">
-                            <div class="member-image"><img src="{{ asset('assets/images/team/t3.jpg') }}"
+                            <div class="member-image"><img src="{{ asset('assets/images/team/arab.jpg') }}"
                                     alt="team"></div>
                             <div class="member-content">
                                 <div class="member-text">
