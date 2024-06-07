@@ -47,9 +47,7 @@ class RT_PendudukController extends Controller
     public function create()
     {
         $type_menu = 'penduduk';
-
         $rt = \App\Models\Rt::where('id_rt', auth()->user()->id_rt)->get();
-
         $kartukeluarga = \App\Models\KartuKeluarga::all();
         
         return view('rt.rt_data_penduduk.create', compact('rt', 'type_menu', 'kartukeluarga'));
@@ -72,22 +70,22 @@ class RT_PendudukController extends Controller
         $namaUpper = strtoupper($namaDepan);
         
             Penduduk::create([
-                'nik' => $request->nik,
-                'nomor_kk' => $nomor_kk,
-                'nama' => $request->nama,
-                'tempat_lahir' => $request->tempat_lahir,
-                'tanggal_lahir' => $request->tanggal_lahir,
-                'jenis_kelamin' => $request->jenis_kelamin,
-                'agama' => $request->agama,
-                'pendidikan' => $request->pendidikan,
-                'pekerjaan' => $request->pekerjaan,
-                'status_perkawinan' => $request->status_perkawinan,
-                'status_hubungan' => $request->status_hubungan,
-                'kewarganegaraan' => $request->kewarganegaraan,
-                'id_rt' => $request->id_rt,
-                'foto' => 'default.png', 
-                'alamat' => $request->alamat,
-                'status' => '1',
+            'nik' => $request->nik,
+            'nomor_kk' => $nomor_kk,
+            'nama' => $request->nama,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'golong_darah' => $request->golongan_darah,
+            'alamat' => $request->alamat,
+            'agama' => $request->agama,
+            'status_perkawinan' => $request->status_perkawinan,
+            'pekerjaan' => $request->pekerjaan,
+            'id_rt' => $request->id_rt,
+            'pendapatan' => $request->pendapatan,
+            'status_sosial' => $request->status_sosial,
+            'status_rumah' => $request->status_rumah,
+            'status_kesehatan' => $request->status_kesehatan,
+            'foto' => 'default.png',
             ]);
 
             User::create([
@@ -165,33 +163,63 @@ class RT_PendudukController extends Controller
      * Update the specified resource in storage.
      */
 
-     public function update(Request $request)
+     public function update(Request $request, Penduduk $penduduk)
      {
+        // $request->validate([
+        //     'nama' => 'required|string|max:255',
+        //     'alamat' => 'required|string|max:255',
+        //     'tanggal_lahir' => 'required|date',
+        //     'jenis_kelamin' => 'required|in:L,P',
+        //     'agama' => 'required|in:Islam,Kristen,Katolik,Hindu,Budha,Konghucu', 
+        //     'status_perkawinan' => 'required|in:Kawin,Belum Kawin,Cerai',
+        //     'golongan_darah' => 'required|in:A,B,AB,O',
+        //     'id_rt' => 'required|exists:rt,id_rt',
+        //     'pekerjaan' => 'required|string|max:255',
+        //     'nomor_kk' => 'required|string|max:255',
+        //     'status' => 'required|in:hidup,meninggal,pindah',
+        //     'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        //     'status_sosial' => 'required|in:Janda,Yatim Piatu,Lainnya',
+        //     'status_rumah' => 'required|in:Milik Sendiri,Sewa,Kontrak,Lainnya',
+        //     'status_kesehatan' =>'required|in:Sehat,Sakit,Disabilitas',
+        // ]);
 
-        $penduduk = Penduduk::where('nik', $request->nik)->firstOrFail();
         $penduduk->update([
-            'nomor_kk' => $request->nomor_kk,
-            'nama' => $request->nama,
-            'tempat_lahir' => $request->tempat_lahir,
-            'tanggal_lahir' => $request->tanggal_lahir,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'agama' => $request->agama,
-            'pendidikan' => $request->pendidikan,
-            'pekerjaan' => $request->pekerjaan,
-            'status_perkawinan' => $request->status_perkawinan,
-            'status_hubungan' => $request->status_hubungan,
-            'kewarganegaraan' => $request->kewarganegaraan,
-            'id_rt' => $request->rt,
-            'alamat' => $request->alamat,
+            'nama' => $request->input('nama'),
+            'alamat' => $request->input('alamat'),
+            'tanggal_lahir' => $request->input('tanggal_lahir'),
+            'jenis_kelamin' => $request->input('jenis_kelamin'),
+            'agama' => $request->input('agama'),
+            'status_perkawinan' => $request->input('status_perkawinan'),
+            'golong_darah' => $request->input('golongan_darah'),
+            'id_rt' => $request->input('id_rt'),
+            'pekerjaan' => $request->input('pekerjaan'),
+            'nomor_kk' => $request->input('nomor_kk'),
             'status' => strtolower($request->input('status')),
+            'pendapatan' => $request->input('pendapatan'),
+            'status_sosial' => $request->input('status_sosial'),
+            'status_rumah' => $request->input('status_rumah'),
+            'status_kesehatan' => $request->input('status_kesehatan'),
         ]);
 
-        Alert::success('Berhasil', 'Data Penduduk Berhasil Diubah');
-        return redirect()->route('rt_penduduk.index');
+        if ($request->hasFile('foto')) {
+            $fotoName = $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->storeAs('fotos', $fotoName, 'public');
+            $penduduk->foto = $fotoName;
+            $penduduk->save();
+        }
 
         
-        
-     }
+       
+
+        //jika status penduduk meninggal maka user akan diaresipkan
+        if($request->status == 'meninggal' || $request->status == 'pindah'){
+            $penduduk->arsip = 'true';
+            $penduduk->save();
+        }
+
+
+        return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diperbarui.');
+    }
 
  
 
