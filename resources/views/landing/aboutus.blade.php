@@ -19,35 +19,33 @@
           <div class="col-lg-6 mb-lg-0 mb-md-5 mb-5 order-lg-1"><img src="assets/images/team/udin.jpg" alt="about-us"></div>
           <div class="col-lg-6">
             <div class="pr-lg-9 pr-md-7 pr-6">
-              <h2 class="mb-4">We are Team in RWIS-2</h2>
+              <h2 class="mb-4">Kita dari tim RWIS-2</h2>
             </div>
             <div class="mb-4"> 
-              <p class="mb-4">Kami berdedikasi untuk memanfaatkan teknologi guna meningkatkan keterlibatan komunitas, menyederhanakan komunikasi, dan meningkatkan kualitas hidup di lingkungan kita. Misi kami adalah menyediakan sistem informasi yang andal dan mudah digunakan yang memenuhi kebutuhan unik warga, sehingga menciptakan komunitas yang lebih terhubung dan terinformasi.
-
-                Visi Kami
-                Visi kami adalah menjadi komunitas teladan di mana teknologi terintegrasi dengan lancar ke dalam kehidupan sehari-hari, memungkinkan warga untuk dengan mudah mengakses informasi penting, berpartisipasi dalam pemerintahan lokal, dan berkolaborasi dalam proyek komunitas. Kami berusaha menciptakan lingkungan yang transparan, efisien, dan inklusif yang dapat dijadikan contoh bagi lingkungan lainnya.
+              <p class="mb-4"><b>Visi dan Misi</b><br>
+                Kami berdedikasi untuk memanfaatkan teknologi guna meningkatkan keterlibatan komunitas, menyederhanakan komunikasi, dan meningkatkan kualitas hidup di lingkungan kita. Misi kami adalah menyediakan sistem informasi yang andal dan mudah digunakan, sehingga menciptakan komunitas yang lebih terhubung dan terinformasi. Visi kami adalah menjadi komunitas teladan di mana teknologi terintegrasi dengan lancar dalam kehidupan sehari-hari, memungkinkan warga mengakses informasi penting, berpartisipasi dalam pemerintahan lokal, dan berkolaborasi dalam proyek komunitas. Kami berusaha menciptakan lingkungan yang transparan, efisien, dan inklusif.<br>
                 
-                Siapa Kami
-                Tim kami terdiri dari kelompok sukarelawan yang beragam, profesional, dan penggemar teknologi yang memiliki semangat dalam pengembangan komunitas dan inovasi. Kami menggabungkan keahlian di bidang teknologi informasi, manajemen proyek, organisasi komunitas, dan desain pengalaman pengguna untuk menciptakan sistem yang benar-benar bermanfaat bagi warga.
+                <b>Siapa Kami</b><br>
+                Tim kami terdiri dari sukarelawan, profesional, dan penggemar teknologi yang berdedikasi dalam pengembangan komunitas dan inovasi. Kami menggabungkan keahlian di bidang teknologi informasi, manajemen proyek, dan desain pengalaman pengguna.<br>
                 
-                Apa yang Kami Lakukan
-                Kami mengembangkan dan memelihara Sistem Informasi RW, sebuah platform komprehensif yang mencakup:
+                <b>Apa yang Kami Lakukan</b><br>
+                Kami mengembangkan dan memelihara Sistem Informasi RW yang mencakup:
                 
-                Pengumuman Komunitas: Menyampaikan informasi tentang acara lokal, berita, dan pembaruan penting kepada warga.
-                Direktori Warga: Direktori yang aman dan pribadi untuk menghubungkan warga satu sama lain.
-                Permintaan Layanan: Proses yang disederhanakan untuk melaporkan masalah, meminta layanan, dan melacak kemajuan permintaan.
-                Manajemen Sumber Daya: Pengelolaan yang efisien terhadap sumber daya komunitas seperti fasilitas umum, ruang acara, dan lainnya.
-                Umpan Balik dan Survei: Alat untuk mengumpulkan umpan balik warga dan melakukan survei untuk lebih memahami kebutuhan dan preferensi komunitas.
+                Pengumuman Komunitas: Informasi tentang acara lokal, berita, dan pembaruan penting.
+                Direktori Warga: Direktori yang aman untuk menghubungkan warga.
+                Permintaan Layanan: Proses mudah untuk melaporkan masalah dan melacak permintaan.
+                Manajemen Sumber Daya: Pengelolaan fasilitas umum dan ruang acara.
+                Umpan Balik dan Survei: Alat untuk mengumpulkan umpan balik dan melakukan survei.
                 Nilai-Nilai Kami
-                Berpusat pada Komunitas: Kami memprioritaskan kebutuhan dan preferensi warga dalam setiap aspek desain dan implementasi sistem kami.
-                Transparansi: Kami memastikan bahwa semua proses dan keputusan terbuka dan transparan, sehingga membangun kepercayaan dan akuntabilitas.
-                Inovasi: Kami menerima solusi inovatif dan terus mencari cara untuk memperbaiki dan mengembangkan sistem informasi kami.
-                Kolaborasi: Kami percaya pada kekuatan kolaborasi dan secara aktif melibatkan warga, otoritas lokal, dan pemangku kepentingan lainnya.
-                Keamanan dan Privasi: Kami berkomitmen untuk melindungi privasi dan keamanan informasi warga kami.
+                Berpusat pada Komunitas: Prioritaskan kebutuhan warga.
+                Transparansi: Proses dan keputusan terbuka.
+                Inovasi: Terus mencari solusi inovatif.
+                Kolaborasi: Melibatkan warga dan pemangku kepentingan.
+                Keamanan dan Privasi: Melindungi informasi warga.
                 Bergabunglah dengan Kami
-                Kami mengundang semua warga untuk bergabung bersama kami dalam meningkatkan komunitas kita. Apakah Anda memiliki keterampilan teknis, kemampuan organisasi, atau hanya memiliki semangat dalam pelayanan komunitas, ada banyak cara untuk terlibat. Bersama-sama, kita dapat membangun lingkungan yang lebih kuat, lebih terhubung, dan lebih hidup.</p>
+                Kami mengundang semua warga untuk bergabung dan meningkatkan komunitas kita. Apakah Anda memiliki keterampilan teknis atau semangat dalam pelayanan komunitas, ada banyak cara untuk terlibat. Bersama-sama, kita bisa membangun lingkungan yang lebih kuat dan terhubung.</p>
                 <div class="border-left-1 pl-4">
-                  <cite class="font-weight-bold text-silver-chalice"> UJI GEMING</cite>
+                  <cite class="font-weight-bold text-silver-chalice"> RWKU</cite>
                 </div>
               </blockquote>
             </div>
