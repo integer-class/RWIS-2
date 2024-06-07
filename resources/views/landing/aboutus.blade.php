@@ -9,7 +9,7 @@
     <!--featured image-->
     <div class="container">
       <div class="row">
-        <div class="col-lg-12"><img src="assets/images/about-us/haha.jpg" alt="about-us"></div>
+        <div class="col-lg-12"><img src="assets/images/about-us/haha.jpg" alt="about-us"><p>*yang ngefoto nathan</p></div>
       </div>
     </div>
     <!-- image design-->

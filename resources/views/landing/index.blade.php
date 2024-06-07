@@ -112,7 +112,7 @@
         <!--one place-->
         <div class="container mt-lg-8 mt-md-6 mt-5">
             <div class="row gx-lg-5">
-                <div class="col-lg-6 order-lg-1"><img src="https://avatars.githubusercontent.com/u/145303948?v=4"
+                <div class="col-lg-6 order-lg-1"><img src=""
                         alt="home"></div>
                 <div class="col-lg-6 col-md-12 pb-lg-4 my-auto">
                     <div class="mt-lg-0 mt-md-5 mt-3">
@@ -214,7 +214,7 @@
                             <div class="member-content">
                                 <div class="member-text">
                                     <h5 class="member-name">Uzi</h5>
-                                    <div class="member-tag"><span class="member-role">Ketua RW</span></div>
+                                    <div class="member-tag"><span class="member-role">Sekretaris</span></div>
                                     <ul class="list-unstyled list-inlinetrue">
                                         <li class="list-inline-item"><a class="pr-2 text-ebony-clay"
                                                 href="#"><i class="fab fa-linkedin-in"></i></a></li>
@@ -227,12 +227,12 @@
                             </div>
                         </div>
                         <div class="col-lg-4 mt-lg-6 mt-lg-6 mt-md-6 mt-9">
-                            <div class="member-image"><img src="{{ asset('assets/images/team/arab.jpg') }}"
+                            <div class="member-image"><img src="{{ asset('assets/images/team/.jpg') }}"
                                     alt="team"></div>
                             <div class="member-content">
                                 <div class="member-text">
                                     <h5 class="member-name">Nathan</h5>
-                                    <div class="member-tag"><span class="member-role">Admin</span></div>
+                                    <div class="member-tag"><span class="member-role">Ketua</span></div>
                                     <ul class="list-unstyled list-inlinetrue">
                                         <li class="list-inline-item"><a class="pr-2 text-ebony-clay"
                                                 href="#"><i class="fab fa-linkedin-in"></i></a></li>
@@ -245,7 +245,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 mt-lg-4 mt-lg-5 mt-md-6 mt-5">
-                            <div class="member-image"><img src="{{ asset('assets/images/team/arab.jpg') }}"
+                            <div class="member-image"><img src="{{ asset('assets/images/team/.jpg') }}"
                                     alt="team"></div>
                             <div class="member-content">
                                 <div class="member-text">
