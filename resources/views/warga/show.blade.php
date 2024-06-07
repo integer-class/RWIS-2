@@ -26,8 +26,6 @@
                 </div>
             </div>
             
-
-
             <div class="section-body">
                 <a style="width:130px; height:38px" href="{{ route('penduduk.index') }}" class="btn btn-lg btn-primary">Kembali</a>
 
@@ -48,48 +46,18 @@
                                         {{$penduduk->nama}}
                                       </h4>
                                     </div>
-                                  </div>
-                                  
-                                
-                                
-                                
-                              
-
-                                
-
+                                </div>
                                 <div class="form-group">
                                     <select disabled style="height: 50px" class="form-control">
                                         <option>Warga</option>
                                         <option>RT</option>
                                        
                                     </select>
-                                </div>
-
-
+                                </div>  
                             </div>
                         </div>
-
                         <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="card card-statistic-1">
-                                        <div class="card-icon bg-primary">
-                                            <i class="far fa-user"></i>
-                                        </div>
-                                        <div class="card-wrap">
-                                            <div class="card-header">
-                                                <h4>Total Komplain</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                {{
-                                                    $komplain;
-                                                }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                
+                            <div class="row">                                                          
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="card card-statistic-1">
                                         <div class="card-icon bg-success">
@@ -108,8 +76,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="card">
                                 <div class="card-header">
                                     <h4>Alamat</h4>
@@ -154,29 +120,14 @@
                                             readonly>
                                     </div>
                                 </div>
-                                
-                                
-                            </div>
-
-
-                            
-                               
-                           
-                            
-                             
+                            </div>     
                         </div>
-
-
                         <div class="col-md-3">
                             <div class="card">
                                 <div class="card-header">
                                     <h4>Status</h4>
                                 </div>
                                 <div class="card-body">
-
-                                  
-
-
                                     @if ($penduduk->status == 'hidup')
 
                                     <span class="btn btn-primary btn-lg btn-block">Hidup</span>
@@ -207,10 +158,6 @@
                                 </div>
                         </div>
 
-
-
-                        
-
                         @if(isset($penduduk_kk) && $penduduk_kk->count() > 0)
                         <div class="card">
                             <div class="card-header">
@@ -235,19 +182,8 @@
                             </div>
                         </div>
                     @endif
-                    
-
-
-                        
-                          
-
-
                     </div>
-
-
                 </div>
-
-
             </div>
         @endsection
 

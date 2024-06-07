@@ -26,8 +26,6 @@
                 </div>
             </div>
             
-
-
             <div class="section-body">
                 <a style="width:130px; height:38px" href="{{ route('penduduk.index') }}" class="btn btn-lg btn-primary">Kembali</a>
 
@@ -48,14 +46,7 @@
                                         {{$penduduk->nama}}
                                       </h4>
                                     </div>
-                                  </div>
-                                  
-                                
-                                
-                                
-                              
-
-                                
+                                </div>
 
                                 <div class="form-group">
                                     <select disabled style="height: 50px" class="form-control">

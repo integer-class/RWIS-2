@@ -154,7 +154,7 @@ class Warga_DashboardController extends Controller
             ->where('nik', '!=', $penduduk->nik) 
             ->get();
         $type_menu = 'detail_penduduk'; 
-        return view('warga.profile', compact('penduduk', 'type_menu', 'penduduk_kk', 'jumlah_anggota_keluarga', 'komplain'));
+        return view('warga.profile', compact('penduduk', 'type_menu', 'penduduk_kk', 'jumlah_anggota_keluarga'));
     }
 
     /**
