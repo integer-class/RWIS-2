@@ -14,12 +14,12 @@ class Penduduk extends Seeder
     {
         \App\Models\Penduduk::factory()->create([
             'nik' => '1234567890123456',
-            'nama' => 'Test User',
+            'nama' => 'Nathan',
             'nomor_kk' => '472751886',
             'tanggal_lahir' => '2000-01-01',
             'jenis_kelamin' => 'L',
             'golong_darah' => 'A',
-            'alamat' => 'Jl. Test No. 1',
+            'alamat' => 'Jl. kembang Kertas No. 1',
             'agama' => 'Islam',
             'status_perkawinan' => 'Belum Kawin',
             'pekerjaan' => 'PNS',
@@ -35,12 +35,12 @@ class Penduduk extends Seeder
 
         \App\Models\Penduduk::factory()->create([
             'nik' => '1234567890123457',
-            'nama' => 'Test User 2',
+            'nama' => 'Fahrudin',
             'nomor_kk' => '472751886',
             'tanggal_lahir' => '2000-01-02',
             'jenis_kelamin' => 'P',
             'golong_darah' => 'B',
-            'alamat' => 'Jl. Test No. 2',
+            'alamat' => 'Jl. kembangturi No. 2',
             'agama' => 'Kristen',
             'status_perkawinan' => 'Kawin',
             'pekerjaan' => 'TNI',
@@ -55,13 +55,12 @@ class Penduduk extends Seeder
 
         \App\Models\Penduduk::factory()->create([
             'nik' => '1234567890123458',
-            'nama' => 'Test User 3',
-            'nomor_kk' => '472751887
-            ',
+            'nama' => 'Gastiadirijal',
+            'nomor_kk' => '472751887',
             'tanggal_lahir' => '2000-01-03',
             'jenis_kelamin' => 'L',
             'golong_darah' => 'AB',
-            'alamat' => 'Jl. Test No. 3',
+            'alamat' => 'Jl. Kembang Mawar No. 3',
             'agama' => 'Hindu',
             'status_perkawinan' => 'Cerai',
             'pekerjaan' => 'Tidak Bekerja',
