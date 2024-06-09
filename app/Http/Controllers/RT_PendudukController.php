@@ -120,7 +120,11 @@ class RT_PendudukController extends Controller
     public function show(string $penduduk)
     {
 
-        $penduduk = Penduduk::where('nik', $penduduk)->first();
+
+        $penduduk = \App\Models\Penduduk::join('users', 'penduduk.nik', '=', 'users.nik')
+    ->join('rt', 'users.id_rt', '=', 'rt.id_rt')
+    ->where('penduduk.nik', $penduduk)
+    ->first();
         $kartukeluarga = KartuKeluarga::where('nomor_kk', $penduduk->nomor_kk)->first();
         $penduduk_kk = Penduduk::where('nomor_kk', $penduduk->nomor_kk)->get();
         $user = User::where('nik', $penduduk->nik)->first();

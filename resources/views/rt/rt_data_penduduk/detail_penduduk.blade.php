@@ -32,7 +32,7 @@
                 <a style="width:130px; height:38px" href="{{ route('rt_penduduk.index') }}" class="btn btn-lg btn-primary">Kembali</a>
 
                 <div class="">
-                    <div style="margin-left: 30px;margin-top:90px" class="row">
+                    <div style="margin-left: 30px;margin-top:30px" class="row">
 
                         <div class="col-md-3">
                             <div class="">
@@ -57,13 +57,28 @@
 
                                 
 
-                                <div class="form-group">
-                                    <select disabled style="height: 50px" class="form-control">
-                                        <option>Warga</option>
-                                        <option>RT</option>
-                                       
-                                    </select>
+                                <div class="card">
+                                <div class="card-header">
+                                    <h4>Role</h4>
                                 </div>
+                                <div class="card-body">
+                                <div class="form-group">
+    
+                                    <div>
+                                    
+                                        @if ($penduduk->role == '2')
+                                            <span class="btn btn-primary btn-lg btn-block">Ketua RT</span>
+                                        @elseif ($penduduk->role == '3')
+                                            <span class="btn btn-primary btn-lg btn-block">Warga</span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                </div>
+                                </div>
+
+                                
+                                
 
 
                             </div>
@@ -97,7 +112,7 @@
                                         </div>
                                         <div class="card-wrap">
                                             <div class="card-header">
-                                                <h4>Jumlah Keluarga</h4>
+                                                <h4>Anggota Keluarga</h4>
                                             </div>
                                             <div class="card-body">
                                                 {{
@@ -111,49 +126,58 @@
 
 
                             <div class="card">
-                                <div class="card-header">
-                                    <h4>Alamat</h4>
-                                </div>
+                                
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="nik">NIK</label>
-                                        <input type="text" class="form-control" id="nik" value="1234567890"
-                                            readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="jenis_kelamin">Jenis Kelamin</label>
+    <div class="row mb-3">
+        <label for="nik" class="col-sm-4 col-form-label">NIK</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="nik" value="{{ $penduduk->nik }}" readonly>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="jenis_kelamin" class="col-sm-4 col-form-label">Jenis Kelamin</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="jenis_kelamin" value="{{ $penduduk->jenis_kelamin == 'L' ? 'Laki-laki' : 'Perempuan' }}" readonly>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="golongan_darah" class="col-sm-4 col-form-label">Golongan Darah</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="golongan_darah" value="{{ $penduduk->golong_darah }}" readonly>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="tanggal_lahir" class="col-sm-4 col-form-label">Tanggal Lahir</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="tanggal_lahir" value="{{ $penduduk->tanggal_lahir }}" readonly>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="agama" class="col-sm-4 col-form-label">Agama</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="agama" value="{{ $penduduk->agama }}" readonly>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="status_perkawinan" class="col-sm-4 col-form-label">Status Perkawinan</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="status_perkawinan" value="{{ $penduduk->status_perkawinan }}" readonly>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="alamat" class="col-sm-4 col-form-label">Alamat</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="alamat" value="{{ $penduduk->alamat }}" readonly>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="alamat" class="col-sm-4 col-form-label">Pekerjaan</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="alamat" value="{{ $penduduk->pekerjaan }}" readonly>
+        </div>
+    </div>
+</div>
 
-                                        
-                                        <input type="text" class="form-control" id="jenis_kelamin" value="{{
-                                            $penduduk->jenis_kelamin == 'L' ? 'Laki-laki' : 'Perempuan'
-                                        
-                                        }}"
-                                            readonly>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="tempat_lahir">Golongan Darah</label>
-                                        <input type="text" class="form-control lg" id="tempat_lahir" value="{{ $penduduk->golong_darah }}"
-                                            readonly>
-                                    </div>
-        
-                                    <div class="form-group">
-                                        <label for="tanggal_lahir">Tanggal Lahir</label>
-                                        <input type="text" class="form-control" id="tanggal_lahir" value="{{ $penduduk->tanggal_lahir }}"
-                                            readonly>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label for="tempat_lahir">Agama</label>
-                                        <input type="text" class="form-control lg" id="tempat_lahir" value="{{ $penduduk->agama }}"
-                                            readonly>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label for="tempat_lahir">Status Perkawinan</label>
-                                        <input type="text" class="form-control lg" id="tempat_lahir" value="{{ $penduduk->status_perkawinan }}"
-                                            readonly>
-                                    </div>
-                                </div>
                                 
                                 
                             </div>
@@ -198,6 +222,7 @@
 
 
 
+
                                     {{-- @foreach ( as $d  )
                                         
                                     @endforeach
@@ -205,28 +230,24 @@
                                     <a href="#" class="btn btn-primary btn-lg btn-block">Pindah</a>
                                     <a href="#" class="btn btn-danger btn-lg btn-block">Meninggal</a> --}}
                                 </div>
+                                
                         </div>
-
-
-
-                        
-
                         @if(isset($penduduk_kk) && $penduduk_kk->count() > 0)
                         <div class="card">
                             <div class="card-header">
-                                <h4>Keluarga</h4>
+                                <h4>Anggota Keluarga</h4>
                             </div>
                             <div class="card-body">
                                 @foreach ($penduduk_kk as $keluarga)
                                     <ul class="list-unstyled list-unstyled-border">
                                         <li class="media">
-                                            <img alt="image" class="rounded-circle mr-3" width="50" src="http://127.0.0.1:8001/img/avatar/avatar-1.png">
+                                            <img class="rounded-circle mr-3" width="50" height="50" src="{{ asset('penduduk/'.$penduduk->foto) }}" alt="avatar">
                                             <div class="media-body">
                                                 <div class="font-weight-bold mt-0 mb-1">
                                                     <a style="color: black" href="{{ route('penduduk.show', $keluarga->nik)}}">{{ $keluarga->nama }}</a>
                                                 </div>
                                                 <div class="text-success text-small font-600-bold"><i class="fas fa-circle"></i>
-                                                    Kepala Keluarga
+                                                    Anggota
                                                 </div>
                                             </div>
                                         </li>
@@ -234,7 +255,13 @@
                                 @endforeach
                             </div>
                         </div>
-                    @endif
+                    @endif
+
+
+
+                        
+
+                        
                     
 
 

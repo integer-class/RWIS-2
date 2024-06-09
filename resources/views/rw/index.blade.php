@@ -93,10 +93,7 @@
 
                                 @foreach ($komplain as $k )
                                 <li class="media">
-                                    <img class="rounded-circle mr-3"
-                                        width="50"
-                                        src="{{ asset('penduduk/'.$k->foto) }}"
-                                        alt="avatar">
+                                    <img class="rounded-circle mr-3" width="50" height="50" src="{{ asset('penduduk/'.$k->foto) }}" alt="avatar">
                                     <div class="media-body">
                                         <div class="text-primary float-right">
                                             {{
