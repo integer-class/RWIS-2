@@ -117,7 +117,8 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="nik">NIK</label>
-                                        <input type="text" class="form-control" id="nik" value="1234567890"
+                                        <input type="text" class="form-control" id="nik"  value="{{ $penduduk->nik }}"
+                                            readonly
                                             readonly>
                                     </div>
                                     <div class="form-group">

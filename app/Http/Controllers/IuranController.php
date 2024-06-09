@@ -46,7 +46,7 @@ class IuranController extends Controller
         $iuran = Iuran::join('kartu_keluarga', 'iuran.nomor_kk', '=', 'kartu_keluarga.nomor_kk')
             ->whereMonth('iuran.tanggal', $bulan)
             ->whereYear('iuran.tanggal', $tahun)
-            ->get();
+            ->paginate(10);
             
         
         return view ('rw.data_iuran.index',compact('bulan','tahun','type_menu','iuran','totalPemasukan','totalPengeluaran','totalSemuaPemasukan','totalSemuaPengeluaran'));

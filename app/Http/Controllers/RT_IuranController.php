@@ -43,7 +43,7 @@ class RT_IuranController extends Controller
             END as sudah_bayar", [$bulan, $tahun]))
         ->groupBy('kk.nomor_kk')
         ->setBindings([$bulan, $tahun], 'select')
-        ->get();
+        ->paginate(10);
 
     return view('rt.rt_data_iuran.index', compact('type_menu', 'result', 'bulan', 'tahun'));
 }

@@ -33,7 +33,7 @@
                 @include('sweetalert::alert')
 
                 <div class="card">
-                    <form action="{{ route('penduduk.store') }}" method="POST">
+                    <form action="{{ route('rt_penduduk.store') }}" method="POST">
                         @csrf
                         <div class="card-header">
                             <h4>Form</h4>
