@@ -101,6 +101,40 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Pengumuman</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled list-unstyled-border">
+                                @foreach ($pengumuman as $p)
+                                    <li class="media">
+                                        <img class="rounded-circle mr-3" width="50" src="{{ asset('penduduk/'.$p->foto) }}" alt="avatar">
+                                        <div class="media-body">
+                                            <div class="text-primary float-right">
+                                                {{ $p->created_at->diffForHumans() }}
+                                            </div>
+                                            <div class="media-title">{{ $p->nama }}</div>
+                                            <span class="text-small text-muted">
+                                                {{ Str::limit($p->isi_pengumuman, 50) }}
+                                            </span>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <div class="text-center pt-1 pb-1">
+                                <a href="{{ route('pengumuman.index') }}" class="btn btn-primary btn-round">
+                                    View All
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+                                </li>
                 <div class="row">
                     <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                         <div class="card">
