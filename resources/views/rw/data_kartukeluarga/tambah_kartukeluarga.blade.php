@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('library/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
 @endpush
-
+    
 @section('main')
     <div class="main-content">
         <section class="section">
@@ -23,9 +23,10 @@
                     <div class="breadcrumb-item">Tambah Kartu Keluarga</div>
                 </div>
             </div>
+            <h2>
             <div class="section-body">
                 <a style="width:120px; height:38px" href="{{ route('kartu-keluarga.index') }}" class="btn btn-lg btn-primary">Kembali</a>
-
+</h2>
                 <div class="section-body">
                     @include('sweetalert::alert')
 
