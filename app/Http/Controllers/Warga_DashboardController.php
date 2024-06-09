@@ -51,6 +51,10 @@ class Warga_DashboardController extends Controller
             ->join('pengumuman', 'pengumuman_rt.id_pengumuman', '=', 'pengumuman.id_pengumuman')
             ->select('pengumuman.*')
             ->first();
+            $pengumuman_tt = Pengumuman_rt::where('id_rt', $penduduk->id_rt)
+            ->join('pengumuman', 'pengumuman_rt.id_pengumuman', '=', 'pengumuman.id_pengumuman')
+            ->select('pengumuman.*')
+            ->get();
 
         if ($pengumuman_rt) {
             $tanggal_pengumuman = $pengumuman_rt->tanggal_pengumuman; 
@@ -99,7 +103,8 @@ class Warga_DashboardController extends Controller
         $labels_usia = array_keys($kategori_usia);
         $data_usia = array_values($kategori_usia);
 
-        return view('warga.index', compact('type_menu', 'penduduk', 'pengumuman', 'penduduk_hitung', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman', 'jumlah_kas', 'kartu_keluarga', 'jumlah_laki', 'jumlah_perempuan', 'iuran_bulanan', 'nama_bulan', 'labels_usia', 'data_usia'));
+    
+        return view('warga.index', compact('pengumuman_tt', 'type_menu', 'penduduk', 'pengumuman', 'penduduk_hitung', 'password_default', 'pengumuman_rt', 'tanggal_sekarang', 'tanggal_pengumuman', 'jumlah_kas', 'kartu_keluarga', 'jumlah_laki', 'jumlah_perempuan', 'iuran_bulanan', 'nama_bulan', 'labels_usia', 'data_usia'));
     }
 
     /**

@@ -107,7 +107,7 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled list-unstyled-border">
-                                @foreach ($pengumuman as $p)
+                                @foreach ($pengumuman_tt as $p)
                                     <li class="media">
                                         <img class="rounded-circle mr-3" 
                                         width="50" 
@@ -126,7 +126,7 @@
                                 @endforeach
                             </ul>
                             <div class="text-center pt-1 pb-1">
-                                <a href="{{ route('pengumuman.index') }}" 
+                                <a href="{{ route('warga_pengumuman.index') }}" 
                                     class="btn btn-primary btn-round">
                                     View All
                                 </a>
