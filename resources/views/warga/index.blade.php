@@ -307,7 +307,7 @@
     <script src="{{ asset('js/page/index-0.js') }}"></script>
 
 
-    @if ($penduduk->foto == 'default.png' || $password_default == 'yes')
+    {{-- @if ($penduduk->foto == 'default.png' || $password_default == 'yes')
             <!-- Modal HTML -->
             <div class="modal fade" id="fotoModal" tabindex="-1" role="dialog" aria-labelledby="fotoModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                 <div class="modal-dialog" role="document">
@@ -364,15 +364,9 @@
                 });
             </script>
    
-        @endif
+        @endif --}}
 
 
          <!-- JS Libraies -->
-    {{-- <script src="{{ asset('library/summernote/dist/summernote-bs4.js') }}"></script>
-    <script src="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
-    <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
-    <script src="{{ asset('library/upload-preview/upload-preview.js') }}"></script>
-
-    <!-- Page Specific JS File -->
-    <script src="{{ asset('js/page/features-post-create.js') }}"></script> --}}
+    
 @endpush
