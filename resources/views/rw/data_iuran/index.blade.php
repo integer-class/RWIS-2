@@ -240,9 +240,9 @@
 
                                 </table>
                             </div>
-                            {{-- <div class="float-right">
-                            {{ $categories->withQueryString()->links() }}
-                        </div> --}}
+                            <div class="float-right">
+                            {{ $iuran->withQueryString()->links() }}
+                        </div>
                         </div>
                     </div>
                 </div>

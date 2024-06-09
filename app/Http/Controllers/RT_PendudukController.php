@@ -59,6 +59,15 @@ class RT_PendudukController extends Controller
      */
     public function store(Request $request)
     {
+
+        //exist nik
+        $existingPenduduk = Penduduk::where('nik', $request->nik)->first();
+
+        if ($existingPenduduk) {
+            Alert::error('Data Duplikasi', 'NIK Telah Terdaftar!');
+            return redirect()->back();
+        } else {
+
         $nama = $request->nama;
         $nomor_kk = $request->nomor_kk;
         $pieces = explode(" - ", $nomor_kk);
@@ -100,6 +109,9 @@ class RT_PendudukController extends Controller
 
             Alert::success('Berhasil', 'Data Penduduk Berhasil Ditambahkan');
             return redirect()->route('rt_penduduk.index');
+            
+        }
+        
     }
 
     /**

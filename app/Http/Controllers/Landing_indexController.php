@@ -49,9 +49,11 @@ class Landing_indexController extends Controller
     public function dokumentasi()
     {
 
-        $dokumentasi = Dokumentasi::all();
-        // Your logic here
-        return view('landing.dokumentasi', compact('dokumentasi'));
+        $dokumentasi = Dokumentasi::where('arsip', 'false')
+        ->orderByDesc('created_at')
+        ->paginate(10);
+
+             return view('landing.dokumentasi', compact('dokumentasi'));
     }
 
     public function aboutus()

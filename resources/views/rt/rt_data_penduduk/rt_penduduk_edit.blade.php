@@ -135,7 +135,7 @@
                                         <textarea style="height: 100px" class="form-control" name="alamat">{{ $penduduk->alamat }}</textarea>
                                     </div>
                                 </div>
-
+{{-- 
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Foto</label>
@@ -144,7 +144,7 @@
                                             <img src="{{ asset('storage/fotos/' . $penduduk->foto) }}" alt="Foto" class="img-thumbnail mt-2" width="150">
                                         @endif
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-md-12"> 
                                     <div class="form-group">
