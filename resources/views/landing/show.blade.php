@@ -33,10 +33,10 @@
             @foreach ( $dokumentasi_foto as $foto )
 
             <div class="w-50 p-2"><img src="{{$foto->path}}" alt="Image"></div>
-              
+          
             @endforeach
-        
-       
+          </div>
+     
           </div>
         </div>
       </div>
