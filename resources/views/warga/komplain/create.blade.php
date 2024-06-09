@@ -57,7 +57,6 @@
                                         </select>
                                     </div>
                                 </div>
-                    
                                 <div class="col-md-7">
                                     <div class="form-group">
                                         <label>Isi Komplain</label>

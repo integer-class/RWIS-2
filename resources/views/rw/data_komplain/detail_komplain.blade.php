@@ -46,7 +46,7 @@
                                 <!-- Gambar Laporan -->
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img src="https://cloud.jpnn.com/photo/jatim/news/normal/2023/09/25/tumpukan-sampah-yang-mulai-menutup-setengah-badan-jalan-di-j-ml8v.jpg" class="img-fluid" alt="Laporan Image">
+                                        <img src="{{ asset('foto_komplain/' . $komplain->foto_komplain) }}" class="img-fluid" alt="Laporan Image">
                                     </div>
                                     <!-- Detail Laporan -->
                                     @include('sweetalert::alert')
