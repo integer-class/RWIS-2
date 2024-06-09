@@ -306,8 +306,9 @@
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/index-0.js') }}"></script>
 
-
-    {{-- @if ($penduduk->foto == 'default.png' || $password_default == 'yes')
+    <!-- Lengkapi data diri-->
+    
+    @if ($penduduk->foto == 'default.png' || $password_default == 'yes')
             <!-- Modal HTML -->
             <div class="modal fade" id="fotoModal" tabindex="-1" role="dialog" aria-labelledby="fotoModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                 <div class="modal-dialog" role="document">
@@ -326,7 +327,7 @@
                             @endif
                           
 
-                            <form method="post" enctype="multipart/form-data" action="{{ route('rt_dashboard.update', $penduduk->nik) }}">
+                            <form method="post" enctype="multipart/form-data" action="{{ route('warga_dashboard.update', $penduduk->nik) }}">
                                 @csrf
                                 @method('PUT') <!-- or @method('PATCH') -->
                             
@@ -364,7 +365,7 @@
                 });
             </script>
    
-        @endif --}}
+        @endif
 
 
          <!-- JS Libraies -->

@@ -121,7 +121,7 @@
                               
                             </ul>
                             <div class="pt-1 pb-1 text-center">
-                                <a href="#"
+                                <a href="{{ route('komplain.index') }}"
                                     class="btn btn-primary btn-lg btn-round">
                                     View All
                                 </a>

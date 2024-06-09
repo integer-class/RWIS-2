@@ -9,8 +9,13 @@
 
 @section('main')
     <div class="main-content">
-        
-            
+            <div class="card">
+    <div class="card-header">
+        <h3>Pengumuman</h3>
+        </div>
+    </div>
+       
+
             <div class="section-body">
                 <div class="row mt-4">
                     <div class="col-12">

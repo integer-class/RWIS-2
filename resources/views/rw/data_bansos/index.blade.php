@@ -67,7 +67,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $kk->nomor_kk }}</td>
                                                 <td>{{ $kk->alamat }}</td>
-                                                <td>{{ $kk->kepala_keluarga }}</td>
+                                                <td>{{ $kk->kepalakeluarga }}</td>
                                                 <td>{{ $skor_kartu_keluarga[$kk->nomor_kk] ?? 'N/A' }}</td>
                                                 <td>
                                                     <div style="margin-left: -20px" class="dropdown">

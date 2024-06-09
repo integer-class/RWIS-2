@@ -9,19 +9,13 @@
 @endpush
 
 @section('main')
-    <div class="main-content">
+            <div class="main-content">
+            <div class="card">
+            <div class="card-header">
+                <h3>Komplain</h3>
+                </div>
+            </div>
 
-
-
-        {{-- <section class="section"> --}}
-
-
-
-
-
-        
-
-     
             <div class="section-body">
                 
 
