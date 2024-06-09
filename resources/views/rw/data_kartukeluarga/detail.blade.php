@@ -40,17 +40,7 @@
 
                             <div class="card-body">
 
-                                <div class="float-right">
-                                    {{-- <form method="GET" action="{{ route('category.index') }}"> --}}
-                                        <form method="GET" action="">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search" name="search">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                               
 
                                 <div class="clearfix mb-3"></div>
 
@@ -93,10 +83,7 @@
                                             <th>Provinsi</th>
                                             <td>{{ $kartuKeluarga->provinsi }}</td>
                                         </tr>
-                                        <tr>
-                                            <th>Kewarganegaraan</th>
-                                            <td>{{ $kartuKeluarga->kewarganegaraan }}</td>
-                                        </tr>
+                                        
                                     </table>
                                 @else
                                     <p>No Kartu Keluarga found for the provided nomor KK.</p>
@@ -121,6 +108,8 @@
                                             <th>Jenis Kelamin</th>
                                           
                                             <th>Alamat</th>
+                                            <th>Pekerjaan</th>
+                                            <th>Pendapatan</th>
                                            
                                         </tr>
                                          @foreach ($penduduk as $p)
@@ -132,6 +121,8 @@
                                                 <td>{{ $p->jenis_kelamin }}</td>
                                                
                                                 <td>{{ $p->alamat }}</td>
+                                                <td>{{ $p->pekerjaan }}</td>
+                                                <td>{{ $p->pendapatan}}</td>
                                                
                                             </tr>
                                         @endforeach

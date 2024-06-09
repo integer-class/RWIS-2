@@ -27,7 +27,7 @@
             <h2 class="section">
                 <a style="width:130px; height:38px; margin-bottom:20px" href="{{ route('penduduk.index') }}" class="btn btn-lg btn-primary">Kembali</a>
             </h2>
-
+    
             <div class="section-body">
                 @include('sweetalert::alert')
 
