@@ -34,19 +34,8 @@
 
             <div class="w-50 p-2"><img src="{{$foto->path}}" alt="Image"></div>
               
-            @endforeach
-        
-       
+            @endforeach     
           </div>
-          <h3 class="mt-5">Location</h3>
-          <div class="map-responsive mt-4 mb-lg-8 mb-md-7 mb-5">
-            <iframe id="gmap_canvas" width="100" height="100" src="https://maps.google.com/maps?q=university%20of%20san%20francisco&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
-    
-  </div>
+          
   
 @endsection
