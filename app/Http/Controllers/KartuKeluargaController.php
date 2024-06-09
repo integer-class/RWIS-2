@@ -32,19 +32,29 @@ class KartuKeluargaController extends Controller
 
     public function store(Request $request)
     {
-        KartuKeluarga::create([
-            'nomor_kk' => $request->nomor_kk,
-            'kepalakeluarga' => $request->kepalakeluarga,
-            'alamat' => $request->alamat,
-            'rt' => $request->rt,
-            'rw' => $request->rw,
-            'kelurahan' => $request->kelurahan,
-            'kecamatan' => $request->kecamatan,
-            'kabupaten' => $request->kabupaten,
-            'provinsi' => $request->provinsi,
-        ]);
-        Alert::success('Berhasil!', 'Berhasil menambahkan data!');
-        return redirect()->back();
+
+        //exist nomor kk
+        $existingKartuKeluarga = KartuKeluarga::where('nomor_kk', $request->nomor_kk)->first();
+        if($existingKartuKeluarga){
+            Alert::error('Data Duplikasi', 'Nomor KK Telah Terdaftar!');
+            return redirect()->back();
+        }
+        else {
+            KartuKeluarga::create([
+                'nomor_kk' => $request->nomor_kk,
+                'kepalakeluarga' => $request->kepalakeluarga,
+                'alamat' => $request->alamat,
+                'rt' => $request->rt,
+                'rw' => $request->rw,
+                'kelurahan' => $request->kelurahan,
+                'kecamatan' => $request->kecamatan,
+                'kabupaten' => $request->kabupaten,
+                'provinsi' => $request->provinsi,
+            ]);
+            Alert::success('Berhasil!', 'Berhasil menambahkan data!');
+            return redirect()->back();
+        }
+       
     }
 
     public function show(string $nomor_kk)
@@ -63,33 +73,37 @@ class KartuKeluargaController extends Controller
     }
     public function update(Request $request)
     {
-        $nomor_kk = $request->input('nomor_kk');
-        // Validasi data sebelum update
-       
+        //exist nomor kk
+        $existingKartuKeluarga = KartuKeluarga::where('nomor_kk', $request->nomor_kk)->first();
 
-        // // Cari record berdasarkan primary key `nomor_kk`
-        $kartuKeluarga = KartuKeluarga::where('nomor_kk', $nomor_kk)->firstOrFail();
+        if ($existingKartuKeluarga) {
+            Alert::error('Data Duplikasi', 'Nomor KK Telah Terdaftar!');
+            return redirect()->back();
+        } else {
+            $kartuKeluarga->update([
+                'nomor_kk' => $request->input('nomor_kk'),
+                'kepalakeluarga' => $request->input('kepalakeluarga'),
+                'rt' => $request->input('rt'),
+                'rw' => $request->input('rw'),
+                'kelurahan' => $request->input('kelurahan'),
+                'kecamatan' => $request->input('kecamatan'),
+                'kabupaten' => $request->input('kabupaten'),
+                'provinsi' => $request->input('provinsi'),
+                'alamat' => $request->input('alamat'),
+            ]);
+    
+    
+            // dd($nomor_kk);
+    
+            // echo $nomor_kk;
+    
+            Alert::success('Berhasil!', 'Berhasil Megedit data!');
+            return redirect()->back();
+        }
 
+        
         // Update data Kartu Keluarga
-        $kartuKeluarga->update([
-            'nomor_kk' => $request->input('nomor_kk'),
-            'kepalakeluarga' => $request->input('kepalakeluarga'),
-            'rt' => $request->input('rt'),
-            'rw' => $request->input('rw'),
-            'kelurahan' => $request->input('kelurahan'),
-            'kecamatan' => $request->input('kecamatan'),
-            'kabupaten' => $request->input('kabupaten'),
-            'provinsi' => $request->input('provinsi'),
-            'alamat' => $request->input('alamat'),
-        ]);
-
-
-        // dd($nomor_kk);
-
-        // echo $nomor_kk;
-
-        Alert::success('Berhasil!', 'Berhasil Megedit data!');
-        return redirect()->back();
+       
        
 
 

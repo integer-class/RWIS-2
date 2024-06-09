@@ -50,6 +50,14 @@ class PendudukController extends Controller
     public function store(Request $request)
     {
         // Validasi input
+    $existingPenduduk = Penduduk::where('nik', $request->nik)->first();
+
+    // Jika NIK sudah ada, tampilkan pesan kesalahan
+    if($existingPenduduk){
+        Alert::error('Data Duplikasi', 'NIK Telah Terdaftar!');
+        return redirect()->back();
+    }
+    else {
         
     
         // Pisahkan nomor KK dan nama kepala keluarga
@@ -96,8 +104,9 @@ class PendudukController extends Controller
         Alert::success('Berhasil!', 'Berhasil menambahkan data!');
         
         // Redirect kembali ke halaman form
-        return redirect()->route('penduduk.index');
+        return redirect()->back();
     }   
+}
     
 
     public function show(Penduduk $penduduk)
@@ -144,42 +153,55 @@ class PendudukController extends Controller
         //     'status_kesehatan' =>'required|in:Sehat,Sakit,Disabilitas',
         // ]);
 
-        $penduduk->update([
-            'nama' => $request->input('nama'),
-            'alamat' => $request->input('alamat'),
-            'tanggal_lahir' => $request->input('tanggal_lahir'),
-            'jenis_kelamin' => $request->input('jenis_kelamin'),
-            'agama' => $request->input('agama'),
-            'status_perkawinan' => $request->input('status_perkawinan'),
-            'golong_darah' => $request->input('golongan_darah'),
-            'id_rt' => $request->input('id_rt'),
-            'pekerjaan' => $request->input('pekerjaan'),
-            'nomor_kk' => $request->input('nomor_kk'),
-            'status' => strtolower($request->input('status')),
-            'pendapatan' => $request->input('pendapatan'),
-            'status_sosial' => $request->input('status_sosial'),
-            'status_rumah' => $request->input('status_rumah'),
-            'status_kesehatan' => $request->input('status_kesehatan'),
-        ]);
 
-        if ($request->hasFile('foto')) {
-            $fotoName = $request->file('foto')->getClientOriginalName();
-            $request->file('foto')->storeAs('fotos', $fotoName, 'public');
-            $penduduk->foto = $fotoName;
-            $penduduk->save();
+        //exist nik 
+        $existingPenduduk = Penduduk::where('nik', $request->nik)->first();
+
+        if ($existingPenduduk && $existingPenduduk->nik != $penduduk->nik) {
+            Alert::error('Data Duplikasi', 'NIK Telah Terdaftar!');
+            return redirect()->back();
+        } else {
+
+            $penduduk->update([
+                'nama' => $request->input('nama'),
+                'alamat' => $request->input('alamat'),
+                'tanggal_lahir' => $request->input('tanggal_lahir'),
+                'jenis_kelamin' => $request->input('jenis_kelamin'),
+                'agama' => $request->input('agama'),
+                'status_perkawinan' => $request->input('status_perkawinan'),
+                'golong_darah' => $request->input('golongan_darah'),
+                'id_rt' => $request->input('id_rt'),
+                'pekerjaan' => $request->input('pekerjaan'),
+                'nomor_kk' => $request->input('nomor_kk'),
+                'status' => strtolower($request->input('status')),
+                'pendapatan' => $request->input('pendapatan'),
+                'status_sosial' => $request->input('status_sosial'),
+                'status_rumah' => $request->input('status_rumah'),
+                'status_kesehatan' => $request->input('status_kesehatan'),
+            ]);
+    
+            if ($request->hasFile('foto')) {
+                $fotoName = $request->file('foto')->getClientOriginalName();
+                $request->file('foto')->storeAs('fotos', $fotoName, 'public');
+                $penduduk->foto = $fotoName;
+                $penduduk->save();
+            }
+    
+            
+           
+    
+            //jika status penduduk meninggal maka user akan diaresipkan
+            if($request->status == 'meninggal' || $request->status == 'pindah'){
+                $penduduk->arsip = 'true';
+                $penduduk->save();
+            }
+    
+    
+            return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diperbarui.');
+            
         }
 
-        
        
-
-        //jika status penduduk meninggal maka user akan diaresipkan
-        if($request->status == 'meninggal' || $request->status == 'pindah'){
-            $penduduk->arsip = 'true';
-            $penduduk->save();
-        }
-
-
-        return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diperbarui.');
     }
 
 
