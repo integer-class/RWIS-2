@@ -191,7 +191,7 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Nomor KK <span style="color:red;">(Jika tidak memiliki KK, <a href="{{ route('kartu-keluarga.create') }}">buat disini</a>)</span></label>
+                                        <label>Nomor KK <span style="color:red;">(Jika tidak memiliki KK, <a href="{{ route('rt_kartukeluarga.create') }}">buat disini</a>)</span></label>
                                         <input type="text"
                                             class="form-control"
                                             name="nomor_kk" id="tags" required>
@@ -205,25 +205,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Roles</label>
-                                        <div class="selectgroup w-100">
-                                            <label class="selectgroup-item">
-                                                <input type="radio" name="roles" value="3" class="selectgroup-input" checked="">
-                                                <span class="selectgroup-button">Penduduk</span>
-                                            </label>
-                                            <label class="selectgroup-item">
-                                                <input type="radio" name="roles" value="2" class="selectgroup-input">
-                                                <span class="selectgroup-button">RT</span>
-                                            </label>
-                                            <label class="selectgroup-item">
-                                                <input type="radio" name="roles" value="1" class="selectgroup-input">
-                                                <span class="selectgroup-button">RW</span>
-                                            </label>
-                                        </div>
-                                    </div> 
-                                </div>
                             </div>
                         </div>
                         <div class="card-footer text-right">

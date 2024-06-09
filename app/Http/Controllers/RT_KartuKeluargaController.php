@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KartuKeluarga;
 use Illuminate\Http\Request;
+use Alert;
 
 class RT_KartuKeluargaController extends Controller
 {
@@ -27,7 +28,8 @@ class RT_KartuKeluargaController extends Controller
      */
     public function create()
     {
-        //
+        $type_menu = 'kartu-keluarga';
+        return view('rt.rt_data_kartukeluarga.create', compact('type_menu'));
     }
 
     /**
@@ -35,7 +37,27 @@ class RT_KartuKeluargaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //exist nomor kk
+        $existingKartuKeluarga = KartuKeluarga::where('nomor_kk', $request->nomor_kk)->first();
+        if($existingKartuKeluarga){
+            Alert::error('Data Duplikasi', 'Nomor KK Telah Terdaftar!');
+            return redirect()->back();
+        }
+        else {
+            KartuKeluarga::create([
+                'nomor_kk' => $request->nomor_kk,
+                'kepalakeluarga' => $request->kepalakeluarga,
+                'alamat' => $request->alamat,
+                'rt' => $request->rt,
+                'rw' => $request->rw,
+                'kelurahan' => $request->kelurahan,
+                'kecamatan' => $request->kecamatan,
+                'kabupaten' => $request->kabupaten,
+                'provinsi' => $request->provinsi,
+            ]);
+            Alert::success('Berhasil!', 'Berhasil menambahkan data!');
+            return redirect()->back();
+        }
     }
 
     /**
