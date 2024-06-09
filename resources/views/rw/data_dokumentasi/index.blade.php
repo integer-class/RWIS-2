@@ -68,13 +68,20 @@
                 </div>
 
               
+
+              
                 
                     
                 @endforeach
 
                 
+
+                
               
                
+            </div>
+            <div class="float-right">
+                {{ $dokumentasi->withQueryString()->links() }}
             </div>
     </div>
   </div>

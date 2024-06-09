@@ -20,12 +20,13 @@ class ArsipController extends Controller
         $type_menu = 'arsip';
         $penduduk = Penduduk::join('rt', 'penduduk.id_rt', '=', 'rt.id_rt')
         ->where('penduduk.arsip', 'true')
+
         ->where(function($query) {
          $query->where('penduduk.status', 'meninggal')
                 ->orWhere('penduduk.arsip', 'true')
                   ->orWhere('penduduk.status', 'pindah');
         })
-        ->get();
+        ->paginate(10);
         $pengumuman = Pengumuman::all()
         ->where('arsip', 'true');
 
@@ -67,7 +68,7 @@ class ArsipController extends Controller
 
         $pengumuman = Pengumuman::join('penduduk', 'pengumuman.nik', '=', 'penduduk.nik')
         ->where('pengumuman.arsip', 'true')         
-        ->get();
+        ->paginate(0);
 
         return view('rw.data_arsip.pengumuman', compact('type_menu','pengumuman','pengumuman_hitung','penduduk_hitung','dokumentasi_hitung'));
     }
@@ -76,8 +77,8 @@ class ArsipController extends Controller
     {
         $type_menu = 'arsip';
 
-        $dokumentasi = Dokumentasi::all()
-        ->where('arsip', 'true');
+        $dokumentasi = Dokumentasi::where('arsip', 'true')
+        ->paginate(10);
 
         $dokumentasi_hitung = Dokumentasi::where('arsip', 'true')->count();
         $pengumuman_hitung = Pengumuman::where('arsip', 'true')->count();

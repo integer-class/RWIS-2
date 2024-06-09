@@ -27,8 +27,10 @@ class DokumentasiController extends Controller
     {
         $type_menu = 'dokumentasi';
 
-        $dokumentasi = Dokumentasi::all()
-        ->where('arsip', 'false');
+        $dokumentasi = Dokumentasi::where('arsip', 'false')
+            ->orderByDesc('tanggal')
+            ->paginate(10);
+
         return view('rw.data_dokumentasi.index' , compact('type_menu','dokumentasi'));
     }
 

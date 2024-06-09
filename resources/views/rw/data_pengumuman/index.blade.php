@@ -38,8 +38,7 @@
                             <div class="card-body">
 
                                 <div class="float-right">
-                                    {{-- <form method="GET" action="{{ route('category.index') }}"> --}}
-                                        <form method="GET" action="">
+                                    <form method="GET" action="{{ route('pengumuman.index') }}">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Search" name="search">
                                             <div class="input-group-append">
@@ -105,18 +104,22 @@
 
                                             </td>
                                             <td>
-{{--                                                 
-                                                @if ($k->status_komplain == 'Diproses')
-                                                    <div class="badge badge-primary">Diproses</div>
-                                                @elseif ($k->status_komplain == 'Diterima')
-                                                    <div class="badge badge-warning">Diterima</div>
-                                                @elseif ($k->status_komplain == 'Selesai')
-                                                    <div class="badge badge-success">Selesai</div>
-                                                @endif --}}
+
+                                                @if ($k->tanggal_pengumuman < date('Y-m-d'))
+                                                    <div class="badge badge-danger">Kadaluarsa</div>
+                                                @else
+                                                    <div class="badge badge-success">Aktif</div>
+                                                @endif
+
+
                                             </td>
                                         </tr>
                                         @endforeach
                                     </table>
+                                </div>
+
+                                <div class="float-right">
+                                    {{ $pengumuman->links() }}
                                 </div>
 
                                 

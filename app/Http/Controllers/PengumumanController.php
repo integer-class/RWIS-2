@@ -19,15 +19,27 @@ class PengumumanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //pengumuman
-        $type_menu = 'pengumuman';
+       // Set type_menu
+    $type_menu = 'pengumuman';
+    
+    if ($request->has('search')) {
+        $pengumuman = Pengumuman::where('judul', 'LIKE', '%' . $request->search . '%')
+            ->where('arsip', 'false')
+            ->paginate(10);
+    } else {
+        $pengumuman = Pengumuman::where('arsip', 'false')
+            ->orderByDesc('tanggal_pengumuman')
+            ->paginate(10);
+    }
+    
 
-        $pengumuman = Pengumuman::join('penduduk', 'pengumuman.nik', '=', 'penduduk.nik')
-        ->where('pengumuman.arsip', 'false')         
-        ->get();
-        return view('rw.data_pengumuman.index', compact('type_menu','pengumuman'));
+
+ 
+    // Pass data to the view
+    return view('rw.data_pengumuman.index', compact('type_menu', 'pengumuman'));
     }
 
     public function arsip($id)
