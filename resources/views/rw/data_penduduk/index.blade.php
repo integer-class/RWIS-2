@@ -83,9 +83,12 @@
                                         @endforeach
                                     </table>
                                 </div>
-                                {{-- <div class="float-right">
-                                    {{ $categories->withQueryString()->links() }}
-                                </div> --}}
+                                <div class="float-right">
+                                    {{ $penduduk->links() }}
+                                </div>
+
+                                
+
                             </div>
                         </div>
                     </div>

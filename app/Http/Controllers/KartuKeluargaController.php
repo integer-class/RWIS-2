@@ -15,9 +15,9 @@ class KartuKeluargaController extends Controller
     public function index(Request $request)
     {
         if ($request->has('search')) {
-            $kartukeluarga = KartuKeluarga::where('kepalakeluarga', 'LIKE', '%' . $request->search . '%')->paginate(8);
+            $kartukeluarga = KartuKeluarga::where('kepalakeluarga', 'LIKE', '%' . $request->search . '%')->paginate(10);
         } else {
-            $kartukeluarga = KartuKeluarga::paginate(8);
+            $kartukeluarga = KartuKeluarga::paginate(10);
         }
         $type_menu = 'kartu-keluarga'; 
         return view('rw.data_kartukeluarga.index', compact('kartukeluarga', 'type_menu'));
