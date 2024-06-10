@@ -63,7 +63,7 @@
                                     <div class="form-group">
                                         <label>Agama</label>
                                         <select class="form-control" name="agama">
-                                            <option value="Islam" {{ $penduduk->agama == 'Islam' ? 'selected' : '' }}>
+                                            <option value="Islam" {{ $penduduk->agama== 'Islam' ? 'selected' : '' }}>
                                                 Islam</option>
                                             <option value="Kristen" {{ $penduduk->agama == 'Kristen' ? 'selected' : '' }}>
                                                 Kristen</option>
@@ -101,16 +101,16 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Gologongan darah</label>
+                                        <label>Golongan darah</label>
                                         <select class="form-control" name="golongan_darah">
                                             <option value="A"
-                                                {{ $penduduk->golongan_darah == 'A' ? 'selected' : '' }}>A</option>
+                                                {{ $penduduk->golong_darah == 'A' ? 'selected' : '' }}>A</option>
                                             <option value="B"
-                                                {{ $penduduk->golongan_darah == 'B' ? 'selected' : '' }}>B</option>
+                                                {{ $penduduk->golong_darah == 'B' ? 'selected' : '' }}>B</option>
                                             <option value="AB"
-                                                {{ $penduduk->golongan_darah == 'AB' ? 'selected' : '' }}>AB</option>
+                                                {{ $penduduk->golong_darah == 'AB' ? 'selected' : '' }}>AB</option>
                                             <option value="O"
-                                                {{ $penduduk->golongan_darah == 'O' ? 'selected' : '' }}>O</option>
+                                                {{ $penduduk->golong_darah == 'O' ? 'selected' : '' }}>O</option>
                                         </select>
                                     </div>
                                 </div>
