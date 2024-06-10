@@ -32,7 +32,7 @@
                 <a style="width:130px; height:38px" href="{{ route('penduduk.index') }}" class="btn btn-lg btn-primary">Kembali</a>
 
                 <div class="">
-                    <div style="margin-left: 30px;margin-top:30px" class="row">
+                    <div style="margin-left: 30px;margin-top:20px" class="row">
 
                         <div class="col-md-3">
                             <div class="">
@@ -174,6 +174,30 @@
         <label for="alamat" class="col-sm-4 col-form-label">Pekerjaan</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" id="alamat" value="{{ $penduduk->pekerjaan }}" readonly>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="alamat" class="col-sm-4 col-form-label">Penghasilan</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="alamat" value="{{ $penduduk->pendapatan }}" readonly>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="alamat" class="col-sm-4 col-form-label">Status Sosial</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="alamat" value="{{ $penduduk->status_sosial }}" readonly>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="alamat" class="col-sm-4 col-form-label">Status Kesehatan</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="alamat" value="{{ $penduduk->status_kesehatan }}" readonly>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="alamat" class="col-sm-4 col-form-label">Status Rumah</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="alamat" value="{{ $penduduk->status_rumah }}" readonly>
         </div>
     </div>
 </div>
