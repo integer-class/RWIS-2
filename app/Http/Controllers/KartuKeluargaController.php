@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\KartuKeluarga;
 use Alert;
+use Carbon\Carbon;
+
 use App\Models\Penduduk;
 use App\Models\Rt;
 
@@ -62,7 +64,15 @@ class KartuKeluargaController extends Controller
         $type_menu = 'kartu-keluarga'; 
         $kartuKeluarga = KartuKeluarga::where('nomor_kk', $nomor_kk)->first();
         $penduduk = Penduduk::where('nomor_kk', $nomor_kk)->get();
-        return view('rw.data_kartukeluarga.detail', compact('kartuKeluarga', 'type_menu', 'penduduk'));
+
+        //hitung umur
+
+         foreach ($penduduk as $orang) {
+        $tanggal_lahir = Carbon::parse($orang->tanggal_lahir);
+        $orang->umur = $tanggal_lahir->age;
+    }
+
+    return view('rw.data_kartukeluarga.detail', compact('kartuKeluarga', 'type_menu', 'penduduk'));
     }
 
     public function edit(string $nomor_kk)

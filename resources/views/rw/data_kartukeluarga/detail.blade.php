@@ -106,24 +106,23 @@
                                             <th>NIK</th>
                                             <th>Nama</th>
                                             <th>Jenis Kelamin</th>
-                                          
                                             <th>Alamat</th>
                                             <th>Pekerjaan</th>
                                             <th>Pendapatan</th>
-                                           
+                                            <th>Status</th>
+                                            <th>Umur</th>
                                         </tr>
                                          @foreach ($penduduk as $p)
                                             <tr>
                                                 {{-- <td>{{ $loop->iteration }}</td> --}}
                                                 <td>{{ $p->nik }}</td>
-
                                                 <td>{{ $p->nama }}</td>
                                                 <td>{{ $p->jenis_kelamin }}</td>
-                                               
                                                 <td>{{ $p->alamat }}</td>
                                                 <td>{{ $p->pekerjaan }}</td>
                                                 <td>{{ $p->pendapatan}}</td>
-                                               
+                                                <td>{{ $p->status}}</td>
+                                                <td>{{ $p->umur }}</td>
                                             </tr>
                                         @endforeach
 

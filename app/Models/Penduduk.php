@@ -48,4 +48,6 @@ class Penduduk extends Model
     {
         return $this->belongsTo(Rt::class, 'id_rt', 'id_rt');
     }
+    
+
 }
