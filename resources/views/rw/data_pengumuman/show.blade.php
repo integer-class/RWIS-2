@@ -7,6 +7,11 @@
     <section class="section">
         <div class="section-header">
             <h1>Detail Pengumuman</h1>
+            <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><a href="#">Data</a></div>
+                    <div class="breadcrumb-item"><a href="#">Pengumuman</a></div>
+                    <div class="breadcrumb-item">Detail Pengumuman</div>
+                </div>
         </div>
         <div class="section-body">
          <h2 class="section">

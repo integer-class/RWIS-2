@@ -22,7 +22,7 @@
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#">Data</a></div>
-                    <div class="breadcrumb-item">Penduduk</div>
+                    <div class="breadcrumb-item">Detail Penduduk</div>
                 </div>
             </div>
             
@@ -32,7 +32,7 @@
                 <a style="width:130px; height:38px" href="{{ route('penduduk.index') }}" class="btn btn-lg btn-primary">Kembali</a>
 
                 <div class="">
-                    <div style="margin-left: 30px;margin-top:20px" class="row">
+                    <div style="margin-left: 30px;margin-top:0px" class="row">
 
                         <div class="col-md-3">
                             <div class="">
