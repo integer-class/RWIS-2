@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 use App\Models\User;
 use App\Models\Penduduk;
+use App\Models\KartuKeluarga;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -26,9 +27,12 @@ class DetailController extends Controller
             ->select('penduduk.*', 'users.*', 'rt.*') 
             ->first(); 
 
+        $kk = Penduduk::where('nomor_kk', $penduduk->nomor_kk)->get();
+
         return response()->json([
             "user" => $user,
             "penduduk" => $penduduk,
+            "keluarga" => $kk,
         ], 200);
     }
    
