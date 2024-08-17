@@ -5,19 +5,23 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\DetailController;
+use App\Http\Controllers\Api\AkomplainController;
 
 
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
  
-    // Route::get('/user', function (Request $request) {
-        
-    //     return $request->user();
-    // });
+    Route::prefix('user')->group(function () {
+
+        // Rute detail user
+        Route::get('/detail', [DetailController::class, 'detail']);
+
+        // Rute komplain user
+        Route::get('/komplain', [AkomplainController::class, 'riwayat']);
+    });
 
 
-    Route::get('/user', [DetailController::class, 'detail']);
+    // Route::get('/user', [DetailController::class, 'detail']);
 
 });
